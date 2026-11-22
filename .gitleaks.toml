@@ -1,0 +1,8 @@
+# The only private key in this repository is a throwaway key created for the study 3 trial template.
+# Every trial agent received it; it signs nothing outside the experiment. It is one of the 114 sealed
+# files, so it is shipped as it was. See REPRODUCIBILITY.md, "Known limits of this package".
+[extend]
+useDefault = true
+
+[allowlist]
+paths = ['''template3/ledger/private/keys/agent''', '''runs/z4-validity\.json''', '''output/provenance\.json''', '''output/hash-chain\.md''']

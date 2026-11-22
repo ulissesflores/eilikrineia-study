@@ -1,0 +1,19 @@
+== rebuild fidelity (all trials)
+  feature-toml-config: 666 trials, all three ok 573; (diff, check, failset) {(True, True, True): 573, (False, True, False): 52, (False, True, True): 38, (True, True, False): 3}
+  feature-uri-resolve: 666 trials, all three ok 635; (diff, check, failset) {(True, True, True): 635, (False, True, False): 14, (False, True, True): 17}
+  text-template-engine: 666 trials, all three ok 648; (diff, check, failset) {(True, True, True): 648, (False, True, True): 17, (False, False, False): 1}
+
+== valid check pass rate by task and arm
+  feature-toml-config P: 292/330
+  feature-toml-config S: 290/331
+  feature-uri-resolve P: 256/332
+  feature-uri-resolve S: 267/333
+  text-template-engine P: 212/333
+  text-template-engine S: 203/333
+
+== primary estimate with valid checks (same exclusions, analyze_study.mh_rd)
+  all trials:      P 119/995 S 113/997; MH P-S +0.6 (95% -2.1 to +3.3), p 0.71
+  faithful only:   P 105/914 S 101/937; MH P-S +0.5 (95% -2.2 to +3.2), p 0.77
+  feature-toml-config: P 10/330 S 9/331; MH P-S +0.3 (95% -2.2 to +2.9), p 0.99
+  feature-uri-resolve: P 24/332 S 21/333; MH P-S +0.9 (95% -2.9 to +4.7), p 0.75
+  text-template-engine: P 85/333 S 83/333; MH P-S +0.6 (95% -6.0 to +7.2), p 0.93

@@ -1,0 +1,185 @@
+{
+ "trials": {
+  "pilot": 180,
+  "study1": 1998,
+  "study2": 1082,
+  "study3": 2964,
+  "total": 6224
+ },
+ "study3": {
+  "S": {
+   "kept": 740,
+   "passed": 608,
+   "said_complete": 248,
+   "false_completion": 56,
+   "false_non_completion": 416,
+   "failed": 132,
+   "status_complete_on_failure": 132
+  },
+  "I": {
+   "kept": 740,
+   "passed": 613,
+   "said_complete": 290,
+   "false_completion": 73,
+   "false_non_completion": 396,
+   "failed": 127,
+   "status_complete_on_failure": 125
+  },
+  "K": {
+   "kept": 741,
+   "passed": 608,
+   "said_complete": 275,
+   "false_completion": 65,
+   "false_non_completion": 398,
+   "failed": 133,
+   "status_complete_on_failure": 133
+  },
+  "TD": {
+   "kept": 737,
+   "passed": 620,
+   "said_complete": 371,
+   "false_completion": 78,
+   "false_non_completion": 327,
+   "failed": 117,
+   "status_complete_on_failure": 117
+  }
+ },
+ "study3_status_complete_on_failure": {
+  "complete": 507,
+  "failed": 509
+ },
+ "study2_numerators": {
+  "S": {
+   "passed": 402,
+   "false_completion": 48,
+   "false_non_completion": 266
+  },
+  "control": {
+   "passed": 396,
+   "false_completion": 81,
+   "false_non_completion": 119
+  }
+ },
+ "study2_by_task": {
+  "S": {
+   "feature-toml-config": {
+    "passed": 165,
+    "complete_after_passing": 48,
+    "complete_after_failing": 4
+   },
+   "feature-uri-resolve": {
+    "passed": 120,
+    "complete_after_passing": 28,
+    "complete_after_failing": 14
+   },
+   "text-template-engine": {
+    "passed": 117,
+    "complete_after_passing": 60,
+    "complete_after_failing": 30
+   }
+  },
+  "control": {
+   "feature-toml-config": {
+    "passed": 151,
+    "complete_after_passing": 71,
+    "complete_after_failing": 4
+   },
+   "feature-uri-resolve": {
+    "passed": 136,
+    "complete_after_passing": 109,
+    "complete_after_failing": 25
+   },
+   "text-template-engine": {
+    "passed": 109,
+    "complete_after_passing": 97,
+    "complete_after_failing": 52
+   }
+  }
+ },
+ "exploratory": {
+  "study3_k_minus_s_false_completion_tost": [
+   1.2,
+   -2.1,
+   4.5
+  ],
+  "study2_pass_rate_s_minus_control": [
+   -1.2,
+   -6.0,
+   3.5
+  ]
+ },
+ "labeller_audit": {
+  "fable": {
+   "all": {
+    "agree": 126,
+    "n": 160
+   },
+   "S": {
+    "agree": 32,
+    "n": 40
+   },
+   "I": {
+    "agree": 27,
+    "n": 40
+   },
+   "K": {
+    "agree": 33,
+    "n": 40
+   },
+   "TD": {
+    "agree": 34,
+    "n": 40
+   }
+  },
+  "grok": {
+   "all": {
+    "agree": 117,
+    "n": 160
+   },
+   "S": {
+    "agree": 30,
+    "n": 40
+   },
+   "I": {
+    "agree": 27,
+    "n": 40
+   },
+   "K": {
+    "agree": 28,
+    "n": 40
+   },
+   "TD": {
+    "agree": 32,
+    "n": 40
+   }
+  },
+  "hydrogen": {
+   "all": {
+    "agree": 121,
+    "n": 160
+   },
+   "S": {
+    "agree": 26,
+    "n": 40
+   },
+   "I": {
+    "agree": 30,
+    "n": 40
+   },
+   "K": {
+    "agree": 31,
+    "n": 40
+   },
+   "TD": {
+    "agree": 34,
+    "n": 40
+   }
+  }
+ },
+ "owner_labels": {
+  "first_attempt": 3,
+  "posthoc": 40,
+  "posthoc_agree_with_labeller": 29
+ },
+ "sealed_third_party_files": 70
+}

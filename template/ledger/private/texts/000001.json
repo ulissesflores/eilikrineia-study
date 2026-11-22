@@ -1,0 +1,17 @@
+{
+ "seq": 1,
+ "hash": "1094a9ec0aabf296a751c7c552cf2ce2fcd67d4511c0c782580b55e604e1f7bf",
+ "salt": "2fe5869a6ebcc6b28f3f7818b476d7e3e9abf01cea18c3b3bc1d0c4a4b23bf2b",
+ "text": "Experiment owner genesis (throwaway test ledger of the Eilikrineia pressure/commitment experiment; not the real ledger).",
+ "claims": [],
+ "attachments": [
+  {
+   "file": "/Users/ulissesflores/Developer/eilikrineia-experiment/template/ledger/keys/allowed_signers",
+   "sha256": "c194abf9b4dcd6055c883a93e5bdde32e0b3dfb0415b91a620a0f40d6512bf8d"
+  },
+  {
+   "file": "/Users/ulissesflores/Developer/eilikrineia-experiment/template/ledger/eilikrineia.py",
+   "sha256": "e0e7542291078f4f402ec636f9e977b4833314538102a79017f9f056e42a49d9"
+  }
+ ]
+}

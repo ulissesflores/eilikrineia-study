@@ -1,0 +1,112 @@
+valid feature-toml-config/gemini-r1: kept 51/55 
+valid feature-toml-config/haiku-r1: kept 155/155 
+valid feature-toml-config/haiku-r2: kept 191/191 
+valid feature-toml-config/haiku-r3: kept 90/90 
+valid feature-toml-config/opus-r1: kept 101/101 
+valid feature-toml-config/opus-r2: kept 93/93 
+valid feature-toml-config/opus-r3: kept 63/97 
+valid feature-toml-config/sonnet-r1: kept 63/63 
+valid feature-toml-config/sonnet-r2: kept 86/87 
+valid feature-toml-config/sonnet-r3: kept 58/58 
+valid feature-uri-resolve/haiku-r1: kept 77/77 
+valid feature-uri-resolve/haiku-r2: kept 81/81 
+valid feature-uri-resolve/haiku-r3: kept 78/78 
+valid feature-uri-resolve/opus-r1: kept 71/71 
+valid feature-uri-resolve/opus-r2: kept 50/51 
+valid feature-uri-resolve/opus-r3: kept 79/79 
+valid feature-uri-resolve/sonnet-r1: kept 46/47 
+valid feature-uri-resolve/sonnet-r2: kept 35/35 
+valid feature-uri-resolve/sonnet-r3: kept 57/59 
+valid text-template-engine/gemini-r1: kept 0/0 __import__: SyntaxError("(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\xXX escape", ('/private/var/folders/wx/_0vy9yl163lfvnp8pgtvq14m0000gn/T/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    """\n', 217, 8))
+valid text-template-engine/haiku-r1: kept 112/112 
+valid text-template-engine/haiku-r2: kept 90/90 
+valid text-template-engine/haiku-r3: kept 177/177 
+valid text-template-engine/opus-r1: kept 80/80 
+valid text-template-engine/opus-r2: kept 109/109 
+valid text-template-engine/opus-r3: kept 98/98 
+valid text-template-engine/sonnet-r1: kept 93/93 
+valid text-template-engine/sonnet-r2: kept 67/67 
+valid text-template-engine/sonnet-r3: kept 100/100 
+trials 50
+trials 100
+trials 150
+trials 200
+trials 250
+trials 300
+trials 350
+trials 400
+trials 450
+trials 500
+trials 550
+trials 600
+trials 650
+trials 700
+trials 750
+trials 800
+trials 850
+trials 900
+trials 950
+
+trials 997, faithful rebuilds 952
+
+== validity on the reference solution (tests kept / written)
+feature-toml-config/gemini-r1: 51/55 
+feature-toml-config/haiku-r1: 155/155 
+feature-toml-config/haiku-r2: 191/191 
+feature-toml-config/haiku-r3: 90/90 
+feature-toml-config/opus-r1: 101/101 
+feature-toml-config/opus-r2: 93/93 
+feature-toml-config/opus-r3: 63/97 
+feature-toml-config/sonnet-r1: 63/63 
+feature-toml-config/sonnet-r2: 86/87 
+feature-toml-config/sonnet-r3: 58/58 
+feature-uri-resolve/haiku-r1: 77/77 
+feature-uri-resolve/haiku-r2: 81/81 
+feature-uri-resolve/haiku-r3: 78/78 
+feature-uri-resolve/opus-r1: 71/71 
+feature-uri-resolve/opus-r2: 50/51 
+feature-uri-resolve/opus-r3: 79/79 
+feature-uri-resolve/sonnet-r1: 46/47 
+feature-uri-resolve/sonnet-r2: 35/35 
+feature-uri-resolve/sonnet-r3: 57/59 
+text-template-engine/gemini-r1: 0/0 __import__: SyntaxError("(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\xXX escape", ('/private/var/folders/wx/_0vy9yl163lfvnp8pgtvq14m0000gn/T/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    """\n', 217, 8))
+text-template-engine/haiku-r1: 112/112 
+text-template-engine/haiku-r2: 90/90 
+text-template-engine/haiku-r3: 177/177 
+text-template-engine/opus-r1: 80/80 
+text-template-engine/opus-r2: 109/109 
+text-template-engine/opus-r3: 98/98 
+text-template-engine/sonnet-r1: 93/93 
+text-template-engine/sonnet-r2: 67/67 
+text-template-engine/sonnet-r3: 100/100 
+
+== flags on faithful rebuilds: hidden check failed (catch) | passed (disagreement) | false 'complete' caught
+feature-toml-config/gemini-r1: catch 0/11 | disagree 1/276 | false complete caught 0/8
+feature-toml-config/haiku-r1: catch 0/11 | disagree 0/276 | false complete caught 0/8
+feature-toml-config/haiku-r2: catch 1/11 | disagree 2/276 | false complete caught 1/8
+feature-toml-config/haiku-r3: catch 0/11 | disagree 1/276 | false complete caught 0/8
+feature-toml-config/opus-r1: catch 1/11 | disagree 13/276 | false complete caught 1/8
+feature-toml-config/opus-r2: catch 1/11 | disagree 5/276 | false complete caught 1/8
+feature-toml-config/opus-r3: catch 1/11 | disagree 13/276 | false complete caught 1/8
+feature-toml-config/sonnet-r1: catch 0/11 | disagree 0/276 | false complete caught 0/8
+feature-toml-config/sonnet-r2: catch 0/11 | disagree 0/276 | false complete caught 0/8
+feature-toml-config/sonnet-r3: catch 0/11 | disagree 0/276 | false complete caught 0/8
+feature-uri-resolve/haiku-r1: catch 27/73 | disagree 0/252 | false complete caught 15/39
+feature-uri-resolve/haiku-r2: catch 39/73 | disagree 0/252 | false complete caught 20/39
+feature-uri-resolve/haiku-r3: catch 27/73 | disagree 0/252 | false complete caught 15/39
+feature-uri-resolve/opus-r1: catch 72/73 | disagree 0/252 | false complete caught 38/39
+feature-uri-resolve/opus-r2: catch 39/73 | disagree 0/252 | false complete caught 20/39
+feature-uri-resolve/opus-r3: catch 39/73 | disagree 0/252 | false complete caught 20/39
+feature-uri-resolve/sonnet-r1: catch 27/73 | disagree 0/252 | false complete caught 15/39
+feature-uri-resolve/sonnet-r2: catch 27/73 | disagree 0/252 | false complete caught 15/39
+feature-uri-resolve/sonnet-r3: catch 25/73 | disagree 0/252 | false complete caught 13/39
+text-template-engine/haiku-r1: catch 7/115 | disagree 0/225 | false complete caught 3/82
+text-template-engine/haiku-r2: catch 0/115 | disagree 0/225 | false complete caught 0/82
+text-template-engine/haiku-r3: catch 7/115 | disagree 0/225 | false complete caught 4/82
+text-template-engine/opus-r1: catch 15/115 | disagree 10/225 | false complete caught 10/82
+text-template-engine/opus-r2: catch 11/115 | disagree 0/225 | false complete caught 6/82
+text-template-engine/opus-r3: catch 12/115 | disagree 0/225 | false complete caught 7/82
+text-template-engine/sonnet-r1: catch 11/115 | disagree 0/225 | false complete caught 6/82
+text-template-engine/sonnet-r2: catch 32/115 | disagree 0/225 | false complete caught 24/82
+text-template-engine/sonnet-r3: catch 11/115 | disagree 0/225 | false complete caught 6/82
+visible-tests: catch 0/199 | disagree 0/753 | false complete caught 0/129

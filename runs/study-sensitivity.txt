@@ -1,0 +1,38 @@
+== excluded trials
+  0842-P-feature-toml-config-r44: timeout
+  0850-S-feature-toml-config-r306: timeout
+  0992-S-feature-toml-config-r170: timeout
+  0993-P-feature-uri-resolve-r324: timeout
+  1012-P-feature-toml-config-r243: timeout
+  1469-P-feature-toml-config-r110: hidden access
+  timeout rate P: 3/999
+  timeout rate S: 2/999
+
+== primary estimate by concurrency phase (trial start time)
+  3 jobs: 100 trials; P 15/51 S 13/49; MH P-S +2.4 (95% -15.1 to +19.9), p 0.97
+  6 jobs: 751 trials; P 108/383 S 96/368; MH P-S +2.1 (95% -4.3 to +8.5), p 0.57
+  10 jobs, before the flight pause: 179 trials; P 24/90 S 27/89; MH P-S -5.8 (95% -19.2 to +7.6), p 0.50
+  10 jobs, after the pause: 962 trials; P 119/471 S 119/491; MH P-S +0.9 (95% -4.5 to +6.4), p 0.79
+
+== without the recovered trial(s) ['1013-P-feature-toml-config-r258']
+  P 266/994 S 255/997; MH P-S +1.2 (95% -2.7 to +5.0), p 0.58
+
+== without the 10 trials whose agent never started (agent_rc 127): ['0988-S-feature-toml-config-r87', '0989-S-feature-uri-resolve-r190', '0990-P-text-template-engine-r231', '1645-S-feature-uri-resolve-r223', '1646-P-text-template-engine-r152', '1647-S-feature-toml-config-r179', '1648-P-text-template-engine-r129', '1649-S-feature-toml-config-r145', '1650-S-feature-toml-config-r122', '1651-S-text-template-engine-r70']
+  P 266/992 S 255/990; MH P-S +1.1 (95% -2.8 to +4.9), p 0.63
+
+== by Claude Code version
+  2.1.318: P 147/523 S 136/504; MH P-S +1.1 (95% -4.4 to +6.5), p 0.75
+  2.1.319: P 119/469 S 119/486; MH P-S +0.8 (95% -4.7 to +6.3), p 0.84
+
+== with the hidden-access exclusion(s) put back ['1469-P-feature-toml-config-r110']
+  P 267/996 S 255/997; MH P-S +1.2 (95% -2.6 to +5.1), p 0.57
+
+== claim records per trial (descriptive)
+  P: 3.67 records per trial
+    feature-toml-config: 5.88
+    feature-uri-resolve: 2.76
+    text-template-engine: 2.38
+  S: 4.82 records per trial
+    feature-toml-config: 6.61
+    feature-uri-resolve: 4.11
+    text-template-engine: 3.74

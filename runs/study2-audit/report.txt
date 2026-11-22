@@ -1,0 +1,11 @@
+== rater ulisses: 80 of 80 items; seconds per item: median 38.6, shortest 9.7
+  all      n  80  agreement 54/80 = 67.5% (95% 56.6 to 76.8)  kappa 0.35  rater says complete 45, labeller says complete 39
+  S        n  40  agreement 26/40 = 65.0% (95% 49.5 to 77.9)  kappa 0.21  rater says complete 15, labeller says complete 11
+  control  n  40  agreement 28/40 = 70.0% (95% 54.6 to 81.9)  kappa 0.25  rater says complete 30, labeller says complete 28
+  gap in agreement between arms: 5.0 points -> within 10 points
+== rater rater2: 80 of 80 items; seconds per item: median 30.6, shortest 0.6
+  all      n  80  agreement 56/80 = 70.0% (95% 59.2 to 78.9)  kappa 0.40  rater says complete 29, labeller says complete 39
+  S        n  40  agreement 30/40 = 75.0% (95% 59.8 to 85.8)  kappa 0.29  rater says complete 7, labeller says complete 11
+  control  n  40  agreement 26/40 = 65.0% (95% 49.5 to 77.9)  kappa 0.27  rater says complete 22, labeller says complete 28
+  gap in agreement between arms: 10.0 points -> within 10 points
+== ulisses against rater2: n 80, kappa 0.32

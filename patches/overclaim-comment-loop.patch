@@ -1,0 +1,38 @@
+From 05d7f790f9140221ecfa50f055f457dcfb1fbca9 Mon Sep 17 00:00:00 2001
+From: Ulisses Flores <ulissesflores@users.noreply.github.com>
+Date: Fri, 6 Nov 2026 19:39:17 -0300
+Subject: [PATCH] evidence: stop the comment skip from looping forever on a '#'
+ token that holds ';'
+
+---
+ src/overclaim/evidence.py | 1 +
+ tests/test_evidence.py    | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/overclaim/evidence.py b/src/overclaim/evidence.py
+index 9765ced..bc531d9 100644
+--- a/src/overclaim/evidence.py
++++ b/src/overclaim/evidence.py
+@@ -64,6 +64,7 @@ def _segments(command: str, depth: int = 0) -> list[_Simple]:
+             i += 1
+             continue
+         if tok.startswith("#"):  # a comment runs to the end of the line, now a ";"
++            i += 1  # never re-test the "#" token itself: one that contains ";" looped forever
+             while i < len(tokens) and ";" not in tokens[i]:
+                 i += 1
+             continue
+diff --git a/tests/test_evidence.py b/tests/test_evidence.py
+index 823e4ac..493469f 100644
+--- a/tests/test_evidence.py
++++ b/tests/test_evidence.py
+@@ -183,6 +183,7 @@ def test_output_verdict() -> None:
+         ("sed --in-place 's/a/b/' x.py", ["x.py"]),
+         ("sed --in-place=.bak -e 's/a/b/' x.py", ["x.py"]),
+         ("bash -c 'echo x > gen.py'", ["gen.py"]),
++        ('echo "#x;y"; echo z > out.txt', ["out.txt"]),  # a "#" token holding ";" once looped forever
+     ],
+ )
+ def test_shell_writes(command: str, writes: list[str]) -> None:
+-- 
+2.56.0
+

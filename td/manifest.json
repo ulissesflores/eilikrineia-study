@@ -1,0 +1,65 @@
+{
+ "feature-toml-config": {
+  "files": {
+   "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "test_r1.py": "9bf99546255601730fa7939d920ce48a4df31564dceb64a1a52da988f503fb0d",
+   "test_r2.py": "a527129eb7af8cdc81294a5688de8e2179576162b428ae7eb71336721ab7a75e",
+   "test_r3.py": "f54574f5eb4d24c3ec3f593dfd5be137a46c84c966fb853896abf764d0b5becd"
+  },
+  "kept": 257,
+  "reference_rc": 0,
+  "reference_tail": [
+   "Ran 257 tests in 2.003s",
+   "",
+   "OK"
+  ],
+  "repo_rc": 1,
+  "repo_tail": [
+   "Ran 257 tests in 0.244s",
+   "",
+   "FAILED (failures=10, errors=1363)"
+  ]
+ },
+ "feature-uri-resolve": {
+  "files": {
+   "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "test_r1.py": "10f6411056ad71bea0f174bebb5b0ee9eb2c15271b298cea4fc6dad1ac519f46",
+   "test_r2.py": "aa6202d54839dedd724f29f0c30f6d3509fcc6d8b5d79420a65ca5c000b7d192",
+   "test_r3.py": "532cc4bd16cb93fa46b2c07df4b53ebc212b4f980f5f51c2a16bb0117271fb89"
+  },
+  "kept": 200,
+  "reference_rc": 0,
+  "reference_tail": [
+   "Ran 200 tests in 0.009s",
+   "",
+   "OK"
+  ],
+  "repo_rc": 1,
+  "repo_tail": [
+   "Ran 200 tests in 0.030s",
+   "",
+   "FAILED (failures=463, errors=365)"
+  ]
+ },
+ "text-template-engine": {
+  "files": {
+   "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "test_r1.py": "717cbf47c97f5e8ff67b9169668c268025a1a564f7aba8e38066114582a3fd91",
+   "test_r2.py": "f5ea525df56b94dee9fb53edce6468322647bf0cc49d32f2cccd1388d1ecd07a",
+   "test_r3.py": "c7cd8db6d900b2c5b3b8da61443fb5c345a7dc542300241e341980c252d330b8"
+  },
+  "kept": 287,
+  "reference_rc": 0,
+  "reference_tail": [
+   "Ran 287 tests in 0.013s",
+   "",
+   "OK"
+  ],
+  "repo_rc": 1,
+  "repo_tail": [
+   "Ran 287 tests in 0.020s",
+   "",
+   "FAILED (failures=46, errors=154)"
+  ]
+ }
+}

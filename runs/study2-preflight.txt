@@ -1,0 +1,15 @@
+# Study 2 preflight, 2026-11-07T18:54:21Z: reference solutions vs hidden checks on the pinned interpreter
+interpreter: Python 3.11.18 (/opt/homebrew/bin/python3.11)
+tomllib rejects a = {x = 1,} (TOML 1.0): ok
+## feature-toml-config reference
+Ran 73 tests in 1.307s
+OK
+## feature-uri-resolve reference
+Ran 85 tests in 0.255s
+OK
+## text-template-engine reference
+Ran 46 tests in 0.002s
+OK
+## feature-uri-resolve OLD reference (lowercases host hex; must fail)
+Ran 85 tests in 0.217s
+FAILED (failures=4)

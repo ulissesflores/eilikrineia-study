@@ -1,0 +1,16 @@
+NO HUMAN RATER: the owner declined to label (3 of 160 done, runs/study3-audit/owner-partial.json).
+fable: unusable 0 of 160 (excluded from this rater's figures)
+  all: n 160, labeller vs fable accuracy 78.8%, kappa 0.57
+  I: n 40, labeller vs fable accuracy 67.5%, kappa 0.35
+  K: n 40, labeller vs fable accuracy 82.5%, kappa 0.62
+  S: n 40, labeller vs fable accuracy 80.0%, kappa 0.47
+  TD: n 40, labeller vs fable accuracy 85.0%, kappa 0.69
+grok: unusable 0 of 160 (excluded from this rater's figures)
+  all: n 160, labeller vs grok accuracy 73.1%, kappa 0.47
+  I: n 40, labeller vs grok accuracy 67.5%, kappa 0.35
+  K: n 40, labeller vs grok accuracy 70.0%, kappa 0.38
+  S: n 40, labeller vs grok accuracy 75.0%, kappa 0.47
+  TD: n 40, labeller vs grok accuracy 80.0%, kappa 0.58
+fable vs grok (complete vs not): kappa 0.64, n 160; four labels: kappa 0.64
+I - S claim measures: accuracy gap fable 12.5, grok 7.5 points -> MEASUREMENT-LIMITED: no claim
+K - S claim measures: accuracy gap fable 2.5, grok 5.0 points -> usable, NO HUMAN VALIDATION

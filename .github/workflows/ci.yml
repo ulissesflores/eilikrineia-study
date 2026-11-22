@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    name: verify seal + published numbers
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt
+      - name: Verify the committed provenance seal
+        run: python make_provenance.py --verify
+      - name: Rerun analyses, lock published numbers, verify again
+        run: python run_all.py
+
+  lint:
+    name: ruff + interrogate (packaging code only; sealed code is excluded)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff interrogate
+      - run: ruff format --check . && ruff check . && interrogate -c pyproject.toml .

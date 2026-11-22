@@ -1,0 +1,45 @@
+=== owner40 ===
+POST-HOC, run after the results were seen. Changes no confirmatory reading and no rule.
+owner (human, pt-BR machine translation, knew the results): 40 labels
+  owner vs fable: n 40, agreement 29/40 = 72.5% (95% 57.2%-83.9%), kappa 0.41
+  owner vs grok: n 40, agreement 26/40 = 65.0% (95% 49.5%-77.9%), kappa 0.32
+  owner vs hydrogen: n 40, agreement 28/40 = 70.0% (95% 54.6%-81.9%), kappa 0.38
+  owner vs labeller: n 40, agreement 29/40 = 72.5% (95% 57.2%-83.9%), kappa 0.41
+hydrogen: unusable 0 of 160
+  all: n 160, labeller vs hydrogen accuracy 75.6%, kappa 0.52
+  I: n 40, labeller vs hydrogen accuracy 75.0%, kappa 0.50
+  K: n 40, labeller vs hydrogen accuracy 77.5%, kappa 0.54
+  S: n 40, labeller vs hydrogen accuracy 65.0%, kappa 0.30
+  TD: n 40, labeller vs hydrogen accuracy 85.0%, kappa 0.69
+  hydrogen vs fable (complete vs not): kappa 0.74, n 160
+  hydrogen vs grok (complete vs not): kappa 0.59, n 160
+=== owner40-early11 ===
+POST-HOC, run after the results were seen. Changes no confirmatory reading and no rule.
+owner (human, pt-BR machine translation, knew the results): 11 labels
+  owner vs fable: n 11, agreement 7/11 = 63.6% (95% 35.4%-84.8%), kappa 0.31
+  owner vs grok: n 11, agreement 7/11 = 63.6% (95% 35.4%-84.8%), kappa 0.31
+  owner vs hydrogen: n 11, agreement 7/11 = 63.6% (95% 35.4%-84.8%), kappa 0.31
+  owner vs labeller: n 11, agreement 9/11 = 81.8% (95% 52.3%-94.9%), kappa 0.56
+hydrogen: unusable 0 of 160
+  all: n 160, labeller vs hydrogen accuracy 75.6%, kappa 0.52
+  I: n 40, labeller vs hydrogen accuracy 75.0%, kappa 0.50
+  K: n 40, labeller vs hydrogen accuracy 77.5%, kappa 0.54
+  S: n 40, labeller vs hydrogen accuracy 65.0%, kappa 0.30
+  TD: n 40, labeller vs hydrogen accuracy 85.0%, kappa 0.69
+  hydrogen vs fable (complete vs not): kappa 0.74, n 160
+  hydrogen vs grok (complete vs not): kappa 0.59, n 160
+=== owner40-burst29 ===
+POST-HOC, run after the results were seen. Changes no confirmatory reading and no rule.
+owner (human, pt-BR machine translation, knew the results): 29 labels
+  owner vs fable: n 29, agreement 22/29 = 75.9% (95% 57.9%-87.8%), kappa 0.46
+  owner vs grok: n 29, agreement 19/29 = 65.5% (95% 47.3%-80.1%), kappa 0.33
+  owner vs hydrogen: n 29, agreement 21/29 = 72.4% (95% 54.3%-85.3%), kappa 0.41
+  owner vs labeller: n 29, agreement 20/29 = 69.0% (95% 50.8%-82.7%), kappa 0.36
+hydrogen: unusable 0 of 160
+  all: n 160, labeller vs hydrogen accuracy 75.6%, kappa 0.52
+  I: n 40, labeller vs hydrogen accuracy 75.0%, kappa 0.50
+  K: n 40, labeller vs hydrogen accuracy 77.5%, kappa 0.54
+  S: n 40, labeller vs hydrogen accuracy 65.0%, kappa 0.30
+  TD: n 40, labeller vs hydrogen accuracy 85.0%, kappa 0.69
+  hydrogen vs fable (complete vs not): kappa 0.74, n 160
+  hydrogen vs grok (complete vs not): kappa 0.59, n 160

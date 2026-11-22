@@ -1,0 +1,23 @@
+# Hidden-check validity audit, 2026-11-07 (found after RESULTS-STUDY.md / #1416)
+## 1. Reference solutions run against their own hidden checks (repo + solution + checks, same command as run_trial.py)
+python: Python 3.15.2
+### feature-uri-resolve
+Ran 85 tests in 0.233s
+OK
+### feature-toml-config
+Ran 73 tests in 0.456s
+FAILED (failures=11)
+### text-template-engine
+Ran 46 tests in 0.002s
+OK
+## 2. TOML: the check asserts the host tomllib agrees with the TOML v1.0.0 expectation (test_toml_hidden.py:43, :51-52); the task text says Python 3.11 tomllib (task.toml:6-7).
+Python 3.15 tomllib accepts TOML 1.1 syntax that v1.0.0 rejects:
+3.15.2 {'a': {'x': 1}} {'a': 'A'}
+study TOML trials: 666 check OK: 0 ; failing on t='a = {x = 1,}': 661
+## 3. URI: task.toml:33-35 says hex digits of percent encodings stay uppercase, also in the host; the oracle does o_pct(host).lower() (test_uri_hidden.py:408).
+example runs/study/0016-S-feature-uri-resolve-r167:
+AssertionError: 'wss://a%2Fb/c.' != 'wss://a%2fb/c.'
+study URI trials: 666 failing test_random_vs_oracle: 614
+## 4. Primary estimate restricted (exploratory, not preregistered), same exclusions, analyze_study.mh_rd
+text-template-engine only: P 84/333 S 83/333; MH P-S +0.3 (95% -6.3 to +6.9), p 1.00
+without feature-toml-config: P 178/665 S 171/666; MH P-S +1.1 (95% -3.6 to +5.8), p 0.70

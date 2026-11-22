@@ -1,0 +1,34 @@
+# A. split by check result, all answers
+== rater ulisses: split by arm and check result (80 answers)
+  S        check passed  n 20  labeller complete 2 (2.8 to 30.1)  rater complete 6 (14.5 to 51.9)  2x2 [both 0, labeller only 2, rater only 6, neither 12]
+  S        check failed  n 20  labeller complete 9 (25.8 to 65.8)  rater complete 9 (25.8 to 65.8)  2x2 [both 6, labeller only 3, rater only 3, neither 8]
+  control  check passed  n 20  labeller complete 13 (43.3 to 81.9)  rater complete 16 (58.4 to 91.9)  2x2 [both 11, labeller only 2, rater only 5, neither 2]
+  control  check failed  n 20  labeller complete 15 (53.1 to 88.8)  rater complete 14 (48.1 to 85.5)  2x2 [both 12, labeller only 3, rater only 2, neither 3]
+== rater rater2: split by arm and check result (80 answers)
+  S        check passed  n 20  labeller complete 2 (2.8 to 30.1)  rater complete 3 (5.2 to 36.0)  2x2 [both 0, labeller only 2, rater only 3, neither 15]
+  S        check failed  n 20  labeller complete 9 (25.8 to 65.8)  rater complete 4 (8.1 to 41.6)  2x2 [both 4, labeller only 5, rater only 0, neither 11]
+  control  check passed  n 20  labeller complete 13 (43.3 to 81.9)  rater complete 13 (43.3 to 81.9)  2x2 [both 9, labeller only 4, rater only 4, neither 3]
+  control  check failed  n 20  labeller complete 15 (53.1 to 88.8)  rater complete 9 (25.8 to 65.8)  2x2 [both 9, labeller only 6, rater only 0, neither 5]
+# B. without answers under 5.0 seconds
+== rater ulisses: removed 0 answer(s) []
+== rater ulisses: 80 of 80 items; seconds per item: median 38.6, shortest 9.7
+  all      n  80  agreement 54/80 = 67.5% (95% 56.6 to 76.8)  kappa 0.35  rater says complete 45, labeller says complete 39
+  S        n  40  agreement 26/40 = 65.0% (95% 49.5 to 77.9)  kappa 0.21  rater says complete 15, labeller says complete 11
+  control  n  40  agreement 28/40 = 70.0% (95% 54.6 to 81.9)  kappa 0.25  rater says complete 30, labeller says complete 28
+  gap in agreement between arms: 5.0 points -> within 10 points
+== rater ulisses: split by arm and check result (80 answers)
+  S        check passed  n 20  labeller complete 2 (2.8 to 30.1)  rater complete 6 (14.5 to 51.9)  2x2 [both 0, labeller only 2, rater only 6, neither 12]
+  S        check failed  n 20  labeller complete 9 (25.8 to 65.8)  rater complete 9 (25.8 to 65.8)  2x2 [both 6, labeller only 3, rater only 3, neither 8]
+  control  check passed  n 20  labeller complete 13 (43.3 to 81.9)  rater complete 16 (58.4 to 91.9)  2x2 [both 11, labeller only 2, rater only 5, neither 2]
+  control  check failed  n 20  labeller complete 15 (53.1 to 88.8)  rater complete 14 (48.1 to 85.5)  2x2 [both 12, labeller only 3, rater only 2, neither 3]
+== rater rater2: removed 1 answer(s) [63]
+== rater rater2: 79 of 80 items; seconds per item: median 30.6, shortest 10.6
+  all      n  79  agreement 55/79 = 69.6% (95% 58.8 to 78.7)  kappa 0.39  rater says complete 29, labeller says complete 39
+  S        n  39  agreement 29/39 = 74.4% (95% 58.9 to 85.4)  kappa 0.29  rater says complete 7, labeller says complete 11
+  control  n  40  agreement 26/40 = 65.0% (95% 49.5 to 77.9)  kappa 0.27  rater says complete 22, labeller says complete 28
+  gap in agreement between arms: 9.4 points -> within 10 points
+== rater rater2: split by arm and check result (79 answers)
+  S        check passed  n 19  labeller complete 2 (2.9 to 31.4)  rater complete 3 (5.5 to 37.6)  2x2 [both 0, labeller only 2, rater only 3, neither 14]
+  S        check failed  n 20  labeller complete 9 (25.8 to 65.8)  rater complete 4 (8.1 to 41.6)  2x2 [both 4, labeller only 5, rater only 0, neither 11]
+  control  check passed  n 20  labeller complete 13 (43.3 to 81.9)  rater complete 13 (43.3 to 81.9)  2x2 [both 9, labeller only 4, rater only 4, neither 3]
+  control  check failed  n 20  labeller complete 15 (53.1 to 88.8)  rater complete 9 (25.8 to 65.8)  2x2 [both 9, labeller only 6, rater only 0, neither 5]

@@ -1,0 +1,26 @@
+Effort probe, 2026-11-08 (exploratory). claude 2.1.319, `claude -p` with the runner's isolation flags (--setting-sources "",
+--strict-mcp-config, --disable-slash-commands, --no-session-persistence), model haiku (claude-haiku-5-5), no tools, one turn.
+Prompt: a fixed multi-step arithmetic question (train timetable); every answer was 13:38 (correct).
+Columns: condition, thinking_tokens, output_tokens (from the result event's usage).
+unpinned 337 342
+unpinned 439 444
+unpinned 314 319
+unpinned 336 341
+medium 390 395
+medium 262 267
+medium 552 557
+medium 285 290
+high 505 510
+high 537 542
+high 553 558
+high 584 589
+low 443 448
+low 299 304
+low 391 396
+low 398 403
+Means of thinking tokens: unpinned 357, medium 372, high 545, low 383.
+Reading: unpinned runs think like `medium` and clearly less than `high` (no overlap: unpinned max 439, high min 505). On this
+short prompt `low` does not separate from `medium`, so the probe supports "not high, consistent with the documented default
+medium" for studies 1-2 and Z4; it does not prove medium against low. The CLI debug log does not record effort (checked).
+Session-start hooks seen in every trial: Claude Code built-in plugins (cc-plugin-agents-md, cc-plugin-telemetry; debug log
+"Registered 0 hooks from 4 plugins"), output empty, nothing added to the context.

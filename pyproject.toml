@@ -1,0 +1,36 @@
+[project]
+name = "eilikrineia-study"
+version = "0.1.0"
+description = "Replication package: four preregistered experiments on claim records and what a coding agent says"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Carlos Ulisses Flores" }]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.6", "pytest>=8", "interrogate>=1.7"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# Lint covers the packaging code only. runner/, td/, template*/ and overclaim/ were sealed by
+# hash before the studies ran and are shipped byte-identical, so they are never reformatted.
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["runner", "td", "template", "template3", "overclaim", "rescore", "patches"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "D"]
+ignore = ["D203", "D213"]
+
+# The tests quote lines of frozen outputs verbatim; they cannot be wrapped.
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.interrogate]
+fail-under = 100
+exclude = ["runner", "td", "template", "template3", "overclaim", "rescore"]

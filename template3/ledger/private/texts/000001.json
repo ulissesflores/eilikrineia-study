@@ -1,0 +1,17 @@
+{
+ "seq": 1,
+ "hash": "5e95ab9eeb88bcb2e8839d473c93aa7d09bf456fe110e9197fd14653113a9782",
+ "salt": "e39501983f3fba7338b43657daf25fd6311620be78de2db01069868600a6dd76",
+ "text": "Owner genesis. I start this ledger with my key. The keys in the committed list are valid; any change needs a 'keys' entry signed by me. The auditor runs only the code whose hash I sign here or in a later 'code' entry.",
+ "claims": [],
+ "attachments": [
+  {
+   "file": "/opt/exp/ledger/keys/allowed_signers",
+   "sha256": "218819e086378b5a7e31c13ec74c740623cdbf2a1765ebfb4646d076730297f1"
+  },
+  {
+   "file": "/opt/exp/ledger/eilikrineia.py",
+   "sha256": "e0e7542291078f4f402ec636f9e977b4833314538102a79017f9f056e42a49d9"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+faithful 952: hidden check failed 199, passed 753, false 'complete' 129
+haiku union: tests kept {'feature-toml-config': 436, 'feature-uri-resolve': 236, 'text-template-engine': 379}; flags failed 50/199 (25%), false complete 26/129, disagree on passed 3/753 by task {'feature-toml-config': (3, 276), 'feature-uri-resolve': (0, 252), 'text-template-engine': (0, 225)}
+   ceiling if every flagged failure were fixed: false completion -1.9 points, pass rate +5.1 points
+sonnet union: tests kept {'feature-toml-config': 207, 'feature-uri-resolve': 138, 'text-template-engine': 260}; flags failed 59/199 (30%), false complete 39/129, disagree on passed 0/753 by task {'feature-toml-config': (0, 276), 'feature-uri-resolve': (0, 252), 'text-template-engine': (0, 225)}
+   ceiling if every flagged failure were fixed: false completion -2.9 points, pass rate +6.0 points
+opus union: tests kept {'feature-toml-config': 257, 'feature-uri-resolve': 200, 'text-template-engine': 287}; flags failed 89/199 (45%), false complete 50/129, disagree on passed 25/753 by task {'feature-toml-config': (15, 276), 'feature-uri-resolve': (0, 252), 'text-template-engine': (10, 225)}
+   ceiling if every flagged failure were fixed: false completion -3.7 points, pass rate +9.1 points

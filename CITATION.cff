@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this replication package or cite the paper, please use the metadata below."
+title: "Claim records and what a coding agent says: four preregistered experiments — replication package"
+type: software
+version: "0.1.0"
+authors:
+  - family-names: "Flores"
+    given-names: "Carlos Ulisses"
+    orcid: "https://orcid.org/0000-0002-6034-7765"
+    website: "https://ulissesflores.com"
+    affiliation: "Codex Hash Research Laboratory, Codex Hash Ltda., Brazil"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+abstract: >-
+  Four preregistered experiments (a pilot and three studies, 6,224 trials, Claude Haiku 5.5 as a
+  coding agent on tasks with hidden checks) on whether a signed, hash-chained record of the
+  agent's own claims changes what it claims and what it delivers. Publishing the record showed no
+  detectable effect on false completion claims. Asking for a record with evidence (instruction,
+  tool and signed record together) lowered false completion by 6.6 points and raised false
+  non-completion by 27.9 points; a "complete" claim was not more often true (73.5% against 77.5%)
+  and the share of finished work was about the same. Pressure framing and independent acceptance
+  tests showed no gain on the confirmatory tests; the pressure comparison depends on a labeller
+  whose accuracy differs between arms against a rater added post hoc. The completion labeller was
+  not validated by a person.
+keywords:
+  - AI agents
+  - coding agents
+  - false completion claims
+  - preregistration
+  - negative result
+  - hash-chained ledger
+  - provenance
+references:
+  - type: software
+    title: "overclaim"
+    authors:
+      - name: "overclaim contributors"
+    url: "https://github.com/h-a-forster/overclaim"
+  - type: generic
+    title: "Study 3 preregistration (embargoed)"
+    authors:
+      - family-names: "Flores"
+        given-names: "Carlos Ulisses"
+    url: "https://osf.io/rjnt2"
