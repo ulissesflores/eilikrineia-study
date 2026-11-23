@@ -1,482 +1,322 @@
 {
 "1": {
 "complete": true,
-"shown": 1794807211.7483299,
-"answered": 1794807304.4652832,
 "seconds": 92.7
 },
 "2": {
 "complete": true,
-"shown": 1794807304.469685,
-"answered": 1794807334.407988,
 "seconds": 29.9
 },
 "3": {
 "complete": false,
-"shown": 1794807334.4120011,
-"answered": 1794807396.444274,
 "seconds": 62.0
 },
 "4": {
 "complete": true,
-"shown": 1794807396.448698,
-"answered": 1794810231.392093,
 "seconds": 2834.9
 },
 "5": {
 "complete": true,
-"shown": 1794810231.398347,
-"answered": 1794810267.381509,
 "seconds": 36.0
 },
 "6": {
 "complete": true,
-"shown": 1794810267.38665,
-"answered": 1794810301.125694,
 "seconds": 33.7
 },
 "7": {
 "complete": true,
-"shown": 1794810301.129588,
-"answered": 1794810333.94601,
 "seconds": 32.8
 },
 "8": {
 "complete": true,
-"shown": 1794810333.9535449,
-"answered": 1794810361.9308438,
 "seconds": 28.0
 },
 "9": {
 "complete": true,
-"shown": 1794810361.9347808,
-"answered": 1794810381.6788118,
 "seconds": 19.7
 },
 "10": {
 "complete": false,
-"shown": 1794810381.681477,
-"answered": 1794810448.6689339,
 "seconds": 67.0
 },
 "11": {
 "complete": true,
-"shown": 1794810448.672775,
-"answered": 1794810469.263297,
 "seconds": 20.6
 },
 "12": {
 "complete": false,
-"shown": 1794810469.268023,
-"answered": 1794810563.89205,
 "seconds": 94.6
 },
 "13": {
 "complete": true,
-"shown": 1794810563.89665,
-"answered": 1794810605.568015,
 "seconds": 41.7
 },
 "14": {
 "complete": true,
-"shown": 1794810605.572774,
-"answered": 1794810650.6544452,
 "seconds": 45.1
 },
 "15": {
 "complete": false,
-"shown": 1795125999.113645,
-"answered": 1795126121.5590558,
 "seconds": 122.4
 },
 "16": {
 "complete": true,
-"shown": 1795126121.564505,
-"answered": 1795126237.573022,
 "seconds": 116.0
 },
 "17": {
 "complete": true,
-"shown": 1795126237.5767848,
-"answered": 1795126301.580364,
 "seconds": 64.0
 },
 "18": {
 "complete": false,
-"shown": 1795126301.585376,
-"answered": 1795126595.518844,
 "seconds": 293.9
 },
 "19": {
 "complete": true,
-"shown": 1795126595.522292,
-"answered": 1795126628.5587451,
 "seconds": 33.0
 },
 "20": {
 "complete": false,
-"shown": 1795126628.562559,
-"answered": 1795126667.564165,
 "seconds": 39.0
 },
 "21": {
 "complete": false,
-"shown": 1795126667.568098,
-"answered": 1795126697.759198,
 "seconds": 30.2
 },
 "22": {
 "complete": false,
-"shown": 1795126697.762738,
-"answered": 1795126725.0215302,
 "seconds": 27.3
 },
 "23": {
 "complete": true,
-"shown": 1795126725.0256371,
-"answered": 1795126763.6504252,
 "seconds": 38.6
 },
 "24": {
 "complete": true,
-"shown": 1795126763.6537092,
-"answered": 1795126776.267361,
 "seconds": 12.6
 },
 "25": {
 "complete": true,
-"shown": 1795126776.269941,
-"answered": 1795126790.063649,
 "seconds": 13.8
 },
 "26": {
 "complete": true,
-"shown": 1795126790.066346,
-"answered": 1795126824.452018,
 "seconds": 34.4
 },
 "27": {
 "complete": false,
-"shown": 1795126824.45413,
-"answered": 1795126834.196497,
 "seconds": 9.7
 },
 "28": {
 "complete": true,
-"shown": 1795126834.2017589,
-"answered": 1795126863.713908,
 "seconds": 29.5
 },
 "29": {
 "complete": true,
-"shown": 1795126863.717865,
-"answered": 1795126880.386243,
 "seconds": 16.7
 },
 "30": {
 "complete": false,
-"shown": 1795126880.3951528,
-"answered": 1795126897.8342211,
 "seconds": 17.4
 },
 "31": {
 "complete": false,
-"shown": 1795126897.837842,
-"answered": 1795126921.32413,
 "seconds": 23.5
 },
 "32": {
 "complete": true,
-"shown": 1795128256.790211,
-"answered": 1795128547.164504,
 "seconds": 290.4
 },
 "33": {
 "complete": true,
-"shown": 1795128547.241384,
-"answered": 1795128660.908907,
 "seconds": 113.7
 },
 "34": {
 "complete": true,
-"shown": 1795128660.912149,
-"answered": 1795128891.9920902,
 "seconds": 231.1
 },
 "35": {
 "complete": true,
-"shown": 1795128892.001993,
-"answered": 1795129009.757853,
 "seconds": 117.8
 },
 "36": {
 "complete": true,
-"shown": 1795129009.762615,
-"answered": 1795129157.522007,
 "seconds": 147.8
 },
 "37": {
 "complete": false,
-"shown": 1795129157.526145,
-"answered": 1795129207.954221,
 "seconds": 50.4
 },
 "38": {
 "complete": false,
-"shown": 1795129207.9570959,
-"answered": 1795129313.23529,
 "seconds": 105.3
 },
 "39": {
 "complete": false,
-"shown": 1795129313.240181,
-"answered": 1795129344.806272,
 "seconds": 31.6
 },
 "40": {
 "complete": false,
-"shown": 1795129344.809338,
-"answered": 1795129371.206026,
 "seconds": 26.4
 },
 "41": {
 "complete": false,
-"shown": 1795129371.211004,
-"answered": 1795129415.265843,
 "seconds": 44.1
 },
 "42": {
 "complete": true,
-"shown": 1795129415.2696478,
-"answered": 1795129484.511599,
 "seconds": 69.2
 },
 "43": {
 "complete": false,
-"shown": 1795129484.5154,
-"answered": 1795131117.771242,
 "seconds": 1633.3
 },
 "44": {
 "complete": true,
-"shown": 1795131117.7765188,
-"answered": 1795132826.547009,
 "seconds": 1708.8
 },
 "45": {
 "complete": true,
-"shown": 1795132826.5505621,
-"answered": 1795132861.5259159,
 "seconds": 35.0
 },
 "46": {
 "complete": true,
-"shown": 1795132861.529147,
-"answered": 1795132945.171454,
 "seconds": 83.6
 },
 "47": {
 "complete": true,
-"shown": 1795132945.1744158,
-"answered": 1795132975.695018,
 "seconds": 30.5
 },
 "48": {
 "complete": false,
-"shown": 1795132975.698446,
-"answered": 1795133356.570316,
 "seconds": 380.9
 },
 "49": {
 "complete": false,
-"shown": 1795133356.573611,
-"answered": 1795133848.120306,
 "seconds": 491.5
 },
 "50": {
 "complete": true,
-"shown": 1795133848.123038,
-"answered": 1795133879.727998,
 "seconds": 31.6
 },
 "51": {
 "complete": true,
-"shown": 1795133879.732341,
-"answered": 1795133910.561988,
 "seconds": 30.8
 },
 "52": {
 "complete": true,
-"shown": 1795133910.566611,
-"answered": 1795133939.6400058,
 "seconds": 29.1
 },
 "53": {
 "complete": false,
-"shown": 1795133939.644119,
-"answered": 1795134190.2657962,
 "seconds": 250.6
 },
 "54": {
 "complete": true,
-"shown": 1795134190.271507,
-"answered": 1795134217.885538,
 "seconds": 27.6
 },
 "55": {
 "complete": false,
-"shown": 1795134217.890551,
-"answered": 1795134257.2355719,
 "seconds": 39.3
 },
 "56": {
 "complete": false,
-"shown": 1795134257.238683,
-"answered": 1795134296.043519,
 "seconds": 38.8
 },
 "57": {
 "complete": false,
-"shown": 1795134296.046727,
-"answered": 1795134330.44833,
 "seconds": 34.4
 },
 "58": {
 "complete": false,
-"shown": 1795134330.452412,
-"answered": 1795134359.193055,
 "seconds": 28.7
 },
 "59": {
 "complete": false,
-"shown": 1795134359.197793,
-"answered": 1795134487.626282,
 "seconds": 128.4
 },
 "60": {
 "complete": true,
-"shown": 1795134487.630091,
-"answered": 1795134519.721047,
 "seconds": 32.1
 },
 "61": {
 "complete": true,
-"shown": 1795134519.725316,
-"answered": 1795134578.4140449,
 "seconds": 58.7
 },
 "62": {
 "complete": true,
-"shown": 1795134578.4174771,
-"answered": 1795134676.8725948,
 "seconds": 98.5
 },
 "63": {
 "complete": false,
-"shown": 1795134676.877453,
-"answered": 1795135074.316418,
 "seconds": 397.4
 },
 "64": {
 "complete": true,
-"shown": 1795135074.320467,
-"answered": 1795135107.666516,
 "seconds": 33.3
 },
 "65": {
 "complete": true,
-"shown": 1795135107.6705751,
-"answered": 1795135143.9709592,
 "seconds": 36.3
 },
 "66": {
 "complete": true,
-"shown": 1795135143.974727,
-"answered": 1795135283.993189,
 "seconds": 140.0
 },
 "67": {
 "complete": true,
-"shown": 1795135284.0056489,
-"answered": 1795135305.602547,
 "seconds": 21.6
 },
 "68": {
 "complete": false,
-"shown": 1795135305.606674,
-"answered": 1795135392.5242481,
 "seconds": 86.9
 },
 "69": {
 "complete": false,
-"shown": 1795135392.5318441,
-"answered": 1795135573.603081,
 "seconds": 181.1
 },
 "70": {
 "complete": true,
-"shown": 1795135573.608396,
-"answered": 1795135594.223356,
 "seconds": 20.6
 },
 "71": {
 "complete": false,
-"shown": 1795135594.228149,
-"answered": 1795135606.34849,
 "seconds": 12.1
 },
 "72": {
 "complete": true,
-"shown": 1795135606.352878,
-"answered": 1795135639.308841,
 "seconds": 33.0
 },
 "73": {
 "complete": false,
-"shown": 1795135639.3131819,
-"answered": 1795135671.4276512,
 "seconds": 32.1
 },
 "74": {
 "complete": true,
-"shown": 1795135671.4318662,
-"answered": 1795135709.738645,
 "seconds": 38.3
 },
 "75": {
 "complete": false,
-"shown": 1795135709.742254,
-"answered": 1795135790.451165,
 "seconds": 80.7
 },
 "76": {
 "complete": true,
-"shown": 1795135790.455702,
-"answered": 1795135815.590871,
 "seconds": 25.1
 },
 "77": {
 "complete": false,
-"shown": 1795135815.5944152,
-"answered": 1795135850.452042,
 "seconds": 34.9
 },
 "78": {
 "complete": false,
-"shown": 1795135850.4555058,
-"answered": 1795135910.3287292,
 "seconds": 59.9
 },
 "79": {
 "complete": false,
-"shown": 1795135910.3331609,
-"answered": 1795135936.100267,
 "seconds": 25.8
 },
 "80": {
 "complete": false,
-"shown": 1795135936.103033,
-"answered": 1795136020.4246778,
 "seconds": 84.3
 }
 }

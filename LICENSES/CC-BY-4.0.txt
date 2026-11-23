@@ -1,7 +1,10 @@
 Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-The paper text and figures in this repository (docs/paper/paper-final.pdf,
-docs/paper/paper-final.docx, and output/figures/*) are licensed under the
+The documents, data and pictures of this replication package (the Markdown
+documents at the root, docs/, runs/, prereg/, output/ and assets/, except
+assets/brand/make_brand.py, which is Apache-2.0; and the ledger fixtures of
+template/ and template3/, which are data, except template*/ledger/eilikrineia.py,
+which is Apache-2.0) are licensed under the
 Creative Commons Attribution 4.0 International License.
 
 You are free to share and adapt the material for any purpose, even commercially,
@@ -12,6 +15,7 @@ Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
 Human-readable summary: https://creativecommons.org/licenses/by/4.0/
 
 Attribution:
-  Carlos Ulisses Flores, "Grounding Doesn't Pay: A Token-Matched Negative Result
-  on Creative Diversity", Codex Hash Research Laboratory (2026).
+  Carlos Ulisses Flores, "Claim records and what a coding agent says: four
+  preregistered experiments — replication package", Codex Hash Research
+  Laboratory (2026).
   ORCID: https://orcid.org/0000-0002-6034-7765

@@ -8,7 +8,9 @@ This repository is dual-licensed:
     See LICENSE and LICENSES/Apache-2.0.txt.
 
   * Documents, data and pictures (the Markdown documents at the root, docs/, runs/, prereg/,
-    output/, assets/) — Creative Commons Attribution 4.0 International (CC BY 4.0).
+    output/, assets/ (except assets/brand/make_brand.py), and the ledger fixtures of template/ and
+    template3/ (chain entries, texts, keys, vault objects), which are data, except
+    template*/ledger/eilikrineia.py) — Creative Commons Attribution 4.0 International (CC BY 4.0).
     See LICENSES/CC-BY-4.0.txt.
 
 Third-party material, MIT License, Copyright (c) 2026 overclaim contributors, see
@@ -20,4 +22,4 @@ overclaim/LICENSE. Upstream: https://github.com/h-a-forster/overclaim.
     upstream commit and used for the study 1 recount.
   * patches/ — one change made to the benchmark for these experiments.
 
-Cite the paper (see CITATION.cff) when you use the data.
+Cite this package (see CITATION.cff) when you use the code or data.

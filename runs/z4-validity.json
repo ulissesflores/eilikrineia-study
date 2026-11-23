@@ -1720,7 +1720,7 @@
   "writer": "gemini",
   "tests": 0,
   "kept": [],
-  "problem": "__import__: SyntaxError(\"(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\\\xXX escape\", ('/private/var/folders/wx/_0vy9yl163lfvnp8pgtvq14m0000gn/T/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    \"\"\"\\n', 217, 8))",
+  "problem": "__import__: SyntaxError(\"(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\\\xXX escape\", ('<TMPDIR>/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    \"\"\"\\n', 217, 8))",
   "file": "../runs/z4-writers/text-template-engine/gemini-r1/test_acceptance.py"
  },
  {

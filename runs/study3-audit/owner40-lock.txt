@@ -1,7 +1,7 @@
 Study 3 post-hoc audit: lock of the owner's 40 labels and the Hydrogen labels, written before audit_posthoc.py report runs and before hydrogen.json is compared with anything.
-Split rule, fixed by save time only: 'burst' = saved at or after 2026-11-14T19:04:17Z (29 labels, 72.6 s from first to last, the panel shows one message at a time, save order equals presentation order); 'early' = saved before (11 labels in two sittings, 13.6 to 46.1 s between saves). Median message length about 2,400 characters in both groups. All 40 documents are version 1 (no label changed).
+Split rule, fixed by save time only: 'burst' = saved in the final burst of 2026-11-14 (29 labels, ids in owner40-burst29.json; 72.6 s from first to last, the panel shows one message at a time, save order equals presentation order); 'early' = saved before (11 labels in two sittings, 13.6 to 46.1 s between saves). Median message length about 2,400 characters in both groups. All 40 documents are version 1 (no label changed).
 sha256:
-bb4c6e74607f5df658aafd6c13ec5bd761bacfebec0b6ebb883cf1fce07da2d6  owner40-raw.json
+24959c7ac25de2579dbc0498468a78d623257fba63276150c05cd1226f363276  owner40-raw.json
 ca42980499d73fa79ec5d32ae5ed9e29983ca394674e3b8c7663b885c0547bc5  owner40.json
 dbde5fe48c582f122a7bd720c9db709bb3f6e02187d60db6875628ed08bad9cf  owner40-early11.json
 161ce5d8ae477a085966823e9adb53876dd3ff2a4850249ead3200580e533a15  owner40-burst29.json

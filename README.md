@@ -101,6 +101,8 @@ provenance verified: chain_hash ... (... files)
 
 No model is called and no network is used.
 
+The raw trial folders (transcripts, tool outputs and ledgers, private keys and personal machine details removed, see its README; 0.5 GB) are a separate record, [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523). Unpack with `mkdir raw && tar -xzf eilikrineia-raw-trials.tar.gz -C raw` for the Track 2 commands in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
+
 <p align="center"><picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/demo/replicate-light.gif">
   <img src="assets/demo/replicate-dark.gif" width="100%" alt="run_all.py reruns the analyses, runs the tests and verifies the SHA-256 seal">
@@ -242,10 +244,11 @@ DOI. Until then cite the repository; see [`CITATION.cff`](CITATION.cff).
 ```bibtex
 @misc{flores2026claimrecords,
   author       = {Flores, Carlos Ulisses},
-  title        = {Claim records and what a coding agent says: four preregistered experiments},
+  title        = {Claim records and what a coding agent says: four preregistered experiments — replication package},
   year         = {2026},
-  version      = {0.1.0},
-  howpublished = {Codex Hash Research Laboratory, replication package}
+  version      = {1.0.0},
+  howpublished = {Codex Hash Research Laboratory, replication package},
+  url          = {https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0}
 }
 ```
 

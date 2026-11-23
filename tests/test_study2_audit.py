@@ -65,12 +65,23 @@ LEDGER_HASHES = {
     ),
 }
 
+# Four files are published as redacted derivatives of the files the ledger attached: wall-clock times of
+# the raters and the machine's temporary-folder prefix were removed (labels, items and `seconds` are
+# unchanged). The ledger hash above is the hash of the original; this is the hash of the shipped file.
+REDACTED_HASHES = {
+    "runs/study2-audit/items.jsonl": "d0a92c73cf9a78ce88b4eeb5837bba4a39aaa7c35c8cc0ba4dedf65ad53aa01a",
+    "runs/study2-audit/items.pt.json": "3fa17b813c440f8bcdd0b05cf5d253480df6c0be8bdf72d7f39d26d6b3b916ff",
+    "runs/study2-audit/labels-ulisses.json": "3bd0821fc5828dbbe73f40a6735aeedbd29e51286c4e27102c0ec5c923ffc8a5",
+    "runs/study2-audit/labels-rater2.json": "2b4fcb3b2dbee18e411bb6837d83d4422441d3f03e70f7c83636df126820cc78",
+}
+
 
 def test_files_are_the_ones_the_ledger_recorded():
-    """Each shipped file hashes to the value in its ledger entry, and the entry lists that hash."""
+    """Each shipped file hashes to its ledger value (or, if redacted, to its recorded derivative hash), and the entry lists the original."""
     entries = {e["seq"]: e for e in json.loads((AUDIT / "ledger-entries.json").read_text())}
     for path, (seq, digest) in LEDGER_HASHES.items():
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, path
+        shipped = REDACTED_HASHES.get(path, digest)
+        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == shipped, path
         assert digest in {a["sha256"] for a in entries[seq]["attachments"]}, (path, seq)
 
 

@@ -105,6 +105,8 @@ provenance verified: chain_hash ... (... files)
 
 No se llama a ningún modelo ni se usa la red.
 
+Las carpetas brutas de los ensayos (transcripciones, salidas de herramientas y registros, sin las claves privadas ni detalles personales de la máquina, ver su README; 0,5 GB) son un registro aparte, [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523). Descomprímalas con `mkdir raw && tar -xzf eilikrineia-raw-trials.tar.gz -C raw` para los comandos de la Track 2 en [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
+
 <p align="center"><picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/demo/replicate-light.gif">
   <img src="assets/demo/replicate-dark.gif" width="100%" alt="run_all.py repite los análisis, ejecuta las pruebas y verifica el sello SHA-256">
@@ -251,10 +253,11 @@ el DOI de la versión. Hasta entonces, cite el repositorio; véase [`CITATION.cf
 ```bibtex
 @misc{flores2026claimrecords,
   author       = {Flores, Carlos Ulisses},
-  title        = {Claim records and what a coding agent says: four preregistered experiments},
+  title        = {Claim records and what a coding agent says: four preregistered experiments — replication package},
   year         = {2026},
-  version      = {0.1.0},
-  howpublished = {Codex Hash Research Laboratory, replication package}
+  version      = {1.0.0},
+  howpublished = {Codex Hash Research Laboratory, replication package},
+  url          = {https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0}
 }
 ```
 

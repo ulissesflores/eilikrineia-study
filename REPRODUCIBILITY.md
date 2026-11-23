@@ -32,8 +32,9 @@ The trials were run once, on dated days, and cannot be run again as the same exp
 - `runs/study2-pins.txt` does the same for study 2. Its files changed afterwards for study 3, so it documents the
   state at that date and is not re-verified here.
 - The preregistrations, results documents, deviation and post-hoc plan are the files whose hashes were recorded
-  in the author's Eilikrineia ledger at the time. They are never edited; corrections are dated sections or new
-  entries.
+  in the author's Eilikrineia ledger at the time. Their content is not edited after sealing; corrections are
+  dated sections or new entries. The only changes made after the ledger recorded them are the redactions listed
+  under "Public derivatives" below, which are prose edits that change no number.
 
 ## Track 1 (light) and Track 2 (complete)
 
@@ -41,9 +42,9 @@ The trials were run once, on dated days, and cannot be run again as the same exp
 | --- | --- | --- |
 | Needs | this repository | this repository, the raw trial archive, the pinned container image |
 | Does | everything in Seal 1 | rescoring of raw transcripts and the full study 2 and study 3 analyses |
-| Status | runs in CI | the raw archive (about 3.6 GB uncompressed) is not in this repository |
+| Status | runs in CI | the raw archive (about 3.6 GB uncompressed) is not in this repository: it is the record [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523) |
 
-Track 2 commands, once the raw archive is unpacked under `raw/` (a folder outside the seal and ignored by git):
+Track 2 commands, once the raw archive is unpacked under `raw/` (a folder outside the seal and ignored by git; `shasum -a 256 -c SHA256SUMS`, then `mkdir raw && tar -xzf eilikrineia-raw-trials.tar.gz -C raw`):
 
 ```bash
 cd runner
@@ -96,5 +97,38 @@ texts and attachments are the documents in this repository (for the study 2 audi
   no-reply address; the patch content is unchanged.
 - Files that no document cites, no seal lists and no test needs were left out: operational logs, and probes made
   with a private tool of the author.
+- **Public derivatives (redacted copies of what the ledger or a lock recorded).** The seal of this package
+  (`output/provenance.json`) covers the bytes published here. The hashes below that were recorded earlier refer to
+  the earlier bytes, so they no longer match the published files. Every published number is unchanged.
+  - `runs/study2-audit/items.jsonl`, `items.pt.json`, `labels-ulisses.json` and `labels-rater2.json`: wall-clock
+    times of each answer were replaced by the seconds spent on it, and a local temporary-folder prefix by
+    `<TMPDIR>`. Ledger entries #1872, #1873 and #2647 attach the hashes of the originals;
+    `tests/test_study2_audit.py` checks both the ledger's original hashes and the derivatives' own hashes. The
+    second rater agreed to the publication of their labels under the name `rater2`.
+  - `runs/study2-audit/ledger-entries.json`: a redacted reading copy. The answer times of the raters and a remark
+    on a rater's language were removed from the texts of entries #1873 and #2647 (the fact that the Portuguese
+    translation was used stays). Entry numbers, times, attachment hashes and the `hash` field are as recorded; the
+    `hash` field of those two entries refers to the unredacted text, so it cannot be recomputed from the copy.
+  - `runs/study3-audit/owner40-raw.json`: `at` is the number of seconds since the start of the same sitting (a gap
+    above 30 minutes starts a new one; the 29 labels of the final burst start again at 0) and the second clock `updatedAt` was dropped. `owner-partial.json` (the
+    excluded first attempt) keeps only the labels. `owner40-lock.txt` keeps the date but not the hour of the cut,
+    and lists the hash of the redacted `owner40-raw.json`; the lock as recorded in the ledger lists the hash of
+    the original file.
+  - `runs/z4-validity.json` and `runs/z4.log`: the temporary-folder prefix was replaced by `<TMPDIR>`.
+  - `patches/overclaim-comment-loop.patch`: the commit id in the first mail-header line was replaced by zeros and
+    the `Date:` line was removed; the subject and the diff body are byte-identical. The recount reproduces.
+  - `RESULTS.md` and `RESULTS-STUDY.md`: prose only (account and workstation details generalized, "flight pause"
+    now "network pause"). The frozen `runs/study-sensitivity.txt` and `runner/sensitivity_study.py` still label
+    that pause "flight pause", and the docstring of the sealed `runner/sensitivity_study.py` attributes the pause to a
+    flight of the author (2026-11-06) while the connection dropped; both are kept because they are sealed.
+    `RESULTS-STUDY2.md` is unchanged.
 - The figures and pictures need `matplotlib` (`requirements-figures.txt`); nothing else does.
 - Third-party files under `overclaim/` are the subset sealed with study 3, not the whole upstream project.
+- **The trial agents ran under the author's home directory and could read it.** A few raw transcripts show
+  listings of that directory, of the author's Claude Code settings folder and of running processes, and two show
+  the first lines of a project instruction file. The author's global instructions were not loaded
+  (`runner/run_trial.py` passes `--setting-sources ""`). No credential was found in the raw archive. Before
+  publication, 693 such tool outputs were replaced by a marked notice and account metadata of the agent client
+  was removed; the archive's README, `REDACTIONS.tsv` and `FIELDS-REMOVED.tsv` list every change, and five
+  independent audits by another model preceded publication. Final messages and scores are unchanged, the signed
+  ledgers are byte-identical, and the study 2 and study 3 analyses reproduce from the published archive.

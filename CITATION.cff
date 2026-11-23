@@ -1,17 +1,17 @@
 cff-version: 1.2.0
-message: "If you use this replication package or cite the paper, please use the metadata below."
+message: "If you use this replication package, please cite it using the metadata below."
 title: "Claim records and what a coding agent says: four preregistered experiments — replication package"
 type: software
-version: "0.1.0"
+version: "1.0.0"
+url: "https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0"
+repository-code: "https://github.com/ulissesflores/eilikrineia-study"
 authors:
   - family-names: "Flores"
     given-names: "Carlos Ulisses"
     orcid: "https://orcid.org/0000-0002-6034-7765"
     website: "https://ulissesflores.com"
     affiliation: "Codex Hash Research Laboratory, Codex Hash Ltda., Brazil"
-license:
-  - Apache-2.0
-  - CC-BY-4.0
+license: Apache-2.0
 abstract: >-
   Four preregistered experiments (a pilot and three studies, 6,224 trials, Claude Haiku 5.5 as a
   coding agent on tasks with hidden checks) on whether a signed, hash-chained record of the
@@ -32,6 +32,14 @@ keywords:
   - hash-chained ledger
   - provenance
 references:
+  - type: data
+    title: "Claim records and what a coding agent says: raw trial archive"
+    authors:
+      - family-names: "Flores"
+        given-names: "Carlos Ulisses"
+        orcid: "https://orcid.org/0000-0002-6034-7765"
+    doi: "10.5281/zenodo.24450523"
+    url: "https://doi.org/10.5281/zenodo.24450523"
   - type: software
     title: "overclaim"
     authors:

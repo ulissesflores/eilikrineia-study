@@ -17,7 +17,7 @@ valid feature-uri-resolve/opus-r3: kept 79/79
 valid feature-uri-resolve/sonnet-r1: kept 46/47 
 valid feature-uri-resolve/sonnet-r2: kept 35/35 
 valid feature-uri-resolve/sonnet-r3: kept 57/59 
-valid text-template-engine/gemini-r1: kept 0/0 __import__: SyntaxError("(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\xXX escape", ('/private/var/folders/wx/_0vy9yl163lfvnp8pgtvq14m0000gn/T/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    """\n', 217, 8))
+valid text-template-engine/gemini-r1: kept 0/0 __import__: SyntaxError("(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\xXX escape", ('<TMPDIR>/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    """\n', 217, 8))
 valid text-template-engine/haiku-r1: kept 112/112 
 valid text-template-engine/haiku-r2: kept 90/90 
 valid text-template-engine/haiku-r3: kept 177/177 
@@ -69,7 +69,7 @@ feature-uri-resolve/opus-r3: 79/79
 feature-uri-resolve/sonnet-r1: 46/47 
 feature-uri-resolve/sonnet-r2: 35/35 
 feature-uri-resolve/sonnet-r3: 57/59 
-text-template-engine/gemini-r1: 0/0 __import__: SyntaxError("(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\xXX escape", ('/private/var/folders/wx/_0vy9yl163lfvnp8pgtvq14m0000gn/T/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    """\n', 217, 8))
+text-template-engine/gemini-r1: 0/0 __import__: SyntaxError("(unicode error) 'unicodeescape' codec can't decode bytes in position 268-269: truncated \\xXX escape", ('<TMPDIR>/z4ref-l0mcpjjf/work/acceptance/test_acceptance.py', 217, 8, '    """\n', 217, 8))
 text-template-engine/haiku-r1: 112/112 
 text-template-engine/haiku-r2: 90/90 
 text-template-engine/haiku-r3: 177/177 

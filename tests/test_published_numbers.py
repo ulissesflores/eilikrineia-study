@@ -273,9 +273,11 @@ def test_owner_labels_and_pace():
         "posthoc_agree_with_labeller": 29,
     }
     raw = json.loads((AUDIT / "owner40-raw.json").read_text())
-    burst = sorted(v["at"] for v in raw.values() if v["updatedAt"] >= "2026-11-14T19:04:17")
+    # Times are seconds from the first save; the burst is the 29 ids fixed in owner40-burst29.json.
+    burst_ids = json.loads((AUDIT / "owner40-burst29.json").read_text())
+    burst = sorted(raw[i]["at"] for i in burst_ids)
     assert len(burst) == 29
-    assert round((burst[-1] - burst[0]) / 1000, 1) == 72.6
+    assert round(burst[-1] - burst[0], 1) == 72.6
 
 
 def test_study3_pins_match():

@@ -88,7 +88,7 @@ The run did not happen under one condition (see "Deviations"). The primary estim
 | All (primary) | 1,992 | +1.2 (−2.7 to +5.0) |
 | 3 at a time | 100 | +2.4 (−15.1 to +19.9) |
 | 6 at a time | 751 | +2.1 (−4.3 to +8.5) |
-| 10 at a time, before the flight pause | 179 | −5.8 (−19.2 to +7.6) |
+| 10 at a time, before the network pause | 179 | −5.8 (−19.2 to +7.6) |
 | 10 at a time, after the pause | 962 | +0.9 (−4.5 to +6.4) |
 | Claude Code 2.1.318 | 1,027 | +1.1 (−4.4 to +6.5) |
 | Claude Code 2.1.319 | 955 | +0.8 (−4.7 to +6.3) |
@@ -107,7 +107,7 @@ Each one is recorded in the ledger as a correction of #1411. None of them change
    after trial 100 (#1412) and to 10 after trial 853 (#1413). To change it, only the batch process was stopped; the
    trials in flight finished and the run resumed with the same seed. The first 50 trials after each change had 0 errors
    and 0 timeouts.
-2. **Flight pause.** Ulisses's connection dropped during a flight. The run was paused from 13:56 to 22:09 UTC on
+2. **Network pause.** The host's network connection dropped. The run was paused from 13:56 to 22:09 UTC on
    2026-11-06 and then resumed. Three of the five timeouts (0992, 0993, 1012) started between 13:16 and 13:34 UTC. That
 was before the pause and next to the first burst of trials that never started (item 5). Their cause was not
 established.
@@ -123,8 +123,8 @@ established.
 5. **Ten trials whose agent never started.** These are 0988–0990 and 1645–1651: 3 in P and 7 in S.
    - The `claude` command returned 127 ("not found") at 0 seconds, in two bursts (13:15 UTC on 11-06 and 02:50 UTC on
      11-07).
-   - The likely cause is Claude Code being reinstalled on the host while the batch ran. The version went from 2.1.318
-     to 2.1.319 across the flight pause.
+   - The likely cause is a change of the Claude Code installation on the host while the batch ran. The version went
+     from 2.1.318 to 2.1.319 across the network pause.
    - The preregistration excludes "agent errors". The pinned analysis code reads that as `is_error`, which is empty
      here, so these 10 trials are counted in the primary result (as "no claim", never a false completion). Dropping
      them gives +1.1 points (−2.8 to +4.9).
@@ -222,7 +222,7 @@ Faithful rebuilds: TOML 573/666, URI 635/666, template 648/666. The rest differ 
   overclaiming, not intent.
 - **Concurrency leak:** with 10 trials at a time, a trial can see the experiment's path in the process list. The rule
   caught the one case. No trial read the hidden checks.
-- **Quota:** the weekly subscription window went from 3% to 18% over the run; the guard never stopped it.
+- **Quota:** the account's usage limit was not reached during the run; the guard never stopped it.
 
 ## What this means for the product
 

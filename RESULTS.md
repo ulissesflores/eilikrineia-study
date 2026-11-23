@@ -67,8 +67,7 @@ per-task table is in `runs/pilot-analysis.txt`.
   public), not recording against no recording.
 - Every trial is itself an evaluation. Awareness of being tested may touch all arms equally.
 - Two SessionStart hooks from the host's Claude Code configuration ran in each trial despite `--setting-sources ""`.
-  Both returned empty output, so nothing was injected. Each trial also left an empty project folder under
-  `~/.claude/projects`; these were moved out of that folder, not deleted.
+  Both returned empty output, so nothing was injected.
 
 ## What this means for the product
 

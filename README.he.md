@@ -111,6 +111,8 @@ provenance verified: chain_hash ... (... files)
 
 לא נקרא אף מודל ולא נעשה שימוש ברשת.
 
+תיקיות ההרצות הגולמיות (תמלילים, פלטי כלים ויומנים, ללא המפתחות הפרטיים ופרטים אישיים של המחשב, ראו את ה-README שלה; 0.5 GB) הן רשומה נפרדת, [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523). יש לחלץ עם `mkdir raw && tar -xzf eilikrineia-raw-trials.tar.gz -C raw` עבור פקודות Track 2 ב-[`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
+
 </div>
 
 <p align="center"><picture>
@@ -274,10 +276,11 @@ run_all.py, make_provenance.py, output/
 ```bibtex
 @misc{flores2026claimrecords,
   author       = {Flores, Carlos Ulisses},
-  title        = {Claim records and what a coding agent says: four preregistered experiments},
+  title        = {Claim records and what a coding agent says: four preregistered experiments — replication package},
   year         = {2026},
-  version      = {0.1.0},
-  howpublished = {Codex Hash Research Laboratory, replication package}
+  version      = {1.0.0},
+  howpublished = {Codex Hash Research Laboratory, replication package},
+  url          = {https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0}
 }
 ```
 

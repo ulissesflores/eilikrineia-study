@@ -3,11 +3,8 @@
   "@type": "SoftwareSourceCode",
   "name": "eilikrineia-study",
   "description": "Replication package for four preregistered experiments (6,224 trials) on whether a signed, hash-chained record of a coding agent's own claims changes what it claims and what it delivers. The completion labeller was not validated by a person.",
-  "license": [
-    "https://spdx.org/licenses/Apache-2.0",
-    "https://spdx.org/licenses/CC-BY-4.0"
-  ],
-  "version": "0.1.0",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "version": "1.0.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "Python",
@@ -28,6 +25,7 @@
     }
   ],
   "relatedLink": [
+    "https://doi.org/10.5281/zenodo.24450523",
     "https://osf.io/rjnt2",
     "https://github.com/ulissesflores/eilikrineia"
   ]

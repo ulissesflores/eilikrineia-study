@@ -9,8 +9,8 @@
     }
   ],
   "upload_type": "software",
-  "access_right": "closed",
-  "license": "Apache-2.0",
+  "access_right": "open",
+  "license": "apache-2.0",
   "keywords": [
     "AI agents",
     "coding agents",
@@ -21,6 +21,20 @@
     "provenance"
   ],
   "language": "eng",
-  "notes": "No DOI without operator's explicit authorization. Dual licensing: source code under Apache-2.0 (deposit license); documents, data and paper text under CC BY 4.0; third-party benchmark files under MIT. Author profiles: website https://ulissesflores.com, Lattes CV http://lattes.cnpq.br/6905246706890561.",
-  "version": "0.1.0"
+  "notes": "Dual licensing: source code under Apache-2.0 (deposit license); documents, data and paper text under CC BY 4.0; third-party benchmark files under MIT. Author profiles: website https://ulissesflores.com, Lattes CV http://lattes.cnpq.br/6905246706890561.",
+  "version": "1.0.0",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "10.5281/zenodo.24450523",
+      "scheme": "doi",
+      "resource_type": "dataset"
+    },
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/ulissesflores/eilikrineia",
+      "scheme": "url",
+      "resource_type": "software"
+    }
+  ]
 }
