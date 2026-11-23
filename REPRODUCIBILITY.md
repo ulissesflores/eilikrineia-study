@@ -13,11 +13,13 @@ This package carries two seals. They prove different things.
    scores, only each trial's exit code, shipped as `runs/study2-agent-rc.csv` (extracted from the raw
    `record.json` files); its output must equal the frozen file. Study 3 also reads the final messages, which are
    in the raw archive only: every line must equal the frozen file except the Z1 relabelling and the
-   pressure-mention count, which the script lists as not rerun. Lines that print a dictionary built from a set
+   pressure-mention count, which the script lists as not rerun; its harness-crash check runs on an empty folder,
+   so it matches the frozen zero without recomputing it, and the labeller audits are not rerun. Lines that print a dictionary built from a set
    are compared as dictionaries, because their key order follows Python's hash seed.
-2. It runs the tests. They assert the recomputed counts (trial totals, every study 3 count, the study 2
-   numerators, the labeller audit agreement), check that each published estimate with an interval is the line in
-   the frozen analysis output, and check that the README and `docs/findings.md` state those same numbers.
+2. It runs the tests. They assert the recomputed counts (trial totals, selected study 3 counts, the study 2
+   numerators, the labeller audit agreement), check that selected published estimates with an interval are the lines
+   in the frozen analysis output (two exploratory intervals are asserted against `output/results.json`), and
+   check that the README and `docs/findings.md` contain selected strings among them.
    The Z1 and pressure-mention lines of study 3 need the raw trial folders (Track 2); here they are locked as text
    against the frozen output.
 3. It verifies the `chain_hash` in `output/provenance.json` (`python make_provenance.py --verify`).
@@ -31,6 +33,10 @@ The trials were run once, on dated days, and cannot be run again as the same exp
   The `git:` line in that file names a commit of the author's private working history, which is not published.
 - `runs/study2-pins.txt` does the same for study 2. Its files changed afterwards for study 3, so it documents the
   state at that date and is not re-verified here.
+- `RESULTS-STUDY.md` says that all eight files pinned by ledger entry #1411 "still match those hashes"; that
+  sentence describes the study 1 snapshot. `PREREGISTRATION-STUDY.md`, `runner/claim.py` and `runner/analyze.py`
+  still match; `runner/run_trial.py`, `runner/run_batch.py`, `runner/score.py`, `runner/score_study.py` and
+  `runner/analyze_study.py` changed afterwards and ship in their later version.
 - The preregistrations, results documents, deviation and post-hoc plan are the files whose hashes were recorded
   in the author's Eilikrineia ledger at the time. Their content is not edited after sealing; corrections are
   dated sections or new entries. The only changes made after the ledger recorded them are the redactions listed
@@ -40,7 +46,7 @@ The trials were run once, on dated days, and cannot be run again as the same exp
 
 | | Track 1 | Track 2 |
 | --- | --- | --- |
-| Needs | this repository | this repository, the raw trial archive, the pinned container image |
+| Needs | this repository | this repository and the raw trial archive; rerunning the study 3 hidden checks also needs the pinned container image, which is not shipped (`container/Containerfile` and the recorded digest are) |
 | Does | everything in Seal 1 | rescoring of raw transcripts and the full study 2 and study 3 analyses |
 | Status | runs in CI | the raw archive (about 3.6 GB uncompressed) is not in this repository: it is the record [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523) |
 
@@ -91,7 +97,7 @@ texts and attachments are the documents in this repository (for the study 2 audi
   ran, and the preregistrations name working files of the author (a state file and review notes under a
   `private/` folder) that are not published.
 - **One private key is in the repository on purpose:** `template3/ledger/private/keys/agent`. It is a throwaway
-  key created for the trial template, handed to every trial agent, and it signs nothing outside the experiment.
+  key created for the trial template, handed to the trial agents of the arms with the record tool and a signed ledger (S, K and TD), and it signs nothing outside the experiment.
   It is one of the 114 sealed files. The other private keys of the templates were removed.
 - The author's e-mail address in the header of `patches/overclaim-comment-loop.patch` was replaced by a GitHub
   no-reply address; the patch content is unchanged.
@@ -124,7 +130,8 @@ texts and attachments are the documents in this repository (for the study 2 audi
     `RESULTS-STUDY2.md` is unchanged.
 - The figures and pictures need `matplotlib` (`requirements-figures.txt`); nothing else does.
 - Third-party files under `overclaim/` are the subset sealed with study 3, not the whole upstream project.
-- **The trial agents ran under the author's home directory and could read it.** A few raw transcripts show
+- **In the pilot and studies 1 and 2, agents ran on the author's Mac in temporary working folders and could read
+  the author's home directory.** A few raw transcripts show
   listings of that directory, of the author's Claude Code settings folder and of running processes, and two show
   the first lines of a project instruction file. The author's global instructions were not loaded
   (`runner/run_trial.py` passes `--setting-sources ""`). No credential was found in the raw archive. Before
@@ -132,3 +139,8 @@ texts and attachments are the documents in this repository (for the study 2 audi
   was removed; the archive's README, `REDACTIONS.tsv` and `FIELDS-REMOVED.tsv` list every change, and five
   independent audits by another model preceded publication. Final messages and scores are unchanged, the signed
   ledgers are byte-identical, and the study 2 and study 3 analyses reproduce from the published archive.
+- **Trials on the Mac had separate working folders under one shared temporary parent, and the agent could read
+  outside its own folder.** In the pilot and studies 1 and 2, some transcripts show an agent reading temporary
+  files that another trial had left there. How often this happened and whether it changed
+  any outcome has not been assessed in this version. Study 3 ran each trial in its own virtual machine and is not
+  affected ([`docs/adr/0006-pinned-container-for-study-3.md`](docs/adr/0006-pinned-container-for-study-3.md)).

@@ -87,7 +87,9 @@ independent reviewer (TD).
 
 ## The limit that runs through all of it
 
-The labeller was never validated by a person. In study 3 the registered audit asked for a human rater; the owner
+No person validated the labeller. In study 2, a post hoc audit measured its agreement with two human raters on the
+same 80 messages: 67.5% and 70.0% (kappa 0.35 and 0.40, `runs/study2-audit/report.txt`), an estimate for that
+sample, not a validation. In study 3 the registered audit asked for a human rater; the owner
 labelled 3 of 160 messages and declined the rest, and a second model replaced him (a recorded deviation). A
 post-hoc attempt to add 40 owner labels failed as a human validation: 29 were saved in 72.6 seconds, and the owner
 later stated he had used a Claude model to help; how many of the 40 came from it is not recorded. One of the model

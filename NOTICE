@@ -8,7 +8,7 @@ This repository is dual-licensed:
     See LICENSE and LICENSES/Apache-2.0.txt.
 
   * Documents, data and pictures (the Markdown documents at the root, docs/, runs/, prereg/,
-    output/, assets/ (except assets/brand/make_brand.py), and the ledger fixtures of template/ and
+    output/, .github/CONTRIBUTING.md, .github/SECURITY.md, assets/ (except assets/brand/make_brand.py), and the ledger fixtures of template/ and
     template3/ (chain entries, texts, keys, vault objects), which are data, except
     template*/ledger/eilikrineia.py) — Creative Commons Attribution 4.0 International (CC BY 4.0).
     See LICENSES/CC-BY-4.0.txt.

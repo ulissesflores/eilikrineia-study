@@ -2,7 +2,9 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "eilikrineia-study",
-  "description": "Replication package for four preregistered experiments (6,224 trials) on whether a signed, hash-chained record of a coding agent's own claims changes what it claims and what it delivers. The completion labeller was not validated by a person.",
+  "description": "Replication package for four preregistered experiments (6,224 trials) on whether a signed, hash-chained record of a coding agent's own claims changes what it claims and what it delivers. Study 3's preregistered human audit of the completion labeller was not completed; in Study 2, a post hoc audit measured its agreement with two human raters on the same 80 messages.",
+  "identifier": "https://doi.org/10.5281/zenodo.24471761",
+  "codeRepository": "https://github.com/ulissesflores/eilikrineia-study",
   "license": "https://spdx.org/licenses/Apache-2.0",
   "version": "1.0.0",
   "programmingLanguage": {
@@ -28,5 +30,10 @@
     "https://doi.org/10.5281/zenodo.24450523",
     "https://osf.io/rjnt2",
     "https://github.com/ulissesflores/eilikrineia"
-  ]
+  ],
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Reproducibility guide",
+    "url": "https://github.com/ulissesflores/eilikrineia-study/blob/v1.0.0/REPRODUCIBILITY.md"
+  }
 }

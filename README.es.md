@@ -7,10 +7,12 @@
 
 <h3>Pedir a un agente de programación que registre sus afirmaciones con evidencia cambió lo que dijo sobre su propio trabajo. No cambió el trabajo.</h3>
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24471761.svg)](https://doi.org/10.5281/zenodo.24471761)
+[![DOI de los datos brutos](https://img.shields.io/badge/raw%20data-10.5281%2Fzenodo.24450523-1f6feb.svg)](https://doi.org/10.5281/zenodo.24450523)
+[![ci](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml/badge.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
 [![licencia del código: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![documentos: CC BY 4.0](https://img.shields.io/badge/documents-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
 [![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
-[![pruebas](https://img.shields.io/badge/tests-passing-brightgreen.svg)](tests/test_published_numbers.py)
 [![reproducible](https://img.shields.io/badge/reproducible-SHA--256_chain-blueviolet.svg)](output/hash-chain.md)
 
 [English](README.md) · [Português (Brasil)](README.pt-BR.md) · **Español** · [Italiano](README.it.md) · [עברית](README.he.md)
@@ -48,7 +50,9 @@ comprobaciones ocultas.
 > - **Pruebas de aceptación independientes, con el registro en uso:** tasa de aprobación del 84,1% frente al 82,2%
 >   (+2,0 puntos, 95% −1,6 a +5,5): no concluyente; queda excluida una ganancia superior a 6,7 puntos.
 >
-> Si un mensaje dice "completo" lo decide un etiquetador automático que **ninguna persona validó**.
+> Si un mensaje dice "completo" lo decide un etiquetador automático que **ninguna persona validó**: la auditoría humana
+> prerregistrada del estudio 3 no se completó, y en el estudio 2 una auditoría post hoc midió su concordancia con
+> dos evaluadores humanos en los mismos 80 mensajes.
 
 Los prerregistros y los documentos de resultados de este repositorio son los originales fechados, solo en inglés.
 Ellos, y el código que ejecutó los ensayos, se entregan byte a byte tal como fueron sellados: no se reformatean, no
@@ -86,7 +90,7 @@ pip install -r requirements.txt
 python run_all.py
 ```
 
-Salida esperada (el número de pruebas, el hash y el número de archivos son los que figuran en
+Salida esperada (el número de pruebas procede de pytest; el hash y el número de archivos son los que figuran en
 [`output/hash-chain.md`](output/hash-chain.md)):
 
 ```text
@@ -98,7 +102,7 @@ Salida esperada (el número de pruebas, el hash y el número de archivos son los
   identical: runner/analyze_study2.py -> runs/study2-analysis.txt
   identical: runner/analyze_study3.py -> runs/study3-analysis.txt (36 lines of the Z1 and pressure-mention sections need the raw archive)
 [2/3] tests that lock the published numbers
-... passed in 0.2s
+137 passed in ...s
 [3/3] provenance seal
 provenance verified: chain_hash ... (... files)
 ```
@@ -215,6 +219,19 @@ recalcula cada uno. El prerregistro del estudio 3 está registrado en <https://o
 Los documentos citan entradas del libro Eilikrineia del autor por número (por ejemplo "#1543"); véase en
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) la lista y qué contiene la copia pública del libro.
 
+## Documentación
+
+| Documento | Qué responde |
+| --- | --- |
+| [`docs/findings.md`](docs/findings.md) | Qué encontraron los cuatro experimentos, en una página |
+| [`docs/architecture.md`](docs/architecture.md) | Cómo un ensayo se convirtió en un número, y qué prueba cada sello |
+| [`docs/adr/`](docs/adr/README.md) | Por qué el paquete está construido así: once registros de decisión |
+| [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | Qué se vuelve a ejecutar, qué no, y cada límite conocido |
+| [`.github/SECURITY.md`](.github/SECURITY.md) | Cómo informar de una credencial o un dato personal que escapó a la eliminación |
+| [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | Cómo informar de un error o proponer una corrección |
+
+Estos documentos están en inglés.
+
 ## Estructura
 
 ```text
@@ -234,6 +251,9 @@ tests/                los números publicados como aserciones
 scripts/              figuras como código, y el visor de un caso
 assets/               banner, diagrama y grabaciones de terminal, cada uno con su fuente
 docs/findings.md      los cuatro experimentos en una página
+docs/architecture.md  cómo un ensayo se convirtió en un número, y los dos sellos
+docs/adr/             las decisiones detrás del paquete, un registro cada una
+.github/              CI y las políticas de seguridad y de contribución
 run_all.py, make_provenance.py, output/
 ```
 
@@ -247,17 +267,29 @@ run_all.py, make_provenance.py, output/
 
 ## Cita
 
-Todavía no se ha emitido ningún DOI. Cuando se emita, esta sección dará el DOI de concepto (todas las versiones) y
-el DOI de la versión. Hasta entonces, cite el repositorio; véase [`CITATION.cff`](CITATION.cff).
+Cite el DOI de concepto, [10.5281/zenodo.24471761](https://doi.org/10.5281/zenodo.24471761). Identifica el paquete en todas sus versiones y
+remite siempre a la más reciente. Cada versión publicada tiene además su propio DOI de versión, que figura en la
+página de Zenodo; cite ese cuando necesite los archivos exactos. El archivo bruto de los ensayos es un registro
+aparte, [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523). [`CITATION.cff`](CITATION.cff) contiene los metadatos de cita en el formato que
+leen las herramientas de citas.
 
 ```bibtex
-@misc{flores2026claimrecords,
-  author       = {Flores, Carlos Ulisses},
-  title        = {Claim records and what a coding agent says: four preregistered experiments — replication package},
-  year         = {2026},
-  version      = {1.0.0},
-  howpublished = {Codex Hash Research Laboratory, replication package},
-  url          = {https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0}
+@software{flores2026claimrecords,
+  author    = {Flores, Carlos Ulisses},
+  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24471761},
+  url       = {https://doi.org/10.5281/zenodo.24471761}
+}
+
+@dataset{flores2026claimrecordsraw,
+  author    = {Flores, Carlos Ulisses},
+  title     = {Claim records and what a coding agent says: raw trial archive},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24450523},
+  url       = {https://doi.org/10.5281/zenodo.24450523}
 }
 ```
 

@@ -3,6 +3,16 @@ message: "If you use this replication package, please cite it using the metadata
 title: "Claim records and what a coding agent says: four preregistered experiments — replication package"
 type: software
 version: "1.0.0"
+doi: "10.5281/zenodo.24471761"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24471761"
+    description: "Concept DOI: all versions, resolves to the latest"
+  - type: doi
+    value: "10.5281/zenodo.24471762"
+    description: "Version DOI of v1.0.0-rc1, the release that minted the concept DOI"
+  - type: url
+    value: "https://github.com/ulissesflores/eilikrineia-study"
 url: "https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0"
 repository-code: "https://github.com/ulissesflores/eilikrineia-study"
 authors:
@@ -21,8 +31,9 @@ abstract: >-
   non-completion by 27.9 points; a "complete" claim was not more often true (73.5% against 77.5%)
   and the share of finished work was about the same. Pressure framing and independent acceptance
   tests showed no gain on the confirmatory tests; the pressure comparison depends on a labeller
-  whose accuracy differs between arms against a rater added post hoc. The completion labeller was
-  not validated by a person.
+  whose accuracy differs between arms against a rater added post hoc. Study 3's preregistered human
+  audit of the completion labeller was not completed; in Study 2, a post hoc audit measured its
+  agreement with two human raters on the same 80 messages.
 keywords:
   - AI agents
   - coding agents
@@ -31,6 +42,19 @@ keywords:
   - negative result
   - hash-chained ledger
   - provenance
+preferred-citation:
+  type: software
+  title: "Claim records and what a coding agent says: four preregistered experiments — replication package"
+  authors:
+    - family-names: "Flores"
+      given-names: "Carlos Ulisses"
+      orcid: "https://orcid.org/0000-0002-6034-7765"
+      affiliation: "Codex Hash Research Laboratory, Codex Hash Ltda., Brazil"
+  year: 2026
+  doi: "10.5281/zenodo.24471761"
+  url: "https://doi.org/10.5281/zenodo.24471761"
+  publisher:
+    name: "Zenodo"
 references:
   - type: data
     title: "Claim records and what a coding agent says: raw trial archive"

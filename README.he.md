@@ -7,10 +7,12 @@
 
 <h3 dir="rtl">הבקשה מסוכן תכנות לרשום את טענותיו יחד עם ראיות שינתה את מה שאמר על עבודתו. היא לא שינתה את העבודה.</h3>
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24471761.svg)](https://doi.org/10.5281/zenodo.24471761)
+[![DOI של הנתונים הגולמיים](https://img.shields.io/badge/raw%20data-10.5281%2Fzenodo.24450523-1f6feb.svg)](https://doi.org/10.5281/zenodo.24450523)
+[![ci](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml/badge.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
 [![רישיון הקוד: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![מסמכים: CC BY 4.0](https://img.shields.io/badge/documents-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
 [![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
-[![בדיקות](https://img.shields.io/badge/tests-passing-brightgreen.svg)](tests/test_published_numbers.py)
 [![ניתן לשחזור](https://img.shields.io/badge/reproducible-SHA--256_chain-blueviolet.svg)](output/hash-chain.md)
 
 [English](README.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md) · [Italiano](README.it.md) · **עברית**
@@ -51,7 +53,8 @@
 > - **בדיקות קבלה עצמאיות, כשהרישום בשימוש:** שיעור מעבר של 84.1% לעומת 82.2% (+2.0 נקודות, 95% בין −1.6
 >   ל-+5.5): לא מכריע; שיפור של יותר מ-6.7 נקודות נשלל.
 >
-> השאלה אם הודעה אומרת "הושלם" מוכרעת בידי מתייג אוטומטי ש**אף אדם לא תיקף**.
+> השאלה אם הודעה אומרת "הושלם" מוכרעת בידי מתייג אוטומטי ש**אף אדם לא תיקף**: ביקורת האדם שנרשמה מראש למחקר 3 לא הושלמה,
+> ובמחקר 2 ביקורת בדיעבד מדדה את הסכמתו עם שני מעריכים אנושיים על אותן 80 הודעות.
 
 מסמכי הרישום המוקדם ומסמכי התוצאות שבמאגר זה הם המקור המתוארך, באנגלית בלבד. הם, והקוד שהריץ את ההרצות,
 מסופקים בית אחר בית כפי שנחתמו: הם אינם מעוצבים מחדש, אינם מתורגמים, וחלקם מכילים נתיבים של המחשב שבו בוצעו
@@ -89,7 +92,7 @@ python run_all.py
 
 <div dir="rtl">
 
-הפלט הצפוי (מספר הבדיקות, ה-hash ומספר הקבצים הם אלה שב-[`output/hash-chain.md`](output/hash-chain.md)):
+הפלט הצפוי (מספר הבדיקות מגיע מ-pytest; ה-hash ומספר הקבצים הם אלה שב-[`output/hash-chain.md`](output/hash-chain.md)):
 
 </div>
 
@@ -102,7 +105,7 @@ python run_all.py
   identical: runner/analyze_study2.py -> runs/study2-analysis.txt
   identical: runner/analyze_study3.py -> runs/study3-analysis.txt (36 lines of the Z1 and pressure-mention sections need the raw archive)
 [2/3] tests that lock the published numbers
-... passed in 0.2s
+137 passed in ...s
 [3/3] provenance seal
 provenance verified: chain_hash ... (... files)
 ```
@@ -232,6 +235,19 @@ python make_provenance.py --verify
 המסמכים מצטטים רשומות מיומן ה-Eilikrineia של המחבר לפי מספר (לדוגמה "#1543"); ראו ב-
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) את הרשימה ומה מכיל העותק הפומבי של היומן.
 
+## תיעוד
+
+| מסמך | על מה הוא עונה |
+| --- | --- |
+| [`docs/findings.md`](docs/findings.md) | מה מצאו ארבעת הניסויים, בעמוד אחד |
+| [`docs/architecture.md`](docs/architecture.md) | איך הרצה הפכה למספר, ומה מוכיח כל חותם |
+| [`docs/adr/`](docs/adr/README.md) | למה החבילה בנויה כך: אחד-עשר רישומי החלטה |
+| [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | מה ניתן להריץ מחדש, מה לא, וכל מגבלה ידועה |
+| [`.github/SECURITY.md`](.github/SECURITY.md) | איך לדווח על אישור גישה או על מידע אישי שחמק מההסרה |
+| [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | איך לדווח על שגיאה או להציע תיקון |
+
+המסמכים האלה כתובים באנגלית.
+
 ## מבנה
 
 </div>
@@ -253,6 +269,9 @@ tests/                the published numbers as assertions
 scripts/              figures as code, and the one-case viewer
 assets/               banner, diagram and terminal recordings, each with its source
 docs/findings.md      the four experiments in one page
+docs/architecture.md  how a trial became a number, and the two seals
+docs/adr/             the decisions behind the package, one record each
+.github/              CI, security and contribution policies
 run_all.py, make_provenance.py, output/
 ```
 
@@ -268,19 +287,30 @@ run_all.py, make_provenance.py, output/
 
 ## ציטוט
 
-טרם הונפק DOI. כשיונפק, סעיף זה יציג את ה-DOI של המושג (כל הגרסאות) ואת ה-DOI של הגרסה. עד אז יש לצטט את
-המאגר; ראו [`CITATION.cff`](CITATION.cff).
+יש לצטט את ה-DOI של המושג, [10.5281/zenodo.24471761](https://doi.org/10.5281/zenodo.24471761). הוא מזהה את החבילה בכל גרסאותיה ומפנה תמיד
+לגרסה האחרונה. לכל גרסה יש גם DOI משלה, המופיע בדף של Zenodo; יש לצטט אותו כשנדרשים הקבצים המדויקים. ארכיון
+ההרצות הגולמי הוא רשומה נפרדת, [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523). הקובץ [`CITATION.cff`](CITATION.cff) מכיל את מטא-נתוני
+הציטוט בפורמט שכלי ציטוט קוראים.
 
 </div>
 
 ```bibtex
-@misc{flores2026claimrecords,
-  author       = {Flores, Carlos Ulisses},
-  title        = {Claim records and what a coding agent says: four preregistered experiments — replication package},
-  year         = {2026},
-  version      = {1.0.0},
-  howpublished = {Codex Hash Research Laboratory, replication package},
-  url          = {https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0}
+@software{flores2026claimrecords,
+  author    = {Flores, Carlos Ulisses},
+  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24471761},
+  url       = {https://doi.org/10.5281/zenodo.24471761}
+}
+
+@dataset{flores2026claimrecordsraw,
+  author    = {Flores, Carlos Ulisses},
+  title     = {Claim records and what a coding agent says: raw trial archive},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24450523},
+  url       = {https://doi.org/10.5281/zenodo.24450523}
 }
 ```
 

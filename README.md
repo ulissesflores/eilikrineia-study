@@ -7,10 +7,12 @@
 
 <h3>Asking a coding agent to record its claims with evidence changed what it said about its work. It did not change the work.</h3>
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24471761.svg)](https://doi.org/10.5281/zenodo.24471761)
+[![raw data DOI](https://img.shields.io/badge/raw%20data-10.5281%2Fzenodo.24450523-1f6feb.svg)](https://doi.org/10.5281/zenodo.24450523)
+[![ci](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml/badge.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
 [![code license: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![documents: CC BY 4.0](https://img.shields.io/badge/documents-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
 [![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
-[![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](tests/test_published_numbers.py)
 [![reproducible](https://img.shields.io/badge/reproducible-SHA--256_chain-blueviolet.svg)](output/hash-chain.md)
 
 **English** · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md) · [Italiano](README.it.md) · [עברית](README.he.md)
@@ -47,7 +49,8 @@ changes the work: 6,224 trials, one model, tasks with hidden checks.
 > - **Independent acceptance tests, with the record in place:** pass rate 84.1% against 82.2% (+2.0 points, 95%
 >   −1.6 to +5.5): inconclusive, a gain above 6.7 points is excluded.
 >
-> Whether a message says "complete" is decided by an automatic labeller that **no person validated**.
+> Whether a message says "complete" is decided by an automatic labeller that **no person validated**: study 3's preregistered human audit was not
+> completed, and in study 2 a post hoc audit measured its agreement with two human raters on the same 80 messages.
 
 The preregistrations and results documents in this repository are the dated originals, in English only. They, and
 the code that ran the trials, are shipped byte for byte as they were sealed: they are not reformatted, not
@@ -82,7 +85,7 @@ pip install -r requirements.txt
 python run_all.py
 ```
 
-Expected output (the test count, the hash and the file count are the ones in
+Expected output (the test count comes from pytest; the hash and the file count are the ones in
 [`output/hash-chain.md`](output/hash-chain.md)):
 
 ```text
@@ -94,7 +97,7 @@ Expected output (the test count, the hash and the file count are the ones in
   identical: runner/analyze_study2.py -> runs/study2-analysis.txt
   identical: runner/analyze_study3.py -> runs/study3-analysis.txt (36 lines of the Z1 and pressure-mention sections need the raw archive)
 [2/3] tests that lock the published numbers
-... passed in 0.2s
+137 passed in ...s
 [3/3] provenance seal
 provenance verified: chain_hash ... (... files)
 ```
@@ -206,6 +209,17 @@ preregistration is registered at <https://osf.io/rjnt2> (embargoed).
 The documents cite entries of the author's Eilikrineia ledger by number (for example "#1543"); see
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for the list and for what the public copy of the ledger holds.
 
+## Documentation
+
+| Document | What it answers |
+| --- | --- |
+| [`docs/findings.md`](docs/findings.md) | What the four experiments found, in one page |
+| [`docs/architecture.md`](docs/architecture.md) | How a trial became a number, and what each seal proves |
+| [`docs/adr/`](docs/adr/README.md) | Why the package is built the way it is: eleven decision records |
+| [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | What reruns, what cannot, and every known limit |
+| [`.github/SECURITY.md`](.github/SECURITY.md) | How to report a credential or personal data that the redaction missed |
+| [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | How to report an error or propose a correction |
+
 ## Layout
 
 ```text
@@ -225,6 +239,9 @@ tests/                the published numbers as assertions
 scripts/              figures as code, and the one-case viewer
 assets/               banner, diagram and terminal recordings, each with its source
 docs/findings.md      the four experiments in one page
+docs/architecture.md  how a trial became a number, and the two seals
+docs/adr/             the decisions behind the package, one record each
+.github/              CI, security and contribution policies
 run_all.py, make_provenance.py, output/
 ```
 
@@ -238,17 +255,29 @@ run_all.py, make_provenance.py, output/
 
 ## Citation
 
-No DOI has been issued yet. When one is, this section will give the concept DOI (all versions) and the version
-DOI. Until then cite the repository; see [`CITATION.cff`](CITATION.cff).
+Cite the concept DOI, [10.5281/zenodo.24471761](https://doi.org/10.5281/zenodo.24471761). It names the package
+across all its versions and resolves to the latest one. Each release also has its own version DOI, listed on the
+Zenodo page; cite that one when you need the exact files. The raw trial archive is a separate record,
+[10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523). [`CITATION.cff`](CITATION.cff) holds the citation
+metadata in a form citation tools read.
 
 ```bibtex
-@misc{flores2026claimrecords,
-  author       = {Flores, Carlos Ulisses},
-  title        = {Claim records and what a coding agent says: four preregistered experiments — replication package},
-  year         = {2026},
-  version      = {1.0.0},
-  howpublished = {Codex Hash Research Laboratory, replication package},
-  url          = {https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.0.0}
+@software{flores2026claimrecords,
+  author    = {Flores, Carlos Ulisses},
+  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24471761},
+  url       = {https://doi.org/10.5281/zenodo.24471761}
+}
+
+@dataset{flores2026claimrecordsraw,
+  author    = {Flores, Carlos Ulisses},
+  title     = {Claim records and what a coding agent says: raw trial archive},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24450523},
+  url       = {https://doi.org/10.5281/zenodo.24450523}
 }
 ```
 

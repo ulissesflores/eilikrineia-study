@@ -3,7 +3,7 @@
 Output assets/demo/replicate-light.gif
 Set Shell "bash"
 Set FontSize 16
-Set Width 1200
+Set Width 1460
 Set Height 520
 Set Padding 24
 Set Theme "Builtin Light"
@@ -16,7 +16,7 @@ Show
 Type "# Rerun the analyses, check the published numbers, verify the seal (offline)" Enter
 Sleep 600ms
 Type "python run_all.py" Enter
-Sleep 7s
+Sleep 25s
 Type "# The seal also verifies by itself, standard library only:" Enter
 Type "python make_provenance.py --verify" Enter
 Sleep 3s
