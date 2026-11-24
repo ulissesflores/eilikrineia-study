@@ -1,0 +1,57 @@
+== Round 21 (a): network-command scan (post hoc, exploratory). Counts only.
+transcripts scanned: 6228; benchmark/task markers: 22 (owner, repository and task names)
+
+pilot H: transcripts 60
+  calls: calls with a URL literal 21, tool calls 1147
+
+pilot P: transcripts 60
+  calls: calls with a URL literal 21, tool calls 1220
+
+pilot S: transcripts 60
+  calls: calls with a URL literal 19, tool calls 1224
+
+study P: transcripts 999, trials with a fetch-capable call 2
+  calls: calls with a URL literal 1928, fetch-capable calls 2, fetch: package 2, tool calls 22443
+
+study S: transcripts 999, trials that retrieved content 1, trials with a fetch-capable call 1
+  calls: calls with a URL literal 1934, fetch calls whose result shows retrieved content 1, fetch-capable calls 1, fetch: package 1, retrieved: package 1, tool calls 22085
+
+study2 S: transcripts 543
+  calls: calls with a URL literal 1050, tool calls 11473
+
+study2 control: transcripts 543, trials with a fetch-capable call 1
+  calls: calls with a URL literal 931, calls with a code/package-host URL 1, fetch-capable calls 1, fetch: git 1, tool calls 10096
+
+study3 I: transcripts 741, trials that retrieved content 7, trials with a fetch-capable call 7
+  calls: calls with a URL literal 1476, fetch calls whose result shows retrieved content 8, fetch-capable calls 10, fetch: package 10, retrieved: package 8, tool calls 15275
+
+study3 K: transcripts 741, trials that retrieved content 2, trials with a fetch-capable call 2
+  calls: calls with a URL literal 1437, fetch calls whose result shows retrieved content 3, fetch-capable calls 3, fetch: package 3, retrieved: package 3, tool calls 15459
+
+study3 S: transcripts 741, trials that retrieved content 3, trials with a fetch-capable call 3
+  calls: calls with a URL literal 1508, fetch calls whose result shows retrieved content 5, fetch-capable calls 5, fetch: package 5, retrieved: package 5, tool calls 16655
+
+study3 TD: transcripts 741
+  calls: calls with a URL literal 782, tool calls 18944
+
+all studies: transcripts 6228, trials that retrieved content 13, trials with a fetch-capable call 16
+
+trials that named the benchmark or a task in a fetch command or URL: 0
+trials with any tool call naming h-a-forster (any tool, any field): 0
+trials with any tool call naming overclaim (any tool, any field): 0
+  no exclusion needed for benchmark retrieval
+
+== sensitivity: main contrasts without the trials that retrieved third-party content (package analysers)
+  study: gate passed (nothing removed equals the frozen output, 3 lines)
+  study: 1 trials removed
+    MH P-S by task: +1.1 points (95% -2.7 to +5.0); CMH chi2 0.27, p 0.601
+    MH P-S by task: +0.8 points (95% -1.9 to +3.5); CMH chi2 0.27, p 0.601
+    MH P-S by task: -2.0 points (95% -4.6 to +0.6); CMH chi2 2.02, p 0.155
+  study2: no trial retrieved content; estimates unchanged by construction
+  study3: gate passed (nothing removed equals the frozen output, 5 lines)
+  study3: 12 trials removed
+    I-S CONFIRMATORY: +2.2 points (95% -0.6 to +5.0), CMH p 0.1417, events 128 -> inconclusive (rules out below -1.5 and above +6.0 points)
+    K-S CONFIRMATORY: +1.2 points (95% -1.5 to +3.9), CMH p 0.4355, events 121 -> equivalent
+    I-S CONFIRMATORY: -2.9 points (95% -7.5 to +1.8), CMH p 0.2517, events 805 -> inconclusive (rules out below -9.1 and above +3.4 points)
+    K-S CONFIRMATORY: -2.5 points (95% -7.1 to +2.1), CMH p 0.3165, events 811 -> inconclusive (rules out below -8.7 and above +3.7 points)
+    TD-S CONFIRMATORY: +1.9 points (95% -1.7 to +5.4), CMH p 0.3350, events 248 -> inconclusive (rules out below -2.9 and above +6.6 points)
