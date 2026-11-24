@@ -29,7 +29,7 @@ suggest that they were part of the plan; leaving them out leaves numbers in the 
   names of other projects) in the lists and outputs. The contact excerpts first carried the author's host-specific
   temporary-folder prefix (`/private/var/folders/.../T/`); the generator now replaces it by `<TMPDIR>/` before cutting
   each excerpt, the output was regenerated, and a search for that prefix, the home folder and the user name finds none.
-- The sealed files are not touched: version 1.1.0 has the same `chain_hash` as version 1.0.0.
+- The sealed files are not touched: version 1.1.0 and the main branch after it have the same `chain_hash` as version 1.0.0.
 - The supplement counts the cross-trial reads and reruns the estimates of studies 1 and 2 under three exclusion sets
   (see [0006](0006-pinned-container-for-study-3.md)); it does not settle whether the reads changed any outcome.
 - The timestamp wording follows the evidence: study 3 has verified external timestamps from before its first trial;
@@ -52,7 +52,12 @@ suggest that they were part of the plan; leaving them out leaves numbers in the 
   file records one run.
 - `posthoc/` is excluded from lint and docstring coverage in `pyproject.toml`, as the sealed code is, because the
   scripts are shipped as they ran.
-- A later post hoc script is added here with its output and a new line in `SHA256SUMS`, never in the sealed set.
+- After version 1.1.0, the main branch adds code and outputs for the remaining checks identified in the paper draft
+  (`round13_checks.py`, `session_env.py`, `round14_checks.py`; archived in the next release), changed only in the way the
+  others were (paths relative to the package root, `EILIKRINEIA_RAW`; the outputs of `session_env.py` and `round13_checks.py`
+  were made shareable by counting instead of quoting; `round14_checks.py` also asserts the 1,992 kept trials of study 1). The one script the paper cites that does not exist (the source of
+  `runs/z4-union.txt`) is named in `posthoc/README.md`. The supplement is frozen with that increment: no further post hoc
+  analysis is added to this package, and a later one would be a separate decision.
 
 ## References
 

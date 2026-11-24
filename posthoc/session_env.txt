@@ -1,0 +1,25 @@
+== pilot: 180 trials with a stream, 0 without an init event
+  hooks started: {'SessionStart:startup': 360}
+  hook responses with non-empty output (counted, not shown): 0
+  synthetic zero-token first events (error events, not model requests; left out below): {}
+  first-request context tokens of the other sessions, median (min to max) by arm: {'H': '9803 (8876 to 10769), n 60', 'P': '9824 (8893 to 10791), n 60', 'S': '9821 (8894 to 10792), n 60'}
+  180 x tools=('Bash', 'Edit', 'Glob', 'Grep', 'Read', 'Write') mcp servers=0 slash commands=0 skills=0 plugins=('cc-plugin-agents-md', 'cc-plugin-telemetry', 'cc-plugin-privacy', 'cc-plugin-plugin-authoring') mode=bypassPermissions version=2.1.318 model=claude-haiku-5-5
+== study: 1998 trials with a stream, 10 without an init event
+  hooks started: {'SessionStart:startup': 3976}
+  hook responses with non-empty output (counted, not shown): 0
+  synthetic zero-token first events (error events, not model requests; left out below): {}
+  first-request context tokens of the other sessions, median (min to max) by arm: {'P': '10207 (9567 to 10273), n 996', 'S': '10204 (9869 to 10270), n 992'}
+  1032 x tools=('Bash', 'Edit', 'Glob', 'Grep', 'Read', 'Write') mcp servers=0 slash commands=0 skills=0 plugins=('cc-plugin-agents-md', 'cc-plugin-telemetry', 'cc-plugin-privacy', 'cc-plugin-plugin-authoring') mode=bypassPermissions version=2.1.318 model=claude-haiku-5-5
+  956 x tools=('Bash', 'Edit', 'Glob', 'Grep', 'Read', 'Write') mcp servers=0 slash commands=0 skills=0 plugins=('cc-plugin-agents-md', 'cc-plugin-telemetry', 'cc-plugin-privacy', 'cc-plugin-plugin-authoring') mode=bypassPermissions version=2.1.319 model=claude-haiku-5-5
+== study2: 1086 trials with a stream, 15 without an init event
+  hooks started: {'SessionStart:startup': 2142}
+  hook responses with non-empty output (counted, not shown): 0
+  synthetic zero-token first events (error events, not model requests; left out below): {'S': 26, 'control': 35}
+  first-request context tokens of the other sessions, median (min to max) by arm: {'S': '10204 (9565 to 10270), n 507', 'control': '10083 (9747 to 10148), n 503'}
+  1071 x tools=('Bash', 'Edit', 'Glob', 'Grep', 'Read', 'Write') mcp servers=0 slash commands=0 skills=0 plugins=('cc-plugin-agents-md', 'cc-plugin-telemetry', 'cc-plugin-privacy', 'cc-plugin-plugin-authoring') mode=bypassPermissions version=2.1.319 model=claude-haiku-5-5
+== study3: 2964 trials with a stream, 0 without an init event
+  hooks started: {}
+  hook responses with non-empty output (counted, not shown): 0
+  synthetic zero-token first events (error events, not model requests; left out below): {}
+  first-request context tokens of the other sessions, median (min to max) by arm: {'I': '9876 (9220 to 9940), n 741', 'K': '9977 (9321 to 10041), n 741', 'S': '9941 (9285 to 10005), n 741', 'TD': '10022 (9366 to 10086), n 741'}
+  2964 x tools=('Bash', 'Edit', 'Glob', 'Grep', 'Read', 'Write') mcp servers=0 slash commands=0 skills=0 plugins=('cc-plugin-agents-md', 'cc-plugin-telemetry', 'cc-plugin-privacy', 'cc-plugin-plugin-authoring') mode=bypassPermissions version=2.1.319 model=claude-haiku-5-5

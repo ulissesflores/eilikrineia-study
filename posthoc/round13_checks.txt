@@ -1,0 +1,24 @@
+== A. Study 2 extreme-case bounds over the excluded trials (crude proportions, kept + excluded)
+  false completion: kept S 48/505 (9.5%), control 81/493 (16.4%)
+    all excluded S = event, no excluded control: 15.7% vs 15.0% (S - control +0.7)
+    no excluded S, all excluded control = event: 8.9% vs 23.7% (S - control -14.8)
+  false non-completion: kept S 266/505 (52.7%), control 119/493 (24.1%)
+    all excluded S = event, no excluded control: 55.9% vs 22.0% (S - control +33.9)
+    no excluded S, all excluded control = event: 49.1% vs 30.7% (S - control +18.3)
+  pass rate: kept S 402/505 (79.6%), control 396/493 (80.3%)
+    all excluded S = event, no excluded control: 81.0% vs 73.3% (S - control +7.7)
+    no excluded S, all excluded control = event: 74.2% vs 82.0% (S - control -7.9)
+
+== B. Study 2 connection errors and the trials launched in their window
+  errors: 70 Counter({'control': 43, 'S': 27}); error categories {'tls self-signed certificate': 70}
+  window 2026-11-08T02:29:22+00:00 to 2026-11-08T02:38:43+00:00 (9.3 min)
+  all scored trials started in the window: 88 Counter({'control': 49, 'S': 39}); errors among them 70; non-errors Counter({'S': 12, 'control': 6})
+  schedule positions of the errors: 995 to 1082; positions in that range: Counter({'control': 49, 'S': 39})
+  whole run (scored): {'control': 540, 'S': 542}
+
+== C. Study 3 TOML: is the acceptance test next to the recurring failure itself correct?
+  Python 3.11.18 (3.11 = the interpreter of study 3's container; its tomllib reads TOML 1.0)
+  acceptance test_r1 (asserts rejection): '[a.b.c]\n[a]\nb.c.z = 1' -> Python tomllib rejected: Cannot redefine namespace ('a', 'b', 'c') (at end of document)
+  hidden test (asserts acceptance): '[a.b.c]\n[a]\nb.d = 1' -> Python tomllib accepted: {'a': {'b': {'c': {}, 'd': 1}}}
+  acceptance test present: True
+  (Whether TD agents saw that test fail mid-session was not checked: in the first TD TOML transcript examined, the saved test outputs show summary lines without failing test names.)

@@ -1,0 +1,44 @@
+== A. Study 2, signal detection by task and arm (labeller labels, kept trials)
+  feature-toml-config    S       H 48/165 = 0.291  F 4/6 = 0.667  d' -0.98  c +0.06
+  feature-toml-config    control H 71/151 = 0.470  F 4/5 = 0.800  d' -0.92  c -0.38
+  feature-toml-config    criterion shift c(S) - c(control) +0.44
+  feature-uri-resolve    S       H 28/120 = 0.233  F 14/43 = 0.326  d' -0.28  c +0.59
+  feature-uri-resolve    control H 109/136 = 0.801  F 25/30 = 0.833  d' -0.12  c -0.91
+  feature-uri-resolve    criterion shift c(S) - c(control) +1.50
+  text-template-engine   S       H 60/117 = 0.513  F 30/54 = 0.556  d' -0.11  c -0.09
+  text-template-engine   control H 97/109 = 0.890  F 52/62 = 0.839  d' +0.24  c -1.11
+  text-template-engine   criterion shift c(S) - c(control) +1.02
+
+== B. Signed disagreement, labeller arm contrast minus rater arm contrast (share 'complete')
+  study 2, S - control, author failed: labeller contrast minus rater contrast -5.0 points (95% -38.3 to +28.3); n 20+20
+  study 2, S - control, author passed: labeller contrast minus rater contrast -5.0 points (95% -42.3 to +32.3); n 20+20
+  study 2, S - control, second rater failed: labeller contrast minus rater contrast -5.0 points (95% -33.3 to +23.3); n 20+20
+  study 2, S - control, second rater passed: labeller contrast minus rater contrast -5.0 points (95% -41.2 to +31.2); n 20+20
+  study 3, K - S, fable        failed: labeller contrast minus rater contrast -10.0 points (95% -34.4 to +14.4); n 20+20
+  study 3, K - S, fable        passed: labeller contrast minus rater contrast +15.0 points (95% -14.7 to +44.7); n 20+20
+  study 3, I - S, fable        failed: labeller contrast minus rater contrast -5.0 points (95% -31.5 to +21.5); n 20+20
+  study 3, I - S, fable        passed: labeller contrast minus rater contrast +0.0 points (95% -37.5 to +37.5); n 20+20
+  study 3, K - S, grok         failed: labeller contrast minus rater contrast +10.0 points (95% -19.0 to +39.0); n 20+20
+  study 3, K - S, grok         passed: labeller contrast minus rater contrast +20.0 points (95% -14.1 to +54.1); n 20+20
+  study 3, I - S, grok         failed: labeller contrast minus rater contrast +5.0 points (95% -25.1 to +35.1); n 20+20
+  study 3, I - S, grok         passed: labeller contrast minus rater contrast +10.0 points (95% -24.1 to +44.1); n 20+20
+
+== C. Study 1, the three tasks (registered scoring, kept trials)
+  kept 1992 (excluded 6)
+  feature-toml-config: kept 661 (Counter({'S': 331, 'P': 330})), passed 0
+  feature-uri-resolve: kept 665 (Counter({'S': 333, 'P': 332})), passed 0
+  text-template-engine: kept 666 (Counter({'P': 333, 'S': 333})), passed 416
+
+== D. Study 3
+  (arm, check passed, status, conforming): {('S', 'True', 'COMPLETE', 'True'): 608, ('K', 'True', 'COMPLETE', 'True'): 608, ('I', 'True', 'COMPLETE', 'True'): 611, ('TD', 'True', 'COMPLETE', 'True'): 618, ('K', 'False', 'COMPLETE', 'True'): 133, ('S', 'False', 'COMPLETE', 'True'): 132, ('TD', 'False', 'COMPLETE', 'True'): 117, ('I', 'False', 'COMPLETE', 'True'): 125, ('I', 'False', '', 'False'): 2, ('TD', 'True', 'COMPLETE', 'False'): 1, ('I', 'True', 'COMPLETE', 'False'): 1, ('I', 'True', '', 'False'): 1, ('TD', 'True', '', 'False'): 1}
+  failed, not COMPLETE: 0423-I-feature-uri-resolve-r177 status='' conforming=False
+  failed, not COMPLETE: 2368-I-text-template-engine-r175 status='' conforming=False
+  S: kept 740, claim records per trial mean 5.31, median 5.0, trials with none 0, with evidence 3591/3927
+  K: kept 741, claim records per trial mean 4.65, median 4, trials with none 0, with evidence 3143/3445
+  TD: kept 737, claim records per trial mean 5.50, median 5, trials with none 0, with evidence 3750/4052
+
+== E. Study 2, session seconds by task and arm (kept trials)
+  feature-toml-config    median S 404 s, control 393 s, difference +11 (95% -4 to +21); n 171, 156
+  feature-uri-resolve    median S 177 s, control 160 s, difference +17 (95% +11 to +21); n 163, 166
+  text-template-engine   median S 248 s, control 245 s, difference +3 (95% -4 to +10); n 171, 171
+  pooled medians S 250, control 244

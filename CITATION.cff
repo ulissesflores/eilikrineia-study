@@ -13,7 +13,7 @@ identifiers:
     description: "Version DOI of v1.0.0-rc1, the release that minted the concept DOI"
   - type: doi
     value: "10.5281/zenodo.24478622"
-    description: "Version DOI of v1.0.0, the previous version of this package"
+    description: "Version DOI of v1.0.0, an earlier release of this package"
   - type: url
     value: "https://github.com/ulissesflores/eilikrineia-study"
 url: "https://github.com/ulissesflores/eilikrineia-study/releases/tag/v1.1.0"
@@ -38,7 +38,7 @@ abstract: >-
   audit of the completion labeller was not completed; in Study 2, a post hoc audit measured its
   agreement with two human raters on the same 80 messages. Each plan was recorded before its first
   trial. Study 3 has verified external timestamps from before its first trial (three RFC 3161 tokens and OpenTimestamps); the inspection found none for the pilot and Studies 1 and 2, whose plans carry only the signed entry times of the author's ledger (internal timestamps). Their first appearance in the inspected public ledger history is commit a7a7561 (2026-11-10 15:20:10 UTC), whose first OpenTimestamps file holds only pending attestations; the earliest verified Bitcoin attestation found is block 975319 (2026-11-10), in a later commit; both after those trials. Version 1.1.0 adds
-  exploratory post hoc analyses outside the release seal.
+  exploratory post hoc analyses outside the release seal; later post hoc scripts on the main branch complete that supplement and will be archived in the next release.
 keywords:
   - AI agents
   - coding agents

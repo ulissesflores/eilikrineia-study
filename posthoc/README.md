@@ -7,8 +7,7 @@
 > `DEVIATION*`, `POSTHOC*`, `run_all.py`, `make_provenance.py`) are untouched. The decision is recorded in
 > [`docs/adr/0012-post-hoc-supplement-outside-the-seal.md`](../docs/adr/0012-post-hoc-supplement-outside-the-seal.md).
 
-The scripts were written after the reviews of the paper (2026-11-23; the last two, 2026-11-24). They import the package's own analysers
-unchanged and print to standard output. The `.txt` file beside each script is the output it printed when it was
+The scripts were written after the reviews of the paper (2026-11-23; the last five, 2026-11-24). The increment after version 1.1.0 adds code and outputs for the remaining checks identified in the paper draft (`round13_checks.py`, `session_env.py`, `round14_checks.py`); the draft refers to the supplement and to those checks, not to these scripts one by one. The one script the paper cites that does not exist is named under "Not shipped" below. These files are on the `main` branch, carry no tag or release of their own, and will be archived in the next release; version 1.1.0 (the latest archived release) does not contain them. Where a script uses the package's own analysers it imports them unchanged (the three newest read the package's score tables and the raw record files directly and import none); all print to standard output. The `.txt` file beside each script is the output it printed when it was
 run for this release; the checksums are in `SHA256SUMS`.
 
 ## What is here
@@ -24,11 +23,14 @@ run for this release; the checksums are in `SHA256SUMS`.
 | `misc_counts.py` / `.txt` | Counts asked for by reviewers: pilot per arm, the 200 hidden-check failures of study 2, share of "complete" labels whose hidden check passed by task, the study 1 recount of the 141 kept trials not rebuilt exactly, the study 3 STATUS line against the labeller, whether "equivalent" could be reached, acceptance-test edits, and the benchmark confusion table reduced to complete against the rest. | package, `<RAW>/study3` (turn counts only) |
 | `mde.py` / `.txt` | The minimum detectable effect at 80% power for each null result (pilot, study 1 three ways, the study 2 pass rate, study 3), from the standard error of the package's own Mantel-Haenszel estimate for studies 1-3, each checked against its frozen value first. The pilot is a separate approximation: no Mantel-Haenszel line exists for it, so its SE comes from the half-width of the pooled Newcombe interval in `runs/pilot-analysis.txt`; the hard-coded pilot estimate and interval are checked against the "P-S M1" and "S-H M1" lines of that file, its comparison-arm rates are not. Describes the design, not the support the data give a value. | package, `<RAW>/study2` (exit codes) |
 | `python38_caveats.py` / `.txt` | How often final messages mention the Python 3.8 requirement of the TOML task (which the hidden check cannot test), by arm, and the main contrasts with those cues dropped from the labeller (studies 2 and 3), or with those trials excluded (study 2 only; a sensitivity check, since the selection is post-treatment). The exclusion sensitivity is not implemented for study 3. Asserts that the unchanged labeller reproduces every scored label, that the kept-arm counts equal the frozen ones, and that the study 2 "as registered" contrasts equal the frozen -6.6 and +27.9; the study 3 "registered" contrasts are recomputed and printed, not compared with frozen values. | package, `<RAW>/study2`, `<RAW>/study3` |
-| `ceiling_9_1.py` / `.txt` | Checks whether the "+9.1 points" printed in `runs/z4-union.txt` (the script that wrote that file is not in the package) can be reproduced from `runs/z4-trials.jsonl`, by pooled share and by mean of the three task shares, for each of the three test writers. Result: the task mean matches two of the three pass figures and none of the false-completion figures; not reproduced. | package only |
+| `ceiling_9_1.py` / `.txt` | Checks whether the "+9.1 points" printed in `runs/z4-union.txt` (the script that wrote that file is not in the package) can be reproduced from `runs/z4-trials.jsonl`, by pooled share and by mean of the three task shares, for each of the three test writers. Result: for the opus writer the task mean, 9.07, rounds to the printed +9.1 (and 5.10 to 5.1 for haiku); the sonnet pass figure and every false-completion figure do not match, so the full set of figures in `z4-union.txt` is not reproduced and its generating formula remains unconfirmed. | package only |
 | `audit_py38_examples.py` / `.txt` | The study 2 audit messages that mention Python 3.8, with the labeller's, the author's and the second rater's answers, and the audit sample by arm, hidden-check result and task. Prints short excerpts of the audited agent messages already published in `runs/study2-audit/items.jsonl`. | package only (`runs/study2-audit/`) |
 | `prereg_chronology.py` / `.txt` | When each plan was recorded, from files only: ledger entry time and hash, whether the plan's SHA-256 is among the entry's attachments, whether the saved trial schedule is reproduced by the shuffle seeded from the entry hash, the Bitcoin block heights of the first OpenTimestamps proof that covers the entry and the date of that `.ots` file's first commit (its first version holds pending attestations; the block attestation is in a later commit), the first commit of the entry in the public ledger, and the first trial start. For study 3, the three RFC 3161 tokens and the OpenTimestamps proof over `prereg/study3/pins.txt`. | package, `<RAW>`, `<CHAIN>`, `openssl`, `ots` |
 | `round12_checks.py` / `.txt` | Four checks asked for by the next round of reviews. A: study 2, what the labeller said on passed trials (composition of false non-completion), by arm. B: study 1 estimates without the ten trials whose agent never started (exit code 127). C: study 3 TOML task, which hidden tests failed, by arm. D: cluster bootstrap of the study 1 and 2 estimates (2,000 resamples, seed 2026), with clusters that join each trial to the trials whose shared temporary files it plausibly read (same rule as the flagged list) or whose folder it named; unlinked trials are their own cluster; the trial-level bootstrap is printed beside it. Readers are joined to the writers and to the named counterparts only within the same study. Gate: four asserts check three study 1 point estimates (registered false completion, the recount, and the template-task false completion) and the study 2 false non-completion estimate against the frozen values, each requiring an absolute difference below 0.051 points, or the script stops; study 2 false completion and pass rate are not checked. | package, `<RAW>`, `cross-trial-reads.tsv` |
 | `rebuild_vs_flagged.py` / `.txt` | Whether the 141 study 1 rebuilds that did not reproduce the saved state are among the flagged trials (6 of 141 are in the broad set). No model call. | package, `cross-trial-flagged.tsv` |
+| `round13_checks.py` / `.txt` | Three checks asked for by the reviews after round 12. A: study 2 crude extreme-case bounds for three outcomes (false completion, false non-completion, pass rate), over the excluded trials of the scored trials (every excluded trial of one arm counted as an event, none of the other). Asserts both counts among scored trials: kept 505 S and 493 control, excluded 37 and 47; and the four false-completion bounds (15.7% against 15.0%, 8.9% against 23.7%); the other two outcomes' bounds are printed, not compared. B: the start times of the error trials (the window is the span of their starts, not of the errors), the recognised error categories (anything else grouped as `other`; no message text is printed), the arm mix of every scored trial started in that window, and the schedule positions. C: parses two literal TOML documents with Python's `tomllib` (`[a.b.c]`, `[a]`, `b.c.z = 1` rejected; `[a.b.c]`, `[a]`, `b.d = 1` accepted) and checks that the first appears as a substring in the study 3 acceptance-test source; it executes neither test suite. It prints the interpreter version (3.11 is the container's). | package, `<RAW>` (record files only) |
+| `session_env.py` / `.txt` | What the Claude Code session of each trial loaded, from the events of its saved stream (`agent.stdout`) up to the first assistant event: hooks started (counted) and the number of non-empty hook responses (counted; no response text, excerpts or trial ids are printed), and selected fields of the init event (tool names, counts of MCP servers, slash commands and skills, plugin names, permission mode, Claude Code version, model), with the arm labels and Claude Code versions checked against allowlists (the study arms; the exact versions present in the archive) and the other fields against allowlists of labels (anything else prints as `other`). It also reports the token size of the first model request, taken from that first assistant event, by study and arm; synthetic zero-token error events (61 in study 2: 26 S, 35 control) are counted separately and left out of the token summary. It makes no claim about the size of instructions loaded only by the host sessions. | `<RAW>` |
+| `round14_checks.py` / `.txt` | Five checks asked for by the reviews after round 13. A: study 2 signal detection (hit rate, false-alarm rate, d' and criterion c) by task and arm, on the labeller's labels. B: signed audit disagreement (labeller minus rater, within one hidden-check result) for study 2 (author and second rater) and study 3 (K - S and I - S against Fable and Grok), Wald intervals; it reports the difference between the arm contrasts of the labeller and of the rater. C: study 1 kept trials and passes on all three tasks (it prints each of them, including the two with defective hidden checks). D: the parsed status field of every kept study 3 trial, tabulated across all kept arms, and every failed trial whose parsed status differs from `COMPLETE` (both observed cases are in arm I); claim-record summaries per kept trial for arms S, K and TD. E: study 2 session seconds by task and arm (medians; bootstrap of the difference, 2,000 resamples, seed 1) and the pooled medians. Asserts: the kept counts (1,992 for study 1; 505 and 493 for study 2; 2,958 for study 3), one pooled Table 4 numerator (136, S trials that passed and were labelled complete), and the complete-label marginal counts of Table 10 (labeller and rater, by arm and hidden-check result); the Table 10 discordant pairs and the other Table 4 cells are not asserted. | package, `<RAW>` |
 | `SHA256SUMS` | SHA-256 of every file here except itself. | |
 
 ## Inputs and how to run
@@ -49,6 +51,9 @@ python posthoc/cross_trial_contacts.py
 python posthoc/prereg_chronology.py
 python posthoc/round12_checks.py
 python posthoc/rebuild_vs_flagged.py
+python posthoc/round13_checks.py
+python posthoc/session_env.py
+python posthoc/round14_checks.py
 ```
 
 | Placeholder | Meaning | Default |
@@ -65,9 +70,13 @@ python posthoc/rebuild_vs_flagged.py
 | `ceiling_9_1.py`, `audit_py38_examples.py` | the package only |
 | `cross_trial_sensitivity.py`, `cross_trial_contacts.py`, `round12_checks.py` | the package and `<RAW>` |
 | `rebuild_vs_flagged.py` | the package only |
+| `round13_checks.py`, `round14_checks.py` | the package and `<RAW>` |
+| `session_env.py` | `<RAW>` only |
 | `prereg_chronology.py` | the package, `<RAW>`, `<CHAIN>`, `git`, `openssl` and the OpenTimestamps client `ots` (offline: `ots info`, never `ots verify`) |
 
-Expected: the output of each script equals the `.txt` beside it.
+Version metadata (`CITATION.cff`, `codemeta.json`, `.zenodo.json`, `pyproject.toml`) stays at 1.1.0, the latest released version, until the next release.
+
+Expected: the output of each script equals the `.txt` beside it. `round13_checks.py` prints the interpreter version and its `.txt` is the output on Python 3.11, so only that one line differs on 3.12.
 
 ## Differences from the author's run
 
@@ -79,10 +88,10 @@ Expected: the output of each script equals the `.txt` beside it.
   an f-string); (4) `mde.py` checks its hard-coded pilot estimate and interval against `runs/pilot-analysis.txt`
   (see the table above). `task_heterogeneity.py` and `python38_caveats.py` also gained asserts on frozen values (see
   the table); their output did not change.
-- On the published archive, the outputs of every script but five are byte-identical to the first run (checked by
-  `diff`). The five are `cross_trial_contacts.txt` (`<TMPDIR>/` in place of the temporary-folder prefix),
+- On the published archive, the outputs of every script but seven are byte-identical to the first run (checked by
+  `diff`). The seven are `cross_trial_contacts.txt` (`<TMPDIR>/` in place of the temporary-folder prefix),
   `cross_trial_sensitivity.txt`, `round12_checks.txt` and `rebuild_vs_flagged.txt` (sorted dictionary keys; with the dictionaries removed,
-  `diff` is empty) and `prereg_chronology.txt` (next point). The raw archive is the redacted copy, and the redaction
+  `diff` is empty), `prereg_chronology.txt` (next point), `round13_checks.txt` (the error messages are now counted in three fixed categories instead of quoted) and `session_env.txt` (the synthetic zero-token error events, 61 in study 2, are left out of the token summaries, which changes the study 2 counts). The raw archive is the redacted copy, and the redaction
   left the line numbers the list refers to unchanged. All scripts run on Python 3.11 and 3.12.
 - `prereg_chronology.py` ends with a completeness check that first also searched the author's working folder for
   timestamp files outside the study 3 seal; that folder is not published, so the line for it is gone and the
@@ -90,6 +99,16 @@ Expected: the output of each script equals the `.txt` beside it.
   read it from the task folder of the working copy); the result is the same, "yes (180 trials ...)".
 - The chronology depends on the state of the public ledger (commit times, stamps). It was run against a clone
   whose `main` equalled `origin/main`, and the script prints that check.
+
+## Not shipped
+
+The paper's Appendix C says that the "+9.1 points" planning figure comes from `runs/z4-union.txt`. The script that
+generated that file was not found in package v1.0.0 or in the author folders that were inspected. `ceiling_9_1.py` tests whether the figure can be reproduced from
+`runs/z4-trials.jsonl`: the task mean for the opus writer, 9.07, matches the +9.1, but neither aggregation reproduces the full set of figures in the table, so the formula remains not established. Two small facts in the paper's
+notes were read in the raw files by hand, with no script: the account's home-level `CLAUDE.md` (not a project-level file) appears in one transcript only
+(`study/0928-S-feature-toml-config-r114`, where the agent's command read it with `cat`) and the `ls` listing that names a binary of the
+author's tooling in another (`study/0368-P-feature-toml-config-r318`; the second was checked in the unredacted original,
+which is not published).
 
 ## What the chronology shows (for the wording of "preregistered")
 
