@@ -16,6 +16,6 @@ Human-readable summary: https://creativecommons.org/licenses/by/4.0/
 
 Attribution:
   Carlos Ulisses Flores, "Claim records and what a coding agent says: four
-  preregistered experiments — replication package", Codex Hash Research
+  experiments — replication package", Codex Hash Research
   Laboratory (2026).
   ORCID: https://orcid.org/0000-0002-6034-7765
