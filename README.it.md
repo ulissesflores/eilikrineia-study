@@ -21,9 +21,9 @@
 
 [Eilikrineia](https://github.com/ulissesflores/eilikrineia) è un formato di registro in cui un agente di IA firma
 ogni affermazione sul proprio lavoro ("fatto", "testato"), insieme alle prove, in un registro concatenato tramite
-hash. Questo repository contiene i quattro esperimenti preregistrati che hanno chiesto se un registro del genere
+hash. Questo repository contiene i quattro esperimenti che hanno chiesto se un registro del genere
 cambi ciò che un agente di programmazione afferma, e se cambi il lavoro: 6.224 prove, un modello, compiti con
-verifiche nascoste.
+verifiche nascoste. Ciascuno aveva un piano scritto prima della prima prova; il piano dello studio 3 ha marche temporali esterne verificate anteriori ad essa; per gli altri l'ispezione non ne ha trovata nessuna (vedi Integrità).
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-light.svg">
@@ -174,7 +174,7 @@ Due cose al di fuori dei test confermativi dello studio 3:
   "completo" era vero con il registro, il 77,5% senza.
 - **Che la dimensione dell'effetto dello studio 2 sia robusta.** Molti agenti con il registro hanno scritto di
   propria iniziativa una sezione "non verificato". Senza contare quelle sezioni come riserve (esplorativo), le
-  differenze sono −4,4 e +16,7 punti, e la riduzione non raggiungerebbe la soglia preregistrata.
+  differenze sono −4,4 e +16,7 punti, e la riduzione non raggiungerebbe la soglia fissata nel piano.
 - **Che l'etichettatore legga "completo" come lo leggerebbe una persona.** Tre modelli di IA sono stati usati come
   valutatori (Fable, un modello Claude; Grok; Gemini Hydrogen); concordano con l'etichettatore dal 73% al 79% su
   160 messaggi verificati. Nessuna persona lo ha validato. L'autore, chiamato "the owner" nei documenti, ha
@@ -217,6 +217,16 @@ resto della confezione, immagini e registrazioni). I 114 file sigillati prima de
 (`prereg/study3/pins.txt`, con prove RFC 3161 e OpenTimestamps) sono distribuiti identici byte per byte, e un test
 li ricalcola uno per uno. Il preregistro dello studio 3 è registrato su <https://osf.io/rjnt2> (sotto embargo).
 
+**Quando ogni piano fu registrato.** Lo studio 3 ha marche temporali esterne verificate anteriori alla sua prima prova:
+tre token RFC 3161 e una prova OpenTimestamps su `prereg/study3/pins.txt`, datati 2026-11-09. L'ispezione non ha trovato
+alcuna marca temporale esterna anteriore alla prima prova per il pilota e gli studi 1 e 2; i loro piani portano solo gli
+orari di inserimento firmati del registro dell'autore (marche interne; gli hash dei piani sono nelle voci del registro).
+Le voci compaiono per la prima volta nella cronologia ispezionata del registro pubblico nel commit a7a7561, 2026-11-10
+15:20:10 UTC, e la prima versione del file OpenTimestamps in quel commit contiene solo attestazioni pendenti; la più
+precoce attestazione Bitcoin verificata trovata per esse è il blocco 975319, 2026-11-10, che compare in un commit
+successivo. Entrambi sono posteriori a quelle prove. L'ora esatta del push su GitHub non è stabilita.
+[`posthoc/`](posthoc/README.md) legge questa cronologia dai file.
+
 I documenti citano le voci del registro Eilikrineia dell'autore per numero (per esempio "#1543"); si veda in
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) l'elenco e che cosa contiene la copia pubblica del registro.
 
@@ -226,7 +236,8 @@ I documenti citano le voci del registro Eilikrineia dell'autore per numero (per 
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | Che cosa hanno trovato i quattro esperimenti, in una pagina |
 | [`docs/architecture.md`](docs/architecture.md) | Come una prova è diventata un numero, e che cosa prova ciascun sigillo |
-| [`docs/adr/`](docs/adr/README.md) | Perché il pacchetto è costruito così: undici registri di decisione |
+| [`docs/adr/`](docs/adr/README.md) | Perché il pacchetto è costruito così: dodici registri di decisione |
+| [`posthoc/`](posthoc/README.md) | Analisi post hoc scritte dopo le revisioni, fuori dal sigillo: script, output, l'elenco delle letture tra prove |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | Che cosa si riesegue, che cosa no, e ogni limite noto |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | Come segnalare una credenziale o un dato personale sfuggito alla rimozione |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | Come segnalare un errore o proporre una correzione |
@@ -250,6 +261,7 @@ rescore/, patches/    materiale del riconteggio dello studio 1 (verifica nascost
 overclaim/            i 70 file di terzi sigillati con lo studio 3 (MIT)
 tests/                i numeri pubblicati come asserzioni
 scripts/              figure come codice, e il visualizzatore di un caso
+posthoc/              analisi post hoc e i loro output (fuori dal sigillo)
 assets/               banner, diagramma e registrazioni del terminale, ciascuno con la sua sorgente
 docs/findings.md      i quattro esperimenti in una pagina
 docs/architecture.md  come una prova è diventata un numero, e i due sigilli
@@ -277,7 +289,7 @@ dagli strumenti di citazione.
 ```bibtex
 @software{flores2026claimrecords,
   author    = {Flores, Carlos Ulisses},
-  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  title     = {Claim records and what a coding agent says: four experiments — replication package},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.24471761},

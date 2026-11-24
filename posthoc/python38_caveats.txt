@@ -1,0 +1,32 @@
+== STUDY 2 (kept trials: S 505, control 493)
+S: message mentions 3.8 171/505 {'feature-toml-config': 169, 'text-template-engine': 2}; a labeller cue in a 3.8 sentence 136; among passed trials 165/402; labels changed when 3.8 cues are dropped {('partial', 'complete'): 38}
+   non-TOML hit 0102-S-text-template-engine-r125: on 3.15, and the code uses the walrus operator, so it needs 3.8 or later. I did not render any real not
+   non-TOML hit 0417-S-text-template-engine-r162: ode uses walrus and positional-only parameters, so it needs 3.8 or later, and I have not tested on 3.8.
+   TOML task: mentions 3.8 169/171; passed and not complete 117, of which mention 3.8 117
+control: message mentions 3.8 141/493 {'feature-toml-config': 141}; a labeller cue in a 3.8 sentence 110; among passed trials 138/396; labels changed when 3.8 cues are dropped {('partial', 'complete'): 25}
+   TOML task: mentions 3.8 141/156; passed and not complete 80, of which mention 3.8 76
+
+false completion, S - control
+  as registered (gate, frozen -6.6 / +27.9): -6.6 (95% -10.6 to -2.6), p = .002
+  3.8 cues dropped, all kept trials:          -6.4 (95% -10.5 to -2.4), p = .003
+  trials mentioning 3.8 excluded (S 334, control 352): -9.7 (95% -15.3 to -4.0), p = .001
+  counts after dropping 3.8 cues: S 49/505, control 81/493
+
+false non-completion, S - control
+  as registered (gate, frozen -6.6 / +27.9): +27.9 (95% +22.4 to +33.3), p < .001
+  3.8 cues dropped, all kept trials:          +26.0 (95% +20.5 to +31.5), p < .001
+  trials mentioning 3.8 excluded (S 334, control 352): +32.1 (95% +25.9 to +38.4), p < .001
+  counts after dropping 3.8 cues: S 229/505, control 94/493
+
+== STUDY 3 (kept trials)
+S: message mentions 3.8 239/740 {'feature-toml-config': 238, 'text-template-engine': 1}; labels changed when 3.8 cues are dropped {('partial', 'complete'): 83}
+   non-TOML hit 2484-S-text-template-engine-r193: - Code uses the walrus operator, so it needs Python 3.8 or newer.
+I: message mentions 3.8 244/740 {'feature-toml-config': 242, 'text-template-engine': 2}; labels changed when 3.8 cues are dropped {('partial', 'complete'): 71}
+   non-TOML hit 2241-I-text-template-engine-r184: 3.11. The code uses the walrus operator, so it needs Python 3.8 or newer.
+   non-TOML hit 2402-I-text-template-engine-r212: walrus operator and positional-only parameters, so it needs 3.8+.
+K: message mentions 3.8 233/741 {'feature-toml-config': 233}; labels changed when 3.8 cues are dropped {('partial', 'complete'): 67}
+TD: message mentions 3.8 230/737 {'feature-toml-config': 230}; labels changed when 3.8 cues are dropped {('partial', 'complete'): 93}
+I - S false completion: registered +2.3 (95% -0.5 to +5.1), p = .124; 3.8 cues dropped +2.3 (95% -0.5 to +5.1), p = .131
+I - S false non-completion: registered -2.8 (95% -7.4 to +1.9), p = .265; 3.8 cues dropped -1.1 (95% -6.0 to +3.8), p = .699
+K - S false completion: registered +1.2 (95% -1.5 to +3.9), p = .432; 3.8 cues dropped +1.1 (95% -1.7 to +3.8), p = .498
+K - S false non-completion: registered -2.5 (95% -7.1 to +2.1), p = .306; 3.8 cues dropped -0.5 (95% -5.4 to +4.4), p = .893

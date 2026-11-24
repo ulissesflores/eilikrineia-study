@@ -1,0 +1,245 @@
+trial	study	arm	task	strict	broad	broad_plus_counterparts	evidence_category	row_kinds
+pilot/028-H-feature-toml-config-r2	pilot	H	feature-toml-config	0	0	1	named-counterpart	
+pilot/042-S-dst-daily-schedule-r1	pilot	S	dst-daily-schedule	0	1	1	implausible-only	shared-tmp-read
+pilot/073-H-feature-toml-config-r3	pilot	H	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+pilot/126-P-feature-rope-buffer-r1	pilot	P	feature-rope-buffer	0	1	1	implausible-only	shared-tmp-read
+pilot/136-S-bughunt-textadv-r1	pilot	S	bughunt-textadv	1	1	1	plausible-read	shared-tmp-read
+pilot/141-P-feature-minire-r3	pilot	P	feature-minire	1	1	1	plausible-read	shared-tmp-read
+pilot/155-S-bughunt-ratelimit-r3	pilot	S	bughunt-ratelimit	1	1	1	plausible-read	shared-tmp-read
+study/0006-P-feature-toml-config-r231	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0013-S-feature-toml-config-r309	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0033-S-feature-toml-config-r312	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0043-S-text-template-engine-r136	study	S	text-template-engine	1	1	1	plausible-read	shared-tmp-read
+study/0050-P-feature-toml-config-r210	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0057-P-feature-toml-config-r307	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0062-S-feature-toml-config-r83	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0077-S-feature-toml-config-r307	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0103-S-feature-toml-config-r208	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0104-P-feature-toml-config-r179	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0125-S-feature-toml-config-r220	study	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-command;trial-id-other;trial-id-result
+study/0126-P-feature-toml-config-r202	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-command;trial-id-result
+study/0176-S-feature-toml-config-r62	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0197-P-feature-toml-config-r142	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/0198-P-feature-toml-config-r290	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0237-P-feature-toml-config-r66	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0247-P-feature-toml-config-r329	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0285-P-feature-toml-config-r274	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0288-P-text-template-engine-r157	study	P	text-template-engine	0	1	1	implausible-only	shared-tmp-read
+study/0295-P-feature-toml-config-r253	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0299-S-feature-toml-config-r159	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0302-S-feature-toml-config-r323	study	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/0319-P-feature-toml-config-r235	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0327-P-feature-toml-config-r114	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0330-S-feature-toml-config-r287	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0331-S-feature-toml-config-r120	study	S	feature-toml-config	1	1	1	contact	trial-id-result
+study/0404-P-feature-toml-config-r185	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0416-S-feature-toml-config-r15	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0428-P-feature-toml-config-r196	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0433-P-feature-toml-config-r230	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0439-S-feature-toml-config-r32	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0444-P-feature-toml-config-r96	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0456-S-feature-toml-config-r181	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0459-P-feature-toml-config-r98	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/0491-P-feature-toml-config-r85	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0504-P-feature-toml-config-r175	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0517-S-feature-toml-config-r252	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0527-S-feature-toml-config-r245	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0546-P-feature-toml-config-r193	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0552-S-feature-toml-config-r168	study	S	feature-toml-config	1	1	1	contact	trial-id-result
+study/0553-P-feature-toml-config-r158	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0561-P-feature-toml-config-r140	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0563-P-feature-toml-config-r189	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0574-S-feature-toml-config-r327	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0577-S-feature-toml-config-r295	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0584-S-feature-toml-config-r48	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0594-P-feature-toml-config-r282	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0598-S-feature-toml-config-r121	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0606-P-feature-toml-config-r187	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0607-S-feature-toml-config-r188	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0633-S-feature-toml-config-r84	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0649-S-feature-toml-config-r6	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0671-S-feature-toml-config-r63	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0685-S-feature-toml-config-r28	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0696-P-feature-toml-config-r182	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0720-S-feature-toml-config-r255	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0732-P-feature-toml-config-r7	study	P	feature-toml-config	1	1	1	contact	trial-id-result
+study/0733-P-feature-toml-config-r105	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0734-S-feature-toml-config-r148	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0742-P-feature-toml-config-r245	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0762-P-feature-toml-config-r84	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0770-S-feature-toml-config-r17	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0780-S-feature-toml-config-r111	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0783-S-feature-toml-config-r86	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0785-P-feature-toml-config-r9	study	P	feature-toml-config	1	1	1	contact	trial-id-result
+study/0790-S-feature-toml-config-r12	study	S	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0798-S-feature-toml-config-r89	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0809-P-feature-toml-config-r145	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0811-S-feature-toml-config-r196	study	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/0823-P-feature-toml-config-r208	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/0828-P-feature-toml-config-r212	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0829-S-feature-toml-config-r166	study	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/0836-S-feature-toml-config-r107	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0842-P-feature-toml-config-r44	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/0867-S-text-template-engine-r131	study	S	text-template-engine	0	1	1	implausible-only	shared-tmp-read
+study/0870-P-feature-toml-config-r227	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0885-S-feature-toml-config-r9	study	S	feature-toml-config	1	1	1	contact	trial-id-result
+study/0893-S-feature-toml-config-r23	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0894-P-feature-toml-config-r111	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0903-P-feature-toml-config-r224	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/0905-S-feature-toml-config-r303	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0916-P-feature-toml-config-r123	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0917-S-feature-toml-config-r67	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0938-P-feature-toml-config-r68	study	P	feature-toml-config	1	1	1	contact	trial-id-result
+study/0944-S-feature-toml-config-r324	study	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/0950-S-feature-toml-config-r283	study	S	feature-toml-config	1	1	1	contact	trial-id-result
+study/0953-S-feature-toml-config-r65	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0966-P-feature-toml-config-r289	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/0979-S-feature-toml-config-r222	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/0996-P-feature-toml-config-r322	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1006-P-feature-toml-config-r180	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1008-P-feature-toml-config-r24	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1013-P-feature-toml-config-r258	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/1032-S-feature-toml-config-r39	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1070-S-feature-toml-config-r2	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1073-S-feature-toml-config-r212	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1074-P-feature-toml-config-r171	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1079-P-feature-toml-config-r130	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1083-S-feature-toml-config-r99	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1098-P-feature-uri-resolve-r267	study	P	feature-uri-resolve	1	1	1	plausible-read	shared-tmp-read
+study/1119-P-feature-toml-config-r144	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1125-S-text-template-engine-r127	study	S	text-template-engine	1	1	1	plausible-read	shared-tmp-read
+study/1132-S-feature-toml-config-r285	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1150-S-feature-toml-config-r60	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1162-P-feature-toml-config-r297	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1165-P-feature-toml-config-r76	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/1174-P-feature-toml-config-r201	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1199-S-feature-toml-config-r224	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1215-S-feature-toml-config-r203	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1226-P-feature-toml-config-r261	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/1240-P-feature-toml-config-r10	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1251-P-feature-toml-config-r246	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1255-S-feature-toml-config-r33	study	S	feature-toml-config	1	1	1	contact	trial-id-result
+study/1256-P-feature-toml-config-r151	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1263-P-feature-toml-config-r165	study	P	feature-toml-config	1	1	1	contact	trial-id-command;trial-id-result
+study/1270-S-feature-toml-config-r284	study	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/1274-S-feature-toml-config-r113	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1276-P-feature-toml-config-r239	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1295-S-feature-toml-config-r187	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1304-S-feature-toml-config-r265	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1306-S-feature-toml-config-r143	study	S	feature-toml-config	1	1	1	contact	trial-id-command;trial-id-result
+study/1333-P-feature-toml-config-r79	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1353-S-feature-toml-config-r45	study	S	feature-toml-config	1	1	1	contact	trial-id-result
+study/1363-S-feature-toml-config-r81	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1366-S-feature-toml-config-r195	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1384-S-feature-toml-config-r172	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1386-S-feature-toml-config-r254	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1400-P-text-template-engine-r74	study	P	text-template-engine	1	1	1	plausible-read	shared-tmp-read
+study/1411-P-feature-toml-config-r103	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1419-P-feature-toml-config-r176	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1430-S-feature-toml-config-r201	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1438-P-feature-toml-config-r22	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1451-P-feature-toml-config-r11	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1454-S-feature-toml-config-r151	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1461-S-feature-toml-config-r76	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1465-P-feature-toml-config-r331	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1469-P-feature-toml-config-r110	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1496-P-feature-toml-config-r91	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1508-P-feature-toml-config-r242	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1509-P-text-template-engine-r199	study	P	text-template-engine	0	0	1	named-counterpart	
+study/1511-S-feature-toml-config-r331	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1530-P-feature-toml-config-r146	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1533-P-feature-toml-config-r209	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/1548-P-feature-toml-config-r273	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1560-S-feature-toml-config-r230	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1585-S-feature-toml-config-r37	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1597-P-feature-toml-config-r295	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1609-P-feature-toml-config-r106	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1627-P-feature-toml-config-r309	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1632-S-feature-toml-config-r214	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1635-P-feature-toml-config-r55	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1664-P-feature-toml-config-r313	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1667-S-feature-toml-config-r207	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1668-S-feature-toml-config-r277	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1681-P-feature-toml-config-r221	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1689-P-feature-toml-config-r4	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1697-P-feature-toml-config-r190	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1725-P-feature-toml-config-r99	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1741-S-feature-toml-config-r266	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1760-S-feature-toml-config-r227	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1774-P-feature-toml-config-r252	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-command;trial-id-other;trial-id-result
+study/1777-S-feature-toml-config-r237	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1778-S-feature-toml-config-r153	study	S	feature-toml-config	0	0	1	named-counterpart	
+study/1779-P-feature-toml-config-r54	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/1780-P-feature-toml-config-r27	study	P	feature-toml-config	1	1	1	contact	trial-id-result
+study/1794-P-feature-toml-config-r39	study	P	feature-toml-config	0	1	1	implausible-only	shared-tmp-read
+study/1797-P-feature-toml-config-r15	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1853-P-feature-toml-config-r305	study	P	feature-toml-config	0	0	1	named-counterpart	
+study/1866-P-feature-toml-config-r225	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1879-P-feature-toml-config-r134	study	P	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study/1893-S-feature-toml-config-r256	study	S	feature-toml-config	1	1	1	contact	trial-id-result
+study/1930-P-feature-toml-config-r266	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1931-S-feature-toml-config-r257	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1950-P-feature-toml-config-r207	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1974-P-feature-toml-config-r38	study	P	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study/1998-S-feature-toml-config-r79	study	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0022-control-feature-toml-config-r95	study2	control	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study2/0075-control-feature-toml-config-r1	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0081-S-feature-toml-config-r110	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0087-S-feature-toml-config-r21	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0103-S-feature-toml-config-r76	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0126-S-feature-toml-config-r142	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0135-S-feature-toml-config-r80	study2	S	feature-toml-config	1	1	1	contact	trial-id-result
+study2/0145-S-feature-toml-config-r155	study2	S	feature-toml-config	0	0	1	named-counterpart	
+study2/0150-S-feature-toml-config-r102	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0163-control-feature-toml-config-r174	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0204-S-feature-toml-config-r67	study2	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study2/0211-S-feature-toml-config-r55	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0213-control-feature-toml-config-r65	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0258-S-text-template-engine-r36	study2	S	text-template-engine	1	1	1	plausible-read	shared-tmp-read
+study2/0274-S-text-template-engine-r144	study2	S	text-template-engine	1	1	1	contact	trial-id-result
+study2/0285-S-feature-toml-config-r179	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0328-S-feature-toml-config-r132	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0331-S-feature-toml-config-r113	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0370-S-feature-toml-config-r41	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0372-S-feature-toml-config-r4	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0394-S-feature-toml-config-r172	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0423-S-feature-toml-config-r20	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0431-S-feature-toml-config-r32	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0437-S-feature-toml-config-r18	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0452-control-feature-toml-config-r145	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0476-S-feature-toml-config-r167	study2	S	feature-toml-config	0	0	1	named-counterpart	
+study2/0487-S-feature-toml-config-r48	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0489-S-feature-toml-config-r117	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0496-S-feature-toml-config-r143	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0505-control-feature-toml-config-r29	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0513-control-feature-toml-config-r108	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0514-S-feature-toml-config-r50	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0517-S-feature-toml-config-r128	study2	S	feature-toml-config	1	1	1	contact	trial-id-result
+study2/0548-control-feature-toml-config-r178	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0555-S-feature-toml-config-r97	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0579-S-feature-toml-config-r149	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0585-control-feature-toml-config-r121	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0638-control-feature-toml-config-r87	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0653-S-feature-toml-config-r49	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0657-S-feature-uri-resolve-r44	study2	S	feature-uri-resolve	1	1	1	plausible-read	shared-tmp-read
+study2/0662-control-feature-toml-config-r115	study2	control	feature-toml-config	1	1	1	contact	trial-id-command;trial-id-result
+study2/0664-S-feature-toml-config-r181	study2	S	feature-toml-config	0	0	1	named-counterpart	
+study2/0668-control-feature-toml-config-r32	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0680-S-feature-toml-config-r170	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0697-S-feature-toml-config-r70	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0704-S-feature-toml-config-r78	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0737-S-feature-toml-config-r34	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0791-S-feature-toml-config-r19	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0812-control-feature-toml-config-r151	study2	control	feature-toml-config	0	0	1	named-counterpart	
+study2/0813-S-feature-toml-config-r16	study2	S	feature-toml-config	1	1	1	contact	trial-id-result
+study2/0862-control-feature-toml-config-r79	study2	control	feature-toml-config	1	1	1	contact	trial-id-result
+study2/0896-control-feature-toml-config-r165	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0909-control-feature-toml-config-r37	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0914-S-feature-toml-config-r87	study2	S	feature-toml-config	0	0	1	named-counterpart	
+study2/0917-S-feature-toml-config-r93	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0921-S-feature-toml-config-r66	study2	S	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0930-control-feature-toml-config-r6	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0950-control-text-template-engine-r153	study2	control	text-template-engine	1	1	1	plausible-read	shared-tmp-read
+study2/0956-S-feature-toml-config-r10	study2	S	feature-toml-config	1	1	1	contact	shared-tmp-read;trial-id-result
+study2/0964-control-feature-toml-config-r61	study2	control	feature-toml-config	1	1	1	plausible-read	shared-tmp-read
+study2/0968-control-feature-toml-config-r77	study2	control	feature-toml-config	1	1	1	contact	trial-id-result

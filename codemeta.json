@@ -2,11 +2,11 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "eilikrineia-study",
-  "description": "Replication package for four preregistered experiments (6,224 trials) on whether a signed, hash-chained record of a coding agent's own claims changes what it claims and what it delivers. Study 3's preregistered human audit of the completion labeller was not completed; in Study 2, a post hoc audit measured its agreement with two human raters on the same 80 messages.",
+  "description": "Replication package for four experiments (6,224 trials) on whether a signed, hash-chained record of a coding agent's own claims changes what it claims and what it delivers. Study 3's preregistered human audit of the completion labeller was not completed; in Study 2, a post hoc audit measured its agreement with two human raters on the same 80 messages. Study 3 has verified external timestamps from before its first trial (three RFC 3161 tokens and OpenTimestamps); the inspection found none for the pilot and Studies 1 and 2, whose plans carry only the signed entry times of the author's ledger (internal timestamps). They first appear in the inspected public ledger history in commit a7a7561 (2026-11-10 15:20:10 UTC), whose first OpenTimestamps file holds only pending attestations; the earliest verified Bitcoin attestation found is block 975319 (2026-11-10), in a later commit; both after those trials. Version 1.1.0 adds exploratory post hoc analyses outside the release seal.",
   "identifier": "https://doi.org/10.5281/zenodo.24471761",
   "codeRepository": "https://github.com/ulissesflores/eilikrineia-study",
   "license": "https://spdx.org/licenses/Apache-2.0",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "Python",
@@ -28,12 +28,13 @@
   ],
   "relatedLink": [
     "https://doi.org/10.5281/zenodo.24450523",
+    "https://doi.org/10.5281/zenodo.24478622",
     "https://osf.io/rjnt2",
     "https://github.com/ulissesflores/eilikrineia"
   ],
   "softwareHelp": {
     "@type": "CreativeWork",
     "name": "Reproducibility guide",
-    "url": "https://github.com/ulissesflores/eilikrineia-study/blob/v1.0.0/REPRODUCIBILITY.md"
+    "url": "https://github.com/ulissesflores/eilikrineia-study/blob/v1.1.0/REPRODUCIBILITY.md"
   }
 }

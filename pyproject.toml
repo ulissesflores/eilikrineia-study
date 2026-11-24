@@ -1,7 +1,7 @@
 [project]
 name = "eilikrineia-study"
-version = "1.0.0"
-description = "Replication package: four preregistered experiments on claim records and what a coding agent says"
+version = "1.1.0"
+description = "Replication package: four experiments on claim records and what a coding agent says"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }
@@ -18,7 +18,7 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-extend-exclude = ["runner", "td", "template", "template3", "overclaim", "rescore", "patches"]
+extend-exclude = ["posthoc", "runner", "td", "template", "template3", "overclaim", "rescore", "patches"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "D"]
@@ -33,4 +33,4 @@ convention = "numpy"
 
 [tool.interrogate]
 fail-under = 100
-exclude = ["runner", "td", "template", "template3", "overclaim", "rescore"]
+exclude = ["posthoc", "runner", "td", "template", "template3", "overclaim", "rescore"]

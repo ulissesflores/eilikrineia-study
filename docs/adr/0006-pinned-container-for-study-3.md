@@ -34,9 +34,9 @@ Study 3 ran each trial in its own virtual machine, from one image pinned by dige
 - Paths under `/home/agent/` in the study 3 transcripts are the container, not the author's machine.
 - The host-run studies keep the exposure the container removed. Their transcripts show listings of the home
   directory, which were redacted before publication ([0008](0008-redact-log-audit.md)), and some show an agent
-  reading temporary files left by another trial under that common temporary parent. How often that happened and
-  whether it changed any outcome has not been assessed in this version; it is listed as a known limit in
-  [`REPRODUCIBILITY.md`](../../REPRODUCIBILITY.md).
+  reading temporary files left by another trial under that common temporary parent. The post hoc supplement (`posthoc/`, [0012](0012-post-hoc-supplement-outside-the-seal.md)) counts
+  these reads and reruns the estimates under three exclusion sets; whether the reads changed any outcome remains
+  unresolved. It is listed as a known limit in [`REPRODUCIBILITY.md`](../../REPRODUCIBILITY.md).
 
 ## References
 

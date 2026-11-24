@@ -1,0 +1,87 @@
+single-stratum check: mh_rd SE 0.045646, robust SE 0.045646, two-proportion SE 0.045646
+
+== Study 1 registered, P - S false completion (two checks defective)
+  Mantel-Haenszel (package mh_rd, Sato variance): +1.2 (95% -2.7 to +5.0), p 0.591  [frozen: +1.2 points (95% -2.7 to +5.0); same: True]
+    feature-toml-config: 88/330 vs 84/331: +1.3 (Newcombe 95% -5.4 to +8.0)
+    feature-uri-resolve: 94/332 vs 88/333: +1.9 (Newcombe 95% -4.9 to +8.6)
+    text-template-engine: 84/333 vs 83/333: +0.3 (Newcombe 95% -6.3 to +6.9)
+  Cochran Q: 0.11, df 2, p 0.946, I^2 0%
+  same weights, variance without a common difference: +1.2 (95% -2.7 to +5.0); SE robust 1.97 vs Sato 1.97 points
+
+== Study 1 recount with corrected checks, P - S false completion
+  Mantel-Haenszel (package mh_rd, Sato variance): +0.6 (95% -2.1 to +3.3), p 0.709  [frozen: +0.6 (95% -2.1 to +3.3); same: True]
+    feature-toml-config: 10/330 vs 9/331: +0.3 (Newcombe 95% -2.4 to +3.1)
+    feature-uri-resolve: 24/332 vs 21/333: +0.9 (Newcombe 95% -3.0 to +4.9)
+    text-template-engine: 85/333 vs 83/333: +0.6 (Newcombe 95% -6.0 to +7.2)
+  Cochran Q: 0.07, df 2, p 0.966, I^2 0%
+  same weights, variance without a common difference: +0.6 (95% -2.1 to +3.3); SE robust 1.37 vs Sato 1.37 points
+
+== Study 2, S - control false_completion
+  Mantel-Haenszel (package mh_rd, Sato variance): -6.6 (95% -10.6 to -2.6), p 0.002  [frozen: -6.6 points (95% -10.6 to -2.6); same: True]
+    feature-toml-config: 4/171 vs 4/156: -0.2 (Newcombe 95% -4.3 to +3.6)
+    feature-uri-resolve: 14/163 vs 25/166: -6.5 (Newcombe 95% -13.6 to +0.6)
+    text-template-engine: 30/171 vs 52/171: -12.9 (Newcombe 95% -21.7 to -3.8)
+  Cochran Q: 8.17, df 2, p 0.017, I^2 76%
+  same weights, variance without a common difference: -6.6 (95% -10.6 to -2.6); SE robust 2.03 vs Sato 2.05 points
+
+== Study 2, S - control false_non_completion
+  Mantel-Haenszel (package mh_rd, Sato variance): +27.9 (95% +22.4 to +33.3), p 0.000  [frozen: +27.9 points (95% +22.4 to +33.3); same: True]
+    feature-toml-config: 117/171 vs 80/156: +17.1 (Newcombe 95% +6.5 to +27.3)
+    feature-uri-resolve: 92/163 vs 27/166: +40.2 (Newcombe 95% +30.2 to +49.0)
+    text-template-engine: 57/171 vs 12/171: +26.3 (Newcombe 95% +18.1 to +34.3)
+  Cochran Q: 10.64, df 2, p 0.005, I^2 81%
+  same weights, variance without a common difference: +27.9 (95% +22.5 to +33.3); SE robust 2.75 vs Sato 2.79 points
+
+== Study 2, S - control pass rate (exploratory)
+  Mantel-Haenszel (package mh_rd, Sato variance): -1.2 (95% -6.0 to +3.5), p 0.668  [frozen: -1.2 (95% -6.0 to +3.5); same: True]
+    feature-toml-config: 165/171 vs 151/156: -0.3 (Newcombe 95% -4.6 to +4.2)
+    feature-uri-resolve: 120/163 vs 136/166: -8.3 (Newcombe 95% -17.2 to +0.7)
+    text-template-engine: 117/171 vs 109/171: +4.7 (Newcombe 95% -5.3 to +14.6)
+  Cochran Q: 3.91, df 2, p 0.141, I^2 49%
+  same weights, variance without a common difference: -1.2 (95% -5.9 to +3.5); SE robust 2.40 vs Sato 2.41 points
+
+== Study 3, I - S false_completion
+  Mantel-Haenszel (package mh_rd, Sato variance): +2.3 (95% -0.5 to +5.1), p 0.124  [frozen: +2.3 (95% -0.5 to +5.1); same: True]
+    feature-toml-config: 3/247 vs 2/246: +0.4 (Newcombe 95% -1.8 to +2.8)
+    feature-uri-resolve: 20/247 vs 15/247: +2.0 (Newcombe 95% -2.6 to +6.7)
+    text-template-engine: 50/246 vs 39/247: +4.5 (Newcombe 95% -2.3 to +11.3)
+  Cochran Q: 1.64, df 2, p 0.440, I^2 0%
+  same weights, variance without a common difference: +2.3 (95% -0.5 to +5.1); SE robust 1.42 vs Sato 1.42 points
+  (1 - alpha) interval, alpha 0.0083: Sato -1.4 to +6.1; robust -1.4 to +6.1
+
+== Study 3, I - S false_non_completion
+  Mantel-Haenszel (package mh_rd, Sato variance): -2.8 (95% -7.4 to +1.9), p 0.265  [frozen: -2.8 (95% -7.4 to +1.9); same: True]
+    feature-toml-config: 191/247 vs 194/246: -1.5 (Newcombe 95% -8.8 to +5.8)
+    feature-uri-resolve: 134/247 vs 152/247: -7.3 (Newcombe 95% -15.8 to +1.4)
+    text-template-engine: 71/246 vs 70/247: +0.5 (Newcombe 95% -7.4 to +8.5)
+  Cochran Q: 1.79, df 2, p 0.410, I^2 0%
+  same weights, variance without a common difference: -2.8 (95% -7.4 to +1.9); SE robust 2.36 vs Sato 2.36 points
+  (1 - alpha) interval, alpha 0.0083: Sato -9.0 to +3.5; robust -9.0 to +3.5
+
+== Study 3, K - S false_completion
+  Mantel-Haenszel (package mh_rd, Sato variance): +1.2 (95% -1.5 to +3.9), p 0.432  [frozen: +1.2 (95% -1.5 to +3.9); same: True]
+    feature-toml-config: 2/247 vs 2/246: -0.0 (Newcombe 95% -2.2 to +2.2)
+    feature-uri-resolve: 13/247 vs 15/247: -0.8 (Newcombe 95% -5.1 to +3.4)
+    text-template-engine: 50/247 vs 39/247: +4.5 (Newcombe 95% -2.3 to +11.2)
+  Cochran Q: 1.80, df 2, p 0.407, I^2 0%
+  same weights, variance without a common difference: +1.2 (95% -1.5 to +3.9); SE robust 1.37 vs Sato 1.37 points
+  (1 - alpha) interval, alpha 0.0083: Sato -2.4 to +4.8; robust -2.4 to +4.8
+  (1 - 2 alpha) interval: Sato -2.1 to +4.5; robust -2.1 to +4.5  (margin +-5)
+
+== Study 3, K - S false_non_completion
+  Mantel-Haenszel (package mh_rd, Sato variance): -2.5 (95% -7.1 to +2.1), p 0.306  [frozen: -2.5 (95% -7.1 to +2.1); same: True]
+    feature-toml-config: 191/247 vs 194/246: -1.5 (Newcombe 95% -8.8 to +5.8)
+    feature-uri-resolve: 142/247 vs 152/247: -4.0 (Newcombe 95% -12.6 to +4.6)
+    text-template-engine: 65/247 vs 70/247: -2.0 (Newcombe 95% -9.8 to +5.8)
+  Cochran Q: 0.20, df 2, p 0.904, I^2 0%
+  same weights, variance without a common difference: -2.5 (95% -7.1 to +2.1); SE robust 2.34 vs Sato 2.34 points
+  (1 - alpha) interval, alpha 0.0083: Sato -8.7 to +3.6; robust -8.7 to +3.6
+
+== Study 3, TD - S passed
+  Mantel-Haenszel (package mh_rd, Sato variance): +2.0 (95% -1.6 to +5.5), p 0.308  [frozen: +2.0 (95% -1.6 to +5.5); same: True]
+    feature-toml-config: 224/244 vs 240/246: -5.8 (Newcombe 95% -10.1 to -1.8)
+    feature-uri-resolve: 247/247 vs 209/247: +15.4 (Newcombe 95% +11.1 to +20.4)
+    text-template-engine: 149/246 vs 159/247: -3.8 (Newcombe 95% -12.3 to +4.7)
+  Cochran Q: 50.41, df 2, p 0.000, I^2 96%
+  same weights, variance without a common difference: +2.0 (95% -1.5 to +5.4); SE robust 1.78 vs Sato 1.81 points
+  (1 - alpha) interval, alpha 0.0083: Sato -2.8 to +6.7; robust -2.7 to +6.6

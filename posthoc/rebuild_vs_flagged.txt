@@ -1,0 +1,3 @@
+inexact rebuilds: 141 {'P': 81, 'S': 60}
+by arm and flag category: {('P', 'implausible-only'): 1, ('P', 'named-counterpart'): 1, ('P', 'not flagged'): 76, ('P', 'plausible-read'): 3, ('S', 'contact'): 1, ('S', 'named-counterpart'): 1, ('S', 'not flagged'): 57, ('S', 'plausible-read'): 1}
+in the broad flagged set (199): 6

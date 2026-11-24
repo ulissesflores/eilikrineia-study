@@ -23,8 +23,8 @@
 
 [Eilikrineia](https://github.com/ulissesflores/eilikrineia) הוא פורמט רישום שבו סוכן בינה מלאכותית חותם על כל
 טענה על עבודתו ("בוצע", "נבדק"), יחד עם הראיות, ביומן המשורשר באמצעות hash. מאגר זה מכיל את ארבעת הניסויים
-שנרשמו מראש ושאלו אם רישום כזה משנה את מה שסוכן תכנות טוען, ואם הוא משנה את העבודה: 6,224 הרצות, מודל אחד,
-משימות עם בדיקות נסתרות.
+שבדקו אם רישום כזה משנה את מה שסוכן תכנות טוען, ואם הוא משנה את העבודה: 6,224 הרצות, מודל אחד,
+משימות עם בדיקות נסתרות. לכל אחד הייתה תוכנית כתובה לפני ההרצה הראשונה שלו; לתוכנית של מחקר 3 יש חותמות זמן חיצוניות מאומתות מלפניה; לאחרות הבדיקה לא מצאה כאלה (ראו שלמות).
 
 </div>
 
@@ -186,7 +186,7 @@ provenance verified: chain_hash ... (... files)
   מאפשר לומר איזה חלק הביא לשינוי.
 - **שהרישום הופך את ה"הושלם" לאמין יותר.** הוא לא: 73.5% מטענות ה"הושלם" היו נכונות עם הרישום, 77.5% בלעדיו.
 - **שגודל האפקט במחקר 2 עמיד.** סוכנים רבים עם הרישום כתבו מיוזמתם סעיף "לא אומת". בלי לספור סעיפים אלה
-  כהסתייגויות (ניתוח גישושי), ההפרשים הם −4.4 ו-+16.7 נקודות, והירידה לא הייתה עומדת בסף שנרשם מראש.
+  כהסתייגויות (ניתוח גישושי), ההפרשים הם −4.4 ו-+16.7 נקודות, והירידה לא הייתה עומדת בסף שנקבע בתוכנית.
 - **שהמתייג קורא "הושלם" כפי שאדם היה קורא.** שלושה מודלי בינה מלאכותית שימשו כמעריכים (Fable, מודל של Claude;
   Grok; Gemini Hydrogen); הם מסכימים עם המתייג ב-73% עד 79% מתוך 160 הודעות שנבדקו. אף אדם לא תיקף אותו.
   המחבר, המכונה "the owner" במסמכים, הזין 40 תיוגים לאחר שהתוצאות היו ידועות; 29 מהם נשמרו בתוך 72.6 שניות,
@@ -232,6 +232,14 @@ python make_provenance.py --verify
 מסופקים זהים בית אחר בית, ובדיקה מחשבת מחדש כל אחד מהם. הרישום המוקדם של מחקר 3 רשום ב-<https://osf.io/rjnt2>
 (תחת אמברגו).
 
+**מתי נרשמה כל תוכנית.** למחקר 3 יש חותמות זמן חיצוניות מאומתות מלפני ההרצה הראשונה שלו: שלושה אסימוני RFC 3161
+והוכחת OpenTimestamps על `prereg/study3/pins.txt`, מתוארכים 2026-11-09. הבדיקה לא מצאה חותמת זמן חיצונית מלפני ההרצה
+הראשונה עבור הפיילוט ומחקרים 1 ו-2; תוכניותיהם נושאות רק את שעות הרישום החתומות של יומן המחבר (חותמות פנימיות; ה-hash
+של התוכניות נמצאים ברשומות היומן). הרשומות מופיעות לראשונה בהיסטוריית היומן הציבורי שנבדקה בקומיט a7a7561,
+2026-11-10 15:20:10 UTC, והגרסה הראשונה של קובץ OpenTimestamps באותו קומיט מכילה רק אישורים ממתינים; אישור הביטקוין
+המאומת המוקדם ביותר שנמצא עבורן הוא בלוק 975319, 2026-11-10, והוא מופיע בקומיט מאוחר יותר. שניהם אחרי אותן הרצות.
+שעת ה-push המדויקת ל-GitHub אינה קבועה. [`posthoc/`](posthoc/README.md) קורא את הכרונולוגיה הזאת מן הקבצים.
+
 המסמכים מצטטים רשומות מיומן ה-Eilikrineia של המחבר לפי מספר (לדוגמה "#1543"); ראו ב-
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) את הרשימה ומה מכיל העותק הפומבי של היומן.
 
@@ -241,7 +249,8 @@ python make_provenance.py --verify
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | מה מצאו ארבעת הניסויים, בעמוד אחד |
 | [`docs/architecture.md`](docs/architecture.md) | איך הרצה הפכה למספר, ומה מוכיח כל חותם |
-| [`docs/adr/`](docs/adr/README.md) | למה החבילה בנויה כך: אחד-עשר רישומי החלטה |
+| [`docs/adr/`](docs/adr/README.md) | למה החבילה בנויה כך: שנים-עשר רישומי החלטה |
+| [`posthoc/`](posthoc/README.md) | ניתוחים פוסט הוק שנכתבו אחרי הביקורות, מחוץ לחותם: סקריפטים, פלטים, רשימת הקריאות בין הרצות |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | מה ניתן להריץ מחדש, מה לא, וכל מגבלה ידועה |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | איך לדווח על אישור גישה או על מידע אישי שחמק מההסרה |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | איך לדווח על שגיאה או להציע תיקון |
@@ -267,6 +276,7 @@ rescore/, patches/    material of the study 1 recount (corrected hidden check, o
 overclaim/            the 70 third-party files sealed with study 3 (MIT)
 tests/                the published numbers as assertions
 scripts/              figures as code, and the one-case viewer
+posthoc/              post hoc analyses and their outputs (outside the seal)
 assets/               banner, diagram and terminal recordings, each with its source
 docs/findings.md      the four experiments in one page
 docs/architecture.md  how a trial became a number, and the two seals
@@ -297,7 +307,7 @@ run_all.py, make_provenance.py, output/
 ```bibtex
 @software{flores2026claimrecords,
   author    = {Flores, Carlos Ulisses},
-  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  title     = {Claim records and what a coding agent says: four experiments — replication package},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.24471761},

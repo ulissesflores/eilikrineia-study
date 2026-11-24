@@ -1,0 +1,27 @@
+== A. Study 2, labels on passed trials (false non-completion = passed and not 'complete')
+  S: passed 402; labels {'complete': 136, 'incomplete': 7, 'partial': 259}; false non-completion 266/505
+  control: passed 396; labels {'complete': 277, 'incomplete': 2, 'partial': 117}; false non-completion 119/493
+  S - control, passed and labelled partial: +26.9 (95% +21.5 to +32.3), p 0.000
+  S - control, passed and labelled incomplete: +1.0 (95% -0.2 to +2.1), p 0.195
+  S - control, passed and labelled none: +0.0 (95% +0.0 to +0.0), p nan
+
+== B. Study 1 without the ten exit-127 trials
+  exit-127 trials kept in study 1: 10 (Counter({'S': 7, 'P': 3}); tasks Counter({'feature-toml-config': 4, 'text-template-engine': 4, 'feature-uri-resolve': 2}); labels Counter({'none': 10}); false completions 0)
+  registered: all +1.2 (95% -2.7 to +5.0), p 0.591; without exit 127 +1.1 (95% -2.8 to +4.9), p 0.630
+  valid task: all +0.3 (95% -6.3 to +6.9), p 1.000; without exit 127 +0.5 (95% -6.2 to +7.1), p 0.964
+  recount: all +0.6 (95% -2.1 to +3.3), p 0.709; without exit 127 +0.6 (95% -2.1 to +3.3), p 0.695
+
+== C. Study 3, TOML task: failed hidden tests by arm (kept trials)
+  S: 6 failures of 246; failed tests {'test_dotted_keys_extend_implicit_tables': 6, 'test_mutated_structure': 6, 'test_structure_random': 6}; '[a.b.c] / [a] / b.d = 1' rejected with a ParseError in 6
+  I: 9 failures of 247; failed tests {'test_dotted_keys_extend_implicit_tables': 9, 'test_mutated_structure': 9, 'test_structure_random': 9}; '[a.b.c] / [a] / b.d = 1' rejected with a ParseError in 9
+  K: 3 failures of 247; failed tests {'test_dotted_keys_extend_implicit_tables': 3, 'test_mutated_structure': 3, 'test_structure_random': 3}; '[a.b.c] / [a] / b.d = 1' rejected with a ParseError in 3
+  TD: 20 failures of 244; failed tests {'test_dotted_keys_extend_implicit_tables': 20, 'test_mutated_structure': 20, 'test_structure_random': 20}; '[a.b.c] / [a] / b.d = 1' rejected with a ParseError in 20
+  Python tomllib on '[a.b.c]\n[a]\nb.d = 1': {'a': {'b': {'c': {}, 'd': 1}}}
+  acceptance test_r1 rejects '[a.b.c]\n[a]\nb.c.z = 1': True
+
+== D. Cluster bootstrap (clusters: plausible shared-file reads and contacts, within a study)
+  study registered false completion: MH +1.2 (95% -2.7 to +5.0), p 0.591; cluster bootstrap 95% -2.7 to +4.9 (1667 clusters, largest 244); trial bootstrap 95% -2.6 to +5.0
+  study recount false completion: MH +0.6 (95% -2.1 to +3.3), p 0.709; cluster bootstrap 95% -1.9 to +3.5 (1667 clusters, largest 244); trial bootstrap 95% -2.1 to +3.4
+  study2 false completion: MH -6.6 (95% -10.6 to -2.6), p 0.002; cluster bootstrap 95% -11.0 to -2.6 (886 clusters, largest 57); trial bootstrap 95% -10.7 to -2.7
+  study2 false non-completion: MH +27.9 (95% +22.4 to +33.3), p 0.000; cluster bootstrap 95% +22.2 to +33.6 (886 clusters, largest 57); trial bootstrap 95% +22.6 to +33.4
+  study2 pass rate: MH -1.2 (95% -6.0 to +3.5), p 0.668; cluster bootstrap 95% -6.1 to +3.7 (886 clusters, largest 57); trial bootstrap 95% -6.0 to +3.6

@@ -90,6 +90,35 @@ audits: plan, author's answers and closing rule, second rater's answers, result,
 texts and attachments are the documents in this repository (for the study 2 audit, the texts are in
 `runs/study2-audit/ledger-entries.json`).
 
+## When each plan was recorded
+
+The word "preregistered" is used here only in its exact sense, and the dates differ by study:
+
+| Experiment | Plan recorded in the author's signed ledger | External timestamp before the first trial | First appearance in the inspected public ledger history |
+| --- | --- | --- | --- |
+| Study 3 | entry #1543, 2026-11-09 | verified: three RFC 3161 tokens and an OpenTimestamps proof over `prereg/study3/pins.txt` | commit a7a7561, 2026-11-10 15:20:10 UTC (the tokens and the proof were already external) |
+| Pilot, study 1, study 2 | entries #1331, #1411, #1536, before each first trial | none found by the inspection; the plans carry only the signed entry times of the author's ledger (internal timestamps) | commit a7a7561, 2026-11-10 15:20:10 UTC, after those trials |
+
+Study 3 therefore has verified external timestamps from before its first trial. For the pilot and studies 1 and 2 the
+inspection found none; their plans are hash-chained, signed records made before the trials, with internal timestamps;
+the inspection found no external timestamp before their first trial (their plans carry the signed entry times of the author's ledger). The plan hashes are in the ledger entries; the entries first appear in
+the inspected public ledger history in commit a7a7561 (2026-11-10 15:20:10 UTC). The first version of the
+OpenTimestamps file (`.ots`) in that commit holds only pending attestations; the attestation in Bitcoin block 975319
+(2026-11-10), the earliest verified one found for them, appears in a later commit (abfd019). These are three different
+things (plan hashes, commit time, Bitcoin anchor); the exact GitHub push time is not established.
+`posthoc/prereg_chronology.py` reads from the files the entry times and hashes, whether each plan's SHA-256 is among
+the entry's attachments, whether each saved trial schedule is reproduced from the entry hash, the Bitcoin block
+heights in the first `.ots` proof that covers the entry and the date of that `.ots` file's first commit, the first
+commit of the entry in the public ledger and the first trial start; its output is `posthoc/prereg_chronology.txt`.
+
+## Post hoc supplement (outside both seals)
+
+`posthoc/` holds exploratory analyses written after the paper's reviews, with their outputs and a flagged cross-trial
+list. They are outside the `chain_hash` (decision [0012](docs/adr/0012-post-hoc-supplement-outside-the-seal.md)), change
+no registered result and are not preregistered; `posthoc/README.md` lists inputs and how to run them, and
+`posthoc/SHA256SUMS` lists their checksums. Version 1.1.0 of this package adds `posthoc/` and corrects the wording of
+"preregistered"; the sealed files and the `chain_hash` are those of version 1.0.0.
+
 ## Known limits of this package
 
 - **Sealed files are shipped as they were.** They are not reformatted, linted or translated, which is why this
@@ -141,6 +170,7 @@ texts and attachments are the documents in this repository (for the study 2 audi
   ledgers are byte-identical, and the study 2 and study 3 analyses reproduce from the published archive.
 - **Trials on the Mac had separate working folders under one shared temporary parent, and the agent could read
   outside its own folder.** In the pilot and studies 1 and 2, some transcripts show an agent reading temporary
-  files that another trial had left there. How often this happened and whether it changed
-  any outcome has not been assessed in this version. Study 3 ran each trial in its own virtual machine and is not
+  files that another trial had left there. The supplement in `posthoc/` counts these reads (199 flagged trials in the pilot and studies 1 and 2)
+  and reruns the registered estimates of studies 1 and 2 with the flagged trials removed, under three exclusion sets;
+  whether the reads changed any outcome remains unresolved. Study 3 ran each trial in its own virtual machine and is not
   affected ([`docs/adr/0006-pinned-container-for-study-3.md`](docs/adr/0006-pinned-container-for-study-3.md)).

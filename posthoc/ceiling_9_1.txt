@@ -1,0 +1,4 @@
+haiku: flagged failures 50/952 = 5.25 pooled, task mean 5.10 (printed pass +5.1); flagged false completions 26 = 2.73 pooled, task mean 2.66 (printed -1.9)
+sonnet: flagged failures 59/952 = 6.20 pooled, task mean 5.91 (printed pass +6.0); flagged false completions 39 = 4.10 pooled, task mean 3.89 (printed -2.9)
+opus: flagged failures 89/952 = 9.35 pooled, task mean 9.07 (printed pass +9.1); flagged false completions 50 = 5.25 pooled, task mean 5.09 (printed -3.7)
+Verdict: the task mean matches 9.1 and 5.1 but gives 5.9 for 6.0 and no false-completion figure; not reproduced.

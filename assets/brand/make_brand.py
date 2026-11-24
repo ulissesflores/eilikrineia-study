@@ -102,7 +102,7 @@ def banner(name, t):
     ax.text(
         64,
         56,
-        f"Four preregistered experiments · {total:,} trials · hidden checks",
+        f"Four experiments · {total:,} trials · hidden checks",
         color=t["muted"],
         fontsize=13,
     )

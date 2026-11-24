@@ -21,6 +21,7 @@ engineering of the package around them.
 | [0009](0009-public-derivatives.md) | Redacted public copies of ledger-recorded files, with both hashes tested | 11-23 | accepted |
 | [0010](0010-dual-licence.md) | Code under Apache-2.0, documents and data under CC BY 4.0 | 11-14 | accepted |
 | [0011](0011-release-and-doi.md) | A release candidate mints the DOI; the concept DOI is the citation anchor | 11-23 | accepted |
+| [0012](0012-post-hoc-supplement-outside-the-seal.md) | Post hoc analyses ship as a supplement outside the seal | 11-23 | accepted |
 
 A new decision gets the next number. A record is never rewritten: a later decision that replaces it says so, and
 the earlier record's status becomes "superseded by NNNN".

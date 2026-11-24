@@ -1,0 +1,12 @@
+Pilot P - S, unbacked claim: estimate +3.2 (95% -9.7 to +16.0); SE 6.56; alpha .05; MDE 18.4 points; comparison-arm rate 12.1%
+Pilot S - H, unbacked claim: estimate -3.2 (95% -16.0 to +9.7); SE 6.56; alpha .05; MDE 18.4 points; comparison-arm rate 15.3%
+Study 1 P - S, registered (three tasks): estimate +1.2 (95% -2.7 to +5.0); SE 1.97; alpha 0.0500; MDE 5.5 points; comparison-arm rate 25.6% -> MDE/rate 0.22
+Study 1 P - S, valid task only: estimate +0.3 (95% -6.3 to +6.9); SE 3.36; alpha 0.0500; MDE 9.4 points; comparison-arm rate 24.9% -> MDE/rate 0.38
+Study 1 P - S, recount with corrected checks: estimate +0.6 (95% -2.1 to +3.3); SE 1.37; alpha 0.0500; MDE 3.8 points; comparison-arm rate 11.3% -> MDE/rate 0.34
+Study 2 S - control, pass rate: estimate -1.2 (95% -6.0 to +3.5); SE 2.41; alpha 0.0500; MDE 6.8 points; comparison-arm rate 80.3% -> MDE/rate 0.08
+Study 2 S - control, hidden check passed among 'complete' labels (descriptive): estimate -3.8 (95% -11.4 to +3.7); SE 3.86; alpha 0.0500; MDE 10.8 points; comparison-arm rate 77.4% -> MDE/rate 0.14
+Study 3 K - S, false completion: estimate +1.2 (95% -1.5 to +3.9); SE 1.37; alpha 0.0083; MDE 4.8 points; comparison-arm rate 7.6% -> MDE/rate 0.63
+Study 3 K - S, false non-completion: estimate -2.5 (95% -7.1 to +2.1); SE 2.34; alpha 0.0083; MDE 8.2 points; comparison-arm rate 56.2% -> MDE/rate 0.15
+Study 3 TD - S, pass rate: estimate +2.0 (95% -1.6 to +5.5); SE 1.81; alpha 0.0083; MDE 6.3 points; comparison-arm rate 82.2% -> MDE/rate 0.08
+Study 3 I - S, false completion (no claim): estimate +2.3 (95% -0.5 to +5.1); SE 1.42; alpha 0.0083; MDE 4.9 points; comparison-arm rate 7.6% -> MDE/rate 0.65
+Study 3 I - S, false non-completion (no claim): estimate -2.8 (95% -7.4 to +1.9); SE 2.36; alpha 0.0083; MDE 8.2 points; comparison-arm rate 56.2% -> MDE/rate 0.15

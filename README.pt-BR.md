@@ -21,8 +21,8 @@
 
 [Eilikrineia](https://github.com/ulissesflores/eilikrineia) é um formato de registro em que um agente de IA assina
 cada afirmação sobre o próprio trabalho ("feito", "testado"), junto com a evidência, num livro encadeado por hash.
-Este repositório guarda os quatro experimentos pré-registrados que perguntaram se um registro assim muda o que um
-agente de programação afirma, e se muda o trabalho: 6.224 tentativas, um modelo, tarefas com verificações ocultas.
+Este repositório guarda os quatro experimentos que perguntaram se um registro assim muda o que um
+agente de programação afirma, e se muda o trabalho: 6.224 tentativas, um modelo, tarefas com verificações ocultas. Cada um teve um plano escrito antes da primeira tentativa; o plano do estudo 3 tem carimbos externos verificados anteriores a ela; para os outros a inspeção não encontrou nenhum (veja Integridade).
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-light.svg">
@@ -171,7 +171,7 @@ Duas coisas fora dos testes confirmatórios do estudo 3:
   verdadeiras com o registro, 77,5% sem ele.
 - **Que o tamanho do efeito do estudo 2 é robusto.** Muitos agentes com o registro escreveram por conta própria
   uma seção "não verificado". Sem contar essas seções como ressalvas (exploratório), as diferenças são −4,4 e
-  +16,7 pontos, e a redução não alcançaria o limiar pré-registrado.
+  +16,7 pontos, e a redução não alcançaria o limiar definido no plano.
 - **Que o rotulador lê "completo" como uma pessoa leria.** Três modelos de IA foram usados como avaliadores
   (Fable, um modelo Claude; Grok; Gemini Hydrogen); eles concordam com o rotulador em 73% a 79% de 160 mensagens
   auditadas. Nenhuma pessoa o validou. O autor, chamado de "the owner" nos documentos, lançou 40 etiquetas depois
@@ -213,6 +213,16 @@ da embalagem, imagens e gravações). Os 114 arquivos selados antes de o estudo 
 com provas RFC 3161 e OpenTimestamps) são entregues byte a byte idênticos, e um teste recalcula cada um. O
 pré-registro do estudo 3 está registrado em <https://osf.io/rjnt2> (sob embargo).
 
+**Quando cada plano foi registrado.** O estudo 3 tem carimbos externos verificados anteriores à sua primeira tentativa: três
+tokens RFC 3161 e uma prova OpenTimestamps sobre `prereg/study3/pins.txt`, datados de 2026-11-09. A inspeção não
+encontrou carimbo externo anterior à primeira tentativa para o piloto e os estudos 1 e 2; os planos deles só têm os
+horários de entrada assinados do livro do autor (carimbos internos; os hashes dos planos estão nas entradas do livro).
+As entradas aparecem pela primeira vez no histórico inspecionado do livro público no commit a7a7561, 2026-11-10 15:20:10
+UTC, e a primeira versão do arquivo OpenTimestamps nesse commit só tem atestações pendentes; a atestação Bitcoin
+verificada mais antiga que encontrei para eles é o bloco 975319, 2026-11-10, que aparece num commit posterior. Ambos são
+posteriores a essas tentativas. A hora exata do push no GitHub não está estabelecida.
+[`posthoc/`](posthoc/README.md) lê essa cronologia a partir dos arquivos.
+
 Os documentos citam entradas do livro Eilikrineia do autor pelo número (por exemplo "#1543"); veja em
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) a lista e o que a cópia pública do livro contém.
 
@@ -222,7 +232,8 @@ Os documentos citam entradas do livro Eilikrineia do autor pelo número (por exe
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | O que os quatro experimentos encontraram, em uma página |
 | [`docs/architecture.md`](docs/architecture.md) | Como uma tentativa virou um número, e o que cada selo prova |
-| [`docs/adr/`](docs/adr/README.md) | Por que o pacote é construído assim: onze registros de decisão |
+| [`docs/adr/`](docs/adr/README.md) | Por que o pacote é construído assim: doze registros de decisão |
+| [`posthoc/`](posthoc/README.md) | Análises post hoc escritas depois das revisões, fora do selo: scripts, saídas, a lista de leituras entre tentativas |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | O que roda de novo, o que não roda, e cada limite conhecido |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | Como relatar uma credencial ou um dado pessoal que escapou da remoção |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | Como relatar um erro ou propor uma correção |
@@ -246,6 +257,7 @@ rescore/, patches/    material da recontagem do estudo 1 (verificação oculta c
 overclaim/            os 70 arquivos de terceiros selados com o estudo 3 (MIT)
 tests/                os números publicados como asserções
 scripts/              figuras como código, e o visualizador de um caso
+posthoc/              análises post hoc e suas saídas (fora do selo)
 assets/               banner, diagrama e gravações de terminal, cada um com sua fonte
 docs/findings.md      os quatro experimentos em uma página
 docs/architecture.md  como uma tentativa virou um número, e os dois selos
@@ -273,7 +285,7 @@ ferramentas de citação leem.
 ```bibtex
 @software{flores2026claimrecords,
   author    = {Flores, Carlos Ulisses},
-  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  title     = {Claim records and what a coding agent says: four experiments — replication package},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.24471761},

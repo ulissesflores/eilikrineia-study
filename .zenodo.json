@@ -1,6 +1,6 @@
 {
-  "title": "Claim records and what a coding agent says: four preregistered experiments — replication package",
-  "description": "Four preregistered experiments (a pilot and three studies, 6,224 trials, Claude Haiku 5.5 as a coding agent on tasks with hidden checks) on whether a signed, hash-chained record of the agent's own claims changes what it claims and what it delivers. Publishing the record showed no detectable effect on false completion claims. Asking for a record with evidence (instruction, tool and signed record together) lowered false completion by 6.6 points and raised false non-completion by 27.9 points; a 'complete' claim was not more often true and the share of finished work was about the same. Pressure framing and independent acceptance tests showed no gain on the confirmatory tests. Study 3's preregistered human audit of the completion labeller was not completed; in Study 2, a post hoc audit measured its agreement with two human raters on the same 80 messages. Ships the preregistrations, the per-trial scores, the frozen analysis outputs, the labeller audit, tests that lock the published numbers and a SHA-256 provenance seal.",
+  "title": "Claim records and what a coding agent says: four experiments — replication package",
+  "description": "Four experiments (a pilot and three studies, 6,224 trials, Claude Haiku 5.5 as a coding agent on tasks with hidden checks) on whether a signed, hash-chained record of the agent's own claims changes what it claims and what it delivers. Publishing the record showed no detectable effect on false completion claims. Asking for a record with evidence (instruction, tool and signed record together) lowered false completion by 6.6 points and raised false non-completion by 27.9 points; a 'complete' claim was not more often true and the share of finished work was about the same. Pressure framing and independent acceptance tests showed no gain on the confirmatory tests. Study 3's preregistered human audit of the completion labeller was not completed; in Study 2, a post hoc audit measured its agreement with two human raters on the same 80 messages. Each plan was recorded before its first trial. Study 3 has verified external timestamps from before its first trial (three RFC 3161 tokens and OpenTimestamps); the inspection found none for the pilot and Studies 1 and 2, whose plans carry only the signed entry times of the author's ledger (internal timestamps). They first appear in the inspected public ledger history in commit a7a7561 (2026-11-10 15:20:10 UTC), after those trials, whose first OpenTimestamps file holds only pending attestations; the earliest verified Bitcoin attestation found is block 975319 (2026-11-10), in a later commit. Version 1.1.0 adds exploratory post hoc analyses outside the release seal (posthoc/). Ships the plans and results documents, the per-trial scores, the frozen analysis outputs, the labeller audit, tests that lock the published numbers and a SHA-256 provenance seal.",
   "creators": [
     {
       "name": "Flores, Carlos Ulisses",
@@ -15,15 +15,22 @@
     "AI agents",
     "coding agents",
     "false completion claims",
-    "preregistration",
+    "study plans",
+    "post hoc analyses",
     "negative result",
     "hash-chained ledger",
     "provenance"
   ],
   "language": "eng",
   "notes": "Dual licensing: source code under Apache-2.0 (deposit license); documents, data and paper text under CC BY 4.0; third-party benchmark files under MIT. Author profiles: website https://ulissesflores.com, Lattes CV http://lattes.cnpq.br/6905246706890561.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "related_identifiers": [
+    {
+      "relation": "isNewVersionOf",
+      "identifier": "10.5281/zenodo.24478622",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
     {
       "relation": "isSupplementedBy",
       "identifier": "10.5281/zenodo.24450523",

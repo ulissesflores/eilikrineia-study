@@ -24,7 +24,7 @@ whether such a record changes what the agent claims, and whether it changes the 
 ## Pilot (180 trials)
 
 Three arms: unsigned private notes, signed private record, signed public record. No arm differed by the 10 points
-the preregistration asked for (public − private +3.2 points, 95% −9.7 to +16.0, on unbacked claims). The primary
+the plan asked for (public − private +3.2 points, 95% −9.7 to +16.0, on unbacked claims). The primary
 measure turned out to be mostly a measurement artefact: in 23 of its 25 events the hidden check had passed. That
 is why study 1 changed the measure.
 
@@ -60,7 +60,7 @@ finished. The share of work that passed did not detectably change.
 
 **Sensitivity (exploratory):** many agents with the record wrote a "not verified" section by their own choice.
 Without counting those sections as hedges, the differences are −4.4 (−8.6 to −0.2) and +16.7 (+11.3 to +22.2),
-and the reduction in false completion would not meet the preregistered threshold.
+and the reduction in false completion would not meet the threshold set in the plan.
 
 ## Study 3 (2,964 trials): three more treatments with the record in place
 

@@ -71,6 +71,7 @@ flowchart LR
 | Frozen outputs | `runs/` | per-trial scores and analysis outputs | yes |
 | Plans and results | `PREREGISTRATION*.md`, `RESULTS*.md`, `DEVIATION*`, `POSTHOC*` | the dated documents | yes |
 | Replication | `run_all.py`, `scripts/`, `tests/`, `make_provenance.py` | rerun, assert, seal | yes |
+| Post hoc supplement | `posthoc/` | exploratory analyses written after the reviews, with outputs and checksums | no |
 | Reader material | `README*.md`, `REPRODUCIBILITY.md`, `docs/`, `assets/`, metadata, CI | explains and cites | no |
 
 ## The two seals

@@ -21,8 +21,9 @@
 
 [Eilikrineia](https://github.com/ulissesflores/eilikrineia) is a record format in which an AI agent signs each
 claim about its own work ("done", "tested"), with the evidence, into a hash-chained log. This repository holds the
-four preregistered experiments that asked whether such a record changes what a coding agent claims, and whether it
-changes the work: 6,224 trials, one model, tasks with hidden checks.
+four experiments that asked whether such a record changes what a coding agent claims, and whether it
+changes the work: 6,224 trials, one model, tasks with hidden checks. Each had a written plan before its first trial;
+study 3's plan has verified external timestamps from before it; for the others the inspection found none (see Integrity).
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-light.svg">
@@ -166,7 +167,7 @@ Two things outside the confirmatory tests of study 3:
   record, 77.5% without.
 - **The size of the study 2 effect as robust.** Many agents with the record wrote a "not verified" section by
   their own choice. Without counting those sections as hedges (exploratory), the differences are −4.4 and +16.7
-  points, and the reduction would not meet the preregistered threshold.
+  points, and the reduction would not meet the threshold set in the plan.
 - **That the labeller reads "complete" as a person would.** Three AI models were used as raters (Fable, a Claude
   model; Grok; Gemini Hydrogen); they agree with the labeller on 73% to 79% of 160 audited messages. No person
   validated it. The author, called "the owner" in the documents, entered 40 labels after the results were known;
@@ -206,6 +207,16 @@ other packaging, pictures and recordings). The 114 files sealed before study 3 r
 RFC 3161 and OpenTimestamps proofs) are shipped byte-identical, and a test recomputes every one. The study 3
 preregistration is registered at <https://osf.io/rjnt2> (embargoed).
 
+**When each plan was recorded.** Study 3 has verified external timestamps from before its first trial: three RFC 3161
+tokens and an OpenTimestamps proof over `prereg/study3/pins.txt`, dated 2026-11-09. The inspection found no external
+timestamp from before the first trial for the pilot and studies 1 and 2; their plans carry only the signed entry times
+of the author's ledger (internal timestamps; the plan hashes are in the ledger entries). The entries first appear in
+the inspected public ledger history in commit a7a7561, 2026-11-10 15:20:10 UTC, and the first version of the
+OpenTimestamps file in that commit holds only pending attestations; the earliest verified Bitcoin attestation found
+for them is block 975319, 2026-11-10, which appears in a later commit. Both come after those trials. The exact GitHub
+push time is not established.
+[`posthoc/`](posthoc/README.md) reads this chronology from the files.
+
 The documents cite entries of the author's Eilikrineia ledger by number (for example "#1543"); see
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for the list and for what the public copy of the ledger holds.
 
@@ -215,7 +226,8 @@ The documents cite entries of the author's Eilikrineia ledger by number (for exa
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | What the four experiments found, in one page |
 | [`docs/architecture.md`](docs/architecture.md) | How a trial became a number, and what each seal proves |
-| [`docs/adr/`](docs/adr/README.md) | Why the package is built the way it is: eleven decision records |
+| [`docs/adr/`](docs/adr/README.md) | Why the package is built the way it is: twelve decision records |
+| [`posthoc/`](posthoc/README.md) | Post hoc analyses written after the reviews, outside the seal: scripts, outputs, the flagged cross-trial list |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | What reruns, what cannot, and every known limit |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | How to report a credential or personal data that the redaction missed |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | How to report an error or propose a correction |
@@ -237,6 +249,7 @@ rescore/, patches/    material of the study 1 recount (corrected hidden check, o
 overclaim/            the 70 third-party files sealed with study 3 (MIT)
 tests/                the published numbers as assertions
 scripts/              figures as code, and the one-case viewer
+posthoc/              post hoc analyses and their outputs (outside the seal)
 assets/               banner, diagram and terminal recordings, each with its source
 docs/findings.md      the four experiments in one page
 docs/architecture.md  how a trial became a number, and the two seals
@@ -264,7 +277,7 @@ metadata in a form citation tools read.
 ```bibtex
 @software{flores2026claimrecords,
   author    = {Flores, Carlos Ulisses},
-  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  title     = {Claim records and what a coding agent says: four experiments — replication package},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.24471761},

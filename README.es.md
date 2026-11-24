@@ -21,9 +21,9 @@
 
 [Eilikrineia](https://github.com/ulissesflores/eilikrineia) es un formato de registro en el que un agente de IA
 firma cada afirmación sobre su propio trabajo ("hecho", "probado"), junto con la evidencia, en un libro encadenado
-por hash. Este repositorio contiene los cuatro experimentos prerregistrados que preguntaron si un registro así
+por hash. Este repositorio contiene los cuatro experimentos que preguntaron si un registro así
 cambia lo que afirma un agente de programación, y si cambia el trabajo: 6.224 ensayos, un modelo, tareas con
-comprobaciones ocultas.
+comprobaciones ocultas. Cada uno tuvo un plan escrito antes de su primer ensayo; el plan del estudio 3 tiene sellos de tiempo externos verificados anteriores a él; para los demás la inspección no encontró ninguno (véase Integridad).
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-light.svg">
@@ -174,7 +174,7 @@ Dos cosas fuera de las pruebas confirmatorias del estudio 3:
   ciertas con el registro, el 77,5% sin él.
 - **Que el tamaño del efecto del estudio 2 sea robusto.** Muchos agentes con el registro escribieron por decisión
   propia una sección "no verificado". Sin contar esas secciones como salvedades (exploratorio), las diferencias
-  son −4,4 y +16,7 puntos, y la reducción no alcanzaría el umbral prerregistrado.
+  son −4,4 y +16,7 puntos, y la reducción no alcanzaría el umbral fijado en el plan.
 - **Que el etiquetador lea "completo" como lo haría una persona.** Se usaron tres modelos de IA como evaluadores
   (Fable, un modelo Claude; Grok; Gemini Hydrogen); coinciden con el etiquetador en el 73% al 79% de 160 mensajes
   auditados. Ninguna persona lo validó. El autor, llamado "the owner" en los documentos, introdujo 40 etiquetas
@@ -216,6 +216,16 @@ del empaquetado, imágenes y grabaciones). Los 114 archivos sellados antes de qu
 (`prereg/study3/pins.txt`, con pruebas RFC 3161 y OpenTimestamps) se entregan idénticos byte a byte, y una prueba
 recalcula cada uno. El prerregistro del estudio 3 está registrado en <https://osf.io/rjnt2> (bajo embargo).
 
+**Cuándo se registró cada plan.** El estudio 3 tiene sellos de tiempo externos verificados anteriores a su primer ensayo:
+tres tokens RFC 3161 y una prueba OpenTimestamps sobre `prereg/study3/pins.txt`, fechados el 2026-11-09. La inspección no
+encontró ningún sello de tiempo externo anterior al primer ensayo para el piloto y los estudios 1 y 2; sus planes solo
+llevan las horas de entrada firmadas del libro del autor (sellos internos; los hashes de los planes están en las
+entradas del libro). Las entradas aparecen por primera vez en el historial inspeccionado del libro público en el commit
+a7a7561, 2026-11-10 15:20:10 UTC, y la primera versión del archivo OpenTimestamps en ese commit solo tiene atestaciones
+pendientes; la atestación de Bitcoin verificada más temprana que se encontró para ellos es el bloque 975319, 2026-11-10,
+que aparece en un commit posterior. Ambos son posteriores a esos ensayos. No se ha establecido la hora exacta del push a
+GitHub. [`posthoc/`](posthoc/README.md) lee esta cronología a partir de los archivos.
+
 Los documentos citan entradas del libro Eilikrineia del autor por número (por ejemplo "#1543"); véase en
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) la lista y qué contiene la copia pública del libro.
 
@@ -225,7 +235,8 @@ Los documentos citan entradas del libro Eilikrineia del autor por número (por e
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | Qué encontraron los cuatro experimentos, en una página |
 | [`docs/architecture.md`](docs/architecture.md) | Cómo un ensayo se convirtió en un número, y qué prueba cada sello |
-| [`docs/adr/`](docs/adr/README.md) | Por qué el paquete está construido así: once registros de decisión |
+| [`docs/adr/`](docs/adr/README.md) | Por qué el paquete está construido así: doce registros de decisión |
+| [`posthoc/`](posthoc/README.md) | Análisis post hoc escritos después de las revisiones, fuera del sello: scripts, salidas, la lista de lecturas entre ensayos |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | Qué se vuelve a ejecutar, qué no, y cada límite conocido |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | Cómo informar de una credencial o un dato personal que escapó a la eliminación |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | Cómo informar de un error o proponer una corrección |
@@ -249,6 +260,7 @@ rescore/, patches/    material del recuento del estudio 1 (comprobación oculta 
 overclaim/            los 70 archivos de terceros sellados con el estudio 3 (MIT)
 tests/                los números publicados como aserciones
 scripts/              figuras como código, y el visor de un caso
+posthoc/              análisis post hoc y sus salidas (fuera del sello)
 assets/               banner, diagrama y grabaciones de terminal, cada uno con su fuente
 docs/findings.md      los cuatro experimentos en una página
 docs/architecture.md  cómo un ensayo se convirtió en un número, y los dos sellos
@@ -276,7 +288,7 @@ leen las herramientas de citas.
 ```bibtex
 @software{flores2026claimrecords,
   author    = {Flores, Carlos Ulisses},
-  title     = {Claim records and what a coding agent says: four preregistered experiments — replication package},
+  title     = {Claim records and what a coding agent says: four experiments — replication package},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.24471761},

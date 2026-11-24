@@ -1,0 +1,24 @@
+| Experiment | Ledger entry | Entry time (UTC) | Entry hash | Prereg doc in attachments | Schedule from hash | First OTS stamp covering entry (seq; Bitcoin blocks; first commit of .ots) | Entry file first in public git | First trial start (UTC) |
+| Pilot | #1331 (run) | 2026-11-04T03:16:28Z | cfe6278494aa7478… | True (PREREGISTRATION.md 177395a74223…) | yes (180 trials; --tasks as run_pilot.py --arms H,S,P) | #1543 (head 100e632f8184…; previous stamp #106); blocks 975319; 2026-11-10T12:20:10-03:00 | 2026-11-10T12:20:10-03:00 | 2026-11-04T03:16:41+00:00 (001-P-billing-month-end-r1); last start 2026-11-04T06:58:45+00:00; 180 records |
+| Study 1 | #1411 (run) | 2026-11-05T23:03:18Z | 71240edf70e1330f… | True (PREREGISTRATION-STUDY.md a7e29fe2bbdf…) | yes (1998 trials; --tasks text-template-engine,feature-toml-config,feature-uri-resolve --arms P,S) | #1543 (head 100e632f8184…; previous stamp #106); blocks 975319; 2026-11-10T12:20:10-03:00 | 2026-11-10T12:20:10-03:00 | 2026-11-05T23:03:32+00:00 (0001-P-feature-toml-config-r186); last start 2026-11-07T05:32:59+00:00; 1998 records |
+| Study 2 | #1536 (run) | 2026-11-07T19:02:36Z | 2fc73e812df9a2ef… | True (PREREGISTRATION-STUDY2.md 9aea6c7f1352…) | yes (1086 trials; --tasks feature-toml-config,feature-uri-resolve,text-template-engine --arms S,control) | #1543 (head 100e632f8184…; previous stamp #106); blocks 975319; 2026-11-10T12:20:10-03:00 | 2026-11-10T12:20:10-03:00 | 2026-11-07T19:02:55+00:00 (0001-control-feature-uri-resolve-r105); last start 2026-11-08T02:41:40+00:00; 1082 records |
+| Study 3 | #1543 (run) | 2026-11-09T04:03:28Z | 100e632f81847af6… | True (PREREGISTRATION-STUDY3.md 0104eb22b17b…) | yes (2964 trials; --tasks feature-toml-config,feature-uri-resolve,text-template-engine --arms S,I,K,TD) | #1543 (head 100e632f8184…; previous stamp #106); blocks 975319; 2026-11-10T12:20:10-03:00 | 2026-11-10T12:20:10-03:00 | 2026-11-09T05:00:44+00:00 (0001-S-feature-uri-resolve-r166); last start 2026-11-09T17:20:33+00:00; 2964 records |
+
+Study 3 seal: prereg/study3/pins.txt
+  sha256(pins.txt) 8e087c3c898ea33e1909f6360259a3c61244538e60b01b64e2754d513b1a2284; header: # study 3 pins (sha256), 2026-11-09T04:02:00+00:00
+  files pinned 114; PREREGISTRATION-STUDY3.md pinned hash equals shipped file: True
+  RFC 3161 digicert: Nov  9 04:02:02 2026 GMT; imprint == sha256(pins.txt): True; openssl ts -verify: OK
+  RFC 3161 freetsa: Nov  9 04:02:02 2026 GMT; imprint == sha256(pins.txt): True; openssl ts -verify: OK
+  RFC 3161 sectigo: Nov  9 04:02:03 2026 GMT; imprint == sha256(pins.txt): True; openssl ts -verify: OK
+  OpenTimestamps pins.txt.ots Bitcoin block attestations: ['975129', '975130', '975143', '975152']
+
+Note: block heights are printed as read from the proofs; their times need a Bitcoin node and were not looked up.
+
+== Completeness checks for the 'None' cells
+  <package root>: timestamp/pins files outside the study 3 seal: ['runs/study2-pins.txt']
+  runs/study2-pins.txt header: '# study 2 pins (sha256), 2026-11-07T19:02:19Z' (a hash list; no token or proof beside it)
+  ledger commit for #106: ['2026-10-31T16:59:12-03:00 chain: through #106, head c5e379ad0af5']; first commit for #1543: 2026-11-10T12:20:10-03:00 chain: through #1543, head 100e632f8184; commits strictly between (all refs): []
+  local main == origin/main: True
+  chain/001331.json first added (all refs): ['a7a7561 2026-11-10T12:20:10-03:00']
+  chain/001411.json first added (all refs): ['a7a7561 2026-11-10T12:20:10-03:00']
+  chain/001536.json first added (all refs): ['a7a7561 2026-11-10T12:20:10-03:00']

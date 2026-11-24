@@ -1,0 +1,56 @@
+TSV rows 406; flagged trials 199; by study {'pilot': 6, 'study': 137, 'study2': 56}; by study and arm {('pilot', 'H'): 1, ('pilot', 'P'): 2, ('pilot', 'S'): 3, ('study', 'P'): 72, ('study', 'S'): 65, ('study2', 'S'): 37, ('study2', 'control'): 19}
+trials per row kind: shared-tmp-read 179, trial-id-command 6, trial-id-other 2, trial-id-result 38
+reproduced shared-tmp-read rows: 326; TSV 326; in both 326; only TSV 0; only reproduced 0
+shared-tmp-read rows with an earlier other writer 267, with only later writers 59
+contact trials 38; plausible-read trials 146; strict (union) 170; implausible only 29; named counterparts not themselves flagged 45
+  strict: 170 trials; by study and arm {('pilot', 'H'): 1, ('pilot', 'P'): 1, ('pilot', 'S'): 2, ('study', 'P'): 58, ('study', 'S'): 52, ('study2', 'S'): 37, ('study2', 'control'): 19}
+    by study, arm and task: {('study', 'P', 'feature-toml-config'): 56, ('study', 'P', 'feature-uri-resolve'): 1, ('study', 'P', 'text-template-engine'): 1, ('study', 'S', 'feature-toml-config'): 50, ('study', 'S', 'text-template-engine'): 2, ('study2', 'S', 'feature-toml-config'): 34, ('study2', 'S', 'feature-uri-resolve'): 1, ('study2', 'S', 'text-template-engine'): 2, ('study2', 'control', 'feature-toml-config'): 18, ('study2', 'control', 'text-template-engine'): 1}
+  broad: 199 trials; by study and arm {('pilot', 'H'): 1, ('pilot', 'P'): 2, ('pilot', 'S'): 3, ('study', 'P'): 72, ('study', 'S'): 65, ('study2', 'S'): 37, ('study2', 'control'): 19}
+    by study, arm and task: {('study', 'P', 'feature-toml-config'): 69, ('study', 'P', 'feature-uri-resolve'): 1, ('study', 'P', 'text-template-engine'): 2, ('study', 'S', 'feature-toml-config'): 62, ('study', 'S', 'text-template-engine'): 3, ('study2', 'S', 'feature-toml-config'): 34, ('study2', 'S', 'feature-uri-resolve'): 1, ('study2', 'S', 'text-template-engine'): 2, ('study2', 'control', 'feature-toml-config'): 18, ('study2', 'control', 'text-template-engine'): 1}
+  broad+counterparts: 244 trials; by study and arm {('pilot', 'H'): 2, ('pilot', 'P'): 2, ('pilot', 'S'): 3, ('study', 'P'): 94, ('study', 'S'): 82, ('study2', 'S'): 41, ('study2', 'control'): 20}
+    by study, arm and task: {('study', 'P', 'feature-toml-config'): 90, ('study', 'P', 'feature-uri-resolve'): 1, ('study', 'P', 'text-template-engine'): 3, ('study', 'S', 'feature-toml-config'): 79, ('study', 'S', 'text-template-engine'): 3, ('study2', 'S', 'feature-toml-config'): 38, ('study2', 'S', 'feature-uri-resolve'): 1, ('study2', 'S', 'text-template-engine'): 2, ('study2', 'control', 'feature-toml-config'): 19, ('study2', 'control', 'text-template-engine'): 1}
+
+######## NO EXCLUSION (gate: must equal the frozen package outputs)
+  study 1 registered (P-S false completion, 3 tasks): MH P-S by task: +1.2 points (95% -2.7 to +5.0); CMH chi2 0.29, p 0.591
+    arms: per task: feature-toml-config 88/330 vs 84/331 | feature-uri-resolve 94/332 vs 88/333 | text-template-engine 84/333 vs 83/333
+    trials 1998, excluded 6
+  study 1 valid task only (text-template-engine, registered measure): P 84/333 S 83/333; P-S +0.3 (95% -6.3 to +6.9), p 1.00
+  study 1 recount (valid checks): all trials:      P 119/995 S 113/997; MH P-S +0.6 (95% -2.1 to +3.3), p 0.71
+    trials 1082, excluded 84; excluded in S: 37 {'agent error': 27, 'agent never started': 10}; excluded in control: 47 {'agent error': 43, 'agent never started': 4}
+  study 2 false_completion: MH S-control by task: -6.6 points (95% -10.6 to -2.6); CMH chi2 9.78, p 0.002  [S: 48/505 = 9.5% (95% 7.2%-12.4%); control: 81/493 = 16.4% (95% 13.4%-20.0%)]
+  study 2 false_non_completion: MH S-control by task: +27.9 points (95% +22.4 to +33.3); CMH chi2 90.83, p 0.000  [S: 266/505 = 52.7% (95% 48.3%-57.0%); control: 119/493 = 24.1% (95% 20.6%-28.1%)]
+  study 2 check_passed: MH S-control by task: -1.2 points (95% -6.0 to +3.5); CMH chi2 0.18, p 0.668  [S: 402/505 = 79.6% (95% 75.9%-82.9%); control: 396/493 = 80.3% (95% 76.6%-83.6%)]
+GATE frozen lines reproduced: [True, True, True, True] -> OK
+
+######## EXCLUDING STRICT: 110 study 1 and 56 study 2 trials removed (before the registered exclusions)
+  study 1 registered (P-S false completion, 3 tasks): MH P-S by task: +1.5 points (95% -2.5 to +5.5); CMH chi2 0.47, p 0.492
+    arms: per task: feature-toml-config 76/274 vs 71/281 | feature-uri-resolve 94/331 vs 88/333 | text-template-engine 84/332 vs 83/331
+    trials 1888, excluded 6
+  study 1 valid task only (text-template-engine, registered measure): P 84/332 S 83/331; P-S +0.2 (95% -6.4 to +6.8), p 1.00
+  study 1 recount (valid checks): all trials:      P 117/937 S 112/945; MH P-S +0.5 (95% -2.3 to +3.4), p 0.76
+    trials 1026, excluded 84; excluded in S: 37 {'agent error': 27, 'agent never started': 10}; excluded in control: 47 {'agent error': 43, 'agent never started': 4}
+  study 2 false_completion: MH S-control by task: -6.8 points (95% -11.1 to -2.6); CMH chi2 9.44, p 0.002  [S: 47/468 = 10.0% (95% 7.6%-13.1%); control: 80/474 = 16.9% (95% 13.8%-20.5%)]
+  study 2 false_non_completion: MH S-control by task: +28.1 points (95% +22.5 to +33.7); CMH chi2 87.73, p 0.000  [S: 242/468 = 51.7% (95% 47.2%-56.2%); control: 112/474 = 23.6% (95% 20.0%-27.7%)]
+  study 2 check_passed: MH S-control by task: -1.1 points (95% -6.1 to +3.8); CMH chi2 0.13, p 0.721  [S: 368/468 = 78.6% (95% 74.7%-82.1%); control: 378/474 = 79.7% (95% 75.9%-83.1%)]
+
+######## EXCLUDING BROAD: 137 study 1 and 56 study 2 trials removed (before the registered exclusions)
+  study 1 registered (P-S false completion, 3 tasks): MH P-S by task: +1.5 points (95% -2.6 to +5.5); CMH chi2 0.43, p 0.512
+    arms: per task: feature-toml-config 74/261 vs 71/269 | feature-uri-resolve 94/331 vs 88/333 | text-template-engine 84/331 vs 82/330
+    trials 1861, excluded 6
+  study 1 valid task only (text-template-engine, registered measure): P 84/331 S 82/330; P-S +0.5 (95% -6.1 to +7.1), p 0.95
+  study 1 recount (valid checks): all trials:      P 117/923 S 111/932; MH P-S +0.7 (95% -2.2 to +3.5), p 0.70
+    trials 1026, excluded 84; excluded in S: 37 {'agent error': 27, 'agent never started': 10}; excluded in control: 47 {'agent error': 43, 'agent never started': 4}
+  study 2 false_completion: MH S-control by task: -6.8 points (95% -11.1 to -2.6); CMH chi2 9.44, p 0.002  [S: 47/468 = 10.0% (95% 7.6%-13.1%); control: 80/474 = 16.9% (95% 13.8%-20.5%)]
+  study 2 false_non_completion: MH S-control by task: +28.1 points (95% +22.5 to +33.7); CMH chi2 87.73, p 0.000  [S: 242/468 = 51.7% (95% 47.2%-56.2%); control: 112/474 = 23.6% (95% 20.0%-27.7%)]
+  study 2 check_passed: MH S-control by task: -1.1 points (95% -6.1 to +3.8); CMH chi2 0.13, p 0.721  [S: 368/468 = 78.6% (95% 74.7%-82.1%); control: 378/474 = 79.7% (95% 75.9%-83.1%)]
+
+######## EXCLUDING BROAD + NAMED COUNTERPARTS: 176 study 1 and 61 study 2 trials removed (before the registered exclusions)
+  study 1 registered (P-S false completion, 3 tasks): MH P-S by task: +1.2 points (95% -2.8 to +5.3); CMH chi2 0.30, p 0.584
+    arms: per task: feature-toml-config 69/242 vs 69/252 | feature-uri-resolve 94/331 vs 88/333 | text-template-engine 84/330 vs 82/330
+    trials 1822, excluded 4
+  study 1 valid task only (text-template-engine, registered measure): P 84/330 S 82/330; P-S +0.6 (95% -6.0 to +7.2), p 0.93
+  study 1 recount (valid checks): all trials:      P 116/903 S 111/915; MH P-S +0.6 (95% -2.3 to +3.5), p 0.74
+    trials 1021, excluded 84; excluded in S: 37 {'agent error': 27, 'agent never started': 10}; excluded in control: 47 {'agent error': 43, 'agent never started': 4}
+  study 2 false_completion: MH S-control by task: -6.7 points (95% -10.9 to -2.4); CMH chi2 8.88, p 0.003  [S: 47/464 = 10.1% (95% 7.7%-13.2%); control: 79/473 = 16.7% (95% 13.6%-20.3%)]
+  study 2 false_non_completion: MH S-control by task: +28.0 points (95% +22.4 to +33.6); CMH chi2 86.70, p 0.000  [S: 239/464 = 51.5% (95% 47.0%-56.0%); control: 112/473 = 23.7% (95% 20.1%-27.7%)]
+  study 2 check_passed: MH S-control by task: -1.4 points (95% -6.3 to +3.6); CMH chi2 0.20, p 0.652  [S: 364/464 = 78.4% (95% 74.5%-81.9%); control: 378/473 = 79.9% (95% 76.1%-83.3%)]
