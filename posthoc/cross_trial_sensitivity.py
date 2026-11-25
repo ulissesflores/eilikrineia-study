@@ -1,22 +1,12 @@
-"""Post hoc: cross-trial-read sensitivity of the registered estimates of studies 1 and 2.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Post hoc cross-trial-read sensitivity of the registered estimates of studies 1 and 2.
 
-EXPLORATORY, POST HOC (2026-11-23). Not preregistered. Flagging happens after randomisation, so
-excluding flagged trials is a sensitivity check, not an unbiased estimate of the effect in an
-uncontaminated run.
+Flagging happens after randomisation, so excluding flagged trials is a sensitivity check, not an
+unbiased estimate of the effect in an uncontaminated run.
 
-Inputs (read only):
-- the scan list posthoc/cross-trial-reads.tsv (the author's scan of the original raw folders, one
-  row per flagged read; columns: trial, file, line, kind, foreign path or trial id, up to five other
-  trial folders and a "+N" count, study, other studies). This script does not rebuild it: the rule
-  that found the `trial-id-*` rows is not shipped;
-- the raw trial folders <RAW>/{pilot,study,study2} (default: raw/, the unpacked archive
-  10.5281/zenodo.24450523; record.json start times; agent.stdout to recover the full list of other
-  writers of each shared temp path, which the list truncates after five names);
-- the published package, i.e. the package root (score files and the analysers, imported
-  and run unchanged: analyze_study.main, analyze_rescore.main, analyze_study2.main,
-  analyze_study.mh_rd).
+Classification of flagged trials (printed with counts):
 
-Classification of flagged trials (printed below with counts):
 - contact: the transcript itself shows another trial's folder name (a `trial-id-*` row of the TSV).
   On inspection these are another trial's script read, overwritten or run from a shared temp folder
   (its `sys.path` names the other trial), not bare directory listings.
@@ -24,19 +14,54 @@ Classification of flagged trials (printed below with counts):
   path had started before the reading trial ended (record.json `started` + `seconds`).
 - implausible only: every flagged read of the trial names only writers that started after the reader
   had ended, so the file read cannot have been another trial's.
+
 Strict set = contact or plausible read. Broad set = every trial of the TSV (as first disclosed). A
 third set adds to the broad set every trial NAMED as the other party of a `trial-id-*` row (its own
 temp file was touched).
 
-Usage (from the package root):
-
-    python posthoc/cross_trial_sensitivity.py
-        the analysis (stdout)
-    python posthoc/cross_trial_sensitivity.py --write-list posthoc/cross-trial-flagged.tsv
-        only the per-trial list of flagged trials, with the strict/broad classification.
-
 Gate: with no trial excluded, every analyser output must equal the frozen package output for the
 lines used.
+
+Inputs
+------
+- The scan list posthoc/cross-trial-reads.tsv: the author's scan of the original raw folders, one
+  row per flagged read (columns: trial, file, line, kind, foreign path or trial id, up to five other
+  trial folders and a "+N" count, study, other studies). This script does not rebuild it: the rule
+  that found the `trial-id-*` rows is not shipped.
+- The raw trial folders <RAW>/{pilot,study,study2} (environment variable EILIKRINEIA_RAW, default
+  raw/, the unpacked archive 10.5281/zenodo.24450523): record.json start times, and agent.stdout to
+  recover the full list of other writers of each shared temp path, which the list truncates after
+  five names.
+- The published package, that is the package root (score files and the analysers, imported and run
+  unchanged: analyze_study.main, analyze_rescore.main, analyze_study2.main, analyze_study.mh_rd).
+
+Outputs
+-------
+- The analysis on standard output; the committed posthoc/cross_trial_sensitivity.txt must be
+  reproduced byte for byte.
+- With --write-list, only the per-trial list of flagged trials with the strict/broad classification,
+  written to the given file (committed as posthoc/cross-trial-flagged.tsv).
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/cross_trial_sensitivity.py
+    python posthoc/cross_trial_sensitivity.py --write-list posthoc/cross-trial-flagged.tsv
+
+The first form prints the analysis; the second writes only the per-trial list (same environment
+prefix).
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-23). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import ast

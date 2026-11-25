@@ -1,12 +1,42 @@
-"""Round 28 (4): which difference study 2's planned "543 per arm" matches.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Which difference study 2's planned "543 per arm" matches.
 
-POST HOC, computed for this paper (2026-11-24). Standard two-proportion normal approximation (no
-continuity correction), two-sided alpha, power 80%: pooled form (Fleiss):  n = [z(1-a/2) sqrt(2
-pbar qbar) + z(1-b) sqrt(p1 q1 + p2 q2)]^2 / (p1 - p2)^2, pbar = (p1+p2)/2 unpooled form:
-n = (z(1-a/2) + z(1-b))^2 (p1 q1 + p2 q2) / (p1 - p2)^2 Base rate 11.6% (study 1 rescored, the
-plan's figure), difference 6 points, in both directions, at alpha .05 (the plan's) and .025 (the
-rule study 2 then used). n is rounded up. Stdlib only. Run from the package root:
-PYTHONDONTWRITEBYTECODE=1 python posthoc/power_543.py  (needs the standard library only)
+Computed for this paper. Standard two-proportion normal approximation (no continuity correction),
+two-sided alpha, power 80%.
+
+- Pooled form (Fleiss): n = [z(1-a/2) sqrt(2 pbar qbar) + z(1-b) sqrt(p1 q1 + p2 q2)]^2 / (p1 -
+  p2)^2, with pbar = (p1+p2)/2.
+- Unpooled form: n = (z(1-a/2) + z(1-b))^2 (p1 q1 + p2 q2) / (p1 - p2)^2.
+
+Base rate 11.6% (study 1 rescored, the plan's figure), difference 6 points, in both directions, at
+alpha .05 (the plan's) and .025 (the rule study 2 then used). n is rounded up.
+
+Inputs
+------
+- None: the numbers are in the script. Needs the standard library only.
+
+Outputs
+-------
+- The sample size per arm for each form, direction and alpha, on standard output; the committed
+  posthoc/power_543.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/power_543.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import math

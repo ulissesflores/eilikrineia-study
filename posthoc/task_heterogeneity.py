@@ -1,24 +1,48 @@
-"""Post hoc: task heterogeneity of the main contrasts.
-
-EXPLORATORY, POST HOC (2026-11-23), not preregistered.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Task heterogeneity of the main contrasts.
 
 Per-task counts are read from the frozen package outputs (runs/*-analysis.txt, which print them) or
-recomputed as
-scripts/make_results.py does (study 2 pass rate). For each contrast:
+recomputed as scripts/make_results.py does (study 2 pass rate). For each contrast:
+
 - the registered estimate, recomputed with the package's analyze_study.mh_rd (gate: equals the
-frozen line);
+  frozen line);
 - per-task differences with the package's analyze.newcombe 95% interval;
 - Cochran's Q (inverse-variance, Wald variance per task; df = 2) and I^2, as a homogeneity check
-(written here);
+  (written here);
 - the same Mantel-Haenszel-weighted average with a variance that does NOT assume a common difference
-across tasks,
-  Var = sum w_k^2 v_k / (sum w_k)^2, w_k = n1k n0k / nk, v_k = p1k(1-p1k)/n1k + p0k(1-p0k)/n0k
-  (written here;
-  checked against mh_rd on a single task, where both must equal the variance of a difference of two
-  proportions);
+  across tasks, Var = sum w_k^2 v_k / (sum w_k)^2, w_k = n1k n0k / nk, v_k = p1k(1-p1k)/n1k +
+  p0k(1-p0k)/n0k (written here; checked against mh_rd on a single task, where both must equal the
+  variance of a difference of two proportions);
 - for study 3, the registered (1 - alpha) interval and, for K - S false completion, the (1 - 2
-alpha) interval, with
-  the Sato variance (package) and with the heterogeneity-robust variance.
+  alpha) interval, with the Sato variance (package) and with the heterogeneity-robust variance.
+
+Inputs
+------
+- The frozen package outputs runs/*-analysis.txt and the score files in runs/ (needs the package
+  only).
+
+Outputs
+-------
+- Per-contrast estimates, per-task differences and heterogeneity statistics on standard output; the
+  committed posthoc/task_heterogeneity.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/task_heterogeneity.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-23). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

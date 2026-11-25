@@ -1,28 +1,50 @@
-"""Round 26 (3): "Not verified"-type sections in final messages, study 2 and study 3 by arm.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Count 'Not verified'-type sections in final messages, study 2 and study 3 by arm.
 
-EXPLORATORY, POST HOC (2026-11-24). Computed for this paper; not preregistered. Spec fixed in the
-author's project log before computing (the log is not published).
+Computed for this paper. The specification was fixed before computing; it is not published.
 
 Matcher: the one behind study 2's "100 S messages against 11 in the control" (Section 5.4), imported
-unchanged:
-runner/z1_relabel_study2.py `relabel(text)`, whose second value says whether the message has a
-caveat section whose
-heading starts with not verified / not tested / not checked / not run / untested / unverified (the
-labeller's own
-section parser, overclaim.claims._units). Study 2 messages are record.json `final_message`, as z1
-reads them (gate: the
-frozen 100 / 11 over all scored trials, runs/study2-z1.txt). Study 3 messages are read and stripped
-of their STATUS line
-exactly as the registered study 3 analysis does before the same relabel
-(analyze_study3.final_message, then
+unchanged: runner/z1_relabel_study2.py `relabel(text)`, whose second value says whether the message
+has a caveat section whose heading starts with not verified / not tested / not checked / not run /
+untested / unverified (the labeller's own section parser, overclaim.claims._units). Study 2 messages
+are record.json `final_message`, as z1 reads them (gate: the frozen 100 / 11 over all scored trials,
+runs/study2-z1.txt). Study 3 messages are read and stripped of their STATUS line exactly as the
+registered study 3 analysis does before the same relabel (analyze_study3.final_message, then
 run_trial.split_status). Kept trials follow the registered exclusions of each study (gates: frozen
 kept counts).
+
 Study 2 ran on the author's host (with the host's start-up hooks); study 3 ran in isolated
 containers without them.
 
-Output: counts only.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/not_verified.py  (needs the
-package and <RAW>)
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): record.json and
+  agent.stdout of the study 2 and study 3 trials.
+- The package: runs/study2-z1.txt, the score files, runner/z1_relabel_study2.py,
+  runner/analyze_study3.py and runner/run_trial.py (imported unchanged).
+
+Outputs
+-------
+- Counts only, on standard output; the committed posthoc/not_verified.txt must be reproduced byte
+  for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/not_verified.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

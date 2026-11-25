@@ -1,29 +1,50 @@
-"""Post hoc: minimum detectable effect (MDE) at 80% power for each null result of the paper.
-
-EXPLORATORY, POST HOC (2026-11-23). Not preregistered.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Minimum detectable effect (MDE) at 80% power for each null result of the paper.
 
 MDE = (z_{1 - a/2} + z_{.80}) * SE, the usual normal approximation, with SE the standard error of
-the estimate as
-analysed: the package's Mantel-Haenszel estimator (runner/analyze_study.mh_rd, Sato variance) on the
-kept trials,
-so SE = (upper 95% bound - estimate) / 1.959964. The stratified SE is smaller than an unstratified
-one where tasks
-differ in rate (TD - S pass rate: 6.8 points with the unstratified binomial SE against 6.3 here). It
-is the true difference that a two-sided test at level a would
-detect with probability .80 if the variance were the observed one; it describes the design, not the
-data's support for
-any value. a = .05 for studies 1-2 and the pilot, a = .05/6 for study 3 (its Bonferroni level).
+the estimate as analysed: the package's Mantel-Haenszel estimator (runner/analyze_study.mh_rd, Sato
+variance) on the kept trials, so SE = (upper 95% bound - estimate) / 1.959964. The stratified SE is
+smaller than an unstratified one where tasks differ in rate (TD - S pass rate: 6.8 points with the
+unstratified binomial SE against 6.3 here). The MDE is the true difference that a two-sided test at
+level a would detect with probability .80 if the variance were the observed one; it describes the
+design, not the data's support for any value. a = .05 for studies 1-2 and the pilot, a = .05/6 for
+study 3 (its Bonferroni level).
 
 The estimates of studies 1-3 are recomputed from the package score files and checked against the
-frozen value printed
-in the paper; the study 1 recount uses the strata of its frozen output. The pilot is a separate
-approximation: the
-pilot has no Mantel-Haenszel line here, only the pooled Newcombe interval of
-runs/pilot-analysis.txt, so its SE is the
-interval half-width / 1.959964 (not a Mantel-Haenszel SE). The pilot's estimate and interval,
-hard-coded below, are
-checked against the "P-S M1" and "S-H M1" lines of that file; its comparison-arm rates (7/58, 9/59)
-are not checked.
+frozen value printed in the paper; the study 1 recount uses the strata of its frozen output. The
+pilot is a separate approximation: the pilot has no Mantel-Haenszel line here, only the pooled
+Newcombe interval of runs/pilot-analysis.txt, so its SE is the interval half-width / 1.959964 (not a
+Mantel-Haenszel SE). The pilot's estimate and interval, hard-coded below, are checked against the
+"P-S M1" and "S-H M1" lines of that file; its comparison-arm rates (7/58, 9/59) are not checked.
+
+Inputs
+------
+- The package score files and frozen outputs in runs/ (including runs/pilot-analysis.txt) and the
+  analysers in runner/ (imported unchanged).
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/).
+
+Outputs
+-------
+- The estimate, standard error and MDE per null result, on standard output; the committed
+  posthoc/mde.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/mde.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-23). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

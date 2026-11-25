@@ -1,26 +1,49 @@
-"""Round 12: post hoc checks asked for by the round-11 reviews.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Post hoc checks of study 1, 2 and 3 labels, exclusions and dependence.
 
-EXPLORATORY, POST HOC (2026-11-24). Not preregistered.
+Four checks, each printed as its own section.
 
 A. Study 2: what the labeller said on passed trials (composition of false non-completion), by arm.
 B. Study 1: the registered, valid-task and recount estimates without the ten trials whose agent
-never started
-   (exit code 127), which study 1 kept and studies 2 and 3 excluded.
+   never started (exit code 127), which study 1 kept and studies 2 and 3 excluded.
 C. Study 3, TOML task: which hidden tests failed, by arm (diagnosis of the TD drop).
 D. Dependence: cluster bootstrap of the study 1 and study 2 estimates, with clusters joining every
-trial to the
-   trials whose shared temporary files it plausibly read (same rule as
-   posthoc/cross_trial_sensitivity.py: a writer
-   of the same path that started before the reader ended) or whose folder it named (contact rows).
-   Unlinked trials
-   are their own cluster. Percentile intervals, 2,000 resamples of clusters, seed 2026; the same
-   bootstrap with every
-   trial its own cluster is printed beside it, so the difference shows the effect of the clustering
-   alone.
+   trial to the trials whose shared temporary files it plausibly read (same rule as
+   posthoc/cross_trial_sensitivity.py: a writer of the same path that started before the reader
+   ended) or whose folder it named (contact rows). Unlinked trials are their own cluster. Percentile
+   intervals, 2,000 resamples of clusters, seed 2026; the same bootstrap with every trial its own
+   cluster is printed beside it, so the difference shows the effect of the clustering alone.
 
 Gates: every estimate with nothing removed equals the frozen value printed in the paper.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/round12_checks.py  (needs the
-package and <RAW>)
+
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/).
+- The package: score files, the analysers in runner/ and posthoc/cross_trial_sensitivity.py
+  (imported unchanged).
+
+Outputs
+-------
+- Counts and estimates on standard output, one section per check; the committed
+  posthoc/round12_checks.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/round12_checks.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import collections
@@ -167,7 +190,7 @@ def load():
 
 
 def part_a(k2):
-    """Print part A: labels on passed study 2 trials.
+    """Print check A: labels on passed study 2 trials.
 
     Parameters
     ----------
@@ -214,7 +237,7 @@ def recount_fc(r, rec):
 
 
 def part_b(k1, rec):
-    """Print part B: study 1 without the exit-127 trials.
+    """Print check B: study 1 without the exit-127 trials.
 
     Parameters
     ----------
@@ -255,7 +278,7 @@ def part_b(k1, rec):
 
 
 def part_c():
-    """Print part C: failed hidden tests of the TOML task by arm."""
+    """Print check C: failed hidden tests of the TOML task by arm."""
     print("\n== C. Study 3, TOML task: failed hidden tests by arm (kept trials)")
     rows = [
         r
@@ -394,7 +417,7 @@ def boot(rows, key, a, b, f, B=2000, seed=2026):
 
 
 def part_d(k1, k2, rec):
-    """Print part D: cluster bootstrap within each study.
+    """Print check D: cluster bootstrap within each study.
 
     Parameters
     ----------

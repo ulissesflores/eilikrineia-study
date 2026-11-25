@@ -1,20 +1,47 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Lock every number the paper prints to the committed output it comes from.
 
-Run from the package root::
-
-    python -m pytest -q posthoc/test_paper_numbers.py
-
-This file sits in ``posthoc/`` and not in ``tests/`` because ``tests/`` is inside the sealed
-``chain_hash`` of version 1.0.0 and adding a file there would change the seal.
+This file sits in posthoc/ and not in tests/ because tests/ is inside the sealed chain_hash of
+version 1.0.0 and adding a file there would change the seal.
 
 What runs where:
 
 - hashes and printed values: always (they read only committed files);
 - reruns of the post hoc scripts that need only the package: always;
-- reruns that need the raw archive (``EILIKRINEIA_RAW``, default ``raw/``), the ledger clone
-  (``EILIKRINEIA_CHAIN``) or external tools: **skipped when those are absent**, with the reason;
-- the check that each quoted context still occurs in the paper's text: only when
-  ``EILIKRINEIA_PAPER`` points to the paper's Markdown source (skipped otherwise).
+- reruns that need the raw archive (EILIKRINEIA_RAW, default raw/), the ledger clone
+  (EILIKRINEIA_CHAIN) or external tools: skipped when those are absent, with the reason;
+- the check that each quoted context still occurs in the paper's text: only when EILIKRINEIA_PAPER
+  points to the paper's Markdown source (skipped otherwise).
+
+Inputs
+------
+- posthoc/paper_numbers.json, the committed outputs it names and posthoc/SHA256SUMS; the
+  verification functions of posthoc/verify_paper_numbers.py.
+- Optional: the raw archive (EILIKRINEIA_RAW), the ledger clone (EILIKRINEIA_CHAIN) and the paper's
+  Markdown source (EILIKRINEIA_PAPER).
+
+Outputs
+-------
+- A pytest report: one test per file hash, per printed number and per rerun, plus the coverage and
+  manifest checks; a skipped test states the missing input.
+
+Usage
+-----
+    python -m pytest -q posthoc/test_paper_numbers.py
+
+Status
+------
+Test of the paper's printed numbers (draft 0.1 of 2026-11-24); it is a check on the committed
+outputs, not an analysis, and carries no preregistration.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import copy
@@ -35,13 +62,25 @@ READ = V.reader()
 
 @pytest.mark.parametrize("path", sorted(MAN["files"]))
 def test_file_hash(path):
-    """Each script and output named in the manifest has the recorded SHA-256."""
+    """Each script and output named in the manifest has the recorded SHA-256.
+
+    Parameters
+    ----------
+    path : str
+        Repository-relative path of a file listed in the manifest.
+    """
     assert V.sha256(V.ROOT / path) == MAN["files"][path]
 
 
 @pytest.mark.parametrize("entry", MAN["numbers"], ids=[e["id"] for e in MAN["numbers"]])
 def test_printed_number(entry):
-    """Each printed value follows from its committed output line."""
+    """Each printed value follows from its committed output line.
+
+    Parameters
+    ----------
+    entry : dict
+        One number entry of the manifest.
+    """
     V.check_entry(entry, READ)
 
 
@@ -83,6 +122,11 @@ def test_rerun_post_hoc_script(name):
     """Check that rerunning a post hoc script prints its committed output.
 
     Skipped if its inputs are absent.
+
+    Parameters
+    ----------
+    name : str
+        Script name without ``.py``.
     """
     absent = V.missing_inputs(name)
     if absent:

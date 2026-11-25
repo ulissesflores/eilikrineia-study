@@ -1,6 +1,6 @@
-"""Round 21 (a): network-command scan of every agent tool call.
-
-EXPLORATORY, POST HOC (2026-11-24). Not preregistered.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Network-command scan of every agent tool call.
 
 Question: did any agent fetch remote content, and did any fetch target the benchmark or its
 hidden-check sources?
@@ -14,18 +14,22 @@ script written to disk and then run).
 Fetch-capable command classes (set before the counts, then revised once after a first pass over the
 output: the `httpx` pattern was narrowed, since a `grep` pattern naming the word matched, and the
 pip-notice retrieval rule below was added, since a quiet install shows nothing else):
-  package  pip/pip3/python -m pip download|install|index, uv add|sync|pip install|tool install, uvx,
-           pipx, npm install|ci, npx, yarn add, brew|apt|apt-get|conda install
-  git      git clone|fetch|pull|ls-remote|submodule
-  http     curl, wget
-  remote   ssh, scp, sftp, telnet, nc, ncat
-  pylib    urllib.request, urlopen(, requests.get|post|head|Session, import httpx or
-           httpx.get|post|Client|stream, http.client, socket.create_connection
+
+- package: pip/pip3/python -m pip download|install|index, uv add|sync|pip install|tool install, uvx,
+  pipx, npm install|ci, npx, yarn add, brew|apt|apt-get|conda install
+- git: git clone|fetch|pull|ls-remote|submodule
+- http: curl, wget
+- remote: ssh, scp, sftp, telnet, nc, ncat
+- pylib: urllib.request, urlopen(, requests.get|post|head|Session, import httpx or
+  httpx.get|post|Client|stream, http.client, socket.create_connection
+
 URL literals (http:// or https://) are counted apart, because the URI task's tests are full of them;
 a URL whose host is a code or package host (GitHub, GitLab, Bitbucket, PyPI, npm) is counted as
 such.
+
 Benchmark target: a fetch-capable command or URL that names the benchmark repository (owner
 `h-a-forster`, name `overclaim`) or a task folder of any study (read from the trial folder names).
+
 Retrieved: the tool result of a fetch-capable command shows fetched content (a wheel or archive
 name, a dist-info folder, "Successfully installed/downloaded", "Saved", a commit hash before HEAD,
 or a version list "(N.N)"), or pip printed its "new release of pip" notice, which it shows only
@@ -40,10 +44,34 @@ Verb-free check: any tool input of any kind (all fields) that names `h-a-forster
 counted by trial; study 1 and 2 trials with a tool call naming the checks' folder (which contains
 `overclaim`) are already excluded by the planned rule, so this count is read against that rule.
 
-Output: counts only. No transcript text, no trial id, no path. Arm labels come from an allowlist
-(else `other`); failures print a fixed error category and a count, never input-derived text.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/network_scan.py  (needs the
-package and <RAW>)
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): agent.stdout of every
+  trial of the pilot and studies 1-3.
+- The package: score files and the analysers (imported unchanged) for the sensitivity reruns.
+
+Outputs
+-------
+- Counts only. No transcript text, no trial id, no path. Arm labels come from an allowlist (else
+  `other`); failures print a fixed error category and a count, never input-derived text.
+- The committed posthoc/network_scan.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/network_scan.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import collections

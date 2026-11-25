@@ -1,24 +1,45 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Compute study 3 TD - S with per-arm counts, and TD without 11 trials.
 
-Round 26 (5): study 3, TD - S with per-arm counts, and TD without the 11 trials that edited
-acceptance/. EXPLORATORY, POST HOC (2026-11-24). Computed for this paper; not preregistered.
+Study 3, TD - S with per-arm counts, and TD without the 11 trials that edited acceptance/. Computed
+for this paper.
 
 Rows, outcomes and exclusions are built exactly as the registered study 3 analysis builds them
-(runner/analyze_study3.py
-`main`: passed, false_completion, false_non_completion from runs/study3-scores.csv; timeouts, agent
-errors, agents that
-never started, hidden access, check-infrastructure errors excluded), and each contrast is the
-package's own
+(runner/analyze_study3.py `main`: passed, false_completion, false_non_completion from
+runs/study3-scores.csv; timeouts, agent errors, agents that never started, hidden access,
+check-infrastructure errors excluded), and each contrast is the package's own
 analyze_study3.contrast (Mantel-Haenszel risk difference by task, Sato variance, CMH p) with the
-registered decision
-grid analyze_study3.cell at alpha = .05/6. Gate: the frozen TD - S lines of
-runs/study3-analysis.txt.
-Then the same contrasts with the TD trials whose writer tests were edited (`td_edited` > 0; 11 kept)
-left out.
+registered decision grid analyze_study3.cell at alpha = .05/6. Gate: the frozen TD - S lines of
+runs/study3-analysis.txt. Then the same contrasts with the TD trials whose writer tests were edited
+(`td_edited` > 0; 11 kept) left out.
 
-Output: counts and estimates only.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/td_secondary.py  (needs the
-package only)
+Inputs
+------
+- runs/study3-scores.csv and runs/study3-analysis.txt of the package, and runner/analyze_study3.py
+  (imported unchanged); needs the package only.
+
+Outputs
+-------
+- Counts and estimates only, on standard output; the committed posthoc/td_secondary.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/td_secondary.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

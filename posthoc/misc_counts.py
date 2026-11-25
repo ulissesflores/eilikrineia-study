@@ -1,8 +1,9 @@
-"""Post hoc: counts asked for by reviewers, from the package files and raw study 3 records.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Post hoc counts from the package files and the raw study 3 records.
 
-The raw study 3 records are read for turns.
-EXPLORATORY / DESCRIPTIVE unless stated; none is preregistered. Statistics use the package's own
-functions.
+Counts the paper reports from the package files and from the raw study 3 records; the raw records
+are read for turns. Statistics use the package's own functions.
 
 Sections: pilot per arm; study 2 accounting of the 200 failures; the 9.1-point ceiling; precision of
 "complete" against the hidden check by task (study 2) with a task-stratified difference; study 1
@@ -10,6 +11,35 @@ recount, the 141 kept trials not rebuilt exactly; study 3 STATUS line by arm and
 labeller; equivalence reachability of the three tests the preregistration called "not reachable";
 acceptance-test edits by task with durations and turns; the benchmark's held-out confusion table
 reduced to complete against the rest.
+
+Inputs
+------
+- The package score files and frozen outputs in runs/, and the package's analysis functions
+  (imported unchanged).
+- The raw study 3 records <RAW>/study3 (environment variable EILIKRINEIA_RAW, default raw/), read
+  for turns.
+
+Outputs
+-------
+- Counts and statistics on standard output, one block per section; the committed
+  posthoc/misc_counts.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/misc_counts.py
+
+Status
+------
+Post hoc, exploratory or descriptive unless stated; none of these counts is preregistered. The
+numbers it backs are listed in posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

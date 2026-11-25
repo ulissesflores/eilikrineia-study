@@ -1,3 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+# Continuous integration of the replication package: verifies the committed provenance seal, reruns
+# the analyses that need only the frozen scores, locks the numbers the paper prints, and lints the
+# packaging code. Author: Carlos Ulisses Flores (ORCID 0000-0002-6034-7765).
+# Repository: https://github.com/ulissesflores/eilikrineia-study
 name: ci
 
 on:

@@ -1,27 +1,46 @@
-"""Round 26 (4): claim-record entries per trial, P against S, study 1.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Count claim-record entries per trial, P against S, study 1.
 
-EXPLORATORY, POST HOC (2026-11-24). Computed for this paper; not preregistered. Spec fixed in the
-author's project log before computing (the log is not published).
+Computed for this paper. The specification was fixed before computing; it is not published.
 
 Data: the `records` column of runs/study-scores.csv (entries the claim tool appended in the trial),
-over the kept trials
-of the registered study 1 analysis (analyze_study.py exclusions: timeouts, agent errors, hidden
-access). Gate: the frozen
-descriptive means 3.67 (P) and 4.82 (S) of runs/study-sensitivity.txt.
-Test: van Elteren's stratified Wilcoxon rank-sum test (strata = the three tasks, weights 1 / (N_k +
-1), mid-ranks for
-ties with the tie-corrected variance, normal approximation, two-sided), chosen because entry counts
-are skewed and tied
-and the registered analysis stratifies by task. Also shown, descriptive: per-task means and medians,
-and the
-Mantel-Haenszel-type rate ratio of entries P / S stratified by task (sum_k E1k*n0k/N_k / sum_k
-E0k*n1k/N_k), without an
-interval (entries within a trial are not independent events). Pilot: not tested (descriptive means
-are frozen).
+over the kept trials of the registered study 1 analysis (analyze_study.py exclusions: timeouts,
+agent errors, hidden access). Gate: the frozen descriptive means 3.67 (P) and 4.82 (S) of
+runs/study-sensitivity.txt.
 
-Output: counts and statistics only.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/claim_counts.py  (needs the
-package only)
+Test: van Elteren's stratified Wilcoxon rank-sum test (strata = the three tasks, weights 1 / (N_k +
+1), mid-ranks for ties with the tie-corrected variance, normal approximation, two-sided), chosen
+because entry counts are skewed and tied and the registered analysis stratifies by task. Also shown,
+descriptive: per-task means and medians, and the Mantel-Haenszel-type rate ratio of entries P / S
+stratified by task (sum_k E1k*n0k/N_k / sum_k E0k*n1k/N_k), without an interval (entries within a
+trial are not independent events). Pilot: not tested (descriptive means are frozen).
+
+Inputs
+------
+- runs/study-scores.csv and runs/study-sensitivity.txt of the package (needs the package only).
+
+Outputs
+-------
+- Counts and statistics only, on standard output; the committed posthoc/claim_counts.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/claim_counts.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv
@@ -62,7 +81,18 @@ def midranks(values):
 
 
 def van_elteren(strata):
-    """strata: list of (x_group1, x_group0). Returns (z, two-sided p)."""
+    """Return the van Elteren stratified rank-sum test (z, two-sided p).
+
+    Parameters
+    ----------
+    strata : list of tuple
+        One ``(x_group1, x_group0)`` pair of value lists per stratum (task).
+
+    Returns
+    -------
+    tuple of float
+        The z statistic and its two-sided normal p value.
+    """
     t = e = v = 0.0
     for g1, g0 in strata:
         n1, n0 = len(g1), len(g0)

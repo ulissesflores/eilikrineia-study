@@ -1,30 +1,48 @@
-"""Round 26 (1, 2): study 2 before the TLS outage, and 97.5% intervals.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Study 2 before the TLS outage, and 97.5% intervals.
 
-EXPLORATORY, POST HOC (2026-11-24).
-
-Computed for this paper; not preregistered. Spec fixed in the author's project log before computing
-(the log is not published).
+Computed for this paper. The specification was fixed before computing; it is not published.
 
 1. Pre-outage estimate. The registered study 2 analysis (runner/analyze_study2.py, `main`,
-unchanged: same
-   exclusions, Mantel-Haenszel risk difference S - control stratified by task with the Sato
-   variance, CMH test) is
-   run on the trials at scheduled positions 1-994 only (position = the 4-digit prefix of the trial
-   folder); the 70
-   connection errors all fell at positions 995-1,082. The pass rate S - control uses the same
-   `mh_rd` on the kept
-   trials, as scripts/make_results.py does for the full run. Counts are reconciled with the full run
-   (Table 3):
+   unchanged: same exclusions, Mantel-Haenszel risk difference S - control stratified by task with
+   the Sato variance, CMH test) is run on the trials at scheduled positions 1-994 only (position =
+   the 4-digit prefix of the trial folder); the 70 connection errors all fell at positions
+   995-1,082. The pass rate S - control uses the same `mh_rd` on the kept trials, as
+   scripts/make_results.py does for the full run. Counts are reconciled with the full run (Table 3):
    full kept counts = pre-outage kept counts + kept counts at positions 995-1,086 (asserted).
 2. 97.5% intervals (display) for the full-run Table 3 contrasts, next to the plan's p < .025 rule:
-same `mh_rd`
-   point estimate and Sato standard error (se = (upper 95% - estimate) / Z), with the two-sided
-   normal quantile for
-   tail .025 (analyze_study3.zq). The plan displayed 95% intervals; nothing registered changes.
+   same `mh_rd` point estimate and Sato standard error (se = (upper 95% - estimate) / Z), with the
+   two-sided normal quantile for tail .025 (analyze_study3.zq). The plan displayed 95% intervals;
+   nothing registered changes.
 
-Output: counts and estimates only (no trial id, no message text).
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/study2_preoutage.py  (needs the
-package and <RAW>)
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): the trial folders of
+  study 2.
+- The package: runs/study2-scores.csv and the analysers (imported unchanged).
+
+Outputs
+-------
+- Counts and estimates only (no trial id, no message text), on standard output; the committed
+  posthoc/study2_preoutage.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/study2_preoutage.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import contextlib

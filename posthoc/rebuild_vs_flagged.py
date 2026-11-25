@@ -1,8 +1,36 @@
-"""Round 12, part E, inexact study 1 rebuilds against the flagged trials.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Compare the inexact study 1 rebuilds with the flagged trials.
 
 Are the 141 study 1 rebuilds that did not reproduce the saved state among the trials flagged for
-cross-trial reads? EXPLORATORY, POST HOC (2026-11-24). Reads runs/study-scores.csv,
-runs/study-rescore.csv and posthoc/cross-trial-flagged.tsv of the package; no model call.
+cross-trial reads? No model call.
+
+Inputs
+------
+- runs/study-scores.csv, runs/study-rescore.csv and posthoc/cross-trial-flagged.tsv of the package
+  (needs the package only).
+
+Outputs
+-------
+- The overlap counts on standard output; the committed posthoc/rebuild_vs_flagged.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/rebuild_vs_flagged.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import collections

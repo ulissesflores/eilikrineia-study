@@ -1,4 +1,9 @@
-"""README pictures drawn as code, in the five languages of the READMEs, light and dark.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Draw the README pictures as code, in the five languages of the READMEs, light and dark.
+
+The banners, the design diagram and the translated figures are drawn from the frozen score files
+and outputs, so that every number in a picture is read from the package and none is typed by hand.
 
 Claim map (no picture without a claim)
 --------------------------------------
@@ -23,9 +28,34 @@ direction and only their text is Hebrew. Bidirectional text needs matplotlib 3.1
 which ships libraqm. Text is converted to outlines and the SVG hash salt is fixed, so the
 pictures look the same without any installed font and do not change between runs.
 
+Inputs
+------
+- runs/study2-analysis.txt and the four per-trial score files in runs/ (pilot-scores.csv,
+  study-scores.csv, study2-scores.csv, study3-scores.csv).
+- scripts/make_figures.py (imported unchanged) and the frozen files under runs/ it reads.
+- assets/brand/lab-lockup-light.png, from which the dark lockup is derived.
+
+Outputs
+-------
+- Deterministic SVG and PNG files, written to assets/brand/ (banners, design diagrams, dark lockup)
+  and assets/figures/ (translated figures). One summary line is printed.
+
 Usage
 -----
     PYTHONDONTWRITEBYTECODE=1 python assets/brand/make_brand.py
+
+Status
+------
+Presentation tooling for the READMEs; it is not an analysis, and no number is computed here that
+is not already in the frozen outputs.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

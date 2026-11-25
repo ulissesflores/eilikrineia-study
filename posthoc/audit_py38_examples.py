@@ -1,9 +1,36 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Print real excerpts for Appendix A from the study 2 audit items.
 
-Post hoc: real excerpts for Appendix A (study 2 audit items that mention Python 3.8 or hedge a
-result), with the labeller's, the author's and the second rater's answers. POST HOC (2026-11-23).
-Reads the package's runs/study2-audit/ (items.jsonl, key.jsonl, labels-ulisses.json,
-labels-rater2.json) only.
+Real excerpts for Appendix A: the study 2 audit items that mention Python 3.8 or hedge a result,
+with the labeller's, the author's and the second rater's answers.
+
+Inputs
+------
+- runs/study2-audit/items.jsonl, key.jsonl, labels-ulisses.json and labels-rater2.json of the
+  package.
+
+Outputs
+-------
+- Excerpts and answers on standard output; the committed posthoc/audit_py38_examples.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/audit_py38_examples.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-23). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import json

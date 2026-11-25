@@ -1,9 +1,14 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+# Heavy checks of the replication package on the public raw trial archive (manual run). Author:
+# Carlos Ulisses Flores (ORCID 0000-0002-6034-7765).
+# Repository: https://github.com/ulissesflores/eilikrineia-study
 name: raw-archive
 
 # Manual run of the heavy checks: downloads the public raw trial archive from Zenodo (record
 # 24450523, DOI 10.5281/zenodo.24450523), checks it against the archive's own SHA256SUMS, and reruns
 # every post hoc script against it, so that a public log of that run exists next to the code
-# (posthoc/README.md, "Inputs and how to run"; ADR 0015). The push CI (ci.yml) skips these scripts
+# (posthoc/README.md, "Inputs and how to run"; docs/adr/0015). The push CI (ci.yml) skips these scripts
 # because the archive is not in the repository.
 
 on:

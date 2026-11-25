@@ -1,38 +1,58 @@
-"""Round 27 (3): three cheap deterministic checks that close "not tested / not examined" sentences.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Three deterministic checks that close "not tested / not examined" sentences.
 
-EXPLORATORY, POST HOC (2026-11-24). Computed for this paper; not preregistered. Spec fixed here
-before the first run.
+Computed for this paper; the specification was fixed before the first run.
 
 (a) Pilot, claim entries per kept trial, P against S. Data: the `recorded` column of
-runs/pilot-scores.csv; kept
-    trials = all minus the four the frozen runs/pilot-analysis.txt excludes (line 1, parsed). Gate:
-    the frozen means
-    3.49 (P) and 4.10 (S). Test: the same van Elteren task-stratified Wilcoxon rank-sum test as
-    round 26
-    (posthoc/claim_counts.py `van_elteren`, imported), strata = the 20 pilot tasks.
-(b) Study 2, timing of the connection errors. Data: runs/study2-scores.csv (`is_error`, `seconds`,
-arm) and each
-    scored trial's record.json `started`; window = schedule positions 995 to 1,082 (Section 7).
-    Gate: 88 scored
-    trials, errors 43/49 control and 27/39 S. A trial is exposed if it had not finished (started +
-    seconds) by the
-    earliest end of any errored trial; counts by arm for exposed and unexposed trials; Fisher's
-    exact test
-    (two-sided, by enumeration) on the exposed. Revised after review: a first version split at the
-    earliest start among errored trials that ran under 200 seconds, a threshold chosen after a
-    start-time listing
-    of the window had been printed; that version is superseded and not cited.
-(c) Added after (a) and (b) had run (same day, before any paper edit): study 1's divergent rebuilds.
-Data:
-    runs/study-rescore.csv fidelity flags (diff_match, check_match, fail_set_match;
-    runner/rescore_replay.py), over
-    the kept trials of the registered study 1 analysis. Gate: 141 kept trials fail at least one flag
-    (81 P, 60 S).
-    Counts by task, and by which flag fails. No cause per trial is inferred.
+    runs/pilot-scores.csv; kept trials = all minus the four the frozen runs/pilot-analysis.txt
+    excludes (line 1, parsed). Gate: the frozen means 3.49 (P) and 4.10 (S). Test: the same van
+    Elteren task-stratified Wilcoxon rank-sum test as posthoc/claim_counts.py (`van_elteren`,
+    imported), strata = the 20 pilot tasks.
 
-Output: counts and statistics only.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/gap_checks.py  (needs the
-package and <RAW>)
+(b) Study 2, timing of the connection errors. Data: runs/study2-scores.csv (`is_error`, `seconds`,
+    arm) and each scored trial's record.json `started`; window = schedule positions 995 to 1,082
+    (Section 7). Gate: 88 scored trials, errors 43/49 control and 27/39 S. A trial is exposed if it
+    had not finished (started + seconds) by the earliest end of any errored trial; counts by arm for
+    exposed and unexposed trials; Fisher's exact test (two-sided, by enumeration) on the exposed.
+    The script was revised once: a first version split at the earliest start among errored trials
+    that ran under 200 seconds, a threshold chosen after a start-time listing of the window had been
+    printed; that version is superseded and not cited.
+
+(c) Added after (a) and (b) had run (same day, before any paper edit): study 1's divergent rebuilds.
+    Data: runs/study-rescore.csv fidelity flags (diff_match, check_match, fail_set_match;
+    runner/rescore_replay.py), over the kept trials of the registered study 1 analysis. Gate: 141
+    kept trials fail at least one flag (81 P, 60 S). Counts by task, and by which flag fails. No
+    cause per trial is inferred.
+
+Inputs
+------
+- The package score files and frozen outputs named above (runs/pilot-scores.csv,
+  runs/pilot-analysis.txt, runs/study2-scores.csv, runs/study-rescore.csv).
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): record.json `started`
+  of each scored trial of study 2.
+
+Outputs
+-------
+- Counts and statistics only, on standard output; the committed posthoc/gap_checks.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/gap_checks.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import ast

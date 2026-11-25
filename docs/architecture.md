@@ -1,7 +1,8 @@
 # Architecture
 
 How a trial became a number, and how a reader checks the path. The decisions behind each part are in
-[`docs/adr/`](adr/README.md); the results are in [`findings.md`](findings.md).
+[`docs/adr/`](adr/README.md); the results are in [`findings.md`](findings.md). Each sealed code file is
+described in [`code-reference.md`](code-reference.md); the other code files carry their own headers.
 
 ## From trial to published number
 

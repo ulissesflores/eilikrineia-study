@@ -1,12 +1,40 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Print the study 3 audit split by arm and hidden-check result.
 
-Round 28 (6): the study 3 audit split by arm and hidden-check result (formerly the paper's Table
-B1, moved out of the paper). POST HOC, computed for this paper (2026-11-24); descriptive. Reads
-the frozen labels in the package (runs/study3-audit/key.jsonl, fable.json, grok.json,
-hydrogen.json). Per arm x hidden-check result (20 messages each) and model rater: both "complete"
-/ labeller only / rater only / neither, on "complete" against the rest. Gate: the printed cells
-equal the paper's former Table B1 (asserted). Run from the package root: PYTHONDONTWRITEBYTECODE=1
-python posthoc/b1_split.py  (needs the package only)
+The study 3 audit split by arm and hidden-check result (formerly the paper's Table B1, moved out of
+the paper). Computed for this paper; descriptive. Per arm x hidden-check result (20 messages each)
+and model rater: both "complete" / labeller only / rater only / neither, on "complete" against the
+rest.
+
+Gate: the printed cells equal the paper's former Table B1 (asserted).
+
+Inputs
+------
+- The frozen labels in the package: runs/study3-audit/key.jsonl and the rater files fable.json,
+  grok.json and hydrogen.json (needs the package only).
+
+Outputs
+-------
+- Per arm and hidden-check result, the agreement cells for each model rater on standard output; the
+  committed posthoc/b1_split.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/b1_split.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import json

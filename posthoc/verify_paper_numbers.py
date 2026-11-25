@@ -1,37 +1,68 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Check the numbers printed in the paper against the committed outputs of this package.
 
-The manifest ``posthoc/paper_numbers.json`` lists, for each number group the paper prints, the
-script that produces it, the committed output file, a line anchor in that file and the value as
-printed. This script
+The manifest posthoc/paper_numbers.json lists, for each number group the paper prints, the script
+that produces it, the committed output file, a line anchor in that file and the value as printed.
+This script
 
-1. checks the SHA-256 of every script and output named in the manifest (``files``);
+1. checks the SHA-256 of every script and output named in the manifest (`files`);
 2. checks every value: the anchor must match the recorded number of lines, the locator text must
-   occur in the chosen line, and the number in it must give the printed value under the stated
-   rule (``=``: equal after writing the paper's typography plainly, e.g. ``−6.6`` as ``-6.6``,
-   ``4,884`` as ``4884``, ``.35`` as ``0.35``; ``r2``/``r3``: rounded; ``lt001``: below .001;
-   ``abs``: absolute value; ``pct1``: a proportion printed as a percentage; ``word``: a number
-   written as a word; ``frac_*``: one side of a printed fraction; ``contains``: an interval that
-   contains the stated values; ``date``; ``text``: the printed text itself; ``str``: the locator
-   text only, for a description such as "arm I"). ``derived`` entries
-   recompute a sum, difference or ratio of numbers read from the outputs and compare it with the
-   printed figure; their formula is written in ``note``;
-3. with ``--rerun``, reruns each post hoc script that the manifest names and compares its standard
-   output with the committed ``.txt`` byte for byte. Scripts that need the raw archive
-   (``EILIKRINEIA_RAW``, default ``raw/``), a clone of the public ledger (``EILIKRINEIA_CHAIN``)
-   or external tools are skipped, with the reason printed, when those are absent.
+   occur in the chosen line, and the number in it must give the printed value under the stated rule
+   (`=`: equal after writing the paper's typography plainly, e.g. `-6.6` for the typographic minus,
+   `4,884` as `4884`, `.35` as `0.35`; `r2`/`r3`: rounded; `lt001`: below .001; `abs`: absolute
+   value; `pct1`: a proportion printed as a percentage; `word`: a number written as a word;
+   `frac_*`: one side of a printed fraction; `contains`: an interval that contains the stated
+   values; `date`; `text`: the printed text itself; `str`: the locator text only, for a description
+   such as "arm I"). `derived` entries recompute a sum, difference or ratio of numbers read from the
+   outputs and compare it with the printed figure; their formula is written in `note`;
+3. with `--rerun`, reruns each post hoc script that the manifest names and compares its standard
+   output with the committed `.txt` byte for byte. Scripts that need the raw archive
+   (EILIKRINEIA_RAW, default raw/), a clone of the public ledger (EILIKRINEIA_CHAIN) or external
+   tools are skipped, with the reason printed, when those are absent. When a rerun differs, a
+   unified diff and the tail of the script's standard error go to standard error.
 
 A hash match shows the files are the ones described; the rerun shows that the script prints that
-output. Neither shows that the analysis is the right one: that is the paper's argument.
-The ``unscripted`` list names the printed figures that no committed script produces, with the
-reason.
+output. Neither shows that the analysis is the right one: that is the paper's argument. The
+`unscripted` list names the printed figures that no committed script produces, with the reason.
 
-Usage (from the package root)::
+Inputs
+------
+- posthoc/paper_numbers.json and the committed outputs and scripts it names.
+- With --rerun: the post hoc scripts, and where they need them the raw archive, the ledger clone and
+  external tools.
 
-    python posthoc/verify_paper_numbers.py            # hashes and values
-    python posthoc/verify_paper_numbers.py --rerun    # also rerun the post hoc scripts
+Outputs
+-------
+- Two summary lines on standard output (`hashes: N of M files match`, `values: ...`), a line per
+  mismatch, and with --rerun one line per script (`same`, `DIFFERENT` or skipped with the reason).
+  Exit status 0 if every check passes, 1 otherwise.
+- For a rerun that is DIFFERENT, on standard error: a unified diff of the frozen output against the
+  new one (first 40 lines) and the tail of the script's standard error.
+
+Usage
+-----
+    python posthoc/verify_paper_numbers.py
+    python posthoc/verify_paper_numbers.py --rerun
+
+The first form checks hashes and values; the second also reruns the post hoc scripts.
+
+Status
+------
+Verification tool for the paper's printed numbers (draft 0.1 of 2026-11-24); it is a check on the
+committed outputs, not an analysis, and carries no preregistration.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import argparse
+import difflib
 import hashlib
 import json
 import os
@@ -373,7 +404,9 @@ def rerun(name):
     Returns
     -------
     str
-        ``same``, ``DIFFERENT`` or ``skipped (...)``.
+        ``same``, ``DIFFERENT`` or ``skipped (...)``. On ``DIFFERENT`` a unified diff (frozen
+        against new, first 40 lines) and the tail of the script's standard error are written to
+        ``sys.stderr``.
     """
     absent = missing_inputs(name)
     if absent:
@@ -387,7 +420,16 @@ def rerun(name):
     # the committed output was printed by Python 3.11; drop the line that names it
     if name in VARIES:
         new, frozen = (re.sub(VARIES[name], "", x, flags=re.M) for x in (new, frozen))
-    return "same" if run.returncode == 0 and new == frozen else "DIFFERENT"
+    if run.returncode == 0 and new == frozen:
+        return "same"
+    # show what differs, so a CI log names the offending line
+    diff = difflib.unified_diff(
+        frozen.splitlines(), new.splitlines(), "frozen", "rerun", lineterm="", n=1
+    )
+    sys.stderr.write(f"--- rerun of posthoc/{name}.py differs (exit {run.returncode}) ---\n")
+    sys.stderr.write("\n".join(list(diff)[:40]) + "\n")
+    sys.stderr.write("stderr tail:\n" + "\n".join(run.stderr.splitlines()[-15:]) + "\n")
+    return "DIFFERENT"
 
 
 def main():

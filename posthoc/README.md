@@ -114,7 +114,7 @@ Both new scripts (`ledger_audit.py`, `network_scan.py`) need writable temporary 
 | `rebuild_vs_flagged.py` | the package only |
 | `round13_checks.py`, `round14_checks.py`, `ledger_audit.py`, `network_scan.py` | the package and `<RAW>` |
 | `session_env.py` | `<RAW>` only |
-| `prereg_chronology.py` | the package, `<RAW>`, `<CHAIN>`, `git`, `openssl` and the OpenTimestamps client `ots` (offline: `ots info`, never `ots verify`) |
+| `prereg_chronology.py` | the package, `<RAW>`, `<CHAIN>`, `git`, `openssl` and the OpenTimestamps client `ots` (offline: `ots info`, never `ots verify`); trust anchors for the three time-stamp tokens: `prereg/study3/freetsa-cacert.pem`, `posthoc/usertrust-rsa-root.pem` (Sectigo) and the system CA bundle (DigiCert) |
 | `td_secondary.py`, `claim_counts.py`, `b1_split.py` | the package only |
 | `power_543.py` | nothing (standard library) |
 | `not_verified.py`, `study2_preoutage.py`, `gap_checks.py`, `ledger_content.py`, `ledger_share.py`, `sdt_bootstrap.py` | the package and `<RAW>` |

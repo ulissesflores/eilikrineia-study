@@ -1,6 +1,8 @@
-"""Round 14: post hoc checks asked for by the round-13 reviews.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Post hoc signal detection, audit disagreement, status fields and session time checks.
 
-EXPLORATORY, POST HOC (2026-11-24). Not preregistered.
+Five checks, each printed as its own section.
 
 A. Study 2, signal detection: hit rate H = P(labelled complete | hidden check passed), false-alarm
    rate F = P(labelled complete | failed), d' = z(H) - z(F), criterion c = -(z(H) + z(F)) / 2
@@ -10,19 +12,45 @@ B. Audits: outcome-specific signed disagreement. For each message D = labeller s
    says complete (-1, 0, +1). Within one hidden-check result, mean_S(D) - mean_control(D) is the
    labeller's arm contrast minus the rater's (share "complete"); Wald 95% interval with sample
    variances. Study 2: author and second rater (all 80 answers). Study 3: K - S and I - S against
-   Fable and Grok.
+   the raters fable and grok.
 C. Study 1: kept trials and passes on each of the three tasks (registered scoring).
 D. Study 3: the parsed status fields (status, conforming) across all kept arms, the trials that
-   failed the hidden check and did not write COMPLETE; claim records per kept trial by arm
-   (S, K, TD) and records with evidence.
+   failed the hidden check and did not write COMPLETE; claim records per kept trial by arm (S, K,
+   TD) and records with evidence.
 E. Study 2: session seconds by task and arm (medians; difference of medians with a 2,000-resample
    percentile bootstrap, seed 1), kept trials.
 
 Gates (asserts): kept counts 1,992 (study 1), 505/493 (study 2), 2,958 (study 3); one pooled Table 4
 numerator (136: S trials that passed and were labelled complete); the Table 10 complete-label
 marginal counts (not the discordant pairs).
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/round14_checks.py  (needs the
-package and <RAW>)
+
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/).
+- The package: score files, the audit labels in runs/study2-audit/ and runs/study3-audit/, and the
+  analysers (imported unchanged).
+
+Outputs
+-------
+- Counts and estimates on standard output, one section per check; the committed
+  posthoc/round14_checks.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/round14_checks.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import collections

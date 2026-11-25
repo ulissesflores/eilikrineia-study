@@ -1,7 +1,37 @@
-"""Post hoc: the first transcript line of each 'contact' trial, with context.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Print the first transcript line of each 'contact' trial, with context.
 
 The contact trials are the trial-id-* rows of cross-trial-reads.tsv. The context lets the
-description of contact trials be checked. Reads the raw archive (<RAW>, default raw/), read only.
+description of contact trials be checked. The raw archive is read only.
+
+Inputs
+------
+- posthoc/cross-trial-reads.tsv.
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/), the unpacked archive,
+  read only.
+
+Outputs
+-------
+- The first transcript line of each contact trial, with context, on standard output; the committed
+  posthoc/cross_trial_contacts.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/cross_trial_contacts.py
+
+Status
+------
+Post hoc, exploratory, not preregistered. The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

@@ -1,10 +1,38 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Test whether the registered +9.1 points can be reproduced from the trials file.
 
-Post hoc: can the registered "+9.1 points" (runs/z4-union.txt, script not in package v1.0.0) be
-reproduced from runs/z4-trials.jsonl? POST HOC (2026-11-23). Prints, per writer, the pooled share
-of faithful study 2 rebuilds whose hidden check failed and which the writer's tests flag, the
-unweighted mean of the three task shares, and the same for false completions, beside the six
-figures z4-union.txt prints.
+Can the registered "+9.1 points" (runs/z4-union.txt, whose script is not in package v1.0.0) be
+reproduced from runs/z4-trials.jsonl? The script prints, per writer, the pooled share of faithful
+study 2 rebuilds whose hidden check failed and which the writer's tests flag, the unweighted mean of
+the three task shares, and the same for false completions, beside the six figures that z4-union.txt
+prints.
+
+Inputs
+------
+- runs/z4-trials.jsonl and runs/z4-union.txt of the package (needs the package only).
+
+Outputs
+-------
+- The shares and the six frozen figures on standard output; the committed posthoc/ceiling_9_1.txt
+  must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/ceiling_9_1.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-23). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import json

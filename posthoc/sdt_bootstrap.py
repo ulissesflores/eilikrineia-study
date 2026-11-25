@@ -1,31 +1,52 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Compute study 2 signal detection indices with bootstrap intervals.
 
-Round 28 (2): study 2 signal detection indices with bootstrap intervals, and caveats by
-hidden-check result. EXPLORATORY, POST HOC, computed for this paper (2026-11-24); not
-preregistered. Spec fixed here before the first run.
+Study 2 signal detection indices with bootstrap intervals, and caveats by hidden-check result.
+Computed for this paper; the specification was fixed before the first run.
 
 Kept trials of study 2 (registered exclusions: timeout, agent error, hidden access, agent never
-started, rc 127 in
-record.json; gate 505 S / 493 control). Per task x arm: H = share labelled complete among passed
-trials, F = among
-failed trials (package columns `claim`, `check_passed`); d' = z(H) - z(F), c = -(z(H) + z(F)) / 2
-(Table 5; gate: the
-six printed d' and c values). Differences S - control of c and d' per task. Interval: percentile
-bootstrap, 2,000
-resamples, seed 2028, resampling trials with replacement within each task x arm x check-result cell
-(so the cell sizes,
+started, rc 127 in record.json; gate 505 S / 493 control). Per task x arm: H = share labelled
+complete among passed trials, F = among failed trials (package columns `claim`, `check_passed`); d'
+= z(H) - z(F), c = -(z(H) + z(F)) / 2 (Table 5; gate: the six printed d' and c values). Differences
+S - control of c and d' per task. Interval: percentile bootstrap, 2,000 resamples, seed 2028,
+resampling trials with replacement within each task x arm x check-result cell (so the cell sizes,
 and the passed/failed split, are fixed as observed; the interval reflects label noise only). A
-resample in which any
-of the four rates of a task is 0 or 1 gives an infinite z: such resamples are counted, and a task's
-interval is printed
-only when none occurred; otherwise it is reported as not estimable (no correction is applied).
+resample in which any of the four rates of a task is 0 or 1 gives an infinite z: such resamples are
+counted, and a task's interval is printed only when none occurred; otherwise it is reported as not
+estimable (no correction is applied).
+
 Caveats by result: share of kept messages with a "Not verified"-type section
-(runner/z1_relabel_study2.relabel, second
-value, as in Section 5.4) and share mentioning Python 3.8 (posthoc/python38_caveats.PY38 pattern),
-by arm x result.
-Output: counts only.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/sdt_bootstrap.py  (needs the
-package and <RAW>)
+(runner/z1_relabel_study2.relabel, second value, as in Section 5.4) and share mentioning Python 3.8
+(posthoc/python38_caveats.PY38 pattern), by arm x result.
+
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/).
+- The package: runs/study2-scores.csv, runner/z1_relabel_study2.py and posthoc/python38_caveats.py
+  (imported unchanged).
+
+Outputs
+-------
+- Counts only, on standard output; the committed posthoc/sdt_bootstrap.txt must be reproduced byte
+  for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/sdt_bootstrap.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

@@ -1,22 +1,49 @@
-"""Round 13: post hoc checks asked for by the round-12 reviews.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Post hoc checks of study 2 exclusions and connection errors, and of the study 3 TOML test.
 
-EXPLORATORY, POST HOC (2026-11-24). Not preregistered.
+Three checks, each printed as its own section.
 
 A. Study 2 exclusions: extreme-case bounds for false non-completion and the pass rate, by the same
-crude rule the
-   paper already used for false completion (every excluded trial of one arm counted as an event,
-   none of the other).
+   crude rule the paper already used for false completion (every excluded trial of one arm counted
+   as an event, none of the other).
 B. Study 2 connection errors: when the error trials started (not the errors themselves), the error
-categories, and the arm mix of every trial launched in that window (was the
-   27 S / 43 control split the schedule, or the outage?).
+   categories, and the arm mix of every trial launched in that window (was the 27 S / 43 control
+   split the schedule, or the outage?).
 C. Study 3, TOML task: is the acceptance test that rejects '[a.b.c] / [a] / b.c.z = 1' right by
-Python's tomllib, the
-   reader the hidden test agrees with on the valid '[a.b.c] / [a] / b.d = 1'?
+   Python's tomllib, the reader the hidden test agrees with on the valid '[a.b.c] / [a] / b.d = 1'?
 
 Gates: frozen kept counts and the frozen false-completion bounds (15.7% vs 15.0%; 8.9% vs 23.7%)
 reproduced.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/round13_checks.py  (needs the
-package and <RAW>)
+
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/).
+- The package score files and frozen outputs in runs/.
+
+Outputs
+-------
+- Counts and bounds on standard output, one section per check. The committed
+  posthoc/round13_checks.txt must be reproduced byte for byte, except the line that names the Python
+  version, which differs between interpreters and is ignored by the rerun check in
+  posthoc/verify_paper_numbers.py.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/round13_checks.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import collections
@@ -93,7 +120,7 @@ def pct(a, n):
 
 
 def part_a():
-    """Print part A: extreme-case bounds over the excluded study 2 trials."""
+    """Print check A: extreme-case bounds over the excluded study 2 trials."""
     print(
         "== A. Study 2 extreme-case bounds over the excluded trials (crude proportions, kept + "
         "excluded)"
@@ -159,7 +186,7 @@ def part_a():
 
 
 def part_b():
-    """Print part B: study 2 connection errors and the trials launched in their window."""
+    """Print check B: study 2 connection errors and the trials launched in their window."""
     print("\n== B. Study 2 connection errors and the trials launched in their window")
     rows = list(csv.DictReader(open(PKG / "runs" / "study2-scores.csv")))
     t = {r["trial"]: datetime.fromisoformat(rec("study2", r["trial"])["started"]) for r in rows}
@@ -193,7 +220,7 @@ def part_b():
 
 
 def part_c():
-    """Print part C: the study 3 TOML acceptance test against tomllib."""
+    """Print check C: the study 3 TOML acceptance test against tomllib."""
     print(
         "\n== C. Study 3 TOML: is the acceptance test next to the recurring failure itself correct?"
     )

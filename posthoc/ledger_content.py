@@ -1,14 +1,15 @@
-"""Round 27 (2): what the signed claim entries say, counted deterministically.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Count deterministically what the signed claim entries say.
 
-EXPLORATORY, POST HOC (2026-11-24). Computed for this paper; not preregistered. Spec fixed here
-before the first run; no model and no person labels anything; the counts are not judgements of
-whether an entry is true.
+Computed for this paper; the specification was fixed before the first run. No model and no person
+labels anything; the counts are not judgements of whether an entry is true.
 
 Data: the raw archive (EILIKRINEIA_RAW, the public redacted copy). An entry is a private text of the
 trial's saved signed ledger with seq > 1 (seq 1 is the experiment owner's genesis), read exactly as
 runner/score_study.py `recorded` reads it. Arms with the claim tool and a signed ledger: study 1 P
-and S, study 2 S, study 3 S, K and TD. Kept trials follow each study's registered exclusions
-(study 1: timeout, agent error, hidden access; study 2: the same plus agent never started, rc 127 in
+and S, study 2 S, study 3 S, K and TD. Kept trials follow each study's registered exclusions (study
+1: timeout, agent error, hidden access; study 2: the same plus agent never started, rc 127 in
 record.json; study 3: timeout, agent error, no init model, path-shaped hidden access, check
 infrastructure error). Gates: kept counts (995/997; 505; 740/741/737), entries per trial equal the
 `records` column of the package score file, and per-trial `record_false_complete` (package column)
@@ -19,32 +20,60 @@ corrected check (`valid_check` of runs/study-rescore.csv, Section 5.2), since tw
 checks were defective.
 
 Measures, per study x arm (entries and trials of kept trials):
- 1. entries, trials, trials with no entry;
- 2. repetition (boilerplate proxy): text normalised by lower-casing, collapsing white space and
-    dropping a final full stop. (a) within trial: share of entries whose normalised text equals an
-    earlier entry of the same trial; (b) across trials: share of entries whose normalised text
-    occurs in at least two different trials of the same study x arm; (c) as (b) with every digit
-    run replaced by '#' (so "All 43 tests pass" = "All 12 tests pass");
- 3. assertion: share of entries the benchmark's rule-based labeller (overclaim.claims.classify,
-    deterministic) labels `complete`, and share it marks as claiming tests pass
-    (`claims_tests_pass`);
- 4. evidence: share of entries with an attached evidence file;
- 5. split by hidden-check result (failed / passed): trials; trials with >= 1 entry labelled
-    complete; trials with >= 1 entry claiming tests pass; entries per trial; share of entries
-    labelled complete; share with evidence; and, among trials with >= 1 complete-labelled entry,
-    how many final messages the labeller did NOT label complete (ledger asserts completion while
-    the message carries a caveat).
+
+1. entries, trials, trials with no entry;
+2. repetition (boilerplate proxy): text normalised by lower-casing, collapsing white space and
+   dropping a final full stop. (a) within trial: share of entries whose normalised text equals an
+   earlier entry of the same trial; (b) across trials: share of entries whose normalised text occurs
+   in at least two different trials of the same study x arm; (c) as (b) with every digit run
+   replaced by '#' (so "All 43 tests pass" = "All 12 tests pass");
+3. assertion: share of entries the benchmark's rule-based labeller (overclaim.claims.classify,
+   deterministic) labels `complete`, and share it marks as claiming tests pass
+   (`claims_tests_pass`);
+4. evidence: share of entries with an attached evidence file;
+5. split by hidden-check result (failed / passed): trials; trials with >= 1 entry labelled complete;
+   trials with >= 1 entry claiming tests pass; entries per trial; share of entries labelled
+   complete; share with evidence; and, among trials with >= 1 complete-labelled entry, how many
+   final messages the labeller did NOT label complete (ledger asserts completion while the message
+   carries a caveat).
+
 Added after the first run (same day, before any paper edit; the per-arm lines above are unchanged):
 (6) pooled totals of measure 5 over the six arm rows and over studies 2 and 3, printed so no figure
 is summed by hand; (7) per arm, of the entries whose text occurs in >= 2 trials, how many the
 labeller marks as claiming tests pass.
+
 Limits stated in advance: an entry saying the agent's own tests pass can be true when the hidden
 check fails; the labeller was built for final messages, not one-line entries; exact repetition
 misses paraphrase.
 
-Output: counts only (no entry text, no trial id).
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/ledger_content.py  (needs the
-package and <RAW>)
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): the saved signed
+  ledgers and record.json of each trial.
+- The package: runs/*-scores.csv, runs/study-rescore.csv, the runner and overclaim modules (imported
+  unchanged).
+
+Outputs
+-------
+- Counts only (no entry text, no trial id), on standard output; the committed
+  posthoc/ledger_content.txt must be reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/ledger_content.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import collections

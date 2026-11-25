@@ -1,37 +1,61 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Count final messages that mention the Python 3.8 requirement, by arm.
 
-Post hoc: how often final messages mention the Python 3.8 requirement, by arm, and the main
-contrasts without it. EXPLORATORY, POST HOC (2026-11-23). Not preregistered.
+How often final messages mention the Python 3.8 requirement, by arm, and the main contrasts without
+it.
 
 The TOML task says "The project supports Python 3.8+"; only Python 3.11 runs, and the hidden check
-does not test 3.8.
-An agent that writes it could not test 3.8 gives the labeller a material caveat, so a passing trial
-can count as a
-false non-completion for an accurate sentence (paper Section 3.3).
+does not test 3.8. An agent that writes it could not test 3.8 gives the labeller a material caveat,
+so a passing trial can count as a false non-completion for an accurate sentence (paper Section 3.3).
 
 For every kept trial (the package's registered exclusions, re-implemented here and gated on the
 frozen counts):
+
 - py38: the final message mentions 3.8 (regex below);
 - py38_cue: at least one labeller cue sits in a sentence that mentions 3.8;
 - relabel: the package labeller (overclaim.claims) with every cue in a sentence that mentions 3.8
-dropped; every other
-  rule unchanged (same construction as runner/z1_relabel_study2.py, which drops "Not verified"
-  lines).
-Study 2 co-primary contrasts (package mh_rd, Sato variance, CMH), two sensitivities:
-(1) relabelled, all kept trials; (2) excluding every trial whose message mentions 3.8
-(post-treatment selection, so a
-sensitivity check only). Study 3: only (1), the relabelled contrasts I - S and K - S with 95%
-intervals, plus the
-counts of messages that mention 3.8; the exclusion sensitivity (2) is NOT implemented for study 3.
+  dropped; every other rule unchanged (same construction as runner/z1_relabel_study2.py, which drops
+  "Not verified" lines).
+
+Study 2 co-primary contrasts (package mh_rd, Sato variance, CMH), two sensitivities: (1) relabelled,
+all kept trials; (2) excluding every trial whose message mentions 3.8 (post-treatment selection, so
+a sensitivity check only). Study 3: only (1), the relabelled contrasts I - S and K - S with 95%
+intervals, plus the counts of messages that mention 3.8; the exclusion sensitivity (2) is NOT
+implemented for study 3.
 
 Gate: with nothing changed, the labeller reproduces every scored label (assert), the kept-arm counts
-equal the frozen
-counts (assert) and the study 2 'as registered' contrasts equal the frozen -6.6 / +27.9 (assert).
-The study 3 'registered'
-contrasts are recomputed and printed, not compared with frozen values.
+equal the frozen counts (assert) and the study 2 'as registered' contrasts equal the frozen -6.6 /
++27.9 (assert). The study 3 'registered' contrasts are recomputed and printed, not compared with
+frozen values.
 
-Inputs (read only): the published package <package root> (score files, runner/,
-overclaim/, and raw/ = the raw trial archive, record.json / agent.stdout).
+Inputs
+------
+- The published package (package root): score files, runner/, overclaim/.
+- The raw trial archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): record.json and
+  agent.stdout, read only.
+
+Outputs
+-------
+- Counts and contrasts only, on standard output; the committed posthoc/python38_caveats.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/python38_caveats.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-23). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import csv

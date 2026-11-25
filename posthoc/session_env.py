@@ -1,29 +1,47 @@
-"""Round 13: what the Claude Code session of each trial loaded.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""What the Claude Code session of each trial loaded.
 
-EXPLORATORY, POST HOC (2026-11-24). Not preregistered.
-
-Reads each trial's saved stream (agent.stdout in the raw archive) up to its first assistant event:
-the system events
-before it (hooks started, hook responses, which are only COUNTED, never printed) and the init event,
-from which only
+Reads each trial's saved stream up to its first assistant event: the system events before it (hooks
+started, hook responses, which are only COUNTED, never printed) and the init event, from which only
 selected fields are used (tools, MCP servers, slash commands, skills, plugin names, permission mode,
-Claude Code
-version, model). Configuration labels, arm labels and Claude Code versions are checked against
-allowlists (the versions against the exact values in the archive); anything else prints as `other`.
-No trial ids
-and no raw excerpts are printed. The invocation itself is in runner/run_trial.py (the one command
-line used by every
-study).
-Also: the context size of the first model request of each session (input + cache-creation +
-cache-read tokens of the
-first assistant event), by study and arm. A first assistant event with zero tokens is a synthetic
-error event (a
-connection error written by the client, not a model request): it is counted separately and left out
-of the token
-summary. This script makes no claim about the size of instructions that only the host sessions
-loaded.
+Claude Code version, model). Configuration labels, arm labels and Claude Code versions are checked
+against allowlists (the versions against the exact values in the archive); anything else prints as
+`other`. No trial ids and no raw excerpts are printed. The invocation itself is in
+runner/run_trial.py (the one command line used by every study).
 
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/session_env.py  (needs <RAW>)
+Also: the context size of the first model request of each session (input + cache-creation +
+cache-read tokens of the first assistant event), by study and arm. A first assistant event with zero
+tokens is a synthetic error event (a connection error written by the client, not a model request):
+it is counted separately and left out of the token summary. This script makes no claim about the
+size of instructions that only the host sessions loaded.
+
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): agent.stdout of each
+  trial (needs <RAW> only).
+
+Outputs
+-------
+- Counts and token summaries only, on standard output; the committed posthoc/session_env.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/session_env.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import collections
@@ -47,7 +65,20 @@ ALLOWED = {
 
 
 def lab(kind, v):
-    """Return v if it is an allowlisted label of this kind, else 'other'."""
+    """Return a label only if it is allowlisted for its kind.
+
+    Parameters
+    ----------
+    kind : str
+        Key of ``ALLOWED`` (the kind of label).
+    v : str
+        The value read from the archive.
+
+    Returns
+    -------
+    str
+        ``v`` if it is allowlisted for ``kind``, else ``'other'``.
+    """
     return v if v in ALLOWED[kind] else "other"
 
 
@@ -56,7 +87,18 @@ VERSIONS = {"2.1.318", "2.1.319"}  # the exact values in the init events of the 
 
 
 def ver(v):
-    """Return a version string only if it is one of the exact values in VERSIONS, else 'other'."""
+    """Return a version string only if it is one of the exact values in VERSIONS.
+
+    Parameters
+    ----------
+    v : str
+        The version read from a trial's init event.
+
+    Returns
+    -------
+    str
+        ``v`` if it is in ``VERSIONS``, else ``'other'``.
+    """
     return v if v in VERSIONS else "other"
 
 

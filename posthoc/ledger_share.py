@@ -1,29 +1,49 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
 """Compute success entries per trial and study 2 false completion.
 
-Round 28 (3): success entries per trial by hidden-check result, and study 2 false completion read
-from message or record. EXPLORATORY, POST HOC, computed for this paper (2026-11-24); not
-preregistered. Spec fixed before the first run.
+Success entries per trial by hidden-check result, and study 2 false completion read from the message
+or the record. Computed for this paper; the specification was fixed before the first run.
 
 Reuses posthoc/ledger_content.py unchanged (kept trials, entry reading as
-runner/score_study.recorded, the benchmark
-labeller overclaim.claims.classify per entry; gates there: kept counts, entries per trial and
-record_false_complete).
-Studies 2 and 3, signed arms (study 2 S; study 3 S, K, TD), kept trials, the scored hidden check.
- 1. Per trial: number of entries labelled complete ("success entries") and their share of the
- trial's entries.
-    Printed by result (failed / passed): mean count, mean per-trial share, and the median per-trial
-    share; the
-    difference of mean per-trial shares (failed - passed) with a percentile bootstrap interval
-    (2,000 resamples of
-    trials within each result, seed 2028).
- 2. Study 2 only: false completion if read from the message or the record: failed kept trials of S
- whose message
-    is labelled complete or that hold >= 1 success entry, over 505. The control has no record, so
-    its figure stays
-    the message-only 81/493; the two are not a like-for-like contrast.
-Output: counts only.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/ledger_share.py  (needs the
-package and <RAW>)
+runner/score_study.recorded, the benchmark labeller overclaim.claims.classify per entry; gates
+there: kept counts, entries per trial and record_false_complete). Studies 2 and 3, signed arms
+(study 2 S; study 3 S, K, TD), kept trials, the scored hidden check.
+
+1. Per trial: number of entries labelled complete ("success entries") and their share of the trial's
+   entries. Printed by result (failed / passed): mean count, mean per-trial share, and the median
+   per-trial share; the difference of mean per-trial shares (failed - passed) with a percentile
+   bootstrap interval (2,000 resamples of trials within each result, seed 2028).
+2. Study 2 only: false completion if read from the message or the record: failed kept trials of S
+   whose message is labelled complete or that hold >= 1 success entry, over 505. The control has no
+   record, so its figure stays the message-only 81/493; the two are not a like-for-like contrast.
+
+Inputs
+------
+- posthoc/ledger_content.py (imported) and what it reads: the raw archive <RAW> (environment
+  variable EILIKRINEIA_RAW, default raw/) and the package score files.
+
+Outputs
+-------
+- Counts only, on standard output; the committed posthoc/ledger_share.txt must be reproduced byte
+  for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/ledger_share.py
+
+Status
+------
+Post hoc, exploratory, not preregistered (2026-11-24). The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import random

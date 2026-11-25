@@ -1,22 +1,61 @@
-"""Post hoc: preregistration chronology of the four experiments, from files only (no network).
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Carlos Ulisses Flores (Codex Hash Ltda.)
+"""Preregistration chronology of the four experiments, from files only (no network).
 
-For each preregistration entry of the author's Eilikrineia ledger: entry number, recorded time,
-hash, whether the
-SHA-256 of the shipped preregistration document is among the entry's attachments, and whether the
-trial schedule saved
-at the start of the batch (runs/<study>/schedule.txt) is reproduced by the package's shuffle with
-the seed taken from
-the entry hash. External timestamps: the first OpenTimestamps stamp of the public ledger repository
-whose sequence
+For each preregistration entry of the author's Eilikrineia ledger the script prints: entry number,
+recorded time, hash, whether the SHA-256 of the shipped preregistration document is among the
+entry's attachments, and whether the trial schedule saved at the start of the study's run
+(<RAW>/<study>/schedule.txt) is reproduced by the package's shuffle with the seed taken from the
+entry hash.
+
+External timestamps: the first OpenTimestamps stamp of the public ledger repository whose sequence
 number covers the entry (stamps/NNNNNN.txt names a head), its attestations as printed by `ots info`
-(offline; never
-`ots verify`), and the commit time at which the entry file first appears in the public repository's
-git history; for
-study 3, the three RFC 3161 tokens over prereg/study3/pins.txt (time, imprint, signature checked
-offline with
-`openssl ts -verify`) and the OpenTimestamps proof of pins.txt. First trial: the earliest `started`
-in the
-record.json files of the raw trial folders (not folder 0001).
+(offline; never `ots verify`), and the commit time at which the entry file first appears in the
+public repository's git history; for study 3, the three RFC 3161 tokens over prereg/study3/pins.txt
+(time, imprint, signature checked offline with `openssl ts -verify`) and the OpenTimestamps proof of
+pins.txt.
+
+First trial: the earliest `started` in the record.json files of the raw trial folders (not folder
+0001).
+
+Inputs
+------
+- The raw archive <RAW> (environment variable EILIKRINEIA_RAW, default raw/): schedule.txt and
+  record.json of each study.
+- <CHAIN> (environment variable EILIKRINEIA_CHAIN, default ../eilikrineia relative to the package
+  root): a git clone of the public ledger https://github.com/ulissesflores/eilikrineia (chain/,
+  stamps/, full history).
+- The package: the preregistration documents and prereg/study3/ (pins.txt, its timestamp tokens and
+  proofs).
+- The external tools git, openssl and ots, run offline. Trust anchors for the RFC 3161 check:
+  freetsa -> prereg/study3/freetsa-cacert.pem; sectigo -> posthoc/usertrust-rsa-root.pem (the
+  USERTrust RSA root, SHA-256 fingerprint E7:93:C9:B0:...:C3:D4:CB:D2; with the Mozilla bundle that
+  Linux systems ship, OpenSSL 3.5 picked the self-signed Sectigo R46 root in a test and the token
+  failed the signing certificate check); digicert -> the system CA bundle (the first existing of
+  /etc/ssl/cert.pem, /etc/ssl/certs/ca-certificates.crt and /etc/pki/tls/certs/ca-bundle.crt; the
+  script stops with an error if none exists).
+
+Outputs
+-------
+- One block per study on standard output; the committed posthoc/prereg_chronology.txt must be
+  reproduced byte for byte.
+
+Usage
+-----
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/prereg_chronology.py
+
+Status
+------
+Post hoc, exploratory, not preregistered. The numbers it backs are listed in
+posthoc/paper_numbers.json.
+
+Author
+------
+Carlos Ulisses Flores, ORCID https://orcid.org/0000-0002-6034-7765
+
+Repository
+----------
+https://github.com/ulissesflores/eilikrineia-study
 """
 
 import hashlib
@@ -31,7 +70,7 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 PKG = Path(__file__).resolve().parent.parent  # the package root
-# <RAW>: schedule.txt and record.json of each batch
+# <RAW>: schedule.txt and record.json of each study
 RAW = Path(os.environ.get("EILIKRINEIA_RAW", PKG / "raw"))
 # <CHAIN>: a git clone of the public ledger https://github.com/ulissesflores/eilikrineia (chain/,
 # stamps/, full history)
@@ -60,6 +99,33 @@ def sh(*cmd, cwd=None):
         Standard output text.
     """
     return subprocess.run(cmd, capture_output=True, text=True, cwd=cwd).stdout
+
+
+def ca_bundle():
+    """Return the system CA bundle that `openssl ts -verify` uses as `-CAfile`.
+
+    The bundle lives at a different path on macOS, Debian/Ubuntu and Red Hat systems.
+
+    Returns
+    -------
+    Path
+        The first existing of `/etc/ssl/cert.pem`, `/etc/ssl/certs/ca-certificates.crt` and
+        `/etc/pki/tls/certs/ca-bundle.crt`.
+
+    Raises
+    ------
+    FileNotFoundError
+        If none of them exists.
+    """
+    candidates = (
+        "/etc/ssl/cert.pem",
+        "/etc/ssl/certs/ca-certificates.crt",
+        "/etc/pki/tls/certs/ca-bundle.crt",
+    )
+    for path in candidates:
+        if Path(path).is_file():
+            return Path(path)
+    raise FileNotFoundError("no system CA bundle found; looked for " + ", ".join(candidates))
 
 
 def plan(tasks, arms, reps, seed):
@@ -230,11 +296,10 @@ def main():
             "".join(re.findall(r"\b[0-9a-f]{2}\b", m.replace("-", " ")))
             for m in re.findall(r"^\s+[0-9a-f]{4} - (.{47})", block, re.M)
         )
-        ca = (
-            PKG / "prereg/study3/freetsa-cacert.pem"
-            if tsa == "freetsa"
-            else Path("/etc/ssl/cert.pem")
-        )
+        ca = {
+            "freetsa": PKG / "prereg/study3/freetsa-cacert.pem",
+            "sectigo": PKG / "posthoc/usertrust-rsa-root.pem",
+        }.get(tsa) or ca_bundle()
         ver = subprocess.run(
             ["openssl", "ts", "-verify", "-data", str(pins), "-in", str(tsr), "-CAfile", str(ca)],
             capture_output=True,
