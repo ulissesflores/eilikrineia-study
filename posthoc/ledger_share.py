@@ -59,9 +59,7 @@ import ledger_content as L  # noqa: E402
 def main():
     """Print success entries per trial and study 2 false completion by source."""
     rng = random.Random(2028)
-    print(
-        "== Round 28 (3): success entries per trial by hidden-check result (post hoc, exploratory)"
-    )
+    print("== Success entries per trial by hidden-check result (post hoc, exploratory)")
     res = {False: [], True: []}
     s2 = {"fail": 0, "either": 0, "msg": 0, "n": 0}
     for study, arms in (("study2", ("S",)), ("study3", ("S", "K", "TD"))):
@@ -80,7 +78,7 @@ def main():
                         s2["msg"] += r["claim"] == "complete"
                         s2["either"] += r["claim"] == "complete" or k > 0
     assert (len(res[False]), len(res[True])) == (485, 2238), (len(res[False]), len(res[True]))
-    print("gate: 485 failed and 2,238 passed kept trials (round 27)")
+    print("gate: 485 failed and 2,238 passed kept trials")
     for p in (False, True):
         ks = [x[0] for x in res[p]]
         sh = [x[1] for x in res[p]]

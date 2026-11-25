@@ -1,5 +1,5 @@
-== Round 28 (3): success entries per trial by hidden-check result (post hoc, exploratory)
-gate: 485 failed and 2,238 passed kept trials (round 27)
+== Success entries per trial by hidden-check result (post hoc, exploratory)
+gate: 485 failed and 2,238 passed kept trials
   check failed: trials 485; success entries per trial mean 2.24; per-trial share mean 56.0%, median 50.0%
   check passed: trials 2238; success entries per trial mean 2.46; per-trial share mean 50.7%, median 50.0%
   per-trial share, failed - passed: +5.3 points (95% percentile +3.1 to +7.5)

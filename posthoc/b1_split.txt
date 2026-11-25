@@ -1,4 +1,4 @@
-== Round 28 (6): study 3 audit by arm and hidden-check result (both / labeller only / rater only / neither)
+== Study 3 audit by arm and hidden-check result (both / labeller only / rater only / neither)
   S, failed (20): Fable 4/2/1/13; Grok 6/0/5/9; Hydrogen 5/1/6/8
   S, passed (20): Fable 2/2/3/13; Grok 3/1/4/12; Hydrogen 3/1/6/10
   I, failed (20): Fable 11/2/2/5; Grok 12/1/5/2; Hydrogen 13/0/3/4

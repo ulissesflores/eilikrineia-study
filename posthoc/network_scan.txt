@@ -1,4 +1,4 @@
-== Round 21 (a): network-command scan (post hoc, exploratory). Counts only.
+== Network-command scan (post hoc, exploratory). Counts only.
 transcripts scanned: 6228; benchmark/task markers: 22 (owner, repository and task names)
 
 pilot H: transcripts 60

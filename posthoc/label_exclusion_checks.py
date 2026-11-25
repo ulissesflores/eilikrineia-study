@@ -26,11 +26,11 @@ Inputs
 Outputs
 -------
 - Counts and estimates on standard output, one section per check; the committed
-  posthoc/round12_checks.txt must be reproduced byte for byte.
+  posthoc/label_exclusion_checks.txt must be reproduced byte for byte.
 
 Usage
 -----
-    PYTHONDONTWRITEBYTECODE=1 python posthoc/round12_checks.py
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/label_exclusion_checks.py
 
 Status
 ------

@@ -56,8 +56,7 @@ B1 = {
     ("TD", True): ("11/0/4/5", "10/1/3/6", "11/0/5/4"),
 }
 print(
-    "== Round 28 (6): study 3 audit by arm and hidden-check result (both / labeller only / rater "
-    "only / neither)"
+    "== Study 3 audit by arm and hidden-check result (both / labeller only / rater only / neither)"
 )
 for arm in ("S", "I", "K", "TD"):
     for passed in (False, True):

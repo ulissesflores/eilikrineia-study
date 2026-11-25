@@ -118,7 +118,7 @@ list. They are outside the `chain_hash` (decision [0012](docs/adr/0012-post-hoc-
 no registered result and are not preregistered; `posthoc/README.md` lists inputs and how to run them, and
 `posthoc/SHA256SUMS` lists their checksums. Version 1.1.0 of this package adds `posthoc/` and corrects the wording of
 "preregistered"; the main branch after 1.1.0 adds code and outputs for the remaining checks identified in the paper draft
-(`round13_checks.py`, `session_env.py`, `round14_checks.py`); they will be archived in the next release. The sealed files and the `chain_hash` are those of version 1.0.0.
+(`exclusion_connection_checks.py`, `session_env.py`, `detection_status_checks.py`); they will be archived in the next release. The sealed files and the `chain_hash` are those of version 1.0.0.
 
 ## Known limits of this package
 

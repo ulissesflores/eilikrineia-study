@@ -1,4 +1,4 @@
-== Round 28 (2): study 2 signal detection with bootstrap intervals (post hoc, exploratory)
+== Study 2 signal detection with bootstrap intervals (post hoc, exploratory)
 gate: six d' and c values equal Table 5
 
 feature-toml-config (failed trials S 6, control 5): c S - control +0.44; d' S - control -0.07

@@ -33,11 +33,11 @@ Inputs
 Outputs
 -------
 - Counts and estimates on standard output, one section per check; the committed
-  posthoc/round14_checks.txt must be reproduced byte for byte.
+  posthoc/detection_status_checks.txt must be reproduced byte for byte.
 
 Usage
 -----
-    PYTHONDONTWRITEBYTECODE=1 python posthoc/round14_checks.py
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/detection_status_checks.py
 
 Status
 ------

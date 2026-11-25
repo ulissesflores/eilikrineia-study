@@ -91,7 +91,7 @@ WORDS = {
 NUM = re.compile(r"[-+]?\d+(?:\.\d+)?(?:e[-+]?\d+)?(?:/\d+)?")
 
 # Output lines that depend on the interpreter (posthoc/README.md, "Expected"): ignored by --rerun.
-VARIES = {"round13_checks": r"^  Python \d+\.\d+\.\d+ .*\n"}
+VARIES = {"exclusion_connection_checks": r"^  Python \d+\.\d+\.\d+ .*\n"}
 
 # What each post hoc script needs besides the package (posthoc/README.md, "Inputs and how to run").
 NEEDS = {
@@ -108,9 +108,9 @@ NEEDS = {
     "python38_caveats": ("raw",),
     "cross_trial_sensitivity": ("raw",),
     "cross_trial_contacts": ("raw",),
-    "round12_checks": ("raw",),
-    "round13_checks": ("raw",),
-    "round14_checks": ("raw",),
+    "label_exclusion_checks": ("raw",),
+    "exclusion_connection_checks": ("raw",),
+    "detection_status_checks": ("raw",),
     "session_env": ("raw",),
     "network_scan": ("raw",),
     "ledger_audit": ("raw", "ssh-keygen"),

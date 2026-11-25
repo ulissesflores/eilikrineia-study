@@ -423,7 +423,7 @@ def main():
             "malformed transcript)"
         )
         sys.exit(1)
-    print("== Round 21 (a): network-command scan (post hoc, exploratory). Counts only.")
+    print("== Network-command scan (post hoc, exploratory). Counts only.")
     print(
         f"transcripts scanned: {len(res)}; benchmark/task markers: {len(m)} (owner, repository and "
         "task names)"

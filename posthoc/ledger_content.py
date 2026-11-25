@@ -161,10 +161,7 @@ def main():
     None
         Prints the measures per study and arm, the gates and the pooled totals.
     """
-    print(
-        "== Round 27 (2): content of signed claim entries, deterministic counts (post hoc, "
-        "exploratory)"
-    )
+    print("== Content of signed claim entries, deterministic counts (post hoc, exploratory)")
     valid = {
         r["trial"]: T(r["valid_check"]) for r in csv.DictReader(open(RUNS / "study-rescore.csv"))
     }

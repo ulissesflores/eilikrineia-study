@@ -146,9 +146,7 @@ def main():
         for a in ("S", "control")
         for p in (True, False)
     }
-    print(
-        "== Round 28 (2): study 2 signal detection with bootstrap intervals (post hoc, exploratory)"
-    )
+    print("== Study 2 signal detection with bootstrap intervals (post hoc, exploratory)")
     point = {}
     for t in TASKS:
         for a in ("S", "control"):

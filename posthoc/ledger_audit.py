@@ -458,7 +458,7 @@ def main():
     None
         Prints the counts per study and arm.
     """
-    print("== Round 21 (b): ledger integrity audit (post hoc, exploratory). Counts only.")
+    print("== Ledger integrity audit (post hoc, exploratory). Counts only.")
     selftest()
     jobs = [
         (s, d)

@@ -1,4 +1,4 @@
-== Round 27 (2): content of signed claim entries, deterministic counts (post hoc, exploratory)
+== Content of signed claim entries, deterministic counts (post hoc, exploratory)
 
 Study 1 P: kept trials 995, entries 3650, trials with no entry 4
   repeated within trial 1/3650 (0.0%); text in >=2 trials 118/3650 (3.2%); digits masked 289/3650 (7.9%); of the repeated (>=2 trials), claiming tests pass 12/118 (10.2%)

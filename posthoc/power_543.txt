@@ -1,4 +1,4 @@
-== Round 28 (4): sample size per arm, two-proportion normal approximation, 80% power
+== Sample size per arm, two-proportion normal approximation, 80% power
   alpha 0.05: 11.6% vs 17.6%: pooled 543, unpooled 540
   alpha 0.05: 11.6% vs 5.6%: pooled 342, unpooled 339
   alpha 0.025: 11.6% vs 17.6%: pooled 658, unpooled 654

@@ -93,7 +93,7 @@ def n_unpooled(p1, p2, a, power=0.8):
     return (Z(1 - a / 2) + Z(power)) ** 2 * (p1 * (1 - p1) + p2 * (1 - p2)) / (p1 - p2) ** 2
 
 
-print("== Round 28 (4): sample size per arm, two-proportion normal approximation, 80% power")
+print("== Sample size per arm, two-proportion normal approximation, 80% power")
 for a in (0.05, 0.025):
     for p2 in (0.176, 0.056):
         print(

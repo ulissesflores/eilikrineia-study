@@ -25,8 +25,8 @@ Before anything was published, even as a draft:
    field is listed per file. The archive ships `REDACTIONS.tsv` (trial, file, line, tool call, rule) and
    `FIELDS-REMOVED.tsv`.
 4. **An independent audit.** A model from another vendor was asked, with an open brief and without our list of
-   patterns, to find anything personal or sensitive. Each round's findings were fixed or declared before the next
-   round: five rounds for the archive, four for this repository.
+   patterns, to find anything personal or sensitive. The findings of each audit pass were fixed or declared before the
+   next pass: five passes for the archive, four for this repository.
 5. **Re-verification.** After every pass: the signed ledgers are byte-identical, the final messages and the scores
    are unchanged, and the study 2 and study 3 analyses reproduce from the redacted archive.
 

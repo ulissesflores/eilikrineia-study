@@ -24,13 +24,13 @@ Inputs
 Outputs
 -------
 - Counts and bounds on standard output, one section per check. The committed
-  posthoc/round13_checks.txt must be reproduced byte for byte, except the line that names the Python
-  version, which differs between interpreters and is ignored by the rerun check in
-  posthoc/verify_paper_numbers.py.
+  posthoc/exclusion_connection_checks.txt must be reproduced byte for byte, except the line
+  that names the Python version, which differs between interpreters and is ignored by the rerun
+  check in posthoc/verify_paper_numbers.py.
 
 Usage
 -----
-    PYTHONDONTWRITEBYTECODE=1 python posthoc/round13_checks.py
+    PYTHONDONTWRITEBYTECODE=1 python posthoc/exclusion_connection_checks.py
 
 Status
 ------

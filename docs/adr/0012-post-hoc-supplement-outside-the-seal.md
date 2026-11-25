@@ -22,7 +22,7 @@ suggest that they were part of the plan; leaving them out leaves numbers in the 
 - The scripts were changed from the author's working copies to read paths relative to the package root, the
   raw archive (`EILIKRINEIA_RAW`, default `raw/`) and a clone of the public ledger (`EILIKRINEIA_CHAIN`), and in
   four further respects that change no number: the contact excerpts are redacted before cutting, three scripts
-  (`cross_trial_sensitivity.py`, `round12_checks.py`, `rebuild_vs_flagged.py`) print dictionaries with sorted keys, two scripts use Python 3.11 syntax, and the pilot inputs of `mde.py` are checked
+  (`cross_trial_sensitivity.py`, `label_exclusion_checks.py`, `rebuild_vs_flagged.py`) print dictionaries with sorted keys, two scripts use Python 3.11 syntax, and the pilot inputs of `mde.py` are checked
   against the frozen pilot output. Two scripts gained asserts on frozen values. The outputs were rerun and compared
   with the author's first run; `posthoc/README.md` lists the five that differ in form.
 - The flagged list carries the trial, study, arm, task, strict and broad membership and the evidence category, and
@@ -58,9 +58,9 @@ suggest that they were part of the plan; leaving them out leaves numbers in the 
   on the published archive with Python 3.11: all 26 outputs are byte-identical to the committed `.txt` files
   (checked by `cmp`), and `SHA256SUMS` and the script hashes in `paper_numbers.json` were regenerated.
 - After version 1.1.0, the main branch adds code and outputs for the remaining checks identified in the paper draft
-  (`round13_checks.py`, `session_env.py`, `round14_checks.py`; archived in the next release), changed only in the way the
-  others were (paths relative to the package root, `EILIKRINEIA_RAW`; the outputs of `session_env.py` and `round13_checks.py`
-  were made shareable by counting instead of quoting; `round14_checks.py` also asserts the 1,992 kept trials of study 1). The one script the paper cites that does not exist (the source of
+  (`exclusion_connection_checks.py`, `session_env.py`, `detection_status_checks.py`; archived in the next release), changed only in the way the
+  others were (paths relative to the package root, `EILIKRINEIA_RAW`; the outputs of `session_env.py` and `exclusion_connection_checks.py`
+  were made shareable by counting instead of quoting; `detection_status_checks.py` also asserts the 1,992 kept trials of study 1). The one script the paper cites that does not exist (the source of
   `runs/z4-union.txt`) is named in `posthoc/README.md`. The supplement is frozen with that increment: no further post hoc
   analysis is added to this package, and a later one would be a separate decision.
 

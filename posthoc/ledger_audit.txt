@@ -1,4 +1,4 @@
-== Round 21 (b): ledger integrity audit (post hoc, exploratory). Counts only.
+== Ledger integrity audit (post hoc, exploratory). Counts only.
 self-test: unchanged verifies yes; text edited fails yes; entry edited fails yes; last entry deleted still verifies yes; last entry deleted flagged as removed yes; classifier write case yes; classifier write case yes; classifier write case yes; classifier read case yes; classifier read case yes
 gate: 4883 scored trials compared with the package score files, 0 differ
 
