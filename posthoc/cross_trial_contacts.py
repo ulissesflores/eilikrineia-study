@@ -1,5 +1,9 @@
-"""Post hoc: the first transcript line of each 'contact' trial (a trial-id-* row of cross-trial-reads.tsv), with context,
-so the description of contact trials can be checked. Reads the raw archive (<RAW>, default raw/), read only."""
+"""Post hoc: the first transcript line of each 'contact' trial, with context.
+
+The contact trials are the trial-id-* rows of cross-trial-reads.tsv. The context lets the
+description of contact trials be checked. Reads the raw archive (<RAW>, default raw/), read only.
+"""
+
 import csv
 import os
 import re
@@ -11,8 +15,9 @@ HERE = Path(__file__).resolve().parent
 PKG = HERE.parent  # the package root: run from there, the paths below are relative to it
 RAW = Path(os.environ.get("EILIKRINEIA_RAW", PKG / "raw"))  # <RAW>: the raw trial archive, unpacked
 TSV = HERE / "cross-trial-reads.tsv"
-# the host's per-user temp prefix (macOS /private/var/folders/<xx>/<hash>/T/ or /var/folders/...) is machine-specific:
-# replace it by <TMPDIR> before the excerpt is cut, so the trial id after it stays and the prefix never is printed
+# the host's per-user temp prefix (macOS /private/var/folders/<xx>/<hash>/T/ or
+# /var/folders/...) is machine-specific: replace it by <TMPDIR> before the excerpt is cut, so the
+# trial id after it stays and the prefix never is printed
 TMP_PREFIX = re.compile(r"(?:/private)?/var/folders/[^/\\\s\"]+/[^/\\\s\"]+/T/")
 rows = [r for r in csv.DictReader(open(TSV), delimiter="\t") if r["kind"].startswith("trial-id-")]
 seen = {}
@@ -23,4 +28,8 @@ for t, r in seen.items():
     line = (RAW / t / "agent.stdout").read_text(errors="replace").splitlines()[int(r["line"]) - 1]
     line = TMP_PREFIX.sub("<TMPDIR>/", line)
     i = line.find(TMP_PREFIX.sub("<TMPDIR>/", r["foreign_trial_id_or_path"]))
-    print(f"{t} | line {r['line']} | {r['kind']} | ...{line[max(0, i - 110):i + 50]}...".replace("\\n", " "))
+    print(
+        f"{t} | line {r['line']} | {r['kind']} | ...{line[max(0, i - 110) : i + 50]}...".replace(
+            "\\n", " "
+        )
+    )

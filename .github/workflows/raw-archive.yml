@@ -1,0 +1,63 @@
+name: raw-archive
+
+# Manual run of the heavy checks: downloads the public raw trial archive from Zenodo (record
+# 24450523, DOI 10.5281/zenodo.24450523), checks it against the archive's own SHA256SUMS, and reruns
+# every post hoc script against it, so that a public log of that run exists next to the code
+# (posthoc/README.md, "Inputs and how to run"; ADR 0015). The push CI (ci.yml) skips these scripts
+# because the archive is not in the repository.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  heavy:
+    name: rerun every post hoc script on the public raw archive
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      # Nothing may write bytecode into the sealed folders (posthoc/README.md, "Inputs and how to run").
+      PYTHONDONTWRITEBYTECODE: "1"
+      ZENODO_RECORD: "24450523"
+      ARCHIVE: eilikrineia-raw-trials.tar.gz
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install the test runner and the OpenTimestamps client
+        run: pip install -r requirements.txt opentimestamps-client
+      - name: Clone the public ledger with its history (prereg_chronology.py reads it)
+        run: git clone https://github.com/ulissesflores/eilikrineia "$GITHUB_WORKSPACE/../eilikrineia"
+      - name: Download the raw archive and its checksum file from Zenodo
+        run: |
+          mkdir -p "$RUNNER_TEMP/zenodo"
+          for f in SHA256SUMS "$ARCHIVE"; do
+            curl -fsSL --retry 5 -o "$RUNNER_TEMP/zenodo/$f" \
+              "https://zenodo.org/api/records/$ZENODO_RECORD/files/$f/content"
+          done
+      - name: Check the archive against its SHA256SUMS
+        run: cd "$RUNNER_TEMP/zenodo" && sha256sum -c SHA256SUMS
+      - name: Unpack the archive under raw/
+        run: |
+          mkdir -p raw
+          tar -xzf "$RUNNER_TEMP/zenodo/$ARCHIVE" -C raw
+          ls raw
+      - name: Verify the committed provenance seal
+        run: python make_provenance.py --verify
+      - name: Check the post hoc checksums
+        run: cd posthoc && sha256sum -c SHA256SUMS
+      - name: Lock every number the paper prints, reruns included
+        run: python -m pytest -q -p no:cacheprovider posthoc/test_paper_numbers.py
+      - name: Rerun every post hoc script and compare with its committed output, byte for byte
+        run: |
+          python posthoc/verify_paper_numbers.py --rerun | tee "$RUNNER_TEMP/rerun.log"
+          if grep -E "skipped|DIFFERENT" "$RUNNER_TEMP/rerun.log"; then
+            echo "::error::a post hoc script was skipped or printed a different output"
+            exit 1
+          fi

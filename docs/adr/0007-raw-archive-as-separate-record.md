@@ -5,8 +5,9 @@
 
 ## Context
 
-The raw trial folders (transcripts, tool outputs, hidden-check outputs, signed ledgers) are about 3.6 GB
-uncompressed and 144,609 files. Track 2 needs them; Track 1 does not. Git hosting is a poor fit for that size:
+The raw trial folders (transcripts, tool outputs, hidden-check outputs, signed ledgers) were estimated at about 3.6 GB
+uncompressed and 144,609 files when this was decided; the published, redacted archive measures about 2.5 GB
+uncompressed and 0.48 GB compressed (measured 2026-11-24). Track 2 needs them; Track 1 does not. Git hosting is a poor fit for that size:
 Git LFS has a monthly bandwidth quota charged to the owner, and, depending on settings, clones and downloads could
 carry data most readers never open.
 

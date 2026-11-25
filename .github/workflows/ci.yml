@@ -4,14 +4,22 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   verify:
-    name: verify seal + published numbers
+    name: verify seal + published numbers + paper numbers (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.11", "3.12"]
+    env:
+      # Nothing may write bytecode into the sealed folders (posthoc/README.md, "Inputs and how to run").
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,6 +30,12 @@ jobs:
         run: python make_provenance.py --verify
       - name: Rerun analyses, lock published numbers, verify again
         run: python run_all.py
+      - name: Check the post hoc checksums
+        run: cd posthoc && sha256sum -c SHA256SUMS
+      - name: Lock every number the paper prints (reruns that need the raw archive are skipped)
+        run: python -m pytest -q -p no:cacheprovider posthoc/test_paper_numbers.py
+      - name: Check hashes and values, rerun the post hoc scripts that need only the package
+        run: python posthoc/verify_paper_numbers.py --rerun
 
   lint:
     name: ruff + interrogate (packaging code only; sealed code is excluded)

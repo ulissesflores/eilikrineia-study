@@ -1,0 +1,45 @@
+== Round 27 (2): content of signed claim entries, deterministic counts (post hoc, exploratory)
+
+Study 1 P: kept trials 995, entries 3650, trials with no entry 4
+  repeated within trial 1/3650 (0.0%); text in >=2 trials 118/3650 (3.2%); digits masked 289/3650 (7.9%); of the repeated (>=2 trials), claiming tests pass 12/118 (10.2%)
+  labelled complete 1738/3650 (47.6%); claims tests pass 1194/3650 (32.7%); evidence attached 3490/3650 (95.6%)
+  check failed: trials 235; >=1 entry complete 228/235 (97.0%); >=1 entry tests pass 225/235 (95.7%); entries/trial 3.08; entries complete 394/724 (54.4%); evidence 682/724 (94.2%); of trials with a complete entry, message not labelled complete 112/228 (49.1%)
+  check passed: trials 760; >=1 entry complete 748/760 (98.4%); >=1 entry tests pass 742/760 (97.6%); entries/trial 3.85; entries complete 1344/2926 (45.9%); evidence 2808/2926 (96.0%); of trials with a complete entry, message not labelled complete 464/748 (62.0%)
+
+Study 1 S: kept trials 997, entries 4801, trials with no entry 7
+  repeated within trial 1/4801 (0.0%); text in >=2 trials 219/4801 (4.6%); digits masked 378/4801 (7.9%); of the repeated (>=2 trials), claiming tests pass 51/219 (23.3%)
+  labelled complete 2171/4801 (45.2%); claims tests pass 1309/4801 (27.3%); evidence attached 4386/4801 (91.4%)
+  check failed: trials 237; >=1 entry complete 230/237 (97.0%); >=1 entry tests pass 230/237 (97.0%); entries/trial 4.31; entries complete 519/1022 (50.8%); evidence 921/1022 (90.1%); of trials with a complete entry, message not labelled complete 117/230 (50.9%)
+  check passed: trials 760; >=1 entry complete 758/760 (99.7%); >=1 entry tests pass 752/760 (98.9%); entries/trial 4.97; entries complete 1652/3779 (43.7%); evidence 3465/3779 (91.7%); of trials with a complete entry, message not labelled complete 500/758 (66.0%)
+
+Study 2 S: kept trials 505, entries 2430, trials with no entry 0
+  repeated within trial 0/2430 (0.0%); text in >=2 trials 78/2430 (3.2%); digits masked 159/2430 (6.5%); of the repeated (>=2 trials), claiming tests pass 19/78 (24.4%)
+  labelled complete 1155/2430 (47.5%); claims tests pass 672/2430 (27.7%); evidence attached 2223/2430 (91.5%)
+  check failed: trials 103; >=1 entry complete 101/103 (98.1%); >=1 entry tests pass 101/103 (98.1%); entries/trial 4.04; entries complete 223/416 (53.6%); evidence 390/416 (93.8%); of trials with a complete entry, message not labelled complete 54/101 (53.5%)
+  check passed: trials 402; >=1 entry complete 401/402 (99.8%); >=1 entry tests pass 398/402 (99.0%); entries/trial 5.01; entries complete 932/2014 (46.3%); evidence 1833/2014 (91.0%); of trials with a complete entry, message not labelled complete 265/401 (66.1%)
+
+Study 3 S: kept trials 740, entries 3927, trials with no entry 0
+  repeated within trial 1/3927 (0.0%); text in >=2 trials 165/3927 (4.2%); digits masked 291/3927 (7.4%); of the repeated (>=2 trials), claiming tests pass 30/165 (18.2%)
+  labelled complete 1745/3927 (44.4%); claims tests pass 915/3927 (23.3%); evidence attached 3591/3927 (91.4%)
+  check failed: trials 132; >=1 entry complete 132/132 (100.0%); >=1 entry tests pass 132/132 (100.0%); entries/trial 4.46; entries complete 296/589 (50.3%); evidence 527/589 (89.5%); of trials with a complete entry, message not labelled complete 76/132 (57.6%)
+  check passed: trials 608; >=1 entry complete 607/608 (99.8%); >=1 entry tests pass 605/608 (99.5%); entries/trial 5.49; entries complete 1449/3338 (43.4%); evidence 3064/3338 (91.8%); of trials with a complete entry, message not labelled complete 415/607 (68.4%)
+
+Study 3 K: kept trials 741, entries 3445, trials with no entry 0
+  repeated within trial 1/3445 (0.0%); text in >=2 trials 151/3445 (4.4%); digits masked 283/3445 (8.2%); of the repeated (>=2 trials), claiming tests pass 16/151 (10.6%)
+  labelled complete 1579/3445 (45.8%); claims tests pass 913/3445 (26.5%); evidence attached 3143/3445 (91.2%)
+  check failed: trials 133; >=1 entry complete 133/133 (100.0%); >=1 entry tests pass 133/133 (100.0%); entries/trial 3.74; entries complete 282/497 (56.7%); evidence 444/497 (89.3%); of trials with a complete entry, message not labelled complete 68/133 (51.1%)
+  check passed: trials 608; >=1 entry complete 605/608 (99.5%); >=1 entry tests pass 601/608 (98.8%); entries/trial 4.85; entries complete 1297/2948 (44.0%); evidence 2699/2948 (91.6%); of trials with a complete entry, message not labelled complete 396/605 (65.5%)
+
+Study 3 TD: kept trials 737, entries 4052, trials with no entry 0
+  repeated within trial 1/4052 (0.0%); text in >=2 trials 1336/4052 (33.0%); digits masked 1406/4052 (34.7%); of the repeated (>=2 trials), claiming tests pass 1046/1336 (78.3%)
+  labelled complete 2113/4052 (52.1%); claims tests pass 1548/4052 (38.2%); evidence attached 3750/4052 (92.5%)
+  check failed: trials 117; >=1 entry complete 117/117 (100.0%); >=1 entry tests pass 117/117 (100.0%); entries/trial 4.84; entries complete 286/566 (50.5%); evidence 526/566 (92.9%); of trials with a complete entry, message not labelled complete 39/117 (33.3%)
+  check passed: trials 620; >=1 entry complete 620/620 (100.0%); >=1 entry tests pass 620/620 (100.0%); entries/trial 5.62; entries complete 1827/3486 (52.4%); evidence 3224/3486 (92.5%); of trials with a complete entry, message not labelled complete 327/620 (52.7%)
+
+pooled (added after the first run):
+  all six arm rows, check failed: trials 957; >=1 entry complete 941 (98.3%); >=1 entry tests pass 938 (98.0%); of trials with a complete entry, message not labelled complete 466 (49.5%)
+  all six arm rows, check passed: trials 3758; >=1 entry complete 3739 (99.5%); >=1 entry tests pass 3718 (98.9%); of trials with a complete entry, message not labelled complete 2367 (63.3%)
+  studies 2 and 3, check failed: trials 485; >=1 entry complete 483 (99.6%); >=1 entry tests pass 483 (99.6%); of trials with a complete entry, message not labelled complete 237 (49.1%)
+  studies 2 and 3, check passed: trials 2238; >=1 entry complete 2233 (99.8%); >=1 entry tests pass 2224 (99.4%); of trials with a complete entry, message not labelled complete 1403 (62.8%)
+
+gate: 4715 kept trials; entry counts and record_false_complete differ from the package in 0

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="assets/brand/banner-light.svg">
-  <img src="assets/brand/banner-dark.svg" width="100%" alt="רישומי טענות ומה שסוכן תכנות אומר. זה שינה את מה שהסוכן אמר. זה לא שינה את העבודה.">
+  <source media="(prefers-color-scheme: light)" srcset="assets/brand/banner-he-light.svg">
+  <img src="assets/brand/banner-he-dark.svg" width="100%" alt="רישומי טענות ומה שסוכן תכנות אומר. זה שינה את מה שהסוכן אמר. זה לא שינה את העבודה.">
 </picture>
 
 <h3 dir="rtl">הבקשה מסוכן תכנות לרשום את טענותיו יחד עם ראיות שינתה את מה שאמר על עבודתו. היא לא שינתה את העבודה.</h3>
@@ -10,6 +10,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24471761.svg)](https://doi.org/10.5281/zenodo.24471761)
 [![DOI של הנתונים הגולמיים](https://img.shields.io/badge/raw%20data-10.5281%2Fzenodo.24450523-1f6feb.svg)](https://doi.org/10.5281/zenodo.24450523)
 [![ci](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml/badge.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
+[![tests](https://img.shields.io/badge/tests-592_passing-brightgreen.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ulissesflores/eilikrineia-study/blob/main/colab/replication.ipynb)
 [![רישיון הקוד: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![מסמכים: CC BY 4.0](https://img.shields.io/badge/documents-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
 [![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
@@ -29,8 +31,8 @@
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-light.svg">
-  <img src="assets/brand/design-dark.svg" width="100%" alt="ארבעה ניסויים: פיילוט עם 180 הרצות, מחקר 1 עם 1,998, מחקר 2 עם 1,082 ומחקר 3 עם 2,964">
+  <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-he-light.svg">
+  <img src="assets/brand/design-he-dark.svg" width="100%" alt="ארבעה ניסויים: פיילוט עם 180 הרצות, מחקר 1 עם 1,998, מחקר 2 עם 1,082 ומחקר 3 עם 2,964">
 </picture>
 
 <p align="center"><picture>
@@ -38,8 +40,6 @@
   <img src="assets/demo/case-dark.gif" width="100%" alt="הרצה מבוקרת אחת ממחקר 3: ההודעה הסופית של הסוכן מפרטת את הראיות, המתייג ושלושה מודלים מעריכים קוראים אותה כ'הושלם', והבדיקה הנסתרת נכשלה">
 </picture></p>
 <p align="center" dir="rtl"><sub>מה המחקרים סופרים. זהו שחזור של הרצה אחת מתוך הביקורת הקפואה, ללא קריאה למודל: הסוכן מדווח שהעבודה בוצעה, עם ראיות; ארבעה קוראים מבינים "הושלם"; הבדיקה הנסתרת נכשלת. זהו המקרה הפחות שכיח: בזרוע הייחוס של מחקר 3 זה קרה ב-56 מתוך 740 הרצות (7.6%). הפקודה <code>python scripts/show_case.py</code> מדפיסה אותו.</sub></p>
-
-<div dir="rtl">
 
 > [!IMPORTANT]
 > **הממצא.** שתי תוצאות נספרות מתוך כלל ההרצות. *השלמה כוזבת*: ההודעה הסופית של הסוכן אומרת שהעבודה הושלמה
@@ -55,6 +55,8 @@
 >
 > השאלה אם הודעה אומרת "הושלם" מוכרעת בידי מתייג אוטומטי ש**אף אדם לא תיקף**: ביקורת האדם שנרשמה מראש למחקר 3 לא הושלמה,
 > ובמחקר 2 ביקורת בדיעבד מדדה את הסכמתו עם שני מעריכים אנושיים על אותן 80 הודעות.
+
+<div dir="rtl">
 
 מסמכי הרישום המוקדם ומסמכי התוצאות שבמאגר זה הם המקור המתוארך, באנגלית בלבד. הם, והקוד שהריץ את ההרצות,
 מסופקים בית אחר בית כפי שנחתמו: הם אינם מעוצבים מחדש, אינם מתורגמים, וחלקם מכילים נתיבים של המחשב שבו בוצעו
@@ -130,8 +132,8 @@ provenance verified: chain_hash ... (... files)
 </div>
 
 <p align="center"><picture>
-  <source media="(prefers-color-scheme: light)" srcset="output/figures/fig1_effects.png">
-  <img src="output/figures/fig1_effects-dark.png" width="100%" alt="כל ניגוד עיקרי בארבעת הניסויים עם רווח הסמך של 95%">
+  <source media="(prefers-color-scheme: light)" srcset="assets/figures/fig1_effects-he-light.png">
+  <img src="assets/figures/fig1_effects-he-dark.png" width="100%" alt="כל ניגוד עיקרי בארבעת הניסויים עם רווח הסמך של 95%">
 </picture></p>
 
 <div dir="rtl">
@@ -156,8 +158,8 @@ provenance verified: chain_hash ... (... files)
 </div>
 
 <p align="center"><picture>
-  <source media="(prefers-color-scheme: light)" srcset="output/figures/fig2_said_vs_did.png">
-  <img src="output/figures/fig2_said_vs_did-dark.png" width="62%" alt="מחקר 2: 80.3% ו-79.6% מההרצות עברו את הבדיקה הנסתרת; 72.6% ו-36.4% מהסוכנים אמרו הושלם">
+  <source media="(prefers-color-scheme: light)" srcset="assets/figures/fig2_said_vs_did-he-light.png">
+  <img src="assets/figures/fig2_said_vs_did-he-dark.png" width="62%" alt="מחקר 2: 80.3% ו-79.6% מההרצות עברו את הבדיקה הנסתרת; 72.6% ו-36.4% מהסוכנים אמרו הושלם">
 </picture></p>
 
 <div dir="rtl">
@@ -195,8 +197,8 @@ provenance verified: chain_hash ... (... files)
 </div>
 
 <p align="center"><picture>
-  <source media="(prefers-color-scheme: light)" srcset="output/figures/fig3_labeller_audit.png">
-  <img src="output/figures/fig3_labeller_audit-dark.png" width="70%" alt="הסכמת המתייג עם Fable, Grok ו-Hydrogen, בסך הכול ולפי זרוע">
+  <source media="(prefers-color-scheme: light)" srcset="assets/figures/fig3_labeller_audit-he-light.png">
+  <img src="assets/figures/fig3_labeller_audit-he-dark.png" width="70%" alt="הסכמת המתייג עם Fable, Grok ו-Hydrogen, בסך הכול ולפי זרוע">
 </picture></p>
 
 <div dir="rtl">
@@ -243,14 +245,58 @@ python make_provenance.py --verify
 המסמכים מצטטים רשומות מיומן ה-Eilikrineia של המחבר לפי מספר (לדוגמה "#1543"); ראו ב-
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) את הרשימה ומה מכיל העותק הפומבי של היומן.
 
+## לאמת את המספרים של המאמר
+
+כל מספר שהמאמר מדפיס ממופה, ב-[`posthoc/paper_numbers.json`](posthoc/paper_numbers.json), אל הסקריפט שמפיק
+אותו, אל הפלט השמור במאגר שמדפיס אותו ואל השורה שבה הוא נמצא. הבדיקות משוות כל ערך מודפס לשורה הזאת ואת ה-SHA-256
+של כל סקריפט ופלט שהמיפוי מזכיר, ומריצות מחדש את הסקריפטים הפוסט הוק:
+
+</div>
+
+```bash
+python -m pytest -q posthoc/test_paper_numbers.py
+python posthoc/verify_paper_numbers.py --rerun
+```
+
+<div dir="rtl">
+
+הפלט הצפוי בלי הארכיון הגולמי (pytest מדפיס `455 passed, 19 skipped`: ההרצות החוזרות שצריכות את הארכיון
+מדולגות, עם הסיבה):
+
+</div>
+
+```text
+hashes: 79 of 79 files match
+values: 365 of 365 entries (728 printed values) match the committed outputs; 22 number groups have no script (listed in the manifest)
+```
+
+<div dir="rtl">
+
+אחריו באה שורה לכל סקריפט פוסט הוק: `same` עבור 8 שצריכים רק את החבילה, `skipped` עם מה שחסר עבור 18
+שצריכים את הארכיון הגולמי. כשהארכיון פרוס תחת `raw/` ([10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523))
+ועם הקלטים הנוספים של שני סקריפטים (עבור `prereg_chronology.py`: שיבוט של היומן הציבורי לצד המאגר, `openssl`
+ולקוח OpenTimestamps `ots`; עבור `ledger_audit.py`: `ssh-keygen` של OpenSSH), כל 26 מדפיסים `same`.
+
+22 קבוצות המספרים שהמאמר מדפיס בלי סקריפט רשומות תחת `unscripted`, כל אחת עם הסיבה, ואינן נספרות כנבדקות:
+6 נגזרו ביד מפלטים שבמאגר או מודפסים רק בזמן ההרצה, 5 באות מהתוכניות וממסמכי התכנון, 3 באות מקבצים שאינם
+ציבוריים, 3 הן בעלות קלטים ציבוריים אך אף סקריפט שבמאגר אינו מדפיס אותן, 2 נקראות מפלטים קפואים בלי שהודפסו
+כספירה אחת, 2 נקראו ביד (בתמליל גולמי ובמחשב של המחבר), ו-1 מקבצת את הנתונים המצוטטים מעבודות אחרות; שתי הבדיקות הפוסט הוק שהמאמר מציין שאינן ניתנות לשחזור מן החבילה נקובות בשמן, עם
+הסיבה, ב-[`posthoc/README.md`](posthoc/README.md).
+[האינטגרציה הרציפה](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml) מריצה את הבדיקות האלה, את החותם ואת `run_all.py` על Python 3.11 ו-3.12 בכל push. תהליך עבודה ידני, [raw-archive](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/raw-archive.yml), מוריד את הארכיון הגולמי מ-Zenodo, בודק אותו מול
+קובץ ה-`SHA256SUMS` שלו ומריץ מחדש את 26 הסקריפטים של הפוסט הוק; היומן שלו הוא התיעוד הציבורי של ההרצה הזו.
+[מחברת ה-Colab](colab/replication.ipynb) מריצה את אותו הדבר מן המאגר, בלי התקנה, בגרסה שהמאמר מצטט (`REF`
+בראשה), מציגה כל ערך מודפס לצד הערך בפלט שלו, ויכולה להוריד את הארכיון הגולמי כדי להריץ מחדש כל סקריפט פוסט
+הוק. היא אינה יכולה לחזור על ההרצות עצמן: הן קראו למודל מתארח. החלטות: [0013](docs/adr/0013-second-post-hoc-increment-public-archive-only.md), [0014](docs/adr/0014-paper-numbers-manifest-and-test.md), [0015](docs/adr/0015-ci-and-colab-from-a-pinned-version.md).
+
 ## תיעוד
 
 | מסמך | על מה הוא עונה |
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | מה מצאו ארבעת הניסויים, בעמוד אחד |
 | [`docs/architecture.md`](docs/architecture.md) | איך הרצה הפכה למספר, ומה מוכיח כל חותם |
-| [`docs/adr/`](docs/adr/README.md) | למה החבילה בנויה כך: שנים-עשר רישומי החלטה |
+| [`docs/adr/`](docs/adr/README.md) | למה החבילה בנויה כך: חמישה-עשר רישומי החלטה |
 | [`posthoc/`](posthoc/README.md) | ניתוחים פוסט הוק שנכתבו אחרי הביקורות, מחוץ לחותם: סקריפטים, פלטים, רשימת הקריאות בין הרצות |
+| [`colab/replication.ipynb`](colab/replication.ipynb) | כל הבדיקות של הדף הזה, מורצות מן המאגר ב-Google Colab, בלי התקנה |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | מה ניתן להריץ מחדש, מה לא, וכל מגבלה ידועה |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | איך לדווח על אישור גישה או על מידע אישי שחמק מההסרה |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | איך לדווח על שגיאה או להציע תיקון |
@@ -277,7 +323,8 @@ overclaim/            the 70 third-party files sealed with study 3 (MIT)
 tests/                the published numbers as assertions
 scripts/              figures as code, and the one-case viewer
 posthoc/              post hoc analyses and their outputs (outside the seal)
-assets/               banner, diagram and terminal recordings, each with its source
+colab/                the replication notebook (opens in Google Colab)
+assets/               banner, diagram, figures in four more languages, lab mark, terminal recordings
 docs/findings.md      the four experiments in one page
 docs/architecture.md  how a trial became a number, and the two seals
 docs/adr/             the decisions behind the package, one record each
@@ -289,11 +336,16 @@ run_all.py, make_provenance.py, output/
 
 ## המחבר
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/brand/lab-lockup-dark.png">
+  <img src="assets/brand/lab-lockup-light.png" width="300" alt="Codex Hash Research Laboratory">
+</picture>
+
 **Carlos Ulisses Flores** — Codex Hash Research Laboratory
 
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--6034--7765-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-6034-7765)
 [![Website](https://img.shields.io/badge/Website-ulissesflores.com-1f6feb)](https://ulissesflores.com)
-[![Lattes](https://img.shields.io/badge/Lattes%20CV-CNPq-0a7d3c)](http://lattes.cnpq.br/6905246706890561)
+[![Lattes](https://img.shields.io/badge/Lattes%20CV-CNPq-0a7d3c)](https://lattes.cnpq.br/6905246706890561)
 
 ## ציטוט
 

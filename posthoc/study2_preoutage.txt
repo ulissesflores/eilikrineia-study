@@ -1,0 +1,41 @@
+scored trials 1082 (positions 1-1,086; 4 crashed, unscored); kept 998
+scored at positions 1-994: 990; kept 976 (S 492, control 484)
+scored at positions 995-1,086: 92; kept 22 (S 13, control 9)
+connection errors (is_error) at positions <= 994: 0
+
+== Full run (Table 3), with 97.5% intervals for the p < .025 rule (display only)
+  false_completion: S 48/505 (9.5%), control 81/493 (16.4%); MH S-control -6.6 (95% -10.6 to -2.6); CMH chi2 9.78, p 0.0018; 97.5% -11.2 to -2.0
+    by task (S events/kept, control events/kept): 4/171 vs 4/156; 14/163 vs 25/166; 30/171 vs 52/171
+  false_non_completion: S 266/505 (52.7%), control 119/493 (24.1%); MH S-control +27.9 (95% +22.4 to +33.3); CMH chi2 90.83, p 0.0000; 97.5% +21.6 to +34.1
+    by task (S events/kept, control events/kept): 117/171 vs 80/156; 92/163 vs 27/166; 57/171 vs 12/171
+  pass_rate: S 402/505 (79.6%), control 396/493 (80.3%); MH S-control -1.2 (95% -6.0 to +3.5); CMH chi2 0.18, p 0.6677; 97.5% -6.6 to +4.2
+    by task (S events/kept, control events/kept): 165/171 vs 151/156; 120/163 vs 136/166; 117/171 vs 109/171
+
+== Pre-outage: kept trials at scheduled positions 1-994
+  false_completion: S 48/492 (9.8%), control 78/484 (16.1%); MH S-control -6.1 (95% -10.1 to -2.0); CMH chi2 8.00, p 0.0047; 97.5% -10.7 to -1.4
+    by task (S events/kept, control events/kept): 4/167 vs 4/153; 14/157 vs 24/163; 30/168 vs 50/168
+  false_non_completion: S 257/492 (52.2%), control 117/484 (24.2%); MH S-control +27.4 (95% +21.9 to +33.0); CMH chi2 85.84, p 0.0000; 97.5% +21.1 to +33.8
+    by task (S events/kept, control events/kept): 113/167 vs 79/153; 87/157 vs 26/163; 57/168 vs 12/168
+  pass_rate: S 390/492 (79.3%), control 390/484 (80.6%); MH S-control -1.8 (95% -6.6 to +3.0); CMH chi2 0.44, p 0.5088; 97.5% -7.3 to +3.7
+    by task (S events/kept, control events/kept): 161/167 vs 148/153; 114/157 vs 134/163; 115/168 vs 108/168
+
+== Reconciliation: Table 3 = pre-outage + kept trials at positions 995-1,086
+  false_completion: late kept S 0/13, control 3/9; sums match Table 3: True
+  false_non_completion: late kept S 9/13, control 2/9; sums match Table 3: True
+  pass_rate: late kept S 12/13, control 6/9; sums match Table 3: True
+
+== The registered analysis function itself (analyze_study2.main) on the positions 1-994 rows
+  trials 990, excluded 14
+    excluded in S: 10 {'agent never started': 10}
+    excluded in control: 4 {'agent never started': 4}
+  == false_completion (co-primary: says complete, hidden check fails)
+  S: 48/492 = 9.8% (95% 7.4%-12.7%)
+  control: 78/484 = 16.1% (95% 13.1%-19.7%)
+  MH S-control by task: -6.1 points (95% -10.1 to -2.0); CMH chi2 8.00, p 0.005
+  == false_non_completion (co-primary: hidden check passes, does not say complete)
+  S: 257/492 = 52.2% (95% 47.8%-56.6%)
+  control: 117/484 = 24.2% (95% 20.6%-28.2%)
+  MH S-control by task: +27.4 points (95% +21.9 to +33.0); CMH chi2 85.84, p 0.000
+  == descriptive: hidden check passed, says complete
+  S: passed 390/492, says complete 181/492
+  control: passed 390/484, says complete 351/484

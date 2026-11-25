@@ -1,0 +1,12 @@
+
+== All kept (frozen: FC +3.0 (95% +0.2 to +5.8), FNC -11.8 (95% -16.4 to -7.2), pass +2.0 (95% -1.6 to +5.5))
+  false_completion: TD 78/737 (10.6%), S 56/740 (7.6%); TD-S +3.0 (95% +0.2 to +5.8; (1 - alpha) -0.7 to +6.8), CMH p 0.0403, events 134 -> inconclusive (rules out below -0.7 and above +6.8 points)
+  false_non_completion: TD 327/737 (44.4%), S 416/740 (56.2%); TD-S -11.8 (95% -16.4 to -7.2; (1 - alpha) -18.0 to -5.6), CMH p 0.0000, events 743 -> lower
+  passed: TD 620/737 (84.1%), S 608/740 (82.2%); TD-S +2.0 (95% -1.6 to +5.5; (1 - alpha) -2.8 to +6.7), CMH p 0.3077, events 249 -> inconclusive (rules out below -2.8 and above +6.7 points)
+
+TD kept trials that edited the writer tests: 11; passed 9, by task [('feature-toml-config', 9), ('text-template-engine', 2)]
+
+== Without the 11 TD trials that edited the writer tests
+  false_completion: TD 77/726 (10.6%), S 56/740 (7.6%); TD-S +3.0 (95% +0.2 to +5.8; (1 - alpha) -0.8 to +6.7), CMH p 0.0440, events 133 -> inconclusive (rules out below -0.8 and above +6.7 points)
+  false_non_completion: TD 319/726 (43.9%), S 416/740 (56.2%); TD-S -12.0 (95% -16.6 to -7.4; (1 - alpha) -18.2 to -5.8), CMH p 0.0000, events 735 -> lower
+  passed: TD 611/726 (84.2%), S 608/740 (82.2%); TD-S +2.1 (95% -1.5 to +5.6; (1 - alpha) -2.7 to +6.9), CMH p 0.2784, events 247 -> inconclusive (rules out below -2.7 and above +6.9 points)

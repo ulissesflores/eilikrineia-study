@@ -1,0 +1,17 @@
+self-test: no-ties z -1.964 reproduced; tied two-stratum z -0.4250 = exact permutation moments -0.4250
+(a) Pilot: kept P 59, S 58; means 3.49 / 4.10 [frozen 3.49 / 4.10: True]
+    van Elteren over 20 task strata, P vs S: z = -3.59, two-sided p = 0.00033 (normal approximation; about three trials per arm and task)
+
+(b) Study 2 window, positions 995-1082: 88 scored [gate 43/49 control, 27/39 S: True]; earliest end of an errored trial 2026-11-08T02:37:41+00:00
+    finished before it: control errors 0/2, S errors 0/7
+    exposed: control errors 43/47, S errors 27/32
+    exposed, Fisher exact two-sided p = 0.473
+
+(c) Study 1 divergent rebuilds among 1992 kept: 141 [gate 81 P / 60 S: True]
+    feature-toml-config: 93 (P 53, S 40)
+    feature-uri-resolve: 30 (P 19, S 11)
+    text-template-engine: 18 (P 9, S 9)
+    diff_match fails: 138
+    check_match fails: 1
+    fail_set_match fails: 69
+    original check pass/fail reproduced (check_match): 140 of 141

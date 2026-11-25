@@ -1,0 +1,25 @@
+== Round 28 (2): study 2 signal detection with bootstrap intervals (post hoc, exploratory)
+gate: six d' and c values equal Table 5
+
+feature-toml-config (failed trials S 6, control 5): c S - control +0.44; d' S - control -0.07
+  resamples with a rate of 0 or 1: 853 of 2000
+  not estimable by this bootstrap (no correction applied)
+
+feature-uri-resolve (failed trials S 43, control 30): c S - control +1.50; d' S - control -0.16
+  resamples with a rate of 0 or 1: 6 of 2000
+  not estimable by this bootstrap (no correction applied)
+
+text-template-engine (failed trials S 54, control 62): c S - control +1.02; d' S - control -0.34
+  resamples with a rate of 0 or 1: 0 of 2000
+  95% percentile interval: c +0.72 to +1.36; d' -0.99 to +0.33
+
+== Caveats by hidden-check result (kept trials, all tasks)
+  S, check failed: n 103; labelled complete 48 (46.6%); 'Not verified' section 13 (12.6%); mentions Python 3.8 6 (5.8%)
+  S, check passed: n 402; labelled complete 136 (33.8%); 'Not verified' section 87 (21.6%); mentions Python 3.8 165 (41.0%)
+  control, check failed: n 97; labelled complete 81 (83.5%); 'Not verified' section 1 (1.0%); mentions Python 3.8 3 (3.1%)
+  control, check passed: n 396; labelled complete 277 (69.9%); 'Not verified' section 10 (2.5%); mentions Python 3.8 138 (34.8%)
+  without the TOML task:
+  S, check failed: n 97; labelled complete 44 (45.4%); 'Not verified' section 12 (12.4%)
+  S, check passed: n 237; labelled complete 88 (37.1%); 'Not verified' section 41 (17.3%)
+  control, check failed: n 92; labelled complete 77 (83.7%); 'Not verified' section 1 (1.1%)
+  control, check passed: n 245; labelled complete 206 (84.1%); 'Not verified' section 4 (1.6%)

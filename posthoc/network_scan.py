@@ -1,41 +1,49 @@
-"""Round 21 (a): network-command scan of every agent tool call. EXPLORATORY, POST HOC (2026-11-24). Not preregistered.
+"""Round 21 (a): network-command scan of every agent tool call.
 
-Question: did any agent fetch remote content, and did any fetch target the benchmark or its hidden-check sources?
+EXPLORATORY, POST HOC (2026-11-24). Not preregistered.
 
-Scanned: every tool call of every saved transcript (agent.stdout) in <RAW>/{pilot,study,study2,study3}. The shell
-command of a Bash call is split into simple commands at `;`, `&&`, `||`, `|` and newlines; a simple command that only
-asks for help or a version (`--help`, `-h`, `--version`) is not counted. Write and Edit contents are scanned for
-network libraries only (a script written to disk and then run).
+Question: did any agent fetch remote content, and did any fetch target the benchmark or its
+hidden-check sources?
 
-Fetch-capable command classes (set before the counts, then revised once after a first pass over the output: the
-`httpx` pattern was narrowed, since a `grep` pattern naming the word matched, and the pip-notice retrieval rule
-below was added, since a quiet install shows nothing else):
-  package  pip/pip3/python -m pip download|install|index, uv add|sync|pip install|tool install, uvx, pipx,
-           npm install|ci, npx, yarn add, brew|apt|apt-get|conda install
+Scanned: every tool call of every saved transcript (agent.stdout) in
+<RAW>/{pilot,study,study2,study3}. The shell command of a Bash call is split into simple commands at
+`;`, `&&`, `||`, `|` and newlines; a simple command that only asks for help or a version (`--help`,
+`-h`, `--version`) is not counted. Write and Edit contents are scanned for network libraries only (a
+script written to disk and then run).
+
+Fetch-capable command classes (set before the counts, then revised once after a first pass over the
+output: the `httpx` pattern was narrowed, since a `grep` pattern naming the word matched, and the
+pip-notice retrieval rule below was added, since a quiet install shows nothing else):
+  package  pip/pip3/python -m pip download|install|index, uv add|sync|pip install|tool install, uvx,
+           pipx, npm install|ci, npx, yarn add, brew|apt|apt-get|conda install
   git      git clone|fetch|pull|ls-remote|submodule
   http     curl, wget
   remote   ssh, scp, sftp, telnet, nc, ncat
   pylib    urllib.request, urlopen(, requests.get|post|head|Session, import httpx or
            httpx.get|post|Client|stream, http.client, socket.create_connection
-URL literals (http:// or https://) are counted apart, because the URI task's tests are full of them; a URL whose host
-is a code or package host (GitHub, GitLab, Bitbucket, PyPI, npm) is counted as such.
-Benchmark target: a fetch-capable command or URL that names the benchmark repository (owner `h-a-forster`, name
-`overclaim`) or a task folder of any study (read from the trial folder names).
-Retrieved: the tool result of a fetch-capable command shows fetched content (a wheel or archive name, a dist-info
-folder, "Successfully installed/downloaded", "Saved", a commit hash before HEAD, or a version list "(N.N)"), or pip
-printed its "new release of pip" notice, which it shows only after reaching the package index, with no "ERROR".
+URL literals (http:// or https://) are counted apart, because the URI task's tests are full of them;
+a URL whose host is a code or package host (GitHub, GitLab, Bitbucket, PyPI, npm) is counted as
+such.
+Benchmark target: a fetch-capable command or URL that names the benchmark repository (owner
+`h-a-forster`, name `overclaim`) or a task folder of any study (read from the trial folder names).
+Retrieved: the tool result of a fetch-capable command shows fetched content (a wheel or archive
+name, a dist-info folder, "Successfully installed/downloaded", "Saved", a commit hash before HEAD,
+or a version list "(N.N)"), or pip printed its "new release of pip" notice, which it shows only
+after reaching the package index, with no "ERROR".
 
-Sensitivity: if any trial retrieved benchmark content, the main contrasts of its study are rerun without those
-trials with the package analysers, imported unchanged. The same rerun is printed for trials that retrieved any
-third-party content, behind a gate: with nothing removed, the line must equal the frozen package output.
+Sensitivity: if any trial retrieved benchmark content, the main contrasts of its study are rerun
+without those trials with the package analysers, imported unchanged. The same rerun is printed for
+trials that retrieved any third-party content, behind a gate: with nothing removed, the line must
+equal the frozen package output.
 
-Verb-free check: any tool input of any kind (all fields) that names `h-a-forster` or `overclaim`, counted by
-trial; study 1 and 2 trials with a tool call naming the checks' folder (which contains `overclaim`) are already
-excluded by the planned rule, so this count is read against that rule.
+Verb-free check: any tool input of any kind (all fields) that names `h-a-forster` or `overclaim`,
+counted by trial; study 1 and 2 trials with a tool call naming the checks' folder (which contains
+`overclaim`) are already excluded by the planned rule, so this count is read against that rule.
 
-Output: counts only. No transcript text, no trial id, no path. Arm labels come from an allowlist (else `other`);
-failures print a fixed error category and a count, never input-derived text.
-Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/network_scan.py  (needs the package and <RAW>)
+Output: counts only. No transcript text, no trial id, no path. Arm labels come from an allowlist
+(else `other`); failures print a fixed error category and a count, never input-derived text.
+Run from the package root: PYTHONDONTWRITEBYTECODE=1 python posthoc/network_scan.py  (needs the
+package and <RAW>)
 """
 
 import collections
@@ -51,7 +59,8 @@ from multiprocessing import Pool
 from pathlib import Path
 
 sys.dont_write_bytecode = True
-PKG = Path(__file__).resolve().parent.parent  # the package root; raw/ = <RAW>, the unpacked raw archive
+# the package root; raw/ = <RAW>, the unpacked raw archive
+PKG = Path(__file__).resolve().parent.parent
 RAW = Path(os.environ.get("EILIKRINEIA_RAW", PKG / "raw"))
 RUNS = PKG / "runs"
 STUDIES = ("pilot", "study", "study2", "study3")
@@ -60,25 +69,44 @@ CLASSES = {
     "package": re.compile(
         r"\b(?:pip[\d.]*|python[\d.]*\s+(?:-\w+\s+)*-m\s+pip)\s+(?:-\S+\s+)*(?:download|install|index)\b"
         r"|\buv\s+(?:add|sync|pip\s+install|tool\s+install)\b|\buvx\b|\bpipx\b|\bnpm\s+(?:install|i|ci)\b|\bnpx\b"
-        r"|\byarn\s+add\b|\b(?:brew|apt|apt-get|conda)\s+install\b"),
+        r"|\byarn\s+add\b|\b(?:brew|apt|apt-get|conda)\s+install\b"
+    ),
     "git": re.compile(r"\bgit\s+(?:-C\s+\S+\s+)?(?:clone|fetch|pull|ls-remote|submodule)\b"),
     "http": re.compile(r"(?:^|[\s(`$])(?:curl|wget)\b"),
     "remote": re.compile(r"(?:^|[\s(`])(?:ssh|scp|sftp|telnet|nc|ncat)\s"),
-    "pylib": re.compile(r"\burllib\.request\b|\burlopen\s*\(|\brequests\.(?:get|post|head|Session)\b"
-                        r"|\bimport\s+httpx\b|\bhttpx\.(?:get|post|Client|stream)\b|\bhttp\.client\b|\bsocket\.create_connection\b"),
+    "pylib": re.compile(
+        r"\burllib\.request\b|\burlopen\s*\(|\brequests\.(?:get|post|head|Session)\b"
+        r"|\bimport\s+httpx\b|\bhttpx\.(?:get|post|Client|stream)\b|\bhttp\.client\b|\bsocket\.create_connection\b"
+    ),
 }
 SPLIT = re.compile(r"\n|;|&&|\|\||\|")
 HELP = re.compile(r"(?:^|\s)(?:--help|-h|--version|-V)(?:\s|$)")
 URL = re.compile(r"https?://([^/\s'\"`:?#)\]>]*)")
-CODE_HOSTS = re.compile(r"(?:^|\.)(?:github\.com|githubusercontent\.com|gitlab\.com|bitbucket\.org|pypi\.org"
-                        r"|pythonhosted\.org|npmjs\.(?:com|org))$")
-RETRIEVED = re.compile(r"\.whl\b|\.tar\.gz\b|dist-info|Successfully (?:installed|downloaded)|\bSaved\b"
-                       r"|\b[0-9a-f]{40}\s+HEAD\b|\(\d+\.\d+(?:\.\d+)?\)")
+CODE_HOSTS = re.compile(
+    r"(?:^|\.)(?:github\.com|githubusercontent\.com|gitlab\.com|bitbucket\.org|pypi\.org"
+    r"|pythonhosted\.org|npmjs\.(?:com|org))$"
+)
+RETRIEVED = re.compile(
+    r"\.whl\b|\.tar\.gz\b|dist-info|Successfully (?:installed|downloaded)|\bSaved\b"
+    r"|\b[0-9a-f]{40}\s+HEAD\b|\(\d+\.\d+(?:\.\d+)?\)"
+)
 PIP_NOTICE = re.compile(r"\[notice\] (?:A new release of pip|To update, run: pip install)")
 
 
 def markers():
-    tasks = {d.name.split("-", 2)[2].rsplit("-r", 1)[0] for s in STUDIES for d in (RAW / s).iterdir() if d.is_dir()}
+    """Build the benchmark and task markers.
+
+    Returns
+    -------
+    tuple of str
+        The owner and repository names, then the sorted task names read from the trial folders.
+    """
+    tasks = {
+        d.name.split("-", 2)[2].rsplit("-r", 1)[0]
+        for s in STUDIES
+        for d in (RAW / s).iterdir()
+        if d.is_dir()
+    }
     return ("h-a-forster", "overclaim", *sorted(tasks))
 
 
@@ -86,14 +114,36 @@ MARK = None
 
 
 def segments(cmd):
+    """Split a shell command into simple commands, dropping help and version requests.
+
+    Parameters
+    ----------
+    cmd : str
+        The Bash command text.
+
+    Returns
+    -------
+    list of str
+        The non-empty simple commands that do not only ask for help or a version.
+    """
     return [s for s in SPLIT.split(cmd) if s.strip() and not HELP.search(s)]
 
 
 def scan(path):
-    """Per trial: counters of fetch commands by class, retrieval, URL literals and benchmark hits.
+    """Count fetch commands by class, retrieval, URL literals and benchmark hits for one trial.
 
-    Any failure (unreadable file, unexpected structure) is reduced to a fixed category: the trial is returned with
-    the counter `scan error` and nothing derived from the input is kept.
+    Any failure (unreadable file, unexpected structure) is reduced to a fixed category: the trial is
+    returned with the counter `scan error` and nothing derived from the input is kept.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        The `agent.stdout` file of the trial.
+
+    Returns
+    -------
+    tuple
+        (trial id, counter of counts).
     """
     tid = f"{path.parent.parent.name}/{path.parent.name}"
     try:
@@ -103,6 +153,18 @@ def scan(path):
 
 
 def scan_file(path):
+    """Count the fetch-capable tool calls of one transcript.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        The `agent.stdout` file of the trial.
+
+    Returns
+    -------
+    collections.Counter
+        The counts of tool calls, URL literals, fetch commands and retrieved results.
+    """
     c = collections.Counter()
     pending = {}
     with open(path, errors="replace") as f:
@@ -157,20 +219,69 @@ def scan_file(path):
 
 
 def init(m):
+    """Set the module-level markers in a worker process.
+
+    Parameters
+    ----------
+    m : tuple of str
+        The markers returned by `markers`.
+
+    Returns
+    -------
+    None
+        Sets the global `MARK`.
+    """
     global MARK
     MARK = m
 
 
-ARMS = ("H", "S", "P", "control", "I", "K", "TD")  # allowlist: any other label is printed as `other`
+# allowlist: any other label is printed as `other`
+ARMS = (
+    "H",
+    "S",
+    "P",
+    "control",
+    "I",
+    "K",
+    "TD",
+)
 
 
 def arm(trial):
+    """Return the arm label of a trial id.
+
+    Parameters
+    ----------
+    trial : str
+        The trial id, "<study>/<trial folder>".
+
+    Returns
+    -------
+    str
+        The arm label if it is on the allowlist, else "other".
+    """
     parts = trial.split("/", 1)[-1].split("-")
     return parts[1] if len(parts) > 1 and parts[1] in ARMS else "other"
 
 
-# ---- sensitivity with the package analysers (imported unchanged) ----------------------------------------------------
+# ---- sensitivity with the package analysers (imported unchanged) ---------------------------------
 def run(fn, *args, argv=None):
+    """Call a function with its standard output captured.
+
+    Parameters
+    ----------
+    fn : callable
+        The function to call.
+    *args
+        The positional arguments passed to `fn`.
+    argv : list of str, optional
+        The value of `sys.argv` during the call; the current one if not given.
+
+    Returns
+    -------
+    str
+        What `fn` printed.
+    """
     buf, old = io.StringIO(), sys.argv
     sys.argv = argv or old
     try:
@@ -182,16 +293,48 @@ def run(fn, *args, argv=None):
 
 
 def lines(out, prefix):
+    """Select the stripped lines of a text that start with a prefix.
+
+    Parameters
+    ----------
+    out : str
+        The text.
+    prefix : str
+        The prefix a stripped line must start with.
+
+    Returns
+    -------
+    list of str
+        The matching lines, stripped.
+    """
     return [x.strip() for x in out.splitlines() if x.strip().startswith(prefix)]
 
 
 def rerun(study, drop):
+    """Rerun the package analyser of a study without the dropped trials, behind a gate.
+
+    Parameters
+    ----------
+    study : str
+        One of "study", "study2" and "study3".
+    drop : set of str
+        The trial ids to remove from the score file.
+
+    Returns
+    -------
+    list
+        An empty list; the gate result and the selected lines are printed.
+    """
     sys.path.insert(0, str(PKG / "runner"))
     import analyze_study  # noqa: E402
     import analyze_study2  # noqa: E402
     import analyze_study3  # noqa: E402
 
-    name = {"study": "study-scores.csv", "study2": "study2-scores.csv", "study3": "study3-scores.csv"}[study]
+    name = {
+        "study": "study-scores.csv",
+        "study2": "study2-scores.csv",
+        "study3": "study3-scores.csv",
+    }[study]
     frozen = (RUNS / name.replace("scores.csv", "analysis.txt")).read_text()
     rows = list(csv.DictReader(open(RUNS / name)))
     with tempfile.TemporaryDirectory() as tmp:
@@ -213,9 +356,19 @@ def rerun(study, drop):
                 key = None
             sel = lines(o, key) if key else [x for x in lines(o, "") if "CONFIRMATORY" in x][:5]
             if label == "nothing removed":
-                ref = lines(frozen, key) if key else [x for x in lines(frozen, "") if "CONFIRMATORY" in x][:5]
-                assert sel == ref, (study, "gate: rerun with nothing removed differs from the frozen output")
-                print(f"  {study}: gate passed (nothing removed equals the frozen output, {len(sel)} lines)")
+                ref = (
+                    lines(frozen, key)
+                    if key
+                    else [x for x in lines(frozen, "") if "CONFIRMATORY" in x][:5]
+                )
+                assert sel == ref, (
+                    study,
+                    "gate: rerun with nothing removed differs from the frozen output",
+                )
+                print(
+                    f"  {study}: gate passed (nothing removed equals the frozen output, {len(sel)} "
+                    "lines)"
+                )
             else:
                 print(f"  {study}: {len(d)} trials removed")
                 for x in sel:
@@ -224,16 +377,29 @@ def rerun(study, drop):
 
 
 def main():
+    """Scan every transcript for network commands and print the counts.
+
+    Returns
+    -------
+    None
+        Prints the counts per study and arm and the sensitivity reruns.
+    """
     m = markers()
     paths = sorted(p for s in STUDIES for p in (RAW / s).glob("*/agent.stdout"))
     with Pool(8, initializer=init, initargs=(m,)) as pool:
         res = pool.map(scan, paths, chunksize=16)
     errors = sum(c["scan error"] for _, c in res)
     if errors:
-        print(f"error: {errors} transcripts could not be read or parsed (category: unreadable or malformed transcript)")
+        print(
+            f"error: {errors} transcripts could not be read or parsed (category: unreadable or "
+            "malformed transcript)"
+        )
         sys.exit(1)
     print("== Round 21 (a): network-command scan (post hoc, exploratory). Counts only.")
-    print(f"transcripts scanned: {len(res)}; benchmark/task markers: {len(m)} (owner, repository and task names)")
+    print(
+        f"transcripts scanned: {len(res)}; benchmark/task markers: {len(m)} (owner, repository and "
+        "task names)"
+    )
     by = collections.defaultdict(collections.Counter)
     trials = collections.defaultdict(collections.Counter)
     bench, third = set(), collections.defaultdict(set)
@@ -248,13 +414,18 @@ def main():
                 trials[key][f"trials with a call naming {m}"] += 1
         if c["fetch calls whose result shows retrieved content"]:
             trials[key]["trials that retrieved content"] += 1
-        if c["fetch commands naming the benchmark or a task"] or c["calls with a URL naming the benchmark or a task"]:
+        if (
+            c["fetch commands naming the benchmark or a task"]
+            or c["calls with a URL naming the benchmark or a task"]
+        ):
             trials[key]["trials naming the benchmark or a task in a fetch or URL"] += 1
             bench.add(t)
         elif c["fetch calls whose result shows retrieved content"]:
             third[t.split("/")[0]].add(t.split("/", 1)[1])
     for key in sorted(by):
-        print(f"\n{key[0]} {key[1]}: " + ", ".join(f"{k} {v}" for k, v in sorted(trials[key].items())))
+        print(
+            f"\n{key[0]} {key[1]}: " + ", ".join(f"{k} {v}" for k, v in sorted(trials[key].items()))
+        )
         print("  calls: " + ", ".join(f"{k} {v}" for k, v in sorted(by[key].items())))
     tot = collections.Counter()
     for c in trials.values():
@@ -262,7 +433,10 @@ def main():
     print("\nall studies: " + ", ".join(f"{k} {v}" for k, v in sorted(tot.items())))
     print(f"\ntrials that named the benchmark or a task in a fetch command or URL: {len(bench)}")
     for m in ("h-a-forster", "overclaim"):
-        print(f"trials with any tool call naming {m} (any tool, any field): {tot[f'trials with a call naming {m}']}")
+        print(
+            f"trials with any tool call naming {m} (any tool, any field): "
+            f"{tot[f'trials with a call naming {m}']}"
+        )
     if bench:
         for s in ("study", "study2", "study3"):
             d = {t.split("/", 1)[1] for t in bench if t.startswith(s + "/")}
@@ -270,7 +444,10 @@ def main():
                 rerun(s, d)
     else:
         print("  no exclusion needed for benchmark retrieval")
-    print("\n== sensitivity: main contrasts without the trials that retrieved third-party content (package analysers)")
+    print(
+        "\n== sensitivity: main contrasts without the trials that retrieved third-party content "
+        "(package analysers)"
+    )
     for s in ("study", "study2", "study3"):
         if third[s]:
             rerun(s, third[s])

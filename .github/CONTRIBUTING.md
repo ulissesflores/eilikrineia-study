@@ -26,7 +26,7 @@ is welcome.
 ## Pull requests
 
 - Run `python run_all.py` before opening one; it must end with `provenance verified`.
-- Lint covers the code written for the package: `ruff format --check . && ruff check . && interrogate -c pyproject.toml .`
+- Lint covers the code written for the package, `posthoc/` included: `ruff format --check . && ruff check . && interrogate -c pyproject.toml .`
 - Code under `runner/`, `td/`, `template*/`, `overclaim/`, `rescore/` and `patches/` is kept as it was fixed
   and is not reformatted (see [ADR 0003](../docs/adr/0003-sealed-files-shipped-byte-for-byte.md)).
 - Contributions are accepted under the licence of the part they touch (see [`NOTICE`](../NOTICE)).

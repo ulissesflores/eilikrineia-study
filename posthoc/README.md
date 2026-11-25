@@ -10,6 +10,16 @@
 The scripts were written after the reviews of the paper (2026-11-23; the last five, 2026-11-24). The increment after version 1.1.0 adds code and outputs for the remaining checks identified in the paper draft (`round13_checks.py`, `session_env.py`, `round14_checks.py`); the draft refers to the supplement and to those checks, not to these scripts one by one. The one script the paper cites that does not exist is named under "Not shipped" below. These files are on the `main` branch, carry no tag or release of their own, and will be archived in the next release; version 1.1.0 (the latest archived release) does not contain them. Where a script uses the package's own analysers it imports them unchanged (the three newest read the package's score tables and the raw record files directly and import none); all print to standard output. The `.txt` file beside each script is the output it printed when it was
 run for this release; the checksums are in `SHA256SUMS`.
 
+A second increment (written 2026-11-24, not archived) adds the ten checks the paper's Table 11
+lists as "next version" (`not_verified.py`, `study2_preoutage.py`, `td_secondary.py`, `claim_counts.py`,
+`gap_checks.py`, `ledger_content.py`, `sdt_bootstrap.py`, `ledger_share.py`, `power_543.py`, `b1_split.py`), names
+the two the paper lists as not reproducible from the package and why they are not shipped ("Excluded" below), and
+adds a map from every number the paper prints to the output that prints it: `paper_numbers.json`, checked by
+`verify_paper_numbers.py` and `test_paper_numbers.py`. Of the ten, `power_543.py`, `claim_counts.py` and
+`b1_split.py` import nothing from the package's analysers (`gap_checks.py` and `ledger_share.py` import
+`claim_counts.py` and `ledger_content.py` from this folder); the others import them unchanged. No analysis was added
+for the map: it reads the committed outputs only.
+
 ## What is here
 
 | File | What it does | Inputs |
@@ -35,6 +45,19 @@ run for this release; the checksums are in `SHA256SUMS`.
 | `ledger_audit.txt` | Its output (see the note above). | |
 | `network_scan.py` / `.txt` | Heuristic regex scan of the tool calls of the 6,228 saved transcripts (pilot, studies 1-3); it cannot show actual network traffic, which was not logged. Scope by field: the all-field search covers only the benchmark owner and repository strings; task-folder names are tested in the selected command segments and URL-like strings; URL literals are counted in the Bash `command`, or in the `content` and `new_string` fields of other calls (a whole-input count with the same pattern finds 133 more calls); fetch classes are regex matches tallied per tool call. A call counts as retrieving when its result matches a retrieval pattern or shows pip's upgrade notice, which pip can emit from its cache: 17 result matches in 13 trials, and 3 of those 13 trials qualify only through that notice. A benchmark or task marker in a qualifying command or URL triggers exclusion even if retrieval failed. Then re-runs the main contrasts of studies 1 and 3 (study 2 has no such trial) with the trials that retrieved third-party content removed, through the package analysers. The gates assert that, with nothing removed, the selected output lines equal the frozen `runs/` analysis (equality of the lines, not of their number; 3 lines for study 1, 5 for study 3). Counts only: no transcript text, trial id or path; arm labels come from an allowlist; failures print a fixed category and a count. | package, `<RAW>` |
 | `network_scan.txt` | Its output. | |
+| `not_verified.py` / `.txt` | Final messages with a "Not verified"-type section (the matcher of `runner/z1_relabel_study2.py`, imported unchanged), study 2 (S, control) and study 3 (S, I, K, TD), all scored and kept trials. Study 3 messages are read and stripped of the STATUS line as the registered analysis does. Gates: the frozen 100 / 11 of `runs/study2-z1.txt` and the kept counts of both studies. | package, `<RAW>` |
+| `study2_preoutage.py` / `.txt` | Study 2 restricted to the trials at schedule positions 1-994, before the connection errors (positions 995-1,082): the registered analysis function `analyze_study2.main`, unchanged, plus the pass rate with `mh_rd`; 97.5% intervals (display only) for the full-run contrasts next to the plan's *p* < .025 rule. Asserts the kept counts (505, 493) and that the full-run counts equal pre-outage plus later counts. | package, `<RAW>` (record files only) |
+| `td_secondary.py` / `.txt` | Study 3 TD - S on false completion, false non-completion and pass rate with the package's `analyze_study3.contrast` and decision grid, with per-arm counts, and again without the 11 TD trials that edited the acceptance tests. Asserts the kept counts (740, 737) and the 11. | package only |
+| `claim_counts.py` / `.txt` | Study 1: claim entries per kept trial, P against S (the `records` column), with a task-stratified van Elteren rank-sum test (self-test against known answers first), per-task means and medians and a stratified rate ratio (descriptive). Gate: the frozen means 3.67 and 4.82. | package only |
+| `gap_checks.py` / `.txt` | (a) the same test on the pilot (20 task strata; gate: frozen means 3.49 and 4.10); (b) study 2 window of the connection errors: trials that finished before the earliest end of an errored trial, error counts by arm, Fisher's exact test on the rest (gate: 88 trials, 43/49 control and 27/39 S); (c) the 141 study 1 rebuilds that did not reproduce the saved state, by task and by which fidelity flag fails. The docstring records that a first version of (b) was superseded before any use. | package, `<RAW>` (record start times only) |
+| `ledger_content.py` / `.txt` | What the signed entries say, counted deterministically (no model, no person): entries, trials with none, exact repetition within and across trials, share the benchmark's labeller marks `complete` or as claiming tests pass, evidence attached, all by hidden-check result, for the six signed arms of studies 1-3; pooled totals. Gates: kept counts, entries per trial and `record_false_complete` equal the package score files (0 of 4,715 differ). Counts only, no entry text or trial id. | package, `<RAW>` |
+| `ledger_share.py` / `.txt` | Studies 2 and 3 signed arms: success entries per trial by hidden-check result, the failed-minus-passed difference of per-trial shares with a percentile bootstrap (2,000 resamples, seed 2028), and study 2 false completion read from the message or the record (102/505). Reuses `ledger_content.py`. Gate: 485 failed and 2,238 passed kept trials. | package, `<RAW>` |
+| `sdt_bootstrap.py` / `.txt` | Study 2 signal detection indices (*d*′, *c*) per task and arm with percentile bootstrap intervals of the S - control differences (2,000 resamples, seed 2028; a task whose resamples hit a rate of 0 or 1 is reported as not estimable), and caveat shares ("Not verified" section, mention of Python 3.8) by arm and hidden-check result, with and without the TOML task. Gates: the kept counts and the six *d*′ and *c* values of `round14_checks.txt`. | package, `<RAW>` |
+| `power_543.py` / `.txt` | Sample size per arm for study 2's planned 6-point difference from 11.6%, both directions, at α .05 and .025, pooled and unpooled normal approximation (standard library only). | none |
+| `b1_split.py` / `.txt` | The study 3 audit split by arm and hidden-check result for each model rater (both / labeller only / rater only / neither), from the frozen labels in `runs/study3-audit/`. Asserts the cells equal the table this printout replaced in the paper. | package only |
+| `paper_numbers.json` | One entry per number group the paper prints: section or table, the quoted context, the value as printed, the producing script, the committed output file, a line anchor in it and the rule that turns the number there into the printed value (or, for a derived figure, the formula over numbers read from the outputs); the figures that no committed script prints (`unscripted`, with the reason); the SHA-256 of every script and output used. | |
+| `verify_paper_numbers.py` | Checks the hashes and every value of `paper_numbers.json`; with `--rerun`, reruns every post hoc script here and compares its output with the committed `.txt` (scripts whose inputs are absent are skipped, with the reason). | `paper_numbers.json`; for `--rerun` as each script |
+| `test_paper_numbers.py` | The same checks as pytest tests, plus a test that the checker rejects a changed value. It is here, not in `tests/`, because `tests/` is inside the sealed chain hash. | as above |
 | `SHA256SUMS` | SHA-256 of every file here except itself. | |
 
 ## Inputs and how to run
@@ -60,6 +83,17 @@ python posthoc/session_env.py
 python posthoc/round14_checks.py
 python posthoc/ledger_audit.py
 python posthoc/network_scan.py
+python posthoc/not_verified.py
+python posthoc/study2_preoutage.py
+python posthoc/td_secondary.py
+python posthoc/claim_counts.py
+python posthoc/gap_checks.py
+python posthoc/ledger_content.py
+python posthoc/ledger_share.py
+python posthoc/sdt_bootstrap.py
+python posthoc/power_543.py
+python posthoc/b1_split.py
+python posthoc/verify_paper_numbers.py --rerun   # or: python -m pytest -q posthoc/test_paper_numbers.py
 ```
 
 | Placeholder | Meaning | Default |
@@ -81,10 +115,14 @@ Both new scripts (`ledger_audit.py`, `network_scan.py`) need writable temporary 
 | `round13_checks.py`, `round14_checks.py`, `ledger_audit.py`, `network_scan.py` | the package and `<RAW>` |
 | `session_env.py` | `<RAW>` only |
 | `prereg_chronology.py` | the package, `<RAW>`, `<CHAIN>`, `git`, `openssl` and the OpenTimestamps client `ots` (offline: `ots info`, never `ots verify`) |
+| `td_secondary.py`, `claim_counts.py`, `b1_split.py` | the package only |
+| `power_543.py` | nothing (standard library) |
+| `not_verified.py`, `study2_preoutage.py`, `gap_checks.py`, `ledger_content.py`, `ledger_share.py`, `sdt_bootstrap.py` | the package and `<RAW>` |
+| `verify_paper_numbers.py`, `test_paper_numbers.py` | the package; reruns as each script |
 
 Version metadata (`CITATION.cff`, `codemeta.json`, `.zenodo.json`, `pyproject.toml`) stays at 1.1.0, the latest released version, until the next release.
 
-Expected: the output of each script equals the `.txt` beside it. `round13_checks.py` prints the interpreter version and its `.txt` is the output on Python 3.11, so only that one line differs on 3.12.
+Expected: the output of each script equals the `.txt` beside it. `round13_checks.py` prints the interpreter version and its `.txt` is the output on Python 3.11, so only that one line differs on 3.12 (`verify_paper_numbers.py --rerun` and the rerun test ignore that line).
 
 ## Differences from the author's run
 
@@ -109,6 +147,16 @@ Expected: the output of each script equals the `.txt` beside it. `round13_checks
   read it from the task folder of the working copy); the result is the same, "yes (180 trials ...)".
 - The chronology depends on the state of the public ledger (commit times, stamps). It was run against a clone
   whose `main` equalled `origin/main`, and the script prints that check.
+- The ten scripts of the second increment were changed only in how they find the package (the parent of
+  `posthoc/`, as above, instead of an `EILIKRINEIA_PKG` variable), in the folder they import `claim_counts.py` and
+  `ledger_content.py` from, and in their docstrings (the "Run" line; a pointer to the author's unpublished project
+  log). Their outputs on the published archive, with Python 3.11 and 3.12, are byte-identical to the author's first
+  run (checked by `cmp`).
+- On 2026-11-24 every script here was brought under the lint of the packaging code (`ruff format`, `ruff check`, and `interrogate` at 100% with
+  numpy docstrings). Layout, comments and docstrings changed; no statement's effect did (three lambdas became
+  functions, `zip` calls state `strict=False`, two unused imports were removed). Every script was then rerun
+  on the published archive with Python 3.11: all 26 outputs are byte-identical to the committed `.txt` files
+  (checked by `cmp`), and `SHA256SUMS` and the script hashes in `paper_numbers.json` were regenerated.
 
 ## Not shipped
 
@@ -118,7 +166,24 @@ generated that file was not found in package v1.0.0 or in the author folders tha
 notes were read in the raw files by hand, with no script: the account's home-level `CLAUDE.md` (not a project-level file) appears in one transcript only
 (`study/0928-S-feature-toml-config-r114`, where the agent's command read it with `cat`) and the `ls` listing that names a binary of the
 author's tooling in another (`study/0368-P-feature-toml-config-r318`; the second was checked in the unredacted original,
-which is not published).
+which is not published). In the published archive both tool outputs are replaced by a redaction notice (`raw/REDACTIONS.tsv`).
+
+## Excluded: two checks that need unpublished files
+
+The paper's Table 11 names two post hoc checks as not reproducible from the package. Their scripts are not shipped:
+
+- **`audit_assist.py`** (study 2 audit answers against the AI reading aid's suggestions: answers by date, answers
+  made after the aid existed, and how many equal its suggestion, 29 of 31 and 76 of 77). It reads the aid's
+  suggestion files, which are not published, and decides which suggestion was on disk before each answer from the
+  file-system creation times of those files on the author's machine. Neither the files nor their creation times
+  are in the package or the raw archive, so the script cannot run here, and its output names unpublished files.
+- **`keys_count.py`** (why 10,206 private keys were removed: three key files in each host ledger, one in each study
+  3 ledger, one distinct agent key per study). It reads the private key files of the unredacted trial folders. The
+  published archive keeps only the public keys, and it keeps three public-key files in every ledger, study 3
+  included, so a count of what is published cannot rebuild the 10,206.
+
+Every other figure the paper prints without a committed script is listed, with the reason, under `unscripted` in
+`paper_numbers.json`.
 
 ## What the chronology shows (for the wording of "preregistered")
 

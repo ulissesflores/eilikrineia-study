@@ -21,7 +21,10 @@ engineering of the package around them.
 | [0009](0009-public-derivatives.md) | Redacted public copies of ledger-recorded files, with both hashes tested | 11-23 | accepted |
 | [0010](0010-dual-licence.md) | Code under Apache-2.0, documents and data under CC BY 4.0 | 11-14 | accepted |
 | [0011](0011-release-and-doi.md) | A release candidate mints the DOI; the concept DOI is the citation anchor | 11-23 | accepted |
-| [0012](0012-post-hoc-supplement-outside-the-seal.md) | Post hoc analyses ship as a supplement outside the seal | 11-23 | accepted |
+| [0012](0012-post-hoc-supplement-outside-the-seal.md) | Post hoc analyses ship as a supplement outside the seal | 11-23 | accepted; last clause superseded by 0013 |
+| [0013](0013-second-post-hoc-increment-public-archive-only.md) | A second post hoc increment, run on the public archive only; two checks stay out | 11-24 | accepted |
+| [0014](0014-paper-numbers-manifest-and-test.md) | Every number the paper prints is mapped to its output and checked | 11-24 | accepted |
+| [0015](0015-ci-and-colab-from-a-pinned-version.md) | Continuous integration and a Colab notebook rerun the package from a pinned version | 11-24 | accepted |
 
 A new decision gets the next number. A record is never rewritten: a later decision that replaces it says so, and
 the earlier record's status becomes "superseded by NNNN".

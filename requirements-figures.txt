@@ -1,1 +1,1 @@
-matplotlib>=3.8
+matplotlib>=3.11  # the Hebrew labels of the per-language figures need 3.11 or newer

@@ -19,7 +19,7 @@
       "familyName": "Flores",
       "@id": "https://orcid.org/0000-0002-6034-7765",
       "url": "https://ulissesflores.com",
-      "sameAs": "http://lattes.cnpq.br/6905246706890561",
+      "sameAs": "https://lattes.cnpq.br/6905246706890561",
       "affiliation": {
         "@type": "Organization",
         "name": "Codex Hash Research Laboratory, Codex Hash Ltda., Brazil"
@@ -29,6 +29,7 @@
   "relatedLink": [
     "https://doi.org/10.5281/zenodo.24450523",
     "https://doi.org/10.5281/zenodo.24478622",
+    "https://doi.org/10.5281/zenodo.24489693",
     "https://osf.io/rjnt2",
     "https://github.com/ulissesflores/eilikrineia"
   ],

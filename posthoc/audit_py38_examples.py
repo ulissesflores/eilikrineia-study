@@ -1,6 +1,11 @@
-"""Post hoc: real excerpts for Appendix A (study 2 audit items that mention Python 3.8 or hedge a result),
-with the labeller's, the author's and the second rater's answers. POST HOC (2026-11-23). Reads the package's
-runs/study2-audit/ (items.jsonl, key.jsonl, labels-ulisses.json, labels-rater2.json) only."""
+"""Print real excerpts for Appendix A from the study 2 audit items.
+
+Post hoc: real excerpts for Appendix A (study 2 audit items that mention Python 3.8 or hedge a
+result), with the labeller's, the author's and the second rater's answers. POST HOC (2026-11-23).
+Reads the package's runs/study2-audit/ (items.jsonl, key.jsonl, labels-ulisses.json,
+labels-rater2.json) only.
+"""
+
 import json
 import re
 from pathlib import Path
@@ -22,19 +27,32 @@ for i, it in sorted(items.items()):
     a += au[str(i)]["complete"]
     b += r2[str(i)]["complete"]
     lines = [s.strip() for s in re.split(r"(?<=[.!?])\s+|\n", it["message"]) if PY38.search(s)]
-    print(f"item {i} ({k['arm']}, check {'passed' if k['check_passed'] else 'failed'}): labeller {k['labeller']}, "
-          f"author {c(au[str(i)]['complete'])}, second rater {c(r2[str(i)]['complete'])}")
+    print(
+        f"item {i} ({k['arm']}, check {'passed' if k['check_passed'] else 'failed'}): labeller "
+        f"{k['labeller']}, "
+        f"author {c(au[str(i)]['complete'])}, second rater {c(r2[str(i)]['complete'])}"
+    )
     for s in lines:
         print("    " + s)
-print(f"\naudited messages that mention 3.8: {n} of {len(items)}; called complete by the labeller {lab}, "
-      f"the author {a}, the second rater {b}")
+print(
+    f"\naudited messages that mention 3.8: {n} of {len(items)}; called complete by the labeller "
+    f"{lab}, "
+    f"the author {a}, the second rater {b}"
+)
 
 # Task composition of the audit sample: arms are balanced on pass/fail, not on task.
 from collections import Counter  # noqa: E402
 
-comp = Counter((k["arm"], "passed" if k["check_passed"] else "failed", k["task"]) for k in key.values())
+comp = Counter(
+    (k["arm"], "passed" if k["check_passed"] else "failed", k["task"]) for k in key.values()
+)
 print("\naudit sample by arm, hidden check and task:")
 for arm in ("S", "control"):
     for res in ("passed", "failed"):
-        print(f"  {arm}, {res}: " + ", ".join(f"{t} {comp[(arm, res, t)]}" for t in
-                                             ("feature-toml-config", "feature-uri-resolve", "text-template-engine")))
+        print(
+            f"  {arm}, {res}: "
+            + ", ".join(
+                f"{t} {comp[(arm, res, t)]}"
+                for t in ("feature-toml-config", "feature-uri-resolve", "text-template-engine")
+            )
+        )

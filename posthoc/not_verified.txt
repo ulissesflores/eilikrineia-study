@@ -1,0 +1,7 @@
+== Study 2 (author's host)
+  all scored: S 100/542, control 11/540  [frozen 100 / 11: True]
+  kept:       S 100/505 (19.8%), control 11/493 (2.2%)
+
+== Study 3 (isolated containers, no host hooks)
+  all scored: S 170/741, I 163/741, K 181/741, TD 140/741
+  kept:       S 170/740 (23.0%), I 163/740 (22.0%), K 181/741 (24.4%), TD 140/737 (19.0%)

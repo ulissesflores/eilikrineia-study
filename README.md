@@ -10,6 +10,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24471761.svg)](https://doi.org/10.5281/zenodo.24471761)
 [![raw data DOI](https://img.shields.io/badge/raw%20data-10.5281%2Fzenodo.24450523-1f6feb.svg)](https://doi.org/10.5281/zenodo.24450523)
 [![ci](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml/badge.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
+[![tests](https://img.shields.io/badge/tests-592_passing-brightgreen.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ulissesflores/eilikrineia-study/blob/main/colab/replication.ipynb)
 [![code license: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![documents: CC BY 4.0](https://img.shields.io/badge/documents-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
 [![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
@@ -220,14 +222,53 @@ push time is not established.
 The documents cite entries of the author's Eilikrineia ledger by number (for example "#1543"); see
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for the list and for what the public copy of the ledger holds.
 
+## Verify the paper's numbers
+
+Every number the paper prints is mapped, in [`posthoc/paper_numbers.json`](posthoc/paper_numbers.json), to the
+script that produces it, the committed output that prints it and the line it is on. The checks compare each
+printed value with that line and the SHA-256 of every script and output the map names, and rerun the post hoc
+scripts:
+
+```bash
+python -m pytest -q posthoc/test_paper_numbers.py
+python posthoc/verify_paper_numbers.py --rerun
+```
+
+Expected output without the raw archive (pytest prints `455 passed, 19 skipped`: the reruns that need the
+archive are skipped, with the reason):
+
+```text
+hashes: 79 of 79 files match
+values: 365 of 365 entries (728 printed values) match the committed outputs; 22 number groups have no script (listed in the manifest)
+```
+
+One line per post hoc script follows: `same` for the 8 that need only the package, `skipped` with what is
+missing for the 18 that need the raw archive. With the archive unpacked under `raw/` ([10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523))
+and the extra inputs of two scripts (for `prereg_chronology.py`, a clone of the public ledger beside the repository,
+`openssl` and the OpenTimestamps client `ots`; for `ledger_audit.py`, OpenSSH's `ssh-keygen`), all 26 print `same`.
+
+The 22 number groups the paper prints with no script are listed under `unscripted`, each with the reason, and
+are not counted as checked: 6 are derived by hand from committed outputs or printed only at run time, 5 come
+from the plans and design documents, 3 come from files that are not public, 3 have public inputs but no
+committed script prints them, 2 are read from frozen outputs without being printed as one count, 2 were read by
+hand (in a raw transcript and on the author's machine), and 1 groups the figures quoted from cited works; the two post hoc checks the paper lists as not
+reproducible from the package are named, with the reason, in [`posthoc/README.md`](posthoc/README.md).
+[Continuous integration](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml) runs these checks, the seal and `run_all.py` on Python 3.11 and 3.12 at every
+push. A manual workflow, [raw-archive](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/raw-archive.yml), downloads the raw archive from Zenodo, checks it against
+its `SHA256SUMS` and reruns all 26 post hoc scripts; its log is the public record of that run. The [Colab notebook](colab/replication.ipynb) runs the same from the repository with no setup, at the
+version the paper cites (`REF` at its top), shows each printed value beside the value in its output, and can
+download the raw archive to rerun every post hoc script. It cannot rerun the trials: they called a hosted
+model. Decisions: [0013](docs/adr/0013-second-post-hoc-increment-public-archive-only.md), [0014](docs/adr/0014-paper-numbers-manifest-and-test.md), [0015](docs/adr/0015-ci-and-colab-from-a-pinned-version.md).
+
 ## Documentation
 
 | Document | What it answers |
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | What the four experiments found, in one page |
 | [`docs/architecture.md`](docs/architecture.md) | How a trial became a number, and what each seal proves |
-| [`docs/adr/`](docs/adr/README.md) | Why the package is built the way it is: twelve decision records |
+| [`docs/adr/`](docs/adr/README.md) | Why the package is built the way it is: fifteen decision records |
 | [`posthoc/`](posthoc/README.md) | Post hoc analyses written after the reviews, outside the seal: scripts, outputs, the flagged cross-trial list |
+| [`colab/replication.ipynb`](colab/replication.ipynb) | Every check of this page, run from the repository in Google Colab with no setup |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | What reruns, what cannot, and every known limit |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | How to report a credential or personal data that the redaction missed |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | How to report an error or propose a correction |
@@ -250,7 +291,8 @@ overclaim/            the 70 third-party files sealed with study 3 (MIT)
 tests/                the published numbers as assertions
 scripts/              figures as code, and the one-case viewer
 posthoc/              post hoc analyses and their outputs (outside the seal)
-assets/               banner, diagram and terminal recordings, each with its source
+colab/                the replication notebook (opens in Google Colab)
+assets/               banner, diagram, figures in four more languages, lab mark, terminal recordings
 docs/findings.md      the four experiments in one page
 docs/architecture.md  how a trial became a number, and the two seals
 docs/adr/             the decisions behind the package, one record each
@@ -260,11 +302,16 @@ run_all.py, make_provenance.py, output/
 
 ## Author
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/brand/lab-lockup-dark.png">
+  <img src="assets/brand/lab-lockup-light.png" width="300" alt="Codex Hash Research Laboratory">
+</picture>
+
 **Carlos Ulisses Flores** — Codex Hash Research Laboratory
 
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--6034--7765-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-6034-7765)
 [![Website](https://img.shields.io/badge/Website-ulissesflores.com-1f6feb)](https://ulissesflores.com)
-[![Lattes](https://img.shields.io/badge/Lattes%20CV-CNPq-0a7d3c)](http://lattes.cnpq.br/6905246706890561)
+[![Lattes](https://img.shields.io/badge/Lattes%20CV-CNPq-0a7d3c)](https://lattes.cnpq.br/6905246706890561)
 
 ## Citation
 

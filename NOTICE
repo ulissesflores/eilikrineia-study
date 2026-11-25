@@ -3,15 +3,22 @@ Copyright 2026 Carlos Ulisses Flores, Codex Hash Research Laboratory.
 
 This repository is dual-licensed:
 
-  * Source code (runner/, td/, tests/, scripts/, assets/brand/make_brand.py, container/,
-    template*/ledger/eilikrineia.py, run_all.py, make_provenance.py) — Apache License 2.0.
-    See LICENSE and LICENSES/Apache-2.0.txt.
+  * Source code (runner/, td/, tests/, scripts/, the Python scripts of posthoc/ (posthoc/*.py),
+    the notebook colab/replication.ipynb, assets/brand/make_brand.py, container/,
+    template*/ledger/eilikrineia.py, run_all.py, make_provenance.py, .github/workflows/)
+    — Apache License 2.0. See LICENSE and LICENSES/Apache-2.0.txt.
 
   * Documents, data and pictures (the Markdown documents at the root, docs/, runs/, prereg/,
-    output/, .github/CONTRIBUTING.md, .github/SECURITY.md, assets/ (except assets/brand/make_brand.py), and the ledger fixtures of template/ and
-    template3/ (chain entries, texts, keys, vault objects), which are data, except
-    template*/ledger/eilikrineia.py) — Creative Commons Attribution 4.0 International (CC BY 4.0).
-    See LICENSES/CC-BY-4.0.txt.
+    output/, the outputs, tables and documents of posthoc/ (posthoc/*.txt, posthoc/*.tsv,
+    posthoc/paper_numbers.json, posthoc/SHA256SUMS, posthoc/README.md),
+    .github/CONTRIBUTING.md, .github/SECURITY.md, assets/ (except assets/brand/make_brand.py
+    and the laboratory mark below), and the ledger fixtures of template/ and template3/ (chain
+    entries, texts, keys, vault objects), which are data, except template*/ledger/eilikrineia.py)
+    — Creative Commons Attribution 4.0 International (CC BY 4.0). See LICENSES/CC-BY-4.0.txt.
+
+  * The Codex Hash Research Laboratory mark (assets/brand/lab-lockup-light.png, the
+    laboratory's original file, and assets/brand/lab-lockup-dark.png, derived from it by
+    assets/brand/make_brand.py): all rights reserved; it is outside both licences above.
 
 Third-party material, MIT License, Copyright (c) 2026 overclaim contributors, see
 overclaim/LICENSE. Upstream: https://github.com/h-a-forster/overclaim.

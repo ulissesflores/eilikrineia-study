@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="assets/brand/banner-light.svg">
-  <img src="assets/brand/banner-dark.svg" width="100%" alt="Registri di affermazioni e ciò che dice un agente di programmazione. Ha cambiato ciò che l'agente ha detto. Non ha cambiato il lavoro.">
+  <source media="(prefers-color-scheme: light)" srcset="assets/brand/banner-it-light.svg">
+  <img src="assets/brand/banner-it-dark.svg" width="100%" alt="Registri di affermazioni e ciò che dice un agente di programmazione. Ha cambiato ciò che l'agente ha detto. Non ha cambiato il lavoro.">
 </picture>
 
 <h3>Chiedere a un agente di programmazione di registrare le proprie affermazioni con le prove ha cambiato ciò che ha detto del proprio lavoro. Non ha cambiato il lavoro.</h3>
@@ -10,6 +10,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24471761.svg)](https://doi.org/10.5281/zenodo.24471761)
 [![DOI dei dati grezzi](https://img.shields.io/badge/raw%20data-10.5281%2Fzenodo.24450523-1f6feb.svg)](https://doi.org/10.5281/zenodo.24450523)
 [![ci](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml/badge.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
+[![tests](https://img.shields.io/badge/tests-592_passing-brightgreen.svg)](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ulissesflores/eilikrineia-study/blob/main/colab/replication.ipynb)
 [![licenza del codice: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![documenti: CC BY 4.0](https://img.shields.io/badge/documents-CC%20BY%204.0-lightgrey.svg)](LICENSES/CC-BY-4.0.txt)
 [![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
@@ -26,8 +28,8 @@ cambi ciò che un agente di programmazione afferma, e se cambi il lavoro: 6.224 
 verifiche nascoste. Ciascuno aveva un piano scritto prima della prima prova; il piano dello studio 3 ha marche temporali esterne verificate anteriori ad essa; per gli altri l'ispezione non ne ha trovata nessuna (vedi Integrità).
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-light.svg">
-  <img src="assets/brand/design-dark.svg" width="100%" alt="Quattro esperimenti: un pilota con 180 prove, lo studio 1 con 1.998, lo studio 2 con 1.082 e lo studio 3 con 2.964">
+  <source media="(prefers-color-scheme: light)" srcset="assets/brand/design-it-light.svg">
+  <img src="assets/brand/design-it-dark.svg" width="100%" alt="Quattro esperimenti: un pilota con 180 prove, lo studio 1 con 1.998, lo studio 2 con 1.082 e lo studio 3 con 2.964">
 </picture>
 
 <p align="center"><picture>
@@ -117,8 +119,8 @@ Le cartelle grezze delle prove (trascrizioni, output degli strumenti e registri,
 ## Risultati
 
 <p align="center"><picture>
-  <source media="(prefers-color-scheme: light)" srcset="output/figures/fig1_effects.png">
-  <img src="output/figures/fig1_effects-dark.png" width="100%" alt="Ogni contrasto principale dei quattro esperimenti con il suo intervallo al 95%">
+  <source media="(prefers-color-scheme: light)" srcset="assets/figures/fig1_effects-it-light.png">
+  <img src="assets/figures/fig1_effects-it-dark.png" width="100%" alt="Ogni contrasto principale dei quattro esperimenti con il suo intervallo al 95%">
 </picture></p>
 
 Studio 3, i cinque test confermativi (differenza di Mantel-Haenszel stratificata per compito). Il livello di
@@ -142,8 +144,8 @@ Lo studio 2 è l'unico punto in cui un test confermativo si è mosso. La quota d
 si sono dimezzate:
 
 <p align="center"><picture>
-  <source media="(prefers-color-scheme: light)" srcset="output/figures/fig2_said_vs_did.png">
-  <img src="output/figures/fig2_said_vs_did-dark.png" width="62%" alt="Studio 2: l'80,3% e il 79,6% delle prove hanno superato la verifica nascosta; il 72,6% e il 36,4% degli agenti hanno detto completo">
+  <source media="(prefers-color-scheme: light)" srcset="assets/figures/fig2_said_vs_did-it-light.png">
+  <img src="assets/figures/fig2_said_vs_did-it-dark.png" width="62%" alt="Studio 2: l'80,3% e il 79,6% delle prove hanno superato la verifica nascosta; il 72,6% e il 36,4% degli agenti hanno detto completo">
 </picture></p>
 
 Due cose al di fuori dei test confermativi dello studio 3:
@@ -182,8 +184,8 @@ Due cose al di fuori dei test confermativi dello studio 3:
   seguito ha dichiarato di aver usato un modello Claude come aiuto. Non sostengono alcuna affermazione.
 
 <p align="center"><picture>
-  <source media="(prefers-color-scheme: light)" srcset="output/figures/fig3_labeller_audit.png">
-  <img src="output/figures/fig3_labeller_audit-dark.png" width="70%" alt="Concordanza dell'etichettatore con Fable, Grok e Hydrogen, complessiva e per braccio">
+  <source media="(prefers-color-scheme: light)" srcset="assets/figures/fig3_labeller_audit-it-light.png">
+  <img src="assets/figures/fig3_labeller_audit-it-dark.png" width="70%" alt="Concordanza dell'etichettatore con Fable, Grok e Hydrogen, complessiva e per braccio">
 </picture></p>
 
 - **Che l'equivalenza K − S sia robusta rispetto all'etichettatore.** Rispetto a Hydrogen, un terzo valutatore
@@ -230,14 +232,55 @@ successivo. Entrambi sono posteriori a quelle prove. L'ora esatta del push su Gi
 I documenti citano le voci del registro Eilikrineia dell'autore per numero (per esempio "#1543"); si veda in
 [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) l'elenco e che cosa contiene la copia pubblica del registro.
 
+## Verificare i numeri dell'articolo
+
+Ogni numero che l'articolo stampa è associato, in [`posthoc/paper_numbers.json`](posthoc/paper_numbers.json),
+allo script che lo produce, all'output versionato che lo stampa e alla riga in cui si trova. I controlli
+confrontano ogni valore stampato con quella riga e lo SHA-256 di ogni script e output che la mappa nomina, e
+rieseguono gli script post hoc:
+
+```bash
+python -m pytest -q posthoc/test_paper_numbers.py
+python posthoc/verify_paper_numbers.py --rerun
+```
+
+Output atteso senza l'archivio grezzo (pytest stampa `455 passed, 19 skipped`: le riesecuzioni che
+richiedono l'archivio vengono saltate, con il motivo):
+
+```text
+hashes: 79 of 79 files match
+values: 365 of 365 entries (728 printed values) match the committed outputs; 22 number groups have no script (listed in the manifest)
+```
+
+Segue una riga per script post hoc: `same` per gli 8 che richiedono solo il pacchetto, `skipped` con ciò che
+manca per i 18 che richiedono l'archivio grezzo. Con l'archivio estratto in `raw/` ([10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523))
+e gli input aggiuntivi di due script (per `prereg_chronology.py`, un clone del registro pubblico accanto al
+repository, `openssl` e il client OpenTimestamps `ots`; per `ledger_audit.py`, `ssh-keygen` di OpenSSH), tutti i 26
+stampano `same`.
+
+I 22 gruppi di numeri che l'articolo stampa senza script sono elencati in `unscripted`, ciascuno con il motivo, e
+non contano come verificati: 6 sono derivati a mano da output versionati o stampati solo durante l'esecuzione, 5
+vengono dai piani e dai documenti di disegno, 3 vengono da file non pubblici, 3 hanno input pubblici ma nessuno
+script versionato li stampa, 2 si leggono da output congelati senza essere stampati come un unico conteggio, 2
+sono stati letti a mano (in una trascrizione grezza e sulla macchina dell'autore) e 1 raccoglie le cifre citate
+da altri lavori; i due controlli post hoc che l'articolo indica come
+non riproducibili dal pacchetto sono nominati, con il motivo, in [`posthoc/README.md`](posthoc/README.md).
+L'[integrazione continua](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/ci.yml) esegue questi controlli, il sigillo e `run_all.py` su Python 3.11 e 3.12 a ogni
+push. Un workflow manuale, [raw-archive](https://github.com/ulissesflores/eilikrineia-study/actions/workflows/raw-archive.yml), scarica l'archivio grezzo da Zenodo, lo verifica
+contro il suo `SHA256SUMS` e riesegue i 26 script post hoc; il suo log è la traccia pubblica di quell'esecuzione. Il [notebook di Colab](colab/replication.ipynb) esegue lo stesso dal repository, senza installare nulla,
+nella versione che l'articolo cita (`REF` in cima), mostra ogni valore stampato accanto al valore del suo output
+e può scaricare l'archivio grezzo per rieseguire tutti gli script post hoc. Non può ripetere le prove: hanno
+chiamato un modello ospitato. Decisioni: [0013](docs/adr/0013-second-post-hoc-increment-public-archive-only.md), [0014](docs/adr/0014-paper-numbers-manifest-and-test.md), [0015](docs/adr/0015-ci-and-colab-from-a-pinned-version.md).
+
 ## Documentazione
 
 | Documento | A che cosa risponde |
 | --- | --- |
 | [`docs/findings.md`](docs/findings.md) | Che cosa hanno trovato i quattro esperimenti, in una pagina |
 | [`docs/architecture.md`](docs/architecture.md) | Come una prova è diventata un numero, e che cosa prova ciascun sigillo |
-| [`docs/adr/`](docs/adr/README.md) | Perché il pacchetto è costruito così: dodici registri di decisione |
+| [`docs/adr/`](docs/adr/README.md) | Perché il pacchetto è costruito così: quindici registri di decisione |
 | [`posthoc/`](posthoc/README.md) | Analisi post hoc scritte dopo le revisioni, fuori dal sigillo: script, output, l'elenco delle letture tra prove |
+| [`colab/replication.ipynb`](colab/replication.ipynb) | Tutti i controlli di questa pagina, eseguiti dal repository in Google Colab, senza installare nulla |
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | Che cosa si riesegue, che cosa no, e ogni limite noto |
 | [`.github/SECURITY.md`](.github/SECURITY.md) | Come segnalare una credenziale o un dato personale sfuggito alla rimozione |
 | [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) | Come segnalare un errore o proporre una correzione |
@@ -262,7 +305,8 @@ overclaim/            i 70 file di terzi sigillati con lo studio 3 (MIT)
 tests/                i numeri pubblicati come asserzioni
 scripts/              figure come codice, e il visualizzatore di un caso
 posthoc/              analisi post hoc e i loro output (fuori dal sigillo)
-assets/               banner, diagramma e registrazioni del terminale, ciascuno con la sua sorgente
+colab/                il notebook di replica (si apre in Google Colab)
+assets/               banner, diagramma, figure in altre quattro lingue, marchio del laboratorio, registrazioni del terminale
 docs/findings.md      i quattro esperimenti in una pagina
 docs/architecture.md  come una prova è diventata un numero, e i due sigilli
 docs/adr/             le decisioni dietro il pacchetto, un registro ciascuna
@@ -272,11 +316,16 @@ run_all.py, make_provenance.py, output/
 
 ## Autore
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/brand/lab-lockup-dark.png">
+  <img src="assets/brand/lab-lockup-light.png" width="300" alt="Codex Hash Research Laboratory">
+</picture>
+
 **Carlos Ulisses Flores** — Codex Hash Research Laboratory
 
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--6034--7765-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-6034-7765)
 [![Website](https://img.shields.io/badge/Website-ulissesflores.com-1f6feb)](https://ulissesflores.com)
-[![Lattes](https://img.shields.io/badge/Lattes%20CV-CNPq-0a7d3c)](http://lattes.cnpq.br/6905246706890561)
+[![Lattes](https://img.shields.io/badge/Lattes%20CV-CNPq-0a7d3c)](https://lattes.cnpq.br/6905246706890561)
 
 ## Citazione
 

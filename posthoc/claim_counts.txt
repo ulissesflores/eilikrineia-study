@@ -1,0 +1,11 @@
+self-test: no-ties z -1.964 reproduced; tied two-stratum z -0.4250 = exact permutation moments -0.4250
+== Study 1, kept trials 1992 (P 995, S 997)  [frozen means 3.67 / 4.82: True]
+  P: entries 3650, mean 3.67, median 3, trials with none 4
+  S: entries 4801, mean 4.82, median 5, trials with none 7
+  feature-toml-config: P mean 5.88 (median 6.0, n 330), S mean 6.61 (median 6, n 331)
+  feature-uri-resolve: P mean 2.76 (median 3.0, n 332), S mean 4.11 (median 4, n 333)
+  text-template-engine: P mean 2.38 (median 2, n 333), S mean 3.74 (median 3, n 333)
+  van Elteren stratified rank test, P vs S: z = -20.60, two-sided p = 3e-94
+  task-stratified rate ratio of entries P / S: 0.76 (descriptive, no interval)
+
+Pilot: descriptive only; its means (3.49 / 4.10, kept trials) are the frozen runs/pilot-analysis.txt.

@@ -48,7 +48,7 @@ The trials were run once, on dated days, and cannot be run again as the same exp
 | --- | --- | --- |
 | Needs | this repository | this repository and the raw trial archive; rerunning the study 3 hidden checks also needs the pinned container image, which is not shipped (`container/Containerfile` and the recorded digest are) |
 | Does | everything in Seal 1 | rescoring of raw transcripts and the full study 2 and study 3 analyses |
-| Status | runs in CI | the raw archive (about 3.6 GB uncompressed) is not in this repository: it is the record [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523) |
+| Status | runs in CI | the raw archive (about 2.5 GB uncompressed, 0.48 GB compressed) is not in this repository: it is the record [10.5281/zenodo.24450523](https://doi.org/10.5281/zenodo.24450523) |
 
 Track 2 commands, once the raw archive is unpacked under `raw/` (a folder outside the seal and ignored by git; `shasum -a 256 -c SHA256SUMS`, then `mkdir raw && tar -xzf eilikrineia-raw-trials.tar.gz -C raw`):
 
@@ -140,7 +140,9 @@ no registered result and are not preregistered; `posthoc/README.md` lists inputs
     times of each answer were replaced by the seconds spent on it, and a local temporary-folder prefix by
     `<TMPDIR>`. Ledger entries #1872, #1873 and #2647 attach the hashes of the originals;
     `tests/test_study2_audit.py` checks both the ledger's original hashes and the derivatives' own hashes. The
-    second rater agreed to the publication of their labels under the name `rater2`.
+    second rater agreed to the publication of their labels under the name `rater2`, and also (confirmed by the author on
+    25 November 2026) to the publication of how they read the items: the Portuguese model translation and the AI reading
+    aid, with the agreement of their answers with its suggestion (76 of 77).
   - `runs/study2-audit/ledger-entries.json`: a redacted reading copy. The answer times of the raters and a remark
     on a rater's language were removed from the texts of entries #1873 and #2647 (the fact that the Portuguese
     translation was used stays). Entry numbers, times, attachment hashes and the `hash` field are as recorded; the
@@ -155,8 +157,7 @@ no registered result and are not preregistered; `posthoc/README.md` lists inputs
     the `Date:` line was removed; the subject and the diff body are byte-identical. The recount reproduces.
   - `RESULTS.md` and `RESULTS-STUDY.md`: prose only (account and workstation details generalized, "flight pause"
     now "network pause"). The frozen `runs/study-sensitivity.txt` and `runner/sensitivity_study.py` still label
-    that pause "flight pause", and the docstring of the sealed `runner/sensitivity_study.py` attributes the pause to a
-    flight of the author (2026-11-06) while the connection dropped; both are kept because they are sealed.
+    that pause by its original label; both are kept because they are sealed.
     `RESULTS-STUDY2.md` is unchanged.
 - The figures and pictures need `matplotlib` (`requirements-figures.txt`); nothing else does.
 - Third-party files under `overclaim/` are the subset sealed with study 3, not the whole upstream project.
